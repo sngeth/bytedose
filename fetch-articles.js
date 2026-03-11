@@ -122,7 +122,7 @@ function scoreArticle(article) {
 
 function generateEducationalContent(article) {
   return new Promise((resolve, reject) => {
-    const prompt = `You are an expert computer science educator. Analyze this research paper and create educational content to help readers understand it.
+    const prompt = `You are an expert computer science educator creating engaging educational content. Your goal is to make complex research accessible and interesting.
 
 Paper Title: ${article.title}
 Categories: ${article.categories.join(', ')}
@@ -130,21 +130,37 @@ Abstract: ${article.summary}
 
 Generate a JSON response with the following structure:
 {
-  "whatIsThisAbout": "2-3 sentence plain-English explanation of what this paper is about",
-  "problemSolved": "What specific problem does this research address?",
-  "keyInnovation": "What is the main technical contribution or innovation?",
-  "howItWorks": "Step-by-step explanation of the approach (3-5 points as array)",
-  "whyItMatters": "Why is this important? What are the practical implications?",
-  "prerequisites": "What concepts should someone understand before reading this paper? (array of 3-5 items)",
-  "keyTerms": [
-    {"term": "term name", "definition": "clear definition"},
-    // 4-6 key technical terms from the paper
+  "whatIsThisAbout": "3-4 sentences explaining what this paper does. Use concrete examples or analogies when possible. Avoid jargon.",
+  "problemSolved": "2-3 sentences explaining the real-world problem. What doesn't work well today? Why is this hard? Be specific.",
+  "keyInnovation": "2-3 sentences on the main contribution. What's new or different about this approach compared to existing methods?",
+  "howItWorks": [
+    // 4-6 bullet points explaining the approach
+    // Start each with an action verb
+    // Include technical details but explain them clearly
+    // Show the progression from input to output
   ],
-  "visualConcept": "A description of a diagram or flowchart that would help explain this (will be used to create a Mermaid diagram)",
-  "relatedTopics": ["topic 1", "topic 2", "topic 3"]
+  "whyItMatters": "2-3 sentences on practical impact. What real applications could benefit? What becomes possible now that wasn't before? Be concrete.",
+  "realWorldAnalogy": "1-2 sentences comparing this to something from everyday life to build intuition",
+  "prerequisites": [
+    // 4-5 specific prerequisite concepts
+    // Order from most fundamental to most advanced
+  ],
+  "keyTerms": [
+    {"term": "exact term from paper", "definition": "Clear 1-2 sentence definition with an example if helpful"},
+    // Extract 5-7 actual technical terms from the abstract
+  ],
+  "visualConcept": "Detailed description of a diagram showing data flow or system architecture. Specify boxes, arrows, and labels.",
+  "limitations": "1-2 sentences on what this approach doesn't solve or trade-offs made",
+  "relatedTopics": [
+    // 4-5 specific related areas or techniques
+  ]
 }
 
-Focus on being accurate, educational, and accessible. Extract specific details from the abstract, not generic statements.`;
+IMPORTANT:
+- Extract specific technical details from the abstract, not generic descriptions
+- Use concrete examples where possible
+- Explain WHY things work, not just WHAT they do
+- Make it engaging for someone learning this topic`;
 
     const requestData = JSON.stringify({
       model: 'claude-3-haiku-20240307',
