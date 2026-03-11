@@ -1,0 +1,12 @@
+{
+  "name": "bytedose",
+  "version": "1.0.0",
+  "description": "Daily dose of cutting-edge computer science research from arXiv",
+  "main": "fetch-articles.js",
+  "scripts": {
+    "fetch": "node fetch-articles.js"
+  },
+  "keywords": ["arxiv", "computer-science", "research", "daily"],
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,14 @@
+{
+  "lastUpdated": "2026-03-11T12:25:15.181Z",
+  "articles": [
+    {
+      "date": "2026-03-11",
+      "article": {
+        "title": "ReCoSplat: Autoregressive Feed-Forward Gaussian Splatting Using Render-and-Compare",
+        "authors": "Freeman Cheng, Botao Ye, Xueting Li et al.",
+        "published": "2026-03-10T17:58:08Z",
+        "url": "https://arxiv.org/abs/2603.09968v1"
+      }
+    }
+  ]
+}
