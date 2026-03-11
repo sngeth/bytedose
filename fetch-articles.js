@@ -174,6 +174,13 @@ Focus on being accurate, educational, and accessible. Extract specific details f
       res.on('end', () => {
         try {
           const response = JSON.parse(data);
+
+          // Check for API errors first
+          if (response.type === 'error') {
+            reject(new Error(`API Error: ${response.error.message}`));
+            return;
+          }
+
           if (response.content && response.content[0] && response.content[0].text) {
             const text = response.content[0].text;
             // Extract JSON from potential markdown code blocks
@@ -185,6 +192,8 @@ Focus on being accurate, educational, and accessible. Extract specific details f
               reject(new Error('No valid JSON found in response'));
             }
           } else {
+            // Log the actual response for debugging
+            console.error('Full API response:', JSON.stringify(response, null, 2));
             reject(new Error('Unexpected API response format'));
           }
         } catch (err) {
