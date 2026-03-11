@@ -301,7 +301,7 @@ async function main() {
 
   // Generate archive index
   const archiveFiles = fs.readdirSync(archiveDir)
-    .filter(f => f.endsWith('.json'))
+    .filter(f => f.endsWith('.json') && !f.includes('-learn'))
     .sort()
     .reverse();
 
