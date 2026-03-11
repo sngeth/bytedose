@@ -147,7 +147,7 @@ Generate a JSON response with the following structure:
 Focus on being accurate, educational, and accessible. Extract specific details from the abstract, not generic statements.`;
 
     const requestData = JSON.stringify({
-      model: 'claude-3-5-sonnet-20241022',
+      model: 'claude-3-haiku-20240307',
       max_tokens: 2000,
       messages: [{
         role: 'user',
