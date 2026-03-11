@@ -4,6 +4,9 @@ const fs = require('fs');
 // arXiv API configuration
 const ARXIV_API = 'https://export.arxiv.org/api/query';
 
+// Anthropic API configuration
+const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
+
 // Search categories for CS optimization and advances
 const SEARCH_CATEGORIES = [
   'machine learning OR deep learning OR neural networks',
@@ -117,6 +120,85 @@ function scoreArticle(article) {
   return score;
 }
 
+function generateEducationalContent(article) {
+  return new Promise((resolve, reject) => {
+    const prompt = `You are an expert computer science educator. Analyze this research paper and create educational content to help readers understand it.
+
+Paper Title: ${article.title}
+Categories: ${article.categories.join(', ')}
+Abstract: ${article.summary}
+
+Generate a JSON response with the following structure:
+{
+  "whatIsThisAbout": "2-3 sentence plain-English explanation of what this paper is about",
+  "problemSolved": "What specific problem does this research address?",
+  "keyInnovation": "What is the main technical contribution or innovation?",
+  "howItWorks": "Step-by-step explanation of the approach (3-5 points as array)",
+  "whyItMatters": "Why is this important? What are the practical implications?",
+  "prerequisites": "What concepts should someone understand before reading this paper? (array of 3-5 items)",
+  "keyTerms": [
+    {"term": "term name", "definition": "clear definition"},
+    // 4-6 key technical terms from the paper
+  ],
+  "visualConcept": "A description of a diagram or flowchart that would help explain this (will be used to create a Mermaid diagram)",
+  "relatedTopics": ["topic 1", "topic 2", "topic 3"]
+}
+
+Focus on being accurate, educational, and accessible. Extract specific details from the abstract, not generic statements.`;
+
+    const requestData = JSON.stringify({
+      model: 'claude-3-5-sonnet-20241022',
+      max_tokens: 2000,
+      messages: [{
+        role: 'user',
+        content: prompt
+      }]
+    });
+
+    const options = {
+      hostname: 'api.anthropic.com',
+      port: 443,
+      path: '/v1/messages',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': ANTHROPIC_API_KEY,
+        'anthropic-version': '2023-06-01',
+        'Content-Length': Buffer.byteLength(requestData)
+      }
+    };
+
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        try {
+          const response = JSON.parse(data);
+          if (response.content && response.content[0] && response.content[0].text) {
+            const text = response.content[0].text;
+            // Extract JSON from potential markdown code blocks
+            const jsonMatch = text.match(/```json\s*([\s\S]*?)\s*```/) || text.match(/\{[\s\S]*\}/);
+            if (jsonMatch) {
+              const educationalContent = JSON.parse(jsonMatch[1] || jsonMatch[0]);
+              resolve(educationalContent);
+            } else {
+              reject(new Error('No valid JSON found in response'));
+            }
+          } else {
+            reject(new Error('Unexpected API response format'));
+          }
+        } catch (err) {
+          reject(err);
+        }
+      });
+    });
+
+    req.on('error', reject);
+    req.write(requestData);
+    req.end();
+  });
+}
+
 async function main() {
   console.log('🔍 Searching arXiv for CS articles...\n');
 
@@ -165,6 +247,17 @@ async function main() {
   console.log(`   Summary: ${topArticle.summary.substring(0, 100)}...`);
   console.log(`   URL: ${topArticle.url}\n`);
 
+  // Generate educational content
+  console.log('📚 Generating educational content with Claude...\n');
+  let educationalContent = null;
+  try {
+    educationalContent = await generateEducationalContent(topArticle);
+    console.log('✅ Educational content generated\n');
+  } catch (err) {
+    console.error('⚠️  Failed to generate educational content:', err.message);
+    console.log('   Continuing without educational content...\n');
+  }
+
   // Save to JSON
   const output = {
     date: new Date().toISOString().split('T')[0],
@@ -183,6 +276,19 @@ async function main() {
   const archiveFile = `${archiveDir}/${output.date}.json`;
   fs.writeFileSync(archiveFile, JSON.stringify(output, null, 2));
   console.log(`✅ Saved to ${archiveFile}\n`);
+
+  // Save educational content to separate file if available
+  if (educationalContent) {
+    const learnFile = `${archiveDir}/${output.date}-learn.json`;
+    const learnData = {
+      date: output.date,
+      articleId: topArticle.id,
+      articleTitle: topArticle.title,
+      content: educationalContent
+    };
+    fs.writeFileSync(learnFile, JSON.stringify(learnData, null, 2));
+    console.log(`✅ Saved educational content to ${learnFile}\n`);
+  }
 
   // Generate archive index
   const archiveFiles = fs.readdirSync(archiveDir)
