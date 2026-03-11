@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn - ByteDose</title>
+    <meta name="description" content="Understand today's research - concepts explained">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.65;
+            color: #1a1a1a;
+            background: #fff;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav {
+            border-bottom: 1px solid #e5e5e5;
+            padding: 20px 0;
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #000;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 0.875rem;
+            color: #666;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: #000;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        .header {
+            margin-bottom: 40px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .header h1 {
+            font-size: 2.25rem;
+            line-height: 1.2;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+            color: #000;
+        }
+
+        .header .subtitle {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            color: #000;
+        }
+
+        .section-content {
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: #1a1a1a;
+        }
+
+        .section-content p {
+            margin-bottom: 16px;
+        }
+
+        .concept-box {
+            background: #f9f9f9;
+            border-left: 3px solid #000;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+
+        .concept-box h3 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .concept-box p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #1a1a1a;
+            margin: 0;
+        }
+
+        .key-terms {
+            list-style: none;
+            padding: 0;
+        }
+
+        .key-terms li {
+            padding: 16px 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .key-terms li:last-child {
+            border-bottom: none;
+        }
+
+        .term-name {
+            font-weight: 600;
+            font-size: 1.0625rem;
+            color: #000;
+            margin-bottom: 6px;
+        }
+
+        .term-definition {
+            font-size: 0.9375rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .resources {
+            background: #f9f9f9;
+            padding: 24px;
+            border-radius: 4px;
+        }
+
+        .resources h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #000;
+        }
+
+        .resources ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .resources li {
+            margin-bottom: 8px;
+        }
+
+        .resources a {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 0.9375rem;
+        }
+
+        .resources a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9375rem;
+        }
+
+        .back-link:hover {
+            color: #000;
+        }
+
+        footer {
+            text-align: center;
+            padding: 48px 24px;
+            border-top: 1px solid #e5e5e5;
+            margin-top: 64px;
+        }
+
+        footer p {
+            font-size: 0.8125rem;
+            color: #999;
+            line-height: 1.6;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px 24px;
+            color: #999;
+        }
+
+        @media (max-width: 640px) {
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            .container {
+                padding: 40px 20px 80px;
+            }
+
+            .section h2 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="index.html" class="logo">ByteDose</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Latest</a>
+                <a href="archive.html" class="nav-link">Archive</a>
+                <a href="learn.html" class="nav-link">Learn</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to article</a>
+
+        <div id="content" class="loading">
+            Loading educational content...
+        </div>
+    </div>
+
+    <footer>
+        <p>ByteDose Learning Companion</p>
+        <p style="margin-top: 8px; font-size: 0.75rem;">Making research accessible</p>
+    </footer>
+
+    <script>
+        async function loadContent() {
+            try {
+                const response = await fetch('latest-article.json');
+                const data = await response.json();
+                const article = data.article;
+
+                // Generate educational content based on the article
+                const content = generateEducationalContent(article);
+                document.getElementById('content').innerHTML = content;
+            } catch (err) {
+                console.error('Error loading content:', err);
+                document.getElementById('content').innerHTML = `
+                    <div class="loading">Unable to load content. Please refresh the page.</div>
+                `;
+            }
+        }
+
+        function generateEducationalContent(article) {
+            const categories = article.categories || [];
+            const mainCategory = categories[0] || 'Computer Science';
+
+            // Extract key concepts from title and summary
+            const title = article.title;
+            const summary = article.summary;
+
+            // Simple keyword extraction for educational purposes
+            const keyTerms = extractKeyTerms(title, summary);
+            const whatMatters = generateWhatMatters(categories, title);
+            const simpleExplanation = generateSimpleExplanation(title, summary);
+
+            return `
+                <div class="header">
+                    <h1>${title}</h1>
+                    <p class="subtitle">Understanding the research</p>
+                </div>
+
+                <div class="section">
+                    <h2>What's This About?</h2>
+                    <div class="section-content">
+                        <p>${simpleExplanation}</p>
+                        <div class="concept-box">
+                            <h3>In Plain English</h3>
+                            <p>This paper presents new research in ${mainCategory.replace('cs.', '').toUpperCase()}. ${generatePlainEnglish(title)}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Why Does It Matter?</h2>
+                    <div class="section-content">
+                        <p>${whatMatters}</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Key Concepts</h2>
+                    <ul class="key-terms">
+                        ${keyTerms.map(term => `
+                            <li>
+                                <div class="term-name">${term.name}</div>
+                                <div class="term-definition">${term.definition}</div>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Dive Deeper</h2>
+                    <div class="resources">
+                        <h3>Related Resources</h3>
+                        <ul>
+                            <li><a href="${article.url}" target="_blank" rel="noopener">Read the full paper on arXiv →</a></li>
+                            <li><a href="https://en.wikipedia.org/wiki/${mainCategory.replace('cs.', 'Computer_')}" target="_blank" rel="noopener">Learn more about ${mainCategory} →</a></li>
+                            <li><a href="https://paperswithcode.com/search?q_meta=&q_type=&q=${encodeURIComponent(title.split(':')[0])}" target="_blank" rel="noopener">Find code implementations →</a></li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+
+        function extractKeyTerms(title, summary) {
+            const terms = [];
+            const commonTerms = {
+                'neural network': 'A computing system inspired by biological neural networks, consisting of interconnected nodes (neurons) that process information.',
+                'machine learning': 'A field of AI focused on building systems that learn from data without explicit programming.',
+                'deep learning': 'A subset of machine learning using multi-layered neural networks to learn hierarchical representations.',
+                'optimization': 'The process of finding the best solution from a set of possible alternatives.',
+                'algorithm': 'A step-by-step procedure or formula for solving a problem or completing a task.',
+                'performance': 'A measure of how efficiently a system or algorithm accomplishes its task.',
+                'scalability': 'The ability of a system to handle growing amounts of work or data.',
+                'model': 'A mathematical representation of a system or process used to make predictions or decisions.',
+                'dataset': 'A collection of data used for training, testing, or evaluating machine learning models.',
+                'training': 'The process of teaching a machine learning model by exposing it to data.',
+                'inference': 'Using a trained model to make predictions on new, unseen data.',
+                'architecture': 'The structural design and organization of a system or network.',
+                'gaussian': 'A probability distribution characterized by a bell-shaped curve, also known as normal distribution.',
+                'splatting': 'A rendering technique that projects 3D primitives onto a 2D image plane.',
+                'autoregressive': 'A model that predicts future values based on past values in a sequence.',
+                'transformer': 'A neural network architecture that uses attention mechanisms to process sequential data.',
+                'attention': 'A mechanism that allows models to focus on relevant parts of input data.',
+                'convolution': 'A mathematical operation used in CNNs to extract features from images.',
+                'embedding': 'A representation of data (like words or images) as dense vectors in a continuous space.',
+                'latent': 'Hidden or underlying representations learned by a model.',
+                'encoder': 'A component that transforms input data into a compressed representation.',
+                'decoder': 'A component that reconstructs data from a compressed representation.',
+                'classification': 'The task of categorizing data into predefined classes or categories.',
+                'regression': 'Predicting continuous numerical values from input data.',
+                'supervised': 'Learning from labeled data where correct outputs are provided during training.',
+                'unsupervised': 'Learning from unlabeled data to discover patterns or structure.',
+                'reinforcement': 'Learning through trial and error by receiving rewards or penalties.',
+                'benchmark': 'A standard test or dataset used to evaluate and compare system performance.',
+                'baseline': 'A simple model or method used as a reference point for comparison.',
+                'state-of-the-art': 'The best currently available performance or methodology in a field.',
+                'distributed': 'Spread across multiple computers or processors working together.',
+                'parallel': 'Performing multiple operations simultaneously to improve speed.',
+                'complexity': 'A measure of computational resources (time/space) required by an algorithm.',
+                'NLP': 'Natural Language Processing - enabling computers to understand and generate human language.',
+                'computer vision': 'Enabling computers to interpret and understand visual information from images or videos.',
+                'render': 'The process of generating an image from a model or data.',
+                'synthesis': 'Creating new data or outputs, such as generating images or text.',
+                'generative': 'Models that can create new data similar to their training data.',
+                'discriminative': 'Models that distinguish between different classes or categories.',
+                'gradient': 'The direction and rate of steepest increase in a function, used in optimization.',
+                'backpropagation': 'An algorithm for training neural networks by propagating errors backward.',
+                'loss function': 'A measure of how well a model\'s predictions match the actual values.',
+                'hyperparameter': 'A configuration setting for a model that is set before training begins.',
+                'overfitting': 'When a model learns training data too well and performs poorly on new data.',
+                'regularization': 'Techniques to prevent overfitting and improve model generalization.',
+                'validation': 'Testing a model on data not used during training to assess performance.',
+                'augmentation': 'Creating variations of training data to improve model robustness.',
+                'feature': 'A measurable property or characteristic of data used for making predictions.',
+                'preprocessing': 'Preparing and cleaning data before using it for training or analysis.',
+                'pipeline': 'A sequence of data processing steps applied in order.',
+                'framework': 'A software platform providing tools and libraries for development.',
+                'federated': 'Training models across multiple decentralized devices without sharing raw data.'
+            };
+
+            const lowerText = (title + ' ' + summary).toLowerCase();
+
+            for (const [term, definition] of Object.entries(commonTerms)) {
+                if (lowerText.includes(term.toLowerCase())) {
+                    terms.push({ name: term.charAt(0).toUpperCase() + term.slice(1), definition });
+                }
+            }
+
+            // If no matches, add some general CS terms
+            if (terms.length === 0) {
+                terms.push(
+                    { name: 'Algorithm', definition: commonTerms['algorithm'] },
+                    { name: 'Performance', definition: commonTerms['performance'] },
+                    { name: 'Optimization', definition: commonTerms['optimization'] }
+                );
+            }
+
+            return terms.slice(0, 6);
+        }
+
+        function generateWhatMatters(categories, title) {
+            const reasons = [];
+
+            if (categories.some(c => c.includes('LG') || c.includes('AI'))) {
+                reasons.push('Advances in AI/ML can lead to more capable and efficient systems that benefit many real-world applications.');
+            }
+            if (categories.some(c => c.includes('CV'))) {
+                reasons.push('Computer vision improvements enable better image understanding for applications like autonomous vehicles, medical imaging, and augmented reality.');
+            }
+            if (categories.some(c => c.includes('CL'))) {
+                reasons.push('NLP research helps computers better understand and generate human language, improving chatbots, translation, and accessibility.');
+            }
+            if (categories.some(c => c.includes('DS'))) {
+                reasons.push('Better algorithms and data structures lead to faster, more efficient software that can handle larger problems.');
+            }
+            if (title.toLowerCase().includes('efficient') || title.toLowerCase().includes('faster')) {
+                reasons.push('Efficiency improvements can reduce computational costs and energy consumption while enabling real-time applications.');
+            }
+            if (title.toLowerCase().includes('novel') || title.toLowerCase().includes('new')) {
+                reasons.push('Novel approaches often unlock capabilities that were previously impossible or impractical.');
+            }
+
+            if (reasons.length === 0) {
+                reasons.push('This research contributes to the advancement of computer science and may have practical applications in the future.');
+            }
+
+            return reasons.join(' ');
+        }
+
+        function generateSimpleExplanation(title, summary) {
+            // Extract first sentence or two from summary
+            const sentences = summary.match(/[^\.!\?]+[\.!\?]+/g) || [summary];
+            return sentences.slice(0, 2).join(' ');
+        }
+
+        function generatePlainEnglish(title) {
+            const lower = title.toLowerCase();
+
+            if (lower.includes('neural') || lower.includes('deep learning')) {
+                return 'The researchers are working on artificial intelligence systems that learn from data, similar to how our brains learn from experience.';
+            }
+            if (lower.includes('vision') || lower.includes('image')) {
+                return 'This work focuses on helping computers "see" and understand images, similar to human visual perception.';
+            }
+            if (lower.includes('language') || lower.includes('nlp')) {
+                return 'The paper explores ways to help computers understand and work with human language more effectively.';
+            }
+            if (lower.includes('algorithm') || lower.includes('optimization')) {
+                return 'The authors developed better methods for solving computational problems more efficiently.';
+            }
+            if (lower.includes('system') || lower.includes('distributed')) {
+                return 'This research improves how computer systems are designed and organized to work better at scale.';
+            }
+
+            return 'The researchers are advancing the field by developing new techniques and approaches to computer science challenges.';
+        }
+
+        loadContent();
+    </script>
+</body>
+</html>

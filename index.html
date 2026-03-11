@@ -64,6 +64,17 @@
             color: #000;
         }
 
+        .learn-link {
+            font-size: 0.875rem;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .learn-link:hover {
+            text-decoration: underline;
+        }
+
         .meta-badge {
             font-size: 0.75rem;
             color: #666;
@@ -149,11 +160,30 @@
             font-size: 0.9375rem;
             letter-spacing: -0.01em;
             transition: all 0.2s;
+            margin-right: 12px;
         }
 
         .read-paper:hover {
             background: #000;
             color: #fff;
+        }
+
+        .learn-button {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #0066cc;
+            border: 2px solid #0066cc;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            letter-spacing: -0.01em;
+            transition: all 0.2s;
+        }
+
+        .learn-button:hover {
+            background: #0052a3;
+            border-color: #0052a3;
         }
 
         .categories {
@@ -212,6 +242,7 @@
         <div class="nav-content">
             <a href="index.html" class="logo">ByteDose</a>
             <div class="nav-links">
+                <a href="learn.html" class="learn-link">Learn</a>
                 <a href="archive.html" class="nav-link">Archive</a>
                 <div class="meta-badge">arXiv</div>
             </div>
@@ -271,6 +302,9 @@
                     ${categoriesHTML}
 
                     <div style="margin-top: 40px;">
+                        <a href="learn.html" class="learn-button">
+                            Learn the Concepts
+                        </a>
                         <a href="${article.url}" target="_blank" rel="noopener" class="read-paper">
                             Read Full Paper →
                         </a>
