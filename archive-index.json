@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-03-11T22:05:25.494Z",
+  "lastUpdated": "2026-03-12T07:20:10.050Z",
   "articles": [
+    {
+      "date": "2026-03-12",
+      "article": {
+        "title": "FRIEND: Federated Learning for Joint Optimization of multi-RIS Configuration and Eavesdropper Intelligent Detection in B5G Networks",
+        "authors": "Maria Lamprini A. Bartsioka, Ioannis A. Bartsiokas, Anastasios K. Papazafeiropoulos et al.",
+        "published": "2026-03-11T17:02:40Z",
+        "url": "https://arxiv.org/abs/2603.10977v1"
+      }
+    },
     {
       "date": "2026-03-11",
       "article": {
