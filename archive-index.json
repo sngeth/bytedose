@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-03-12T07:20:10.050Z",
+  "lastUpdated": "2026-03-13T07:20:00.758Z",
   "articles": [
+    {
+      "date": "2026-03-13",
+      "article": {
+        "title": "Spatial-TTT: Streaming Visual-based Spatial Intelligence with Test-Time Training",
+        "authors": "Fangfu Liu, Diankun Wu, Jiawei Chi et al.",
+        "published": "2026-03-12T17:58:58Z",
+        "url": "https://arxiv.org/abs/2603.12255v1"
+      }
+    },
     {
       "date": "2026-03-12",
       "article": {
