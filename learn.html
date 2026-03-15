@@ -268,7 +268,16 @@
     <script>
         async function loadContent() {
             try {
-                const response = await fetch('latest-article.json');
+                // Check if a specific date is requested via URL parameter
+                const urlParams = new URLSearchParams(window.location.search);
+                const requestedDate = urlParams.get('date');
+
+                let articleFile = 'latest-article.json';
+                if (requestedDate) {
+                    articleFile = `archive/${requestedDate}.json`;
+                }
+
+                const response = await fetch(articleFile);
                 const data = await response.json();
                 const article = data.article;
 
