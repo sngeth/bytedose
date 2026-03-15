@@ -1,20 +1,32 @@
-[
-  {
-    "date": "2026-03-15",
-    "title": "Spatial-TTT: Streaming Visual-based Spatial Intelligence with Test-Time Training",
-    "summary": "Humans perceive and understand real-world spaces through a stream of visual observations. Therefore, the ability to streamingly maintain and update spatial evidence from potentially unbounded video st...",
-    "url": "archive/2026-03-15.json"
-  },
-  {
-    "date": "2026-03-12",
-    "title": "FRIEND: Federated Learning for Joint Optimization of multi-RIS Configuration and Eavesdropper Intelligent Detection in B5G Networks",
-    "summary": "As wireless systems evolve toward Beyond 5G (B5G), the adoption of cell-free (CF) millimeter-wave (mmWave) architectures combined with Reconfigurable Intelligent Surfaces (RIS) is emerging as a key en...",
-    "url": "archive/2026-03-12.json"
-  },
-  {
-    "date": "2026-03-11",
-    "title": "ReCoSplat: Autoregressive Feed-Forward Gaussian Splatting Using Render-and-Compare",
-    "summary": "Online novel view synthesis remains challenging, requiring robust scene reconstruction from sequential, often unposed, observations. We present ReCoSplat, an autoregressive feed-forward Gaussian Splat...",
-    "url": "archive/2026-03-11.json"
-  }
-]
+{
+  "lastUpdated": "2026-03-15T11:13:58.121Z",
+  "articles": [
+    {
+      "date": "2026-03-15",
+      "article": {
+        "title": "Language Model Teams as Distributed Systems",
+        "authors": "Elizabeth Mieczkowski, Katherine M. Collins, Ilia Sucholutsky et al.",
+        "published": "2026-03-12T17:49:34Z",
+        "url": "https://arxiv.org/abs/2603.12229v1"
+      }
+    },
+    {
+      "date": "2026-03-12",
+      "article": {
+        "title": "FRIEND: Federated Learning for Joint Optimization of multi-RIS Configuration and Eavesdropper Intelligent Detection in B5G Networks",
+        "authors": "Maria Lamprini A. Bartsioka, Ioannis A. Bartsiokas, Anastasios K. Papazafeiropoulos et al.",
+        "published": "2026-03-11T17:02:40Z",
+        "url": "https://arxiv.org/abs/2603.10977v1"
+      }
+    },
+    {
+      "date": "2026-03-11",
+      "article": {
+        "title": "ReCoSplat: Autoregressive Feed-Forward Gaussian Splatting Using Render-and-Compare",
+        "authors": "Freeman Cheng, Botao Ye, Xueting Li et al.",
+        "published": "2026-03-10T17:58:08Z",
+        "url": "https://arxiv.org/abs/2603.09968v1"
+      }
+    }
+  ]
+}
