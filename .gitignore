@@ -1,3 +1,13 @@
 node_modules/
 .DS_Store
 *.log
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Development/test scripts
+test-*.js
+retry-*.js
+regenerate-*.js
