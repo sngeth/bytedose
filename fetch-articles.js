@@ -7,6 +7,48 @@ const ARXIV_API = 'https://export.arxiv.org/api/query';
 // Anthropic API configuration
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
 
+// Helper function to fetch arXiv HTML version of paper
+function fetchArxivHTML(arxivId) {
+  return new Promise((resolve, reject) => {
+    const htmlUrl = `https://arxiv.org/html/${arxivId}`;
+
+    https.get(htmlUrl, (res) => {
+      // If HTML version doesn't exist (404), fall back to abstract only
+      if (res.statusCode === 404) {
+        console.log(`   ⚠️  No HTML version available for ${arxivId}, using abstract only`);
+        resolve(null);
+        return;
+      }
+
+      if (res.statusCode !== 200) {
+        console.log(`   ⚠️  Error fetching HTML (${res.statusCode}), using abstract only`);
+        resolve(null);
+        return;
+      }
+
+      let html = '';
+      res.on('data', chunk => html += chunk);
+      res.on('end', () => {
+        // Extract main content and strip HTML tags for text extraction
+        // Keep structure markers for better parsing
+        const cleanedHtml = html
+          .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+          .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, '')
+          .replace(/<[^>]+>/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim();
+
+        // Limit to first ~8000 characters to stay within token limits
+        const truncated = cleanedHtml.substring(0, 8000);
+        resolve(truncated);
+      });
+    }).on('error', (err) => {
+      console.log(`   ⚠️  Error fetching HTML: ${err.message}, using abstract only`);
+      resolve(null);
+    });
+  });
+}
+
 // Search categories focused on practical AI for software engineering, distributed systems, and games
 const SEARCH_CATEGORIES = [
   // AI for distributed web applications
@@ -207,13 +249,23 @@ function scoreArticle(article) {
   return score;
 }
 
-function generateEducationalContent(article) {
+async function generateEducationalContent(article) {
+  // Try to fetch the full HTML version of the paper
+  console.log(`   📄 Fetching full paper HTML for ${article.id}...`);
+  const paperHTML = await fetchArxivHTML(article.id);
+
   return new Promise((resolve, reject) => {
+    const paperContent = paperHTML
+      ? `Full Paper Content (first 8000 chars):\n${paperHTML}\n\n`
+      : '';
+
     const prompt = `You are a senior principal engineer analyzing cutting-edge research for a staff engineer audience. Provide deep technical analysis with production engineering insights.
 
 Paper Title: ${article.title}
 Categories: ${article.categories.join(', ')}
 Abstract: ${article.summary}
+
+${paperContent}
 
 Generate a JSON response with the following structure:
 {
@@ -260,7 +312,8 @@ IMPORTANT:
 - Explain the mathematical/algorithmic foundations rigorously
 - Provide actionable insights for someone who might implement or apply this work
 - Use precise technical terminology - don't oversimplify
-- Connect to real production systems and engineering challenges`;
+- Connect to real production systems and engineering challenges
+${paperContent ? '- You have access to the full paper content above - use specific details, equations, experimental results, and citations from the paper' : '- Only the abstract is available - provide your best analysis based on the abstract and your domain knowledge'}`;
 
     const requestData = JSON.stringify({
       model: 'claude-sonnet-4-20250514',
