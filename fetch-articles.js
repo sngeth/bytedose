@@ -7,23 +7,50 @@ const ARXIV_API = 'https://export.arxiv.org/api/query';
 // Anthropic API configuration
 const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
 
-// Search categories for CS optimization and advances
+// Search categories focused on practical AI for software engineering, distributed systems, and games
 const SEARCH_CATEGORIES = [
-  'machine learning OR deep learning OR neural networks',
-  'algorithms OR optimization OR complexity',
-  'distributed systems OR scalability OR performance',
-  'programming languages OR compilers OR type systems',
-  'computer vision OR image processing',
-  'natural language processing OR NLP',
-  'systems OR operating systems OR architecture',
-  'security OR cryptography OR privacy'
+  // AI for distributed web applications
+  'machine learning AND (distributed systems OR microservices OR cloud OR serverless)',
+  'deep learning AND (scalability OR performance OR latency OR optimization)',
+  'neural networks AND (inference OR deployment OR production OR edge computing)',
+
+  // AI for software engineering
+  'AI AND (code generation OR software engineering OR programming OR debugging)',
+  'machine learning AND (testing OR reliability OR monitoring OR observability)',
+  'LLM AND (software OR programming OR development OR engineering)',
+
+  // AI for game development
+  'machine learning AND (games OR gaming OR simulation OR rendering)',
+  'reinforcement learning AND (games OR agents OR simulation)',
+  'neural networks AND (graphics OR rendering OR animation OR procedural generation)',
+
+  // Practical systems & infrastructure
+  'distributed systems AND (consensus OR fault-tolerance OR replication)',
+  'optimization AND (algorithms OR data structures OR compilers)',
+  'performance AND (databases OR caching OR storage OR networking)'
 ];
 
-// Keywords that indicate practical improvements/advances
+// Keywords that indicate practical software engineering relevance
 const OPTIMIZATION_KEYWORDS = [
-  'faster', 'efficient', 'scalable', 'improved', 'novel',
-  'optimization', 'performance', 'breakthrough', 'state-of-the-art',
-  'practical', 'real-world', 'outperforms', 'achieves'
+  // Performance & efficiency
+  'faster', 'efficient', 'scalable', 'performance', 'optimization', 'low-latency',
+  'real-time', 'throughput', 'speedup', 'acceleration',
+
+  // Production & deployment
+  'production', 'deployment', 'practical', 'real-world', 'inference', 'serving',
+  'edge', 'mobile', 'lightweight', 'resource-efficient',
+
+  // Software engineering
+  'code generation', 'debugging', 'testing', 'reliability', 'monitoring',
+  'automated', 'tooling', 'framework', 'library',
+
+  // Distributed systems
+  'distributed', 'microservices', 'cloud', 'kubernetes', 'serverless',
+  'fault-tolerant', 'consensus', 'replication', 'sharding',
+
+  // Game development
+  'game', 'rendering', 'graphics', 'simulation', 'procedural',
+  'animation', 'physics', 'AI agents', 'NPC'
 ];
 
 function searchArxiv(query, maxResults = 5) {
@@ -93,10 +120,62 @@ function scoreArticle(article) {
   const lowerSummary = article.summary.toLowerCase();
   const combined = lowerTitle + ' ' + lowerSummary;
 
-  // Check for optimization keywords
+  // Check for practical software engineering keywords
   OPTIMIZATION_KEYWORDS.forEach(keyword => {
-    if (combined.includes(keyword)) {
+    if (combined.includes(keyword.toLowerCase())) {
       score += 1;
+    }
+  });
+
+  // High priority: Practical engineering applications
+  const practicalKeywords = [
+    'production', 'deployment', 'real-world', 'practical', 'implementation',
+    'system', 'framework', 'tool', 'infrastructure', 'benchmark'
+  ];
+  practicalKeywords.forEach(keyword => {
+    if (combined.includes(keyword)) {
+      score += 3; // Higher weight for practical relevance
+    }
+  });
+
+  // Bonus for distributed systems & software engineering
+  const distributedKeywords = [
+    'distributed', 'microservices', 'cloud', 'kubernetes', 'docker',
+    'serverless', 'api', 'backend', 'frontend', 'full-stack'
+  ];
+  distributedKeywords.forEach(keyword => {
+    if (combined.includes(keyword)) {
+      score += 4; // Very high priority
+    }
+  });
+
+  // Bonus for game development
+  const gameKeywords = [
+    'game', 'gaming', 'rendering', 'graphics', 'simulation', 'unity', 'unreal',
+    'procedural generation', 'animation', 'physics', 'agent', 'npc'
+  ];
+  gameKeywords.forEach(keyword => {
+    if (combined.includes(keyword)) {
+      score += 4; // Very high priority
+    }
+  });
+
+  // Bonus for AI applied to software engineering
+  const aiSweKeywords = [
+    'code generation', 'code completion', 'programming', 'debugging',
+    'test generation', 'static analysis', 'program synthesis', 'llm'
+  ];
+  aiSweKeywords.forEach(keyword => {
+    if (combined.includes(keyword)) {
+      score += 5; // Highest priority - directly applicable to SWE
+    }
+  });
+
+  // Penalty for purely theoretical papers
+  const theoreticalKeywords = ['theorem', 'proof', 'theoretical', 'asymptotic'];
+  theoreticalKeywords.forEach(keyword => {
+    if (combined.includes(keyword) && !combined.includes('practical')) {
+      score -= 2;
     }
   });
 
@@ -111,10 +190,18 @@ function scoreArticle(article) {
     score += 1;
   }
 
-  // Bonus for certain high-impact categories
-  const highImpactCategories = ['cs.LG', 'cs.AI', 'cs.CV', 'cs.CL', 'cs.DS'];
-  if (article.categories.some(cat => highImpactCategories.includes(cat))) {
-    score += 2;
+  // Bonus for relevant categories (systems, software engineering, AI applications)
+  const relevantCategories = [
+    'cs.SE', // Software Engineering
+    'cs.DC', // Distributed Computing
+    'cs.PL', // Programming Languages
+    'cs.LG', // Machine Learning (if applied)
+    'cs.AI', // AI (if applied)
+    'cs.GR', // Graphics (for games)
+    'cs.SY'  // Systems
+  ];
+  if (article.categories.some(cat => relevantCategories.includes(cat))) {
+    score += 3;
   }
 
   return score;
