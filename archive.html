@@ -187,29 +187,29 @@
 
             try {
                 const response = await fetch('archive-index.json');
-                const index = await response.json();
+                const data = await response.json();
+                const articles = data.articles || [];
 
-                if (!index || index.length === 0) {
+                if (!articles || articles.length === 0) {
                     listEl.innerHTML = '<li class="loading">No archived articles yet.</li>';
                     return;
                 }
 
                 listEl.innerHTML = '';
 
-                for (const item of index) {
+                for (const item of articles) {
                     const li = document.createElement('li');
                     li.className = 'article-item';
                     li.innerHTML = `
                         <div class="article-date">${formatDate(item.date)}</div>
                         <h2 class="article-title">
-                            ${item.title}
+                            <a href="${item.article.url}" target="_blank" rel="noopener">${item.article.title}</a>
                         </h2>
                         <div class="article-meta">
-                            <span>${item.summary}</span>
+                            <span>${item.article.authors}</span>
                         </div>
                         <div class="article-meta">
                             <a href="learn.html?date=${item.date}" style="color: #0066cc; text-decoration: none; font-weight: 500;">Learn More →</a>
-                            <a href="${item.url}" target="_blank" rel="noopener" style="color: #666; text-decoration: none; margin-left: 16px;">View JSON →</a>
                         </div>
                     `;
                     listEl.appendChild(li);
