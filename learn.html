@@ -296,34 +296,97 @@
             const whatMatters = generateWhatMatters(categories, title);
             const simpleExplanation = generateSimpleExplanation(title, summary);
 
-            return `
+return `
                 <div class="header">
                     <h1>${title}</h1>
-                    <p class="subtitle">Understanding the research</p>
+                    <p class="subtitle">Staff Engineer Deep Dive</p>
                 </div>
 
                 <div class="section">
-                    <h2>What's This About?</h2>
+                    <h2>Technical Overview</h2>
                     <div class="section-content">
-                        <p>${simpleExplanation}</p>
+                        <p>${article.educationalContent?.technicalOverview || simpleExplanation}</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Problem Context</h2>
+                    <div class="section-content">
+                        <p>${article.educationalContent?.problemContext || 'Problem analysis not available.'}</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Core Innovation</h2>
+                    <div class="section-content">
+                        <p>${article.educationalContent?.coreInnovation || 'Innovation analysis not available.'}</p>
+                        ${article.educationalContent?.comparisonToExisting ? `
                         <div class="concept-box">
-                            <h3>In Plain English</h3>
-                            <p>This paper presents new research in ${mainCategory.replace('cs.', '').toUpperCase()}. ${generatePlainEnglish(title)}</p>
+                            <h3>Comparison to Existing Approaches</h3>
+                            <p>${article.educationalContent.comparisonToExisting}</p>
+                        </div>
+                        ` : ''}
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Technical Mechanics</h2>
+                    <div class="section-content">
+                        <ul style="list-style: disc; padding-left: 24px;">
+                            ${article.educationalContent?.technicalMechanics?.map(item => `<li style="margin-bottom: 12px;">${item}</li>`).join('') || '<li>Technical details not available.</li>'}
+                        </ul>
+                    </div>
+                </div>
+
+                ${article.educationalContent?.productionConsiderations ? `
+                <div class="section">
+                    <h2>Production Considerations</h2>
+                    <div class="section-content">
+                        <div class="concept-box" style="margin-bottom: 16px;">
+                            <h3>Scalability</h3>
+                            <p>${article.educationalContent.productionConsiderations.scalability}</p>
+                        </div>
+                        <div class="concept-box" style="margin-bottom: 16px;">
+                            <h3>Latency</h3>
+                            <p>${article.educationalContent.productionConsiderations.latency}</p>
+                        </div>
+                        <div class="concept-box" style="margin-bottom: 16px;">
+                            <h3>Resource Requirements</h3>
+                            <p>${article.educationalContent.productionConsiderations.resourceRequirements}</p>
+                        </div>
+                        <div class="concept-box">
+                            <h3>Implementation Complexity</h3>
+                            <p>${article.educationalContent.productionConsiderations.implementationComplexity}</p>
                         </div>
                     </div>
                 </div>
+                ` : ''}
 
                 <div class="section">
-                    <h2>Why Does It Matter?</h2>
+                    <h2>Applications & Impact</h2>
                     <div class="section-content">
-                        <p>${whatMatters}</p>
+                        <p>${article.educationalContent?.applicationsAndImpact || whatMatters}</p>
                     </div>
                 </div>
 
+                ${article.educationalContent?.architecturalInsight ? `
                 <div class="section">
-                    <h2>Key Concepts</h2>
+                    <h2>Architectural Insight</h2>
+                    <div class="section-content">
+                        <p>${article.educationalContent.architecturalInsight}</p>
+                    </div>
+                </div>
+                ` : ''}
+
+                <div class="section">
+                    <h2>Key Terms & Concepts</h2>
                     <ul class="key-terms">
-                        ${keyTerms.map(term => `
+                        ${article.educationalContent?.keyTermsAndConcepts?.map(item => `
+                            <li>
+                                <div class="term-name">${item.term}</div>
+                                <div class="term-definition">${item.definition}</div>
+                            </li>
+                        `).join('') || keyTerms.map(term => `
                             <li>
                                 <div class="term-name">${term.name}</div>
                                 <div class="term-definition">${term.definition}</div>
@@ -332,14 +395,51 @@
                     </ul>
                 </div>
 
+                ${article.educationalContent?.limitations ? `
                 <div class="section">
-                    <h2>Dive Deeper</h2>
+                    <h2>Limitations</h2>
+                    <div class="section-content">
+                        <p>${article.educationalContent.limitations}</p>
+                    </div>
+                </div>
+                ` : ''}
+
+                ${article.educationalContent?.implementationNotes ? `
+                <div class="section">
+                    <h2>Implementation Notes</h2>
+                    <div class="section-content">
+                        <p>${article.educationalContent.implementationNotes}</p>
+                    </div>
+                </div>
+                ` : ''}
+
+                ${article.educationalContent?.technicalPrerequisites ? `
+                <div class="section">
+                    <h2>Prerequisites</h2>
+                    <div class="section-content">
+                        <ul style="list-style: disc; padding-left: 24px;">
+                            ${article.educationalContent.technicalPrerequisites.map(prereq => `<li style="margin-bottom: 8px;">${prereq}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+                ` : ''}
+
+                <div class="section">
+                    <h2>Related Work & Resources</h2>
+                    ${article.educationalContent?.relatedWork ? `
+                    <div class="section-content" style="margin-bottom: 24px;">
+                        <h3 style="font-size: 1.0625rem; font-weight: 600; margin-bottom: 12px;">Related Research</h3>
+                        <ul style="list-style: disc; padding-left: 24px;">
+                            ${article.educationalContent.relatedWork.map(work => `<li style="margin-bottom: 8px;">${work}</li>`).join('')}
+                        </ul>
+                    </div>
+                    ` : ''}
                     <div class="resources">
-                        <h3>Related Resources</h3>
+                        <h3>Resources</h3>
                         <ul>
                             <li><a href="${article.url}" target="_blank" rel="noopener">Read the full paper on arXiv →</a></li>
-                            <li><a href="https://en.wikipedia.org/wiki/${mainCategory.replace('cs.', 'Computer_')}" target="_blank" rel="noopener">Learn more about ${mainCategory} →</a></li>
                             <li><a href="https://paperswithcode.com/search?q_meta=&q_type=&q=${encodeURIComponent(title.split(':')[0])}" target="_blank" rel="noopener">Find code implementations →</a></li>
+                            <li><a href="https://scholar.google.com/scholar?q=${encodeURIComponent(title)}" target="_blank" rel="noopener">Google Scholar citations →</a></li>
                         </ul>
                     </div>
                 </div>

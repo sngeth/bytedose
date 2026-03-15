@@ -122,7 +122,7 @@ function scoreArticle(article) {
 
 function generateEducationalContent(article) {
   return new Promise((resolve, reject) => {
-    const prompt = `You are an expert computer science educator creating engaging educational content. Your goal is to make complex research accessible and interesting.
+    const prompt = `You are a senior principal engineer analyzing cutting-edge research for a staff engineer audience. Provide deep technical analysis with production engineering insights.
 
 Paper Title: ${article.title}
 Categories: ${article.categories.join(', ')}
@@ -130,41 +130,54 @@ Abstract: ${article.summary}
 
 Generate a JSON response with the following structure:
 {
-  "whatIsThisAbout": "3-4 sentences explaining what this paper does. Use concrete examples or analogies when possible. Avoid jargon.",
-  "problemSolved": "2-3 sentences explaining the real-world problem. What doesn't work well today? Why is this hard? Be specific.",
-  "keyInnovation": "2-3 sentences on the main contribution. What's new or different about this approach compared to existing methods?",
-  "howItWorks": [
-    // 4-6 bullet points explaining the approach
-    // Start each with an action verb
-    // Include technical details but explain them clearly
-    // Show the progression from input to output
+  "technicalOverview": "4-5 sentences providing a rigorous technical summary. Include key algorithmic contributions, architectural decisions, and mathematical formulations where relevant. Use precise technical terminology.",
+  "problemContext": "3-4 sentences on the problem space. What are the computational/theoretical bottlenecks? What constraints exist (memory, latency, scalability)? Why have previous approaches failed or hit limits?",
+  "coreInnovation": "3-4 sentences on the fundamental contribution. What's the key insight? How does it differ algorithmically/architecturally from prior work? What complexity improvements or trade-offs are introduced?",
+  "technicalMechanics": [
+    // 6-8 detailed bullet points explaining the approach
+    // Include: algorithm steps, data structures, optimization techniques, training procedures
+    // Reference specific equations or methods from the abstract
+    // Explain computational complexity where relevant (O(n), space requirements, etc.)
+    // Describe any novel architectural components
   ],
-  "whyItMatters": "2-3 sentences on practical impact. What real applications could benefit? What becomes possible now that wasn't before? Be concrete.",
-  "realWorldAnalogy": "1-2 sentences comparing this to something from everyday life to build intuition",
-  "prerequisites": [
-    // 4-5 specific prerequisite concepts
-    // Order from most fundamental to most advanced
+  "productionConsiderations": {
+    "scalability": "How does this approach scale? What are the bottlenecks at production scale?",
+    "latency": "Inference/runtime characteristics. Real-time capable? Batch-oriented?",
+    "resourceRequirements": "Compute, memory, storage needs. GPU requirements, distributed training considerations.",
+    "implementationComplexity": "What would it take to implement this? Dependencies, infrastructure needs, engineering effort."
+  },
+  "applicationsAndImpact": "3-4 sentences on concrete engineering applications. Which production systems could benefit? What performance gains are realistic? What new capabilities does this unlock? Be specific about use cases.",
+  "technicalPrerequisites": [
+    // 5-7 specific technical concepts needed to deeply understand this work
+    // Include mathematical foundations, algorithmic techniques, system design patterns
+    // Order from fundamental to advanced
   ],
-  "keyTerms": [
-    {"term": "exact term from paper", "definition": "Clear 1-2 sentence definition with an example if helpful"},
-    // Extract 5-7 actual technical terms from the abstract
+  "keyTermsAndConcepts": [
+    {"term": "exact term from paper", "definition": "Rigorous technical definition (2-3 sentences). Include mathematical notation if applicable, implementation details, or performance characteristics."},
+    // Extract 7-10 technical terms from the abstract
   ],
-  "visualConcept": "Detailed description of a diagram showing data flow or system architecture. Specify boxes, arrows, and labels.",
-  "limitations": "1-2 sentences on what this approach doesn't solve or trade-offs made",
-  "relatedTopics": [
-    // 4-5 specific related areas or techniques
-  ]
+  "architecturalInsight": "2-3 sentences describing the system architecture or data flow. What are the key components? How do they interact? What design patterns are employed?",
+  "limitations": "2-3 sentences on technical limitations, edge cases, failure modes, or scenarios where this approach may not be suitable. Include computational constraints or theoretical bounds.",
+  "comparisonToExisting": "2-3 sentences comparing to state-of-the-art baselines. What metrics improve? What trade-offs are made versus existing approaches?",
+  "relatedWork": [
+    // 5-6 specific related papers, techniques, or frameworks that a staff engineer should know
+    // Include foundational work and recent advances in the same space
+  ],
+  "implementationNotes": "2-3 sentences on practical implementation considerations. What frameworks/libraries would be relevant? Any known open-source implementations? What would be the first steps to prototype this?"
 }
 
 IMPORTANT:
-- Extract specific technical details from the abstract, not generic descriptions
-- Use concrete examples where possible
-- Explain WHY things work, not just WHAT they do
-- Make it engaging for someone learning this topic`;
+- Write for a staff engineer audience with deep technical expertise
+- Include specific technical details: algorithms, complexity analysis, architectural patterns
+- Focus on production engineering considerations: scalability, performance, resource requirements
+- Explain the mathematical/algorithmic foundations rigorously
+- Provide actionable insights for someone who might implement or apply this work
+- Use precise technical terminology - don't oversimplify
+- Connect to real production systems and engineering challenges`;
 
     const requestData = JSON.stringify({
-      model: 'claude-3-haiku-20240307',
-      max_tokens: 2000,
+      model: 'claude-3-5-sonnet-20241022',
+      max_tokens: 4000,
       messages: [{
         role: 'user',
         content: prompt
