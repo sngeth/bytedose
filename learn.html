@@ -273,13 +273,33 @@
                 const requestedDate = urlParams.get('date');
 
                 let articleFile = 'latest-article.json';
+                let learnFile = null;
+
                 if (requestedDate) {
                     articleFile = `archive/${requestedDate}.json`;
+                    learnFile = `archive/${requestedDate}-learn.json`;
+                } else {
+                    // For latest article, try to find the corresponding learn file
+                    const latestResponse = await fetch(articleFile);
+                    const latestData = await latestResponse.json();
+                    const latestDate = latestData.date;
+                    learnFile = `archive/${latestDate}-learn.json`;
                 }
 
                 const response = await fetch(articleFile);
                 const data = await response.json();
-                const article = data.article;
+                let article = data.article;
+
+                // Try to load educational content from separate learn file
+                try {
+                    const learnResponse = await fetch(learnFile);
+                    if (learnResponse.ok) {
+                        const learnData = await learnResponse.json();
+                        article.educationalContent = learnData.content;
+                    }
+                } catch (learnErr) {
+                    console.log('No educational content file found, using fallback');
+                }
 
                 // Generate educational content based on the article
                 const content = generateEducationalContent(article);
