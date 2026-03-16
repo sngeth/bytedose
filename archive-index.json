@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-03-15T12:27:00.830Z",
+  "lastUpdated": "2026-03-16T07:33:23.638Z",
   "articles": [
+    {
+      "date": "2026-03-16",
+      "article": {
+        "title": "PhysMoDPO: Physically-Plausible Humanoid Motion with Preference Optimization",
+        "authors": "Yangsong Zhang, Anujith Muraleedharan, Rikhat Akizhanov et al.",
+        "published": "2026-03-13T17:59:59Z",
+        "url": "https://arxiv.org/abs/2603.13228v1"
+      }
+    },
     {
       "date": "2026-03-15",
       "article": {
