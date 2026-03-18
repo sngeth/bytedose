@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Mode - ByteDose</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.65;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        .nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ff6b35;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+        }
+
+        .back-link {
+            font-size: 0.875rem;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 32px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header-emoji {
+            font-size: 4rem;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            line-height: 1.3;
+            font-weight: 700;
+            color: #ff6b35;
+            margin-bottom: 16px;
+        }
+
+        .subtitle {
+            font-size: 1.125rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+            margin: 32px 0 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .explanation-text {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+
+        .naruto-quote {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-left: 4px solid #ff6b35;
+            padding: 20px;
+            margin: 24px 0;
+            border-radius: 8px;
+            font-style: italic;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px 24px;
+            color: white;
+            font-size: 1.25rem;
+        }
+
+        .easter-egg-note {
+            background: #f8f9fa;
+            border: 2px dashed #667eea;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 32px;
+            text-align: center;
+            font-size: 0.9375rem;
+            color: #666;
+        }
+
+        @media (max-width: 640px) {
+            .card {
+                padding: 24px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .header-emoji {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="index.html" class="logo">🍜 ByteDose Anime Mode</a>
+            <a href="index.html" class="back-link">← Back to Normal Mode</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="content" class="loading">
+            Loading anime explanation... Believe it! 🍥
+        </div>
+    </div>
+
+    <script>
+        async function generateAnimeExplanation() {
+            try {
+                const response = await fetch('latest-article.json');
+                const data = await response.json();
+                const article = data.article;
+
+                // Check if we have a cached anime explanation
+                let animeExplanation = null;
+                try {
+                    const animeRes = await fetch(`archive/${data.date}-anime.json`);
+                    if (animeRes.ok) {
+                        const animeData = await animeRes.json();
+                        animeExplanation = animeData.explanation;
+                    }
+                } catch (err) {
+                    console.log('No anime explanation cached, using fallback');
+                }
+
+                let explanationHTML = '';
+
+                if (animeExplanation) {
+                    // Use the LLM-generated explanation if available
+                    explanationHTML = `
+                        <h2>🍥 The Paper, Naruto Style</h2>
+                        <div class="explanation-text">${animeExplanation}</div>
+                    `;
+                } else {
+                    // Fallback: Generic anime-themed explanation
+                    explanationHTML = `
+                        <h2>🍥 The Paper, Naruto Style</h2>
+                        <div class="explanation-text">
+                            <strong>The Mission:</strong> ${article.title}
+                        </div>
+
+                        <div class="naruto-quote">
+                            "A true ninja never gives up on understanding complex research papers!" - Naruto Uzumaki
+                        </div>
+
+                        <div class="explanation-text">
+                            <strong>The Jutsu (Technique):</strong><br>
+                            ${article.summary}
+                        </div>
+
+                        <div class="explanation-text">
+                            Think of this research like training to become Hokage - it requires dedication, understanding of fundamental techniques (like Naruto mastering the Rasengan), and building on what came before. The authors are like sensei teaching us new jutsu to solve problems in computer science!
+                        </div>
+
+                        <div class="easter-egg-note">
+                            ⚡ This is a fun easter egg mode! For the serious explanation, check out the <a href="learn.html" style="color: #667eea; font-weight: 600;">Learn Mode</a>
+                        </div>
+                    `;
+                }
+
+                document.getElementById('content').innerHTML = `
+                    <div class="card">
+                        <div class="header">
+                            <div class="header-emoji">🍜</div>
+                            <h1>${article.title}</h1>
+                            <p class="subtitle">Explained with the power of anime! Dattebayo!</p>
+                        </div>
+
+                        ${explanationHTML}
+                    </div>
+                `;
+            } catch (err) {
+                console.error('Error loading article:', err);
+                document.getElementById('content').innerHTML = `
+                    <div class="card">
+                        <div class="loading" style="color: #666;">Unable to load article. Even Naruto fails sometimes! 😅</div>
+                    </div>
+                `;
+            }
+        }
+
+        generateAnimeExplanation();
+    </script>
+</body>
+</html>
