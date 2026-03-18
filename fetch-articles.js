@@ -377,6 +377,81 @@ ${paperContent ? '- You have access to the full paper content above - use specif
   });
 }
 
+async function generateAnimeExplanation(article) {
+  return new Promise((resolve, reject) => {
+    const prompt = `You are a fun, creative educator who explains complex computer science research papers using Naruto anime references and themes. Make learning entertaining while keeping technical accuracy.
+
+Paper Title: ${article.title}
+Abstract: ${article.summary}
+
+Generate a creative explanation that uses Naruto references to make this research paper accessible and fun. Structure your response as follows:
+
+1. Start with a Naruto-themed intro that connects the paper's main concept to a Naruto storyline, character, or jutsu
+2. Explain the core problem the paper solves using a Naruto analogy (e.g., "Just like how Naruto struggled to control the Nine-Tails' chakra...")
+3. Break down the technical approach using Naruto concepts:
+   - Training/learning → Like mastering a new jutsu
+   - Algorithms/methods → Different fighting techniques or strategies
+   - Performance improvements → Power levels, speed, efficiency like a ninja
+   - System architecture → Team formations, village structures
+   - Data/information → Scrolls, knowledge passed down
+4. Include specific Naruto references where applicable (characters, jutsu names, story arcs, ninja concepts)
+5. End with an inspiring Naruto-style message about the research
+
+Keep it fun but don't lose the technical essence. The reader should understand both the Naruto reference AND the actual computer science concept. Use 3-5 paragraphs total.
+
+Response should be plain text (no markdown), engaging, and educational. Include at least 3-4 specific Naruto references.`;
+
+    const requestData = JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 1500,
+      messages: [{
+        role: 'user',
+        content: prompt
+      }]
+    });
+
+    const options = {
+      hostname: 'api.anthropic.com',
+      port: 443,
+      path: '/v1/messages',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': ANTHROPIC_API_KEY,
+        'anthropic-version': '2023-06-01',
+        'Content-Length': Buffer.byteLength(requestData)
+      }
+    };
+
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => {
+        try {
+          const response = JSON.parse(data);
+
+          if (response.type === 'error') {
+            reject(new Error(`API Error: ${response.error.message}`));
+            return;
+          }
+
+          if (response.content && response.content[0] && response.content[0].text) {
+            resolve(response.content[0].text);
+          } else {
+            reject(new Error('Unexpected API response format'));
+          }
+        } catch (err) {
+          reject(err);
+        }
+      });
+    });
+
+    req.on('error', reject);
+    req.write(requestData);
+    req.end();
+  });
+}
+
 async function main() {
   console.log('🔍 Searching arXiv for CS articles...\n');
 
@@ -436,6 +511,17 @@ async function main() {
     console.log('   Continuing without educational content...\n');
   }
 
+  // Generate anime explanation
+  console.log('🍜 Generating anime explanation with Claude...\n');
+  let animeExplanation = null;
+  try {
+    animeExplanation = await generateAnimeExplanation(topArticle);
+    console.log('✅ Anime explanation generated\n');
+  } catch (err) {
+    console.error('⚠️  Failed to generate anime explanation:', err.message);
+    console.log('   Continuing without anime explanation...\n');
+  }
+
   // Save to JSON
   const output = {
     date: new Date().toISOString().split('T')[0],
@@ -468,9 +554,22 @@ async function main() {
     console.log(`✅ Saved educational content to ${learnFile}\n`);
   }
 
+  // Save anime explanation to separate file if available
+  if (animeExplanation) {
+    const animeFile = `${archiveDir}/${output.date}-anime.json`;
+    const animeData = {
+      date: output.date,
+      articleId: topArticle.id,
+      articleTitle: topArticle.title,
+      explanation: animeExplanation
+    };
+    fs.writeFileSync(animeFile, JSON.stringify(animeData, null, 2));
+    console.log(`✅ Saved anime explanation to ${animeFile}\n`);
+  }
+
   // Generate archive index
   const archiveFiles = fs.readdirSync(archiveDir)
-    .filter(f => f.endsWith('.json') && !f.includes('-learn'))
+    .filter(f => f.endsWith('.json') && !f.includes('-learn') && !f.includes('-anime'))
     .sort()
     .reverse();
 
