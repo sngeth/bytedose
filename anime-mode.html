@@ -249,14 +249,30 @@
     <script>
         async function generateAnimeExplanation() {
             try {
-                const response = await fetch('latest-article.json');
+                // Check if a specific date is requested via query parameter
+                const urlParams = new URLSearchParams(window.location.search);
+                const requestedDate = urlParams.get('date');
+
+                let articleFile = 'latest-article.json';
+                let dateToUse = null;
+
+                if (requestedDate) {
+                    articleFile = `archive/${requestedDate}.json`;
+                    dateToUse = requestedDate;
+                }
+
+                const response = await fetch(articleFile);
                 const data = await response.json();
                 const article = data.article;
+
+                if (!dateToUse) {
+                    dateToUse = data.date;
+                }
 
                 // Check if we have a cached anime explanation
                 let animeExplanation = null;
                 try {
-                    const animeRes = await fetch(`archive/${data.date}-anime.json`);
+                    const animeRes = await fetch(`archive/${dateToUse}-anime.json`);
                     if (animeRes.ok) {
                         const animeData = await animeRes.json();
                         animeExplanation = animeData.explanation;

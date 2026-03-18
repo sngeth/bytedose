@@ -378,28 +378,53 @@ ${paperContent ? '- You have access to the full paper content above - use specif
 }
 
 async function generateAnimeExplanation(article) {
+  // Try to fetch the full HTML version of the paper for deeper analysis
+  console.log(`   🍜 Fetching full paper HTML for anime explanation...`);
+  const paperHTML = await fetchArxivHTML(article.id);
+
   return new Promise((resolve, reject) => {
-    const prompt = `You are a fun, creative educator who explains complex computer science research papers using Naruto anime references and themes. Make learning entertaining while keeping technical accuracy.
+    const paperContent = paperHTML
+      ? `Full Paper Content (first 8000 chars):\n${paperHTML}\n\n`
+      : '';
+
+    const prompt = `You are a fun, creative educator who explains complex computer science research papers using Naruto anime references and themes. Make learning entertaining while keeping FULL technical accuracy and rigor.
 
 Paper Title: ${article.title}
+Categories: ${article.categories.join(', ')}
 Abstract: ${article.summary}
 
-Generate a creative explanation that uses Naruto references to make this research paper accessible and fun. Structure your response as follows:
+${paperContent}
 
-1. Start with a Naruto-themed intro that connects the paper's main concept to a Naruto storyline, character, or jutsu
-2. Explain the core problem the paper solves using a Naruto analogy (e.g., "Just like how Naruto struggled to control the Nine-Tails' chakra...")
-3. Break down the technical approach using Naruto concepts:
-   - Training/learning → Like mastering a new jutsu
-   - Algorithms/methods → Different fighting techniques or strategies
-   - Performance improvements → Power levels, speed, efficiency like a ninja
-   - System architecture → Team formations, village structures
-   - Data/information → Scrolls, knowledge passed down
-4. Include specific Naruto references where applicable (characters, jutsu names, story arcs, ninja concepts)
-5. End with an inspiring Naruto-style message about the research
+CRITICAL: You must maintain technical accuracy and explain the ACTUAL technical concepts from the paper. The Naruto analogies should illuminate the real CS concepts, not replace them.
 
-Keep it fun but don't lose the technical essence. The reader should understand both the Naruto reference AND the actual computer science concept. Use 3-5 paragraphs total.
+Generate a creative explanation (3-5 paragraphs) that:
 
-Response should be plain text (no markdown), engaging, and educational. Include at least 3-4 specific Naruto references.`;
+1. Opens with a compelling Naruto-themed hook that connects to the paper's core technical contribution (not just surface-level analogy)
+
+2. Explains the REAL problem the paper solves with technical specifics, using Naruto analogies to make it memorable:
+   - Include actual technical terms, algorithms, metrics from the paper
+   - Example: "Just like Naruto's struggle to control the Nine-Tails' chakra required understanding the seal's architecture, this paper tackles the challenge of [specific technical problem] by [actual approach]..."
+
+3. Breaks down the ACTUAL technical approach with precision:
+   - Training/learning methods → Explain real algorithms/techniques (e.g., "The multi-stage training paradigm uses...")
+   - System architecture → Describe actual components and data flow
+   - Performance metrics → Include real numbers, complexity, comparisons
+   - Innovations → Explain what's novel technically, not just metaphorically
+
+4. Maintains technical vocabulary while making it accessible:
+   - Use terms like: "optimization", "latency", "scalability", "complexity", "inference"
+   - Explain what these mean through Naruto parallels
+   - Don't dumb down the CS - make it memorable through analogy
+
+5. Ends with both technical impact AND inspiring Naruto message
+
+IMPORTANT:
+- Someone should learn the ACTUAL technical concepts from reading this
+- Include specific details from the abstract (and paper content if available)
+- Use Naruto as a teaching tool, not a replacement for technical content
+- Balance fun with education - this should be rigorous AND entertaining
+
+Response should be plain text (no markdown), 3-5 paragraphs, with at least 4-5 specific Naruto references woven into technical explanations.`;
 
     const requestData = JSON.stringify({
       model: 'claude-sonnet-4-20250514',
