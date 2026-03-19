@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-03-18T07:25:11.177Z",
+  "lastUpdated": "2026-03-19T07:23:17.093Z",
   "articles": [
+    {
+      "date": "2026-03-19",
+      "article": {
+        "title": "ArchBench: Benchmarking Generative-AI for Software Architecture Tasks",
+        "authors": "Bassam Adnan, Aviral Gupta, Sreemaee Akshathala et al.",
+        "published": "2026-03-18T15:26:46Z",
+        "url": "https://arxiv.org/abs/2603.17833v1"
+      }
+    },
     {
       "date": "2026-03-18",
       "article": {

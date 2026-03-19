@@ -1,0 +1,82 @@
+{
+  "date": "2026-03-19",
+  "articleId": "2603.17833v1",
+  "articleTitle": "ArchBench: Benchmarking Generative-AI for Software Architecture Tasks",
+  "content": {
+    "technicalOverview": "ArchBench introduces the first unified benchmarking platform for evaluating large language models on software architecture tasks, addressing a critical gap in architectural reasoning evaluation. The platform implements a three-stage pipeline (download, inference, evaluation) with a plugin-based architecture where each task is a self-contained module providing dataset loading, prompt templates, response parsing, and metric definitions. The system supports multiple evaluation methodologies including NLP similarity metrics (ROUGE, BLEU, BERTScore), set-based precision/recall/F1 for structured outputs, code-level metrics (CodeBLEU), and LLM-as-judge assessments. The platform aggregates five architectural tasks from recent research with standardized evaluation pipelines and provides both CLI tooling and a public web interface with interactive leaderboards.",
+    "problemContext": "Current LLM benchmarks overwhelmingly focus on implementation correctness rather than architectural reasoning, despite architecture being foundational to software quality and long-term maintainability. Architectural flaws compound quietly over time and dominate engineering effort, yet there are no standardized evaluation frameworks for comparing LLM architectural capabilities across models. A recent multivocal literature review confirmed that rigorous testing of GenAI outputs for architecture tasks is typically missing, architecture-specific datasets are scarce, and sound evaluation frameworks are absent. This lack of standardized benchmarking infrastructure prevents the software architecture community from tracking, comparing, or systematically improving LLM architectural reasoning capabilities.",
+    "coreInnovation": "The fundamental contribution is establishing the first centralized, extensible benchmarking infrastructure specifically designed for software architecture tasks, moving beyond implementation-focused evaluations to architectural reasoning assessment. The key innovation lies in the plugin-based architecture that allows self-contained task modules to be contributed without modifying the core framework, enabling community-driven growth while maintaining evaluation consistency. The platform introduces standardized evaluation pipelines with full trajectory logging (prompts, responses, token usage, latency) for reproducibility, and supports heterogeneous evaluation methodologies appropriate for different architectural reasoning tasks. This creates the missing infrastructure layer needed to systematically advance LLM capabilities in software architecture, similar to how shared datasets and evaluation platforms have accelerated progress in other AI domains.",
+    "technicalMechanics": [
+      "Stage I (Download): Implements automated dataset fetching from multiple sources (GitHub, Zenodo, HuggingFace) with local caching and format-specific parsing handled by task-specific data loaders",
+      "Stage II (Inference): Features a uniform provider interface supporting multiple LLM providers (OpenAI, Anthropic, others) with task-specific prompt template assembly and structured response parsing",
+      "Stage III (Evaluation): Executes automated metric computation with task-appropriate evaluation methodologies, from NLP similarity metrics to code-level assessments and LLM-as-judge evaluations",
+      "Plugin Architecture: Each task module encapsulates dataset loading, prompt templates, response parsing, and metric definitions as self-contained components that integrate without core framework modifications",
+      "Trajectory Logging: Comprehensive logging of full interaction trajectories including raw prompts, model responses, token usage statistics, and latency measurements for reproducibility analysis",
+      "Multi-Modal Evaluation: Supports heterogeneous evaluation approaches including set-based metrics (precision/recall/F1) for traceability links, code-level metrics (CodeBLEU, test pass rates), and qualitative assessments",
+      "Web Interface Integration: React-based frontend with sortable leaderboards, task-specific metric displays, source publication linking, and sub-view toggles for tasks with multiple evaluation settings",
+      "Community Contribution Pipeline: Pull request-based submission system for new evaluation results with standardized output formats enabling consistent cross-model comparisons"
+    ],
+    "productionConsiderations": {
+      "scalability": "The plugin architecture enables horizontal scaling of task evaluation, but scalability bottlenecks will emerge at the LLM provider API level and dataset processing stage. The local caching mechanism reduces repeated downloads but storage requirements scale linearly with dataset sizes across tasks.",
+      "latency": "Evaluation latency is primarily bounded by LLM inference time rather than the benchmark framework itself. The three-stage pipeline allows for batch processing optimization, but interactive leaderboard updates depend on evaluation completion times across all models and tasks.",
+      "resourceRequirements": "Minimal local compute requirements as inference is delegated to external LLM providers, but significant API costs for comprehensive model evaluation across all tasks. Storage needs scale with cached datasets and logged trajectories, requiring persistent storage for reproducibility.",
+      "implementationComplexity": "Moderate implementation complexity due to the plugin system design and multi-provider LLM integration. Requires expertise in Python packaging, REST API integration, React frontend development, and software architecture domain knowledge for meaningful task contributions."
+    },
+    "applicationsAndImpact": "This platform enables systematic evaluation and improvement of LLM-based architectural tools deployed in production environments, such as automated code review systems, architectural decision support tools, and legacy system modernization assistants. The standardized benchmarking capability allows organizations to make data-driven decisions when selecting LLMs for architectural tasks, potentially improving software quality outcomes and reducing technical debt accumulation. The platform particularly benefits tool vendors developing LLM-powered architectural assistants by providing objective performance comparisons and identifying capability gaps. Real-world impact includes enabling more reliable automated architectural analysis, better-informed tool selection for enterprise development workflows, and accelerated research progress in AI-assisted software architecture.",
+    "technicalPrerequisites": [
+      "Software Architecture Fundamentals: Architectural patterns, design principles, modularity concepts, and dependency management",
+      "Large Language Model Architectures: Transformer models, prompt engineering, fine-tuning methodologies, and inference optimization",
+      "Evaluation Methodologies: NLP metrics (ROUGE, BLEU, BERTScore), information retrieval metrics, and automated assessment techniques",
+      "Plugin Architecture Design: Modular system design, dependency injection, and extensible framework development patterns",
+      "REST API Integration: HTTP client implementation, rate limiting, error handling, and multi-provider abstraction layers",
+      "Web Development Stack: React frontend development, leaderboard visualization, and interactive data presentation",
+      "Software Engineering Research Methods: Benchmark design principles, reproducibility requirements, and empirical evaluation standards"
+    ],
+    "keyTermsAndConcepts": [
+      {
+        "term": "Plugin Architecture",
+        "definition": "A modular design pattern where each architectural task is implemented as a self-contained module providing dataset loading, prompt templates, response parsing, and metric definitions, enabling community contributions without core framework modifications."
+      },
+      {
+        "term": "Trajectory Logging",
+        "definition": "Comprehensive recording of full LLM interaction sequences including prompts, raw responses, token usage statistics, and latency measurements to ensure reproducibility and enable detailed performance analysis."
+      },
+      {
+        "term": "LLM-as-Judge",
+        "definition": "An evaluation methodology where large language models assess the quality of outputs from other models, particularly useful for qualitative architectural reasoning tasks where traditional metrics may be insufficient."
+      },
+      {
+        "term": "Architectural Reasoning",
+        "definition": "The cognitive process of making design decisions about software structure, including modularization, dependency management, pattern selection, and system evolution strategies that impact long-term maintainability."
+      },
+      {
+        "term": "Set-based Metrics",
+        "definition": "Evaluation approaches using precision, recall, and F1-score for structured outputs like architectural traceability links, where the task involves identifying relationships between architectural elements."
+      },
+      {
+        "term": "CodeBLEU",
+        "definition": "A code-specific variant of BLEU score that incorporates syntactic and semantic similarities in code generation tasks, accounting for programming language structure beyond surface-level text matching."
+      },
+      {
+        "term": "Multi-Modal Evaluation",
+        "definition": "The use of heterogeneous assessment methodologies within a single benchmarking framework, supporting NLP metrics, code-level assessments, structural analysis, and qualitative judgment as appropriate for different architectural tasks."
+      },
+      {
+        "term": "Architectural Decision Records (ADR)",
+        "definition": "Structured documentation capturing architectural decisions including context, considered options, chosen solution, and consequences, representing a key artifact for LLM architectural reasoning evaluation."
+      }
+    ],
+    "architecturalInsight": "ArchBench employs a three-tier architecture separating data management (download stage), model interaction (inference stage), and assessment (evaluation stage) with clean interfaces between components. The plugin system implements the Strategy pattern, allowing task-specific implementations to be swapped without affecting the core pipeline, while the uniform provider interface abstracts LLM vendor differences through an Adapter pattern. The web interface maintains separation of concerns with a React frontend consuming standardized evaluation outputs, enabling independent evolution of the CLI tool and visualization components.",
+    "limitations": "The platform's evaluation quality is bounded by the availability of ground-truth datasets and the subjective nature of architectural assessment, making some tasks inherently difficult to evaluate objectively. Scalability is constrained by LLM provider API rate limits and costs, potentially limiting comprehensive model comparisons. The current task selection covers only a subset of the full software architecture domain, and the plugin architecture assumes tasks can be decomposed into discrete evaluation units, which may not capture complex, multi-faceted architectural reasoning scenarios.",
+    "comparisonToExisting": "Unlike existing code generation benchmarks (HumanEval, MBPP) that focus on implementation correctness, ArchBench specifically targets architectural reasoning capabilities that existing platforms do not assess. While platforms like SWE-bench evaluate repository-level issue resolution, they lack the architectural focus and specialized metrics needed for design-level evaluation. ArchBench fills the gap between snippet-level and repository-level benchmarks by focusing on intermediate architectural abstractions that are crucial for system evolution and maintenance but underserved by current evaluation infrastructure.",
+    "relatedWork": [
+      "SWE-bench: Repository-level code generation and issue resolution benchmarking",
+      "HumanEval and MBPP: Function-level code generation evaluation frameworks",
+      "CodeBLEU and similar code-specific evaluation metrics",
+      "BERTScore and semantic similarity metrics for NLP evaluation",
+      "Software architecture knowledge extraction and decision mining research",
+      "Automated software modularization and dependency analysis tools"
+    ],
+    "implementationNotes": "Implementation would leverage the Python ecosystem with frameworks like Click for CLI development, requests for HTTP API integration, and pandas for data processing. The plugin system could be implemented using Python's importlib for dynamic module loading and setuptools entry points for task registration. For the web interface, a React frontend with libraries like Material-UI for components and Recharts for visualization would provide the interactive leaderboard functionality. Initial prototyping should focus on implementing one task plugin to validate the architecture before scaling to multiple tasks and evaluation methodologies."
+  }
+}
