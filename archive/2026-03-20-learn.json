@@ -1,0 +1,82 @@
+{
+  "date": "2026-03-20",
+  "articleId": "2603.19173v1",
+  "articleTitle": "SOL-ExecBench: Speed-of-Light Benchmarking for Real-World GPU Kernels Against Hardware Limits",
+  "content": {
+    "technicalOverview": "SOL-ExecBench introduces a GPU kernel benchmarking framework that evaluates performance against analytically-derived Speed-of-Light (SOL) bounds rather than software baselines. The benchmark comprises 235 CUDA kernel optimization problems extracted from 124 production AI models, targeting NVIDIA Blackwell GPUs across BF16, FP8, and NVFP4 precisions. The SOLAR pipeline computes hardware-grounded performance bounds using FLOP counts, memory bandwidth limits, and peak GPU throughput to establish theoretical minimum execution times. A SOL Score metric quantifies how much of the gap between baseline performance and theoretical hardware limits a kernel implementation closes, providing a fixed optimization target independent of software reference implementations.",
+    "problemContext": "Current GPU kernel benchmarks evaluate performance relative to mutable software baselines, creating a moving target that doesn't reflect proximity to hardware efficiency limits. As agentic AI systems become capable of automated kernel generation, this approach fails to drive optimization toward fundamental hardware constraints. The rapid evolution of AI architectures (MoE, SSMs, hybrid models) introduces novel computational primitives requiring specialized kernels, while manual optimization cannot keep pace with hardware feature cadence and model complexity growth. Existing benchmarks like KernelBench focus on older architectures and PyTorch speedups, while domain-specific benchmarks lack comprehensive coverage of emerging workloads and precision formats.",
+    "coreInnovation": "The fundamental innovation is reframing kernel optimization from beating software baselines to closing the gap to theoretical hardware limits through analytically-derived SOL bounds. The SOLAR pipeline computes these bounds by analyzing computational intensity, memory access patterns, and architectural constraints to establish theoretical minimum execution times. This approach provides a stable, hardware-grounded evaluation target that remains constant across different software implementations. The benchmark uniquely combines breadth (235 problems across diverse AI architectures) with precision (targeting Blackwell-specific capabilities and emerging formats like NVFP4) while providing robust evaluation infrastructure resistant to reward hacking.",
+    "technicalMechanics": [
+      "LLM-aided extraction pipeline processes 124 production AI models to identify 7,400 computational subgraphs, applying filtering and curation to select 235 representative kernel optimization problems",
+      "SOLAR pipeline analytically derives SOL bounds by computing theoretical minimum execution time based on FLOP counts, memory bandwidth requirements, and peak hardware throughput for specific GPU architectures",
+      "SOL Score metric: Score = (T_baseline - T_candidate) / (T_baseline - T_SOL) where T represents execution times, quantifying gap closure between baseline and theoretical hardware limits",
+      "Four-tier problem organization by computational complexity and precision requirements, covering forward/backward passes across BF16, FP8, and NVFP4 formats with up to 16 dynamically-shaped workloads per problem",
+      "Sandboxed evaluation harness implements GPU clock locking, L2 cache clearing, isolated subprocess execution, and static analysis checks to prevent reward hacking strategies",
+      "Problem specification format includes computational kernels, reference PyTorch implementations, input/output tensor specifications, and architectural constraints specific to Blackwell capabilities",
+      "Coverage spans frontier architectures including MoE models (DeepSeek-V3), SSMs (Mamba-2), linear attention variants (RWKV), and hybrid architectures (Nemotron-H) with novel primitives like Multi-head Latent Attention",
+      "Evaluation framework supports both post-training and inference workloads, capturing the full spectrum of production AI model execution patterns with emphasis on Blackwell-specific optimizations"
+    ],
+    "productionConsiderations": {
+      "scalability": "The benchmark scales to modern GPU clusters through Blackwell-specific targeting and dynamic workload shapes. SOLAR pipeline computational overhead is minimal as SOL bounds are pre-computed analytically. However, comprehensive evaluation across 235 problems requires significant GPU time, and the sandboxed harness adds execution overhead for robust measurement.",
+      "latency": "Evaluation harness introduces measurement overhead through clock locking and cache clearing but provides microsecond-precision timing. SOL bounds represent theoretical minimum latency achievable on target hardware. The benchmark focuses on kernel-level optimization rather than end-to-end inference latency.",
+      "resourceRequirements": "Requires NVIDIA B200 GPUs for full evaluation, with substantial GPU memory for large model kernels. Sandboxed execution demands isolated compute resources. Storage requirements include problem specifications, reference implementations, and evaluation results across multiple precision formats.",
+      "implementationComplexity": "Moderate complexity requiring CUDA expertise, Blackwell architecture knowledge, and understanding of theoretical performance modeling. Integration demands custom evaluation harness, GPU resource management, and static analysis tools for reward hacking prevention."
+    },
+    "applicationsAndImpact": "SOL-ExecBench enables development of agentic AI systems for automated GPU kernel optimization, potentially accelerating deployment of optimized kernels for emerging AI architectures. Production ML teams can use the benchmark to evaluate kernel optimization strategies against hardware limits rather than arbitrary baselines, driving more efficient resource utilization in data centers. The framework particularly benefits organizations deploying frontier models with novel computational primitives like MoE routing or SSM selective scan operations. Hardware designers can leverage workload coverage to inform future GPU architecture decisions based on real optimization demands from production AI systems.",
+    "technicalPrerequisites": [
+      "CUDA programming model and GPU memory hierarchy optimization techniques",
+      "NVIDIA GPU architecture fundamentals, particularly Blackwell-specific features and capabilities",
+      "Performance modeling and roofline analysis for computational and memory-bound kernel characterization",
+      "AI model architecture patterns including Transformers, MoE, SSMs, and hybrid attention mechanisms",
+      "Static program analysis techniques for automated code verification and reward hacking detection",
+      "Sandboxed execution environments and GPU resource isolation mechanisms",
+      "Theoretical computer science concepts for deriving analytical performance bounds"
+    ],
+    "keyTermsAndConcepts": [
+      {
+        "term": "Speed-of-Light (SOL) bounds",
+        "definition": "Analytically-derived theoretical minimum execution times for GPU kernels based on computational intensity, memory bandwidth limits, and peak hardware throughput. Represents the fundamental performance limit achievable on specific GPU architectures regardless of software implementation quality."
+      },
+      {
+        "term": "SOL Score",
+        "definition": "Metric quantifying kernel performance as percentage of gap closed between baseline execution time and theoretical hardware limit: (T_baseline - T_candidate) / (T_baseline - T_SOL). Provides hardware-grounded evaluation independent of software reference implementations."
+      },
+      {
+        "term": "SOLAR pipeline",
+        "definition": "Automated system for deriving hardware-grounded SOL bounds from FLOP counts, memory access patterns, and GPU architectural constraints. Computes theoretical performance limits for specific kernel workloads on target hardware platforms."
+      },
+      {
+        "term": "Agentic AI systems",
+        "definition": "Autonomous AI systems capable of generating, compiling, profiling, and iteratively optimizing GPU kernels without human intervention. Represent the next generation of automated performance optimization tools for GPU computing."
+      },
+      {
+        "term": "Blackwell-specific capabilities",
+        "definition": "Hardware features unique to NVIDIA Blackwell architecture that enable novel optimization strategies, including enhanced precision formats (NVFP4), improved memory subsystem, and specialized compute units for AI workloads."
+      },
+      {
+        "term": "Reward hacking",
+        "definition": "Adversarial optimization strategies that artificially inflate benchmark scores without genuine performance improvements, such as exploiting measurement artifacts, cache warming, or timing manipulation. Mitigated through sandboxed execution and static analysis."
+      },
+      {
+        "term": "NVFP4",
+        "definition": "4-bit floating-point precision format introduced in NVIDIA Blackwell architecture for ultra-low precision AI inference workloads. Enables higher throughput and reduced memory bandwidth requirements for specific computational patterns."
+      },
+      {
+        "term": "Computational subgraphs",
+        "definition": "Isolated computational units extracted from complete AI model architectures, representing kernelizable operations suitable for GPU optimization. Serve as atomic optimization targets within the broader model execution graph."
+      }
+    ],
+    "architecturalInsight": "The system employs a multi-stage pipeline architecture: model extraction → subgraph identification → problem curation → SOL bound derivation → sandboxed evaluation. The SOLAR pipeline operates offline to pre-compute theoretical performance bounds, while the evaluation harness provides runtime assessment with isolation guarantees. The benchmark infrastructure separates problem specification from evaluation mechanics, enabling extensibility to new architectures and hardware platforms while maintaining consistent evaluation methodology.",
+    "limitations": "SOL bound derivation assumes perfect optimization within hardware constraints, potentially overestimating achievable performance for complex kernels with intricate data dependencies. The benchmark targets Blackwell-specific capabilities, limiting applicability to other GPU architectures. Analytical performance modeling may not capture all hardware subtleties like memory bank conflicts or instruction-level parallelism constraints. The sandboxed evaluation harness introduces measurement overhead that may affect timing precision for very fast kernels.",
+    "comparisonToExisting": "SOL-ExecBench provides hardware-grounded evaluation targets versus KernelBench's PyTorch speedup metrics and FlashInfer-Bench's software baselines. The benchmark offers broader architectural coverage (235 problems across diverse AI models) compared to domain-specific benchmarks, while uniquely supporting emerging precision formats like NVFP4. The SOL Score metric provides consistent optimization targets independent of reference implementation quality, addressing the moving baseline problem in traditional kernel benchmarking approaches.",
+    "relatedWork": [
+      "FlashAttention and IO-aware attention kernel optimization techniques",
+      "KernelBench for PyTorch-to-CUDA kernel optimization evaluation",
+      "Triton language and compiler framework for GPU kernel development",
+      "Roofline performance modeling for computational kernel characterization",
+      "NVIDIA cuDNN and cuBLAS optimized library implementations",
+      "TensorRT and graph-level optimization frameworks for AI inference"
+    ],
+    "implementationNotes": "Implementation requires NVIDIA CUDA toolkit with Blackwell architecture support and access to B200 GPUs for full evaluation capability. The benchmark leverages PyTorch for reference implementations and requires custom evaluation harness development for sandboxed execution. Initial prototyping could focus on subset evaluation using the provided problem specifications and SOLAR pipeline for SOL bound computation. Integration with existing ML frameworks would require adaptation of the problem specification format and evaluation metrics."
+  }
+}
