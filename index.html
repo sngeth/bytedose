@@ -149,6 +149,14 @@
             color: #1a1a1a;
         }
 
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 40px;
+            align-items: center;
+        }
+
         .read-paper {
             display: inline-block;
             padding: 14px 28px;
@@ -160,7 +168,6 @@
             font-size: 0.9375rem;
             letter-spacing: -0.01em;
             transition: all 0.2s;
-            margin-right: 12px;
         }
 
         .read-paper:hover {
@@ -235,18 +242,15 @@
                 flex-wrap: wrap;
             }
 
-            .read-paper,
-            .learn-button {
-                display: block;
-                width: 100%;
-                margin-right: 0;
-                margin-left: 0 !important;
-                margin-bottom: 12px;
-                text-align: center;
+            .button-group {
+                flex-direction: column;
             }
 
-            .read-paper:last-child {
-                margin-bottom: 0;
+            .read-paper,
+            .learn-button {
+                width: 100%;
+                text-align: center;
+                margin: 0 !important;
             }
         }
     </style>
@@ -315,14 +319,14 @@
 
                     ${categoriesHTML}
 
-                    <div style="margin-top: 40px;">
+                    <div class="button-group">
                         <a href="learn.html" class="learn-button">
                             Learn the Concepts
                         </a>
                         <a href="${article.url}" target="_blank" rel="noopener" class="read-paper">
                             Read Full Paper →
                         </a>
-                        <a href="anime-mode.html" class="read-paper" style="border-color: #ff6b35; color: #ff6b35; margin-left: 12px;">
+                        <a href="anime-mode.html" class="read-paper" style="border-color: #ff6b35; color: #ff6b35;">
                             🍜 Anime Mode
                         </a>
                     </div>

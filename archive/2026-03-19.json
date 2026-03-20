@@ -1,0 +1,67 @@
+{
+  "date": "2026-03-19",
+  "article": {
+    "id": "2603.17833v1",
+    "title": "ArchBench: Benchmarking Generative-AI for Software Architecture Tasks",
+    "summary": "Benchmarks for large language models (LLMs) have progressed from snippet-level function generation to repository-level issue resolution, yet they overwhelmingly target implementation correctness. Software architecture tasks remain under-specified and difficult to compare across models, despite their central role in maintaining and evolving complex systems. We present ArchBench, the first unified platform for benchmarking LLM capabilities on software architecture tasks. ArchBench provides a command-line tool with a standardized pipeline for dataset download, inference with trajectory logging, and automated evaluation, alongside a public web interface with an interactive leaderboard. The platform is built around a plugin architecture where each task is a self-contained module, making it straightforward for the community to contribute new architectural tasks and evaluation results. We use the term LLMs broadly to encompass generative AI (GenAI) solutions for software engineering, including both standalone models and LLM-based coding agents equipped with tools. Both the CLI tool and the web platform are openly available to support reproducible research and community-driven growth of architectural benchmarking.",
+    "authors": "Bassam Adnan, Aviral Gupta, Sreemaee Akshathala et al.",
+    "published": "2026-03-18T15:26:46Z",
+    "categories": [
+      "cs.SE"
+    ],
+    "url": "https://arxiv.org/abs/2603.17833v1",
+    "score": 33
+  },
+  "alternates": [
+    {
+      "id": "2603.17850v1",
+      "title": "ProbeFlow: Training-Free Adaptive Flow Matching for Vision-Language-Action Models",
+      "summary": "Recent Vision-Language-Action (VLA) models equipped with Flow Matching (FM) action heads achieve state-of-the-art performance in complex robot manipulation. However, the multi-step iterative ODE solving required by FM introduces inference latency that precludes responsive physical control. While current acceleration efforts optimize the Vision-Language Model (VLM) backbone, the action head bottleneck remains overlooked. To address this, we propose ProbeFlow, a training-free adaptive inference framework tai- lored for continuous robotic control. By evaluating geometric trajectory complexity via the cosine similarity between initial and lookahead velocity vectors, ProbeFlow dynamically sched- ules integration steps to prune redundant network evaluations. On the MetaWorld benchmark, it accelerates action decoding by 14.8x (reducing average steps from N = 50 to 2.6) and cuts end-to-end system latency by 2.8x without compromising the manipulation success rate. On the long-horizon LIBERO benchmark, the probe automatically allocates a denser schedule to navigate semantic bottlenecks, effectively resolving the flow solver delay. Real-world physical deployments confirm that ProbeFlow successfully mitigates action decoding latency while ensuring execution stability, offering a highly practical solution for low-latency continuous generative policies.",
+      "authors": "Zhou Fang, Jiaqi Wang, Yi Zhou et al.",
+      "published": "2026-03-18T15:38:29Z",
+      "categories": [
+        "cs.RO"
+      ],
+      "url": "https://arxiv.org/abs/2603.17850v1",
+      "score": 29
+    },
+    {
+      "id": "2603.17927v1",
+      "title": "RoboForge: Physically Optimized Text-guided Whole-Body Locomotion for Humanoids",
+      "summary": "While generative models have become effective at producing human-like motions from text, transferring these motions to humanoid robots for physical execution remains challenging. Existing pipelines are often limited by retargeting, where kinematic quality is undermined by physical infeasibility, contact-transition errors, and the high cost of real-world dynamical data. We present a unified latent-driven framework that bridges natural language and whole-body humanoid locomotion through a retarget-free, physics-optimized pipeline. Rather than treating generation and control as separate stages, our key insight is to couple them bidirectionally under physical constraints.We introduce a Physical Plausibility Optimization (PP-Opt) module as the coupling interface. In the forward direction, PP-Opt refines a teacher-student distillation policy with a plausibility-centric reward to suppress artifacts such as floating, skating, and penetration. In the backward direction, it converts reward-optimized simulation rollouts into high-quality explicit motion data, which is used to fine-tune the motion generator toward a more physically plausible latent distribution. This bidirectional design forms a self-improving cycle: the generator learns a physically grounded latent space, while the controller learns to execute latent-conditioned behaviors with dynamical integrity.Extensive experiments on the Unitree G1 humanoid show that our bidirectional optimization improves tracking accuracy and success rates. Across IsaacLab and MuJoCo, the implicit latent-driven pipeline consistently outperforms conventional explicit retargeting baselines in both precision and stability. By coupling diffusion-based motion generation with physical plausibility optimization, our framework provides a practical path toward deployable text-guided humanoid intelligence.",
+      "authors": "Xichen Yuan, Zhe Li, Bofan Lyu et al.",
+      "published": "2026-03-18T17:02:56Z",
+      "categories": [
+        "cs.RO"
+      ],
+      "url": "https://arxiv.org/abs/2603.17927v1",
+      "score": 26
+    },
+    {
+      "id": "2603.17969v1",
+      "title": "Specification-Aware Distribution Shaping for Robotics Foundation Models",
+      "summary": "Robotics foundation models have demonstrated strong capabilities in executing natural language instructions across diverse tasks and environments. However, they remain largely data-driven and lack formal guarantees on safety and satisfaction of time-dependent specifications during deployment. In practice, robots often need to comply with operational constraints involving rich spatio-temporal requirements such as time-bounded goal visits, sequential objectives, and persistent safety conditions. In this work, we propose a specification-aware action distribution optimization framework that enforces a broad class of Signal Temporal Logic (STL) constraints during execution of a pretrained robotics foundation model without modifying its parameters. At each decision step, the method computes a minimally modified action distribution that satisfies a hard STL feasibility constraint by reasoning over the remaining horizon using forward dynamics propagation. We validate the proposed framework in simulation using a state-of-the-art robotics foundation model across multiple environments and complex specifications.",
+      "authors": "Sadık Bera Yüksel, Derya Aksaray",
+      "published": "2026-03-18T17:36:46Z",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "url": "https://arxiv.org/abs/2603.17969v1",
+      "score": 24
+    },
+    {
+      "id": "2603.17902v1",
+      "title": "Differential Privacy in Generative AI Agents: Analysis and Optimal Tradeoffs",
+      "summary": "Large language models (LLMs) and AI agents are increasingly integrated into enterprise systems to access internal databases and generate context-aware responses. While such integration improves productivity and decision support, the model outputs may inadvertently reveal sensitive information. Although many prior efforts focus on protecting the privacy of user prompts, relatively few studies consider privacy risks from the enterprise data perspective. Hence, this paper develops a probabilistic framework for analyzing privacy leakage in AI agents based on differential privacy. We model response generation as a stochastic mechanism that maps prompts and datasets to distributions over token sequences. Within this framework, we introduce token-level and message-level differential privacy and derive privacy bounds that relate privacy leakage to generation parameters such as temperature and message length. We further formulate a privacy-utility design problem that characterizes optimal temperature selection.",
+      "authors": "Ya-Ting Yang, Quanyan Zhu",
+      "published": "2026-03-18T16:35:12Z",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "url": "https://arxiv.org/abs/2603.17902v1",
+      "score": 23
+    }
+  ]
+}

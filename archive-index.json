@@ -1,6 +1,24 @@
 {
-  "lastUpdated": "2026-03-18T07:25:11.177Z",
+  "lastUpdated": "2026-03-20T07:22:00.283Z",
   "articles": [
+    {
+      "date": "2026-03-20",
+      "article": {
+        "title": "SOL-ExecBench: Speed-of-Light Benchmarking for Real-World GPU Kernels Against Hardware Limits",
+        "authors": "Edward Lin, Sahil Modi, Siva Kumar Sastry Hari et al.",
+        "published": "2026-03-19T17:30:02Z",
+        "url": "https://arxiv.org/abs/2603.19173v1"
+      }
+    },
+    {
+      "date": "2026-03-19",
+      "article": {
+        "title": "ArchBench: Benchmarking Generative-AI for Software Architecture Tasks",
+        "authors": "Bassam Adnan, Aviral Gupta, Sreemaee Akshathala et al.",
+        "published": "2026-03-18T15:26:46Z",
+        "url": "https://arxiv.org/abs/2603.17833v1"
+      }
+    },
     {
       "date": "2026-03-18",
       "article": {
