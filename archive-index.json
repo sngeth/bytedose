@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-03-20T07:22:00.283Z",
+  "lastUpdated": "2026-03-21T07:15:55.935Z",
   "articles": [
+    {
+      "date": "2026-03-21",
+      "article": {
+        "title": "SOL-ExecBench: Speed-of-Light Benchmarking for Real-World GPU Kernels Against Hardware Limits",
+        "authors": "Edward Lin, Sahil Modi, Siva Kumar Sastry Hari et al.",
+        "published": "2026-03-19T17:30:02Z",
+        "url": "https://arxiv.org/abs/2603.19173v1"
+      }
+    },
     {
       "date": "2026-03-20",
       "article": {
