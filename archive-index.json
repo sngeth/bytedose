@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-03-22T07:18:29.907Z",
+  "lastUpdated": "2026-03-23T07:31:42.574Z",
   "articles": [
+    {
+      "date": "2026-03-23",
+      "article": {
+        "title": "Implementing the L4S Architecture in the ns-3 Simulator",
+        "authors": "Maria Eduarda Veras, Eduardo Freitas, Assis T. de Oliveira Filho et al.",
+        "published": "2026-03-20T17:44:19Z",
+        "url": "https://arxiv.org/abs/2603.20166v1"
+      }
+    },
     {
       "date": "2026-03-22",
       "article": {
