@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-03-24T07:25:36.260Z",
+  "lastUpdated": "2026-03-25T07:24:41.848Z",
   "articles": [
+    {
+      "date": "2026-03-25",
+      "article": {
+        "title": "ReqFusion: A Multi-Provider Framework for Automated PEGS Analysis Across Software Domains",
+        "authors": "Muhammad Khalid, Manuel Oriol, Yilmaz Uygun",
+        "published": "2026-03-24T17:45:40Z",
+        "url": "https://arxiv.org/abs/2603.23482v1"
+      }
+    },
     {
       "date": "2026-03-24",
       "article": {
