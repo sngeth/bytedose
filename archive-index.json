@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-03-25T07:24:41.848Z",
+  "lastUpdated": "2026-03-26T07:29:35.383Z",
   "articles": [
+    {
+      "date": "2026-03-26",
+      "article": {
+        "title": "MARCH: Multi-Agent Reinforced Self-Check for LLM Hallucination",
+        "authors": "Zhuo Li, Yupeng Zhang, Pengyu Cheng et al.",
+        "published": "2026-03-25T17:54:10Z",
+        "url": "https://arxiv.org/abs/2603.24579v1"
+      }
+    },
     {
       "date": "2026-03-25",
       "article": {

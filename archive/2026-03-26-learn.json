@@ -1,0 +1,82 @@
+{
+  "date": "2026-03-26",
+  "articleId": "2603.24579v1",
+  "articleTitle": "MARCH: Multi-Agent Reinforced Self-Check for LLM Hallucination",
+  "content": {
+    "technicalOverview": "MARCH implements a multi-agent reinforcement learning framework to address confirmation bias in LLM hallucination detection through deliberate information asymmetry. The system orchestrates three specialized agents (Solver, Proposer, Checker) trained via MARL with a Zero-Tolerance Reward (ZTR) function that enforces strict factual adherence. The Checker agent validates atomic propositions in isolation without access to the original generation, breaking self-confirmation cycles. The framework achieves competitive performance with an 8B parameter model matching closed-source systems through co-evolutionary optimization of factual alignment. Training employs policy gradient methods with joint optimization across all three agents using shared reward signals.",
+    "problemContext": "Existing LLM-as-a-judge approaches for hallucination detection suffer from confirmation bias where verifiers reproduce errors from the original generation, creating circular validation failures. Traditional supervised fine-tuning operates on behavior cloning which prioritizes stylistic patterns over factual accuracy, potentially amplifying hallucinations. RAG systems particularly struggle with context-conflicting hallucinations involving numerical data, temporal sequences, and arithmetic aggregations despite having correct source information available. The computational bottleneck lies in the inherent coupling between generation and verification processes, where the same model architecture biases both stages toward consistent but potentially incorrect outputs.",
+    "coreInnovation": "The fundamental contribution is the introduction of deliberate information asymmetry to decouple verification from generation, preventing confirmation bias propagation. Unlike previous approaches that expose the checker to original outputs, MARCH enforces isolation where the Checker validates atomic propositions solely against retrieved evidence. The multi-agent reinforcement learning framework enables co-evolutionary optimization where agents specialize and improve collaboratively rather than independently. The Zero-Tolerance Reward mechanism provides binary feedback that strictly penalizes any factual inconsistency, creating stronger training signals than traditional reward shaping approaches.",
+    "technicalMechanics": [
+      "Solver agent generates initial RAG response using standard retrieval-augmented generation with query x and document set D, producing output y ~ ν_solve(·|x,D)",
+      "Proposer agent decomposes the response into atomic propositions and formulates verifiable question-answer pairs {q_i, a_i} where each q_i targets a specific factual claim",
+      "Checker agent performs isolated verification by answering questions {q_i} using only retrieved evidence D, generating responses {â_i} ~ ν_check(·|{q_i}, D) without access to original output y",
+      "Zero-Tolerance Reward (ZTR) computes binary reward based on exact match between original answers {a_i} and checker responses {â_i}, implementing strict factual consistency requirements",
+      "Multi-agent reinforcement learning optimizes all three agents jointly using policy gradient methods with shared reward signals, enabling co-evolutionary specialization",
+      "Training employs proximal policy optimization (PPO) with experience replay and importance sampling to handle the multi-agent credit assignment problem",
+      "Information asymmetry is enforced architecturally by preventing the Checker from accessing intermediate representations or attention patterns from the Solver",
+      "The framework supports different reward scalars and formulations through configurable ZTR parameters to balance precision vs. recall in factual verification"
+    ],
+    "productionConsiderations": {
+      "scalability": "The three-agent architecture requires 3x inference calls per query, creating linear scaling bottlenecks. Multi-agent training complexity grows quadratically with agent interactions, requiring distributed training infrastructure. The atomic proposition decomposition step scales with response length and factual density.",
+      "latency": "End-to-end latency includes sequential agent calls (Solver → Proposer → Checker) plus MARL inference overhead. Not suitable for real-time applications due to multi-stage pipeline. Batch processing recommended for production deployment with parallel agent execution where possible.",
+      "resourceRequirements": "Requires 3x model capacity for independent agent deployment or sophisticated model sharing architecture. GPU memory scales with longest agent context (typically Checker with evidence + questions). Distributed training needs coordination across agent policies with synchronized gradient updates.",
+      "implementationComplexity": "High complexity requiring MARL framework integration, custom reward computation, and careful information flow management. Needs specialized infrastructure for multi-agent policy optimization, experience collection, and reward distribution. Complex debugging due to emergent multi-agent behaviors."
+    },
+    "applicationsAndImpact": "This approach directly addresses critical needs in high-stakes RAG applications including financial document analysis, legal case research, and medical literature review where factual accuracy is paramount. Production systems like customer service chatbots, technical documentation assistants, and research synthesis tools could achieve significant reliability improvements. The framework enables smaller models (8B parameters) to compete with larger closed-source systems, reducing deployment costs while maintaining accuracy. Real-world performance gains include measurable hallucination rate reductions across multiple benchmarks with particular strength in numerical and temporal fact verification.",
+    "technicalPrerequisites": [
+      "Multi-agent reinforcement learning (MARL) algorithms including policy gradient methods and credit assignment",
+      "Proximal Policy Optimization (PPO) and experience replay mechanisms for stable training",
+      "Retrieval-augmented generation architectures and vector database integration",
+      "Information theory concepts around deliberate asymmetry and bias mitigation",
+      "Transformer attention mechanisms and intermediate representation manipulation",
+      "Reward shaping and sparse reward optimization in RL contexts",
+      "Distributed training coordination and gradient synchronization across multiple agents"
+    ],
+    "keyTermsAndConcepts": [
+      {
+        "term": "Information Asymmetry",
+        "definition": "Deliberate architectural design where the Checker agent is deprived of access to the Solver's original output, preventing confirmation bias propagation. This asymmetry breaks the circular validation pattern by ensuring independent evidence-based verification."
+      },
+      {
+        "term": "Zero-Tolerance Reward (ZTR)",
+        "definition": "Binary reward function that provides positive reinforcement only when all atomic propositions match exactly between original and checker responses. Implements strict factual consistency requirements with no partial credit for near-matches."
+      },
+      {
+        "term": "Multi-Agent Reinforcement Learning (MARL)",
+        "definition": "Training paradigm where three specialized agents (Solver, Proposer, Checker) co-evolve through shared reward signals and joint policy optimization. Enables emergent specialization and collaborative fact-checking behavior through coordinated learning."
+      },
+      {
+        "term": "Atomic Propositions",
+        "definition": "Minimal, verifiable factual claims extracted from generated responses by the Proposer agent. Each proposition corresponds to a single factual assertion that can be independently validated against source evidence without context dependencies."
+      },
+      {
+        "term": "Confirmation Bias",
+        "definition": "Systematic error in LLM-as-a-judge approaches where the verifier reproduces errors from the original generation due to shared model biases and training data. Results in circular validation failures where incorrect facts are consistently confirmed."
+      },
+      {
+        "term": "Context-Conflicting Hallucinations",
+        "definition": "Specific type of factual errors where generated content contradicts explicitly provided evidence in the retrieval context. Particularly common in numerical data, temporal sequences, and arithmetic operations despite correct source information availability."
+      },
+      {
+        "term": "Co-evolutionary Optimization",
+        "definition": "Training process where multiple agents simultaneously improve their specialized capabilities through interaction and shared feedback. Enables emergent division of labor and complementary skill development across the agent ensemble."
+      },
+      {
+        "term": "Policy Gradient Methods",
+        "definition": "Reinforcement learning optimization techniques used to train each agent's policy network. Employs gradient ascent on expected reward with importance sampling and experience replay to handle multi-agent credit assignment challenges."
+      }
+    ],
+    "architecturalInsight": "The system implements a sequential pipeline architecture where information flows unidirectionally from Solver → Proposer → Checker, with strict isolation barriers preventing backward information leakage. The Checker operates in a sandboxed environment with access only to retrieved evidence and question formulations, not intermediate activations or attention patterns from upstream agents. This architectural separation is enforced both at the data level (input filtering) and potentially at the model level (separate inference contexts) to maintain the critical information asymmetry property.",
+    "limitations": "The approach requires 3x computational overhead compared to single-stage generation, making it unsuitable for latency-critical applications. The binary ZTR reward function may be overly strict for nuanced factual claims where partial correctness exists, potentially leading to overly conservative generation. The framework's effectiveness depends heavily on the quality of atomic proposition decomposition by the Proposer agent, creating a potential single point of failure in the pipeline.",
+    "comparisonToExisting": "MARCH demonstrates substantial hallucination rate reductions compared to standard RAG baselines and existing LLM-as-a-judge approaches across multiple benchmarks including RAGTruth, FaithBench, and ContextualJudgeBench. The 8B parameter MARCH model achieves competitive performance with much larger closed-source models, suggesting significant efficiency gains. Trade-offs include increased computational cost and latency versus improved factual accuracy and reliability compared to single-stage generation methods.",
+    "relatedWork": [
+      "Self-consistency decoding and chain-of-thought reasoning for improved LLM reliability",
+      "Constitutional AI and reward modeling for factual alignment in language models",
+      "Retrieval-augmented generation architectures and dense passage retrieval systems",
+      "Multi-agent systems for LLM applications including debate and collaborative reasoning",
+      "Hallucination detection methods using natural language inference and fact-checking",
+      "Reinforcement learning from human feedback (RLHF) for truthfulness optimization"
+    ],
+    "implementationNotes": "Implementation would likely leverage existing MARL frameworks like RLlib or stable-baselines3 with custom multi-agent environments. The three-agent architecture could be implemented using shared model weights with role-specific prompting or separate fine-tuned models for each agent. Key first steps include implementing the information isolation mechanisms, designing the atomic proposition extraction pipeline, and setting up the ZTR reward computation infrastructure. The authors provide code at https://github.com/Qwen-Applications/MARCH for reference implementation details."
+  }
+}
