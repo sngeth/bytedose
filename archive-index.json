@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-03-26T07:29:35.383Z",
+  "lastUpdated": "2026-03-27T07:29:05.503Z",
   "articles": [
+    {
+      "date": "2026-03-27",
+      "article": {
+        "title": "Cooperative Deep Reinforcement Learning for Fair RIS Allocation",
+        "authors": "Martin Mark Zan, Stefan Schwarz",
+        "published": "2026-03-26T15:46:32Z",
+        "url": "https://arxiv.org/abs/2603.25572v1"
+      }
+    },
     {
       "date": "2026-03-26",
       "article": {
