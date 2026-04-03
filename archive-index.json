@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-04-01T07:34:16.461Z",
+  "lastUpdated": "2026-04-03T07:30:06.057Z",
   "articles": [
+    {
+      "date": "2026-04-03",
+      "article": {
+        "title": "Automated Functional Testing for Malleable Mobile Application Driven from User Intent",
+        "authors": "Yuying Wang, Kaifeng Huang, Hao Deng et al.",
+        "published": "2026-04-02T14:10:11Z",
+        "url": "https://arxiv.org/abs/2604.02079v1"
+      }
+    },
     {
       "date": "2026-04-01",
       "article": {
