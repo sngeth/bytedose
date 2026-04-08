@@ -1,0 +1,82 @@
+{
+  "date": "2026-04-08",
+  "articleId": "2604.06148v1",
+  "articleTitle": "Who Governs the Machine? A Machine Identity Governance Taxonomy (MIGT) for AI Systems Operating Across Enterprise and Geopolitical Boundaries",
+  "content": {
+    "technicalOverview": "This paper presents a comprehensive taxonomy and governance framework for machine identity management in enterprise AI systems, where non-human identities (service accounts, API tokens, AI agents) outnumber human identities 80:1. The core technical contribution is the Machine Identity Governance Taxonomy (MIGT), a six-domain framework integrating cryptographic identity architecture, dynamic access control, and cross-jurisdictional compliance mechanisms. The framework introduces attribute-composite risk scoring for agentic AI access governance and hardware-rooted attestation for machine identity verification. The approach addresses the fundamental architectural gap where existing IAM systems lack governance primitives for autonomous AI agents that can delegate authority, accumulate privileges, and operate across geopolitical boundaries.",
+    "problemContext": "Current enterprise identity governance systems were designed for human-operated workflows and lack primitives for autonomous AI agents that can invoke tools, delegate authority, and accumulate de facto privileges across systems. The scale problem is severe - with 80:1 machine-to-human identity ratios creating an ungovernable attack surface that nation-state actors are actively exploiting. Existing frameworks address either technical governance, regulatory compliance, or cross-jurisdictional coordination in isolation, creating structural gaps when AI systems operate across enterprise and geopolitical boundaries. The computational complexity of tracking transitive permissions and dynamic risk scoring across interconnected agentic workflows exceeds the capabilities of traditional RBAC and ABAC systems.",
+    "coreInnovation": "The fundamental innovation is an integrated governance taxonomy that simultaneously addresses technical, regulatory, and geopolitical dimensions of machine identity management through a unified framework. Unlike existing IAM approaches that treat machine identities as static service accounts, MIGT introduces dynamic governance primitives for autonomous agents that can modify their own access patterns and delegate authority. The framework's attribute-composite risk scoring algorithm enables real-time access decisions for agentic AI based on behavioral analysis, cryptographic attestation, and cross-jurisdictional compliance requirements. The key architectural insight is treating machine identity governance as a distributed coordination problem requiring consensus mechanisms across technical, legal, and geopolitical domains.",
+    "technicalMechanics": [
+      "Hardware-rooted attestation for agentic identity using TPM or secure enclave technology to cryptographically bind AI agent execution to verified hardware platforms, preventing identity spoofing and ensuring execution integrity",
+      "Attribute-composite risk scoring algorithm that dynamically evaluates access requests based on agent behavior patterns, tool invocation history, data sensitivity, and real-time threat intelligence feeds",
+      "Six-domain governance architecture spanning AI identity lifecycle, cryptographic authentication, dynamic access control, accountability attribution, supply chain provenance, and regulatory alignment",
+      "Cross-jurisdictional regulatory mapping engine that identifies conflicting compliance requirements across EU AI Act, US federal frameworks, and Chinese AI regulations, providing conflict resolution mechanisms",
+      "Transitive permission tracking system that monitors how AI agents accumulate privileges across interconnected systems and identifies potential privilege escalation paths",
+      "Supply chain provenance verification using cryptographic signatures and attestation chains to verify model integrity and training data lineage",
+      "Four-phase implementation roadmap with specific technical milestones: foundation (months 1-6), hardening (6-12), integration (12-24), and optimization (24+)",
+      "Foreign state actor threat model specifically addressing Silk Typhoon, Salt Typhoon, and Volt Typhoon attack vectors targeting ungoverned machine credentials in critical infrastructure"
+    ],
+    "productionConsiderations": {
+      "scalability": "The framework must handle 80:1 machine-to-human identity ratios in enterprise environments, requiring distributed architecture with consensus mechanisms across multiple governance domains. Bottlenecks likely occur in real-time risk scoring computations and cross-jurisdictional compliance checking at scale.",
+      "latency": "Dynamic access control decisions require sub-second response times for agentic AI workflows. The attribute-composite risk scoring algorithm must balance comprehensive threat analysis with real-time performance constraints, likely requiring pre-computed risk baselines and incremental updates.",
+      "resourceRequirements": "Cryptographic attestation and hardware-rooted identity verification require TPM or secure enclave support across the infrastructure. Supply chain provenance tracking demands significant storage for cryptographic signatures and attestation chains. Cross-jurisdictional compliance monitoring requires continuous regulatory database updates.",
+      "implementationComplexity": "High complexity due to integration requirements across identity management, cryptographic infrastructure, compliance systems, and threat intelligence feeds. Requires expertise in IAM, cryptography, AI security, and regulatory compliance. Significant organizational change management for new governance processes."
+    },
+    "applicationsAndImpact": "This framework directly addresses critical infrastructure protection where nation-state actors are exploiting ungoverned machine credentials, as demonstrated in the CrowdStrike incident ($5.4-10B losses). Enterprise AI deployments operating across multiple jurisdictions can implement unified governance that simultaneously satisfies EU AI Act, US federal requirements, and Chinese regulations. The framework enables secure deployment of autonomous AI agents in financial services, healthcare, and critical infrastructure where regulatory compliance and foreign adversary threats create complex operational constraints. Production systems handling sensitive data or operating in regulated industries can use the attribute-composite risk scoring to enable AI automation while maintaining security and compliance.",
+    "technicalPrerequisites": [
+      "Identity and Access Management (IAM) architecture including RBAC, ABAC, and OAuth/OIDC protocols",
+      "Cryptographic foundations: digital signatures, attestation chains, hardware security modules (HSM), and trusted platform modules (TPM)",
+      "AI agent architectures: tool invocation patterns, delegation mechanisms, and autonomous decision-making frameworks",
+      "Enterprise security architecture: threat modeling, incident response, and security information and event management (SIEM)",
+      "Regulatory compliance frameworks: risk assessment methodologies, audit trails, and cross-jurisdictional legal analysis",
+      "Distributed systems design: consensus mechanisms, eventual consistency, and fault tolerance patterns",
+      "Threat intelligence integration: IOC feeds, behavioral analysis, and attack pattern recognition"
+    ],
+    "keyTermsAndConcepts": [
+      {
+        "term": "Agentic AI",
+        "definition": "Autonomous AI systems capable of perception, decision-making, and action within environments, executing multi-step tasks without continuous human direction. Distinguished from generative AI by their ability to invoke tools, delegate authority, and accumulate privileges across enterprise systems."
+      },
+      {
+        "term": "Machine Identity Governance Taxonomy (MIGT)",
+        "definition": "Six-domain integrated governance framework addressing AI identity lifecycle, cryptographic authentication architecture, dynamic access governance, accountability attribution, supply chain provenance, and cross-jurisdictional regulatory alignment for autonomous AI systems."
+      },
+      {
+        "term": "Attribute-Composite Risk Scoring",
+        "definition": "Dynamic access control algorithm that evaluates AI agent access requests based on behavioral patterns, tool invocation history, data sensitivity levels, threat intelligence feeds, and cryptographic attestation results to make real-time authorization decisions."
+      },
+      {
+        "term": "Hardware-Rooted Attestation",
+        "definition": "Cryptographic identity verification mechanism using TPM or secure enclaves to bind AI agent execution to verified hardware platforms, ensuring execution integrity and preventing identity spoofing through tamper-resistant hardware roots of trust."
+      },
+      {
+        "term": "AI-Identity Risk Taxonomy (AIRT)",
+        "definition": "Comprehensive enumeration of 37 risk subcategories across eight domains specifically addressing risks at the intersection of AI systems and enterprise identity governance, grounded in documented incidents and threat intelligence."
+      },
+      {
+        "term": "Cross-Jurisdictional Regulatory Alignment",
+        "definition": "Governance mechanism for managing conflicting AI compliance requirements across EU AI Act, US federal frameworks, and Chinese regulations simultaneously, providing conflict identification and resolution processes for multinational enterprise operations."
+      },
+      {
+        "term": "Supply Chain Model Provenance",
+        "definition": "Cryptographic verification system tracking AI model integrity and training data lineage through attestation chains, ensuring model authenticity and detecting potential supply chain compromises or backdoor insertions."
+      },
+      {
+        "term": "Transitive Permission Accumulation",
+        "definition": "Process by which AI agents acquire and exercise access rights across interconnected systems, potentially accumulating de facto privileges beyond their originally provisioned scope through tool invocation and delegation mechanisms."
+      }
+    ],
+    "architecturalInsight": "The MIGT employs a layered architecture with hardware-rooted trust at the foundation, dynamic risk assessment in the control plane, and distributed compliance coordination across jurisdictional boundaries. The system uses a hub-and-spoke pattern where cryptographic attestation anchors provide identity verification, attribute-composite risk scoring engines make access decisions, and regulatory alignment controllers manage cross-jurisdictional compliance conflicts. Data flows through attestation chains for identity verification, behavioral analysis pipelines for risk scoring, and compliance mapping engines for regulatory coordination.",
+    "limitations": "The framework requires significant infrastructure investment in hardware security modules and attestation capabilities that may not be feasible for smaller organizations. Dynamic risk scoring introduces latency that may be incompatible with high-frequency trading or real-time control systems. Cross-jurisdictional compliance mechanisms may become computationally intractable as the number of regulatory frameworks increases, and the system cannot resolve fundamental conflicts between incompatible legal requirements across jurisdictions.",
+    "comparisonToExisting": "Unlike traditional IAM systems that treat machine identities as static service accounts, MIGT introduces dynamic governance primitives specifically designed for autonomous AI agents. The framework provides integrated technical and regulatory governance where existing approaches address these domains in isolation, and it's the first to specifically model foreign state actor threats against enterprise AI identity infrastructure. The attribute-composite risk scoring represents a significant advancement over traditional RBAC/ABAC by incorporating behavioral analysis and threat intelligence into real-time access decisions.",
+    "relatedWork": [
+      "NIST Cybersecurity Framework and AI Risk Management Framework for foundational risk assessment methodologies",
+      "SPIFFE/SPIRE for distributed identity verification and attestation in cloud-native environments",
+      "OAuth 2.0 and OpenID Connect specifications for federated identity and authorization protocols",
+      "Zero Trust Architecture (NIST SP 800-207) for continuous verification and least-privilege access principles",
+      "Confidential Computing and Trusted Execution Environments for hardware-rooted security",
+      "EU AI Act and algorithmic impact assessment frameworks for regulatory compliance methodologies"
+    ],
+    "implementationNotes": "Implementation would likely build on existing enterprise IAM platforms (Okta, Azure AD, AWS IAM) with custom extensions for agentic AI governance. The hardware attestation components could leverage Intel TXT, AMD SVM, or ARM TrustZone technologies through libraries like go-attestation or Microsoft TSS.NET. The risk scoring engine could be implemented using streaming analytics platforms (Apache Kafka, Apache Flink) for real-time behavioral analysis. Organizations should start with pilot deployments in non-critical environments to validate the governance processes before scaling to production AI workflows."
+  }
+}

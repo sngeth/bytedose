@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-04-07T07:33:53.016Z",
+  "lastUpdated": "2026-04-08T07:34:12.322Z",
   "articles": [
+    {
+      "date": "2026-04-08",
+      "article": {
+        "title": "Who Governs the Machine? A Machine Identity Governance Taxonomy (MIGT) for AI Systems Operating Across Enterprise and Geopolitical Boundaries",
+        "authors": "Andrew Kurtz, Klaudia Krawiecka",
+        "published": "2026-04-07T17:51:56Z",
+        "url": "https://arxiv.org/abs/2604.06148v1"
+      }
+    },
     {
       "date": "2026-04-07",
       "article": {
