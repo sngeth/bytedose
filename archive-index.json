@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-04-11T07:24:25.441Z",
+  "lastUpdated": "2026-04-12T07:32:05.251Z",
   "articles": [
+    {
+      "date": "2026-04-12",
+      "article": {
+        "title": "NL-CPS: Reinforcement Learning-Based Kubernetes Control Plane Placement in Multi-Region Clusters",
+        "authors": "Sajid Alam, Amjad Ullah, Ze Wang",
+        "published": "2026-04-09T16:36:29Z",
+        "url": "https://arxiv.org/abs/2604.08434v1"
+      }
+    },
     {
       "date": "2026-04-11",
       "article": {
