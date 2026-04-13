@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-04-12T07:32:05.251Z",
+  "lastUpdated": "2026-04-13T07:37:08.651Z",
   "articles": [
+    {
+      "date": "2026-04-13",
+      "article": {
+        "title": "When LLMs Lag Behind: Knowledge Conflicts from Evolving APIs in Code Generation",
+        "authors": "Ahmed Nusayer Ashik, Shaowei Wang, Tse-Hsun Chen et al.",
+        "published": "2026-04-10T17:37:26Z",
+        "url": "https://arxiv.org/abs/2604.09515v1"
+      }
+    },
     {
       "date": "2026-04-12",
       "article": {
