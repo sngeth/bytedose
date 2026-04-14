@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-04-13T07:37:08.651Z",
+  "lastUpdated": "2026-04-14T07:36:48.311Z",
   "articles": [
+    {
+      "date": "2026-04-14",
+      "article": {
+        "title": "ClawGUI: A Unified Framework for Training, Evaluating, and Deploying GUI Agents",
+        "authors": "Fei Tang, Zhiqiong Lu, Boxuan Zhang et al.",
+        "published": "2026-04-13T17:52:04Z",
+        "url": "https://arxiv.org/abs/2604.11784v1"
+      }
+    },
     {
       "date": "2026-04-13",
       "article": {
