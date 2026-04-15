@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-04-14T07:36:48.311Z",
+  "lastUpdated": "2026-04-15T07:35:23.272Z",
   "articles": [
+    {
+      "date": "2026-04-15",
+      "article": {
+        "title": "DySkew: Dynamic Data Redistribution for Skew-Resilient Snowpark UDF Execution",
+        "authors": "Chenwei Xie, Urjeet Shrestha, Corbin McElhanney et al.",
+        "published": "2026-04-14T17:59:22Z",
+        "url": "https://arxiv.org/abs/2604.13034v1"
+      }
+    },
     {
       "date": "2026-04-14",
       "article": {
