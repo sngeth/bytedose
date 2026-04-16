@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-04-15T07:35:23.272Z",
+  "lastUpdated": "2026-04-16T07:35:06.674Z",
   "articles": [
+    {
+      "date": "2026-04-16",
+      "article": {
+        "title": "AI-Assisted Peer Review at Scale: The AAAI-26 AI Review Pilot",
+        "authors": "Joydeep Biswas, Sheila Schoepp, Gautham Vasan et al.",
+        "published": "2026-04-15T14:51:07Z",
+        "url": "https://arxiv.org/abs/2604.13940v1"
+      }
+    },
     {
       "date": "2026-04-15",
       "article": {
