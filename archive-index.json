@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-04-18T07:28:35.250Z",
+  "lastUpdated": "2026-04-19T07:32:51.973Z",
   "articles": [
+    {
+      "date": "2026-04-19",
+      "article": {
+        "title": "QuantCode-Bench: A Benchmark for Evaluating the Ability of Large Language Models to Generate Executable Algorithmic Trading Strategies",
+        "authors": "Alexey Khoroshilov, Alexey Chernysh, Orkhan Ekhtibarov et al.",
+        "published": "2026-04-16T15:31:42Z",
+        "url": "https://arxiv.org/abs/2604.15151v1"
+      }
+    },
     {
       "date": "2026-04-18",
       "article": {
