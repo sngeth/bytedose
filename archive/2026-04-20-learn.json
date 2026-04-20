@@ -1,0 +1,86 @@
+{
+  "date": "2026-04-20",
+  "articleId": "2604.16205v1",
+  "articleTitle": "ChemGraph-XANES: An Agentic Framework for XANES Simulation and Analysis",
+  "content": {
+    "technicalOverview": "ChemGraph-XANES presents an agentic framework that orchestrates XANES (X-ray Absorption Near-Edge Structure) spectroscopy simulations through LLM-driven workflow automation. The system exposes FDMNES calculations as typed Python tools within a LangGraph/LangChain architecture, enabling natural language specification of complex computational spectroscopy workflows. The framework implements a multi-agent architecture where retrieval-augmented expert agents consult FDMNES documentation for parameter grounding while executor agents translate requests into structured tool calls. Task-parallel execution is achieved through Parsl integration, enabling scalable deployment on HPC systems for high-throughput spectral database generation. The system unifies structure acquisition, input generation, execution orchestration, spectral normalization, and provenance tracking within a single reproducible pipeline.",
+    "problemContext": "Traditional XANES computational workflows suffer from significant orchestration complexity that often exceeds the computational burden of the underlying physics simulations themselves. Manual workflows require coordinating structure preparation, absorber site identification, parameter specification, code-specific input generation, parallel execution management, spectral extraction, and consistent normalization across potentially thousands of independent calculations. This complexity creates severe bottlenecks for high-throughput screening, ensemble-based studies, and ML dataset generation where reproducible curation of large spectral collections is critical. Existing approaches rely on ad hoc scripting that is difficult to reproduce, scale, and maintain across different computational environments and user expertise levels.",
+    "coreInnovation": "The fundamental contribution is the abstraction of XANES workflow operations into typed Python tools that can be orchestrated by LLM agents, effectively separating high-level scientific intent from low-level implementation details. The framework introduces documentation-grounded parameter retrieval where expert agents dynamically consult FDMNES manuals to make informed parameter selections rather than relying on fixed heuristics. The multi-agent architecture enables natural language specification of both explicit structure inputs and chemistry-level requests, automatically handling the translation to structured computational workflows. The integration with Parsl provides native task-parallel scaling that matches the embarrassingly parallel nature of independent XANES calculations, enabling efficient HPC deployment without manual job management.",
+    "technicalMechanics": [
+      "Multi-agent orchestration using LangGraph where retrieval-augmented expert agents query FDMNES documentation embeddings to ground parameter selection decisions in authoritative sources rather than hardcoded rules",
+      "Typed tool interface implementation where XANES operations are exposed as Python functions with schema-defined arguments, enabling LLM agents to map natural language requests onto structured function calls with type safety",
+      "Structure acquisition pipeline supporting both explicit file inputs and chemistry-level natural language requests, with automatic conversion through ASE (Atomic Simulation Environment) for consistent internal representation",
+      "Automated FDMNES input generation with template-based parameter substitution, cluster radius optimization, and absorber site identification from structure topology analysis",
+      "Parsl-based task-parallel execution framework that automatically distributes independent XANES calculations across HPC resources with dependency tracking and fault tolerance",
+      "Spectral normalization pipeline implementing consistent pre-edge subtraction and post-edge normalization procedures with provenance linking between normalized spectra and source structures",
+      "Provenance-aware data curation system that maintains bidirectional links between input structures, calculation parameters, raw FDMNES outputs, and final normalized spectra for reproducibility",
+      "Natural task parallelism exploitation where the embarrassingly parallel nature of independent XANES calculations enables linear scaling across available compute resources without communication overhead"
+    ],
+    "productionConsiderations": {
+      "scalability": "The framework scales linearly with available compute resources due to the embarrassingly parallel nature of independent XANES calculations. Bottlenecks occur primarily at the LLM orchestration layer for complex multi-step workflows and during I/O-intensive structure retrieval operations. Parsl's execution backend can distribute across thousands of cores with minimal overhead.",
+      "latency": "Single XANES calculations complete in minutes to hours depending on system size and convergence parameters. Batch processing is the primary use case with throughput optimization over individual request latency. LLM-based workflow planning adds 1-10 seconds of overhead per request depending on query complexity.",
+      "resourceRequirements": "CPU-intensive workloads requiring 4-16 cores per XANES calculation with 8-32 GB RAM depending on cluster size. Storage requirements scale with spectral database size (MB per spectrum). LLM inference requires API access or local deployment with 7B+ parameter models. HPC deployment benefits from high-throughput filesystems for concurrent I/O.",
+      "implementationComplexity": "Moderate complexity requiring integration of ASE, FDMNES, Parsl, and LangChain/LangGraph components. FDMNES installation and configuration on target HPC systems represents the primary deployment challenge. Python-based implementation reduces integration complexity, but requires careful management of dependencies across heterogeneous computing environments."
+    },
+    "applicationsAndImpact": "High-throughput materials discovery workflows can leverage this framework to generate large-scale XANES databases for ML model training without manual intervention, potentially accelerating materials characterization by 10-100x. Automated spectral analysis pipelines in synchrotron facilities could benefit from real-time computational XANES comparison to experimental data for rapid structure determination. The natural language interface enables domain scientists to specify complex computational spectroscopy workflows without deep software engineering expertise, democratizing access to advanced simulation capabilities. Integration with materials databases and ML workflows creates new opportunities for automated structure-property relationship discovery in complex chemical systems.",
+    "technicalPrerequisites": [
+      "X-ray absorption spectroscopy theory and XANES computational methods",
+      "Finite difference multiple scattering (FDMNES) simulation principles",
+      "LangChain/LangGraph agentic framework architecture and tool orchestration",
+      "Parsl parallel execution patterns and HPC workflow management",
+      "Atomic Simulation Environment (ASE) structure representation and manipulation",
+      "Retrieval-augmented generation (RAG) for technical documentation grounding",
+      "Task-parallel computational patterns and embarrassingly parallel algorithm design"
+    ],
+    "keyTermsAndConcepts": [
+      {
+        "term": "XANES",
+        "definition": "X-ray Absorption Near-Edge Structure spectroscopy that probes local coordination environments, oxidation states, and electronic structure through analysis of X-ray absorption features within ~50 eV of absorption edges."
+      },
+      {
+        "term": "FDMNES",
+        "definition": "Finite Difference Method Near Edge Structure - a computational code for calculating X-ray absorption spectra using multiple scattering theory and finite difference solutions to the Schrödinger equation."
+      },
+      {
+        "term": "Agentic Framework",
+        "definition": "A software architecture where autonomous agents orchestrate complex workflows by interpreting natural language requests and translating them into structured computational actions through tool interfaces."
+      },
+      {
+        "term": "Documentation-grounded parameter retrieval",
+        "definition": "A RAG-based approach where expert agents dynamically query embedded technical documentation to make informed parameter selection decisions rather than relying on hardcoded heuristics."
+      },
+      {
+        "term": "Task-parallel execution",
+        "definition": "Computational pattern exploiting the embarrassingly parallel nature of independent XANES calculations to achieve linear scaling across distributed compute resources without inter-process communication."
+      },
+      {
+        "term": "Provenance-aware data curation",
+        "definition": "Systematic tracking and preservation of bidirectional links between input structures, calculation parameters, intermediate outputs, and final normalized spectra to ensure reproducibility."
+      },
+      {
+        "term": "Typed Python tools",
+        "definition": "Python functions with schema-defined arguments and return types that can be automatically discovered and invoked by LLM agents through structured tool interfaces."
+      },
+      {
+        "term": "Spectral normalization",
+        "definition": "Standardized post-processing pipeline implementing pre-edge subtraction and post-edge normalization procedures to enable consistent comparison across different XANES calculations."
+      },
+      {
+        "term": "Multi-agent orchestration",
+        "definition": "Architectural pattern using specialized agents (expert agents for parameter grounding, executor agents for tool invocation) to decompose complex workflow planning and execution tasks."
+      }
+    ],
+    "architecturalInsight": "The system implements a three-layer architecture: LLM agents at the orchestration layer for natural language interpretation and workflow planning, typed Python tools at the abstraction layer for XANES operations, and Parsl execution backends at the compute layer for scalable HPC deployment. Data flows from natural language requests through agent-based tool selection to structured function calls, then through automated FDMNES input generation to parallel execution, and finally through spectral post-processing to curated datasets with preserved provenance. The multi-agent design separates concerns between parameter expertise (retrieval-augmented expert agents) and execution logistics (executor agents).",
+    "limitations": "The framework's effectiveness is constrained by the quality of LLM interpretation for complex spectroscopy requests and may struggle with highly specialized parameter selection outside the scope of embedded FDMNES documentation. Scalability is ultimately limited by the computational cost of individual FDMNES calculations rather than workflow orchestration overhead. The natural language interface may introduce ambiguity in scientific parameter specification that could lead to inconsistent results without careful validation protocols.",
+    "comparisonToExisting": "Compared to manual scripting approaches, the framework reduces workflow setup time from hours to minutes while improving reproducibility through standardized parameter selection and provenance tracking. Versus existing automated spectroscopy tools, the natural language interface and documentation-grounded parameter selection represent significant advances in accessibility and reliability. The Parsl integration provides superior HPC scaling compared to ad hoc job submission approaches, though at the cost of additional infrastructure complexity.",
+    "relatedWork": [
+      "PyMatGen and ASE for materials structure manipulation and computational workflow automation",
+      "Parsl and Prefect for scientific workflow orchestration and parallel execution management",
+      "LangChain/LangGraph frameworks for multi-agent systems and tool orchestration in scientific computing",
+      "FEFF and other multiple scattering codes for X-ray absorption spectroscopy calculations",
+      "Materials Project and NOMAD for high-throughput materials database generation and curation",
+      "Retrieval-augmented generation (RAG) systems for technical documentation grounding in scientific applications"
+    ],
+    "implementationNotes": "Implementation requires setting up FDMNES on target HPC systems with proper module loading and path configuration, followed by Python environment setup with ASE, Parsl, LangChain dependencies. The framework is built as a domain-specific extension of the existing ChemGraph system, suggesting that starting with ChemGraph installation provides the foundational agentic infrastructure. Prototyping could begin with single-node FDMNES calculations using local structure files before scaling to HPC deployment and natural language interfaces."
+  }
+}
