@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-04-20T07:37:40.824Z",
+  "lastUpdated": "2026-04-21T07:35:48.897Z",
   "articles": [
+    {
+      "date": "2026-04-21",
+      "article": {
+        "title": "Physics-Informed Neural Networks for Biological $2\\mathrm{D}{+}t$ Reaction-Diffusion Systems",
+        "authors": "William Lavery, Jodie A. Cochrane, Christian Olesen et al.",
+        "published": "2026-04-20T17:40:45Z",
+        "url": "https://arxiv.org/abs/2604.18548v1"
+      }
+    },
     {
       "date": "2026-04-20",
       "article": {
