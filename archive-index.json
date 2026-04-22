@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-04-21T07:35:48.897Z",
+  "lastUpdated": "2026-04-22T07:39:01.241Z",
   "articles": [
+    {
+      "date": "2026-04-22",
+      "article": {
+        "title": "UniT: Toward a Unified Physical Language for Human-to-Humanoid Policy Learning and World Modeling",
+        "authors": "Boyu Chen, Yi Chen, Lu Qiu et al.",
+        "published": "2026-04-21T17:57:27Z",
+        "url": "https://arxiv.org/abs/2604.19734v1"
+      }
+    },
     {
       "date": "2026-04-21",
       "article": {
