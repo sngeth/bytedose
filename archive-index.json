@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-04-23T07:36:27.743Z",
+  "lastUpdated": "2026-04-24T07:38:18.080Z",
   "articles": [
+    {
+      "date": "2026-04-24",
+      "article": {
+        "title": "Nemobot Games: Crafting Strategic AI Gaming Agents for Interactive Learning with Large Language Models",
+        "authors": "Chee Wei Tan, Yuchen Wang, Shangxin Guo",
+        "published": "2026-04-23T17:46:29Z",
+        "url": "https://arxiv.org/abs/2604.21896v1"
+      }
+    },
     {
       "date": "2026-04-23",
       "article": {
