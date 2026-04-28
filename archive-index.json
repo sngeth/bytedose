@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-04-27T07:49:38.368Z",
+  "lastUpdated": "2026-04-28T07:49:47.131Z",
   "articles": [
+    {
+      "date": "2026-04-28",
+      "article": {
+        "title": "Green Shielding: A User-Centric Approach Towards Trustworthy AI",
+        "authors": "Aaron J. Li, Nicolas Sanchez, Hao Huang et al.",
+        "published": "2026-04-27T17:04:17Z",
+        "url": "https://arxiv.org/abs/2604.24700v1"
+      }
+    },
     {
       "date": "2026-04-27",
       "article": {

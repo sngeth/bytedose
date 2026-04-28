@@ -1,0 +1,82 @@
+{
+  "date": "2026-04-28",
+  "articleId": "2604.24700v1",
+  "articleTitle": "Green Shielding: A User-Centric Approach Towards Trustworthy AI",
+  "content": {
+    "technicalOverview": "Green Shielding introduces a user-centric evaluation framework for LLM deployment safety through the CUE criteria (authentic Context, true Utility metrics, realistic Elicitation variations) and instantiates this via HealthCareMagic-Diagnosis (HCM-Dx), a medical diagnosis benchmark using patient-authored queries. The approach systematically characterizes how benign input variations affect model behavior through prompt neutralization techniques that preserve clinical content while removing user-level factors. The framework employs both structural metrics (coverage, conciseness) and semantic metrics (plausibility) to evaluate differential diagnosis lists, revealing Pareto-like tradeoffs between diagnostic coverage and clinical plausibility across frontier LLMs. This represents a shift from adversarial red-teaming (AI Safety I) to routine deployment risk assessment (AI Safety II).",
+    "problemContext": "Existing LLM evaluation focuses on adversarial red-teaming rather than characterizing behavior under routine, non-adversarial input variations that dominate real-world usage. Current medical benchmarks use single-answer formats that don't capture the complexity of differential diagnosis workflows where multiple plausible conditions must be considered. The computational bottleneck lies not in model inference but in developing realistic evaluation pipelines that can systematically measure clinically meaningful behavioral shifts. Previous approaches fail because they lack authentic user context, clinically grounded metrics, and systematic perturbation frameworks that reflect actual deployment scenarios.",
+    "coreInnovation": "The fundamental contribution is the CUE framework that operationalizes user-centric safety evaluation through systematic characterization of how benign input variations shift model outputs along task-relevant dimensions. Unlike prior work focused on worst-case adversarial scenarios, this approach quantifies routine behavioral instability through controlled perturbation regimes and clinically meaningful metrics. The key algorithmic insight is prompt neutralization that isolates clinical content from user-level factors, enabling precise measurement of how interaction choices create systematic tradeoffs in model utility. This differs from existing approaches by treating LLMs as fixed deployed products and analyzing their stability properties under realistic usage patterns.",
+    "technicalMechanics": [
+      "Prompt neutralization algorithm that uses LLMs to automatically remove user-level factors (tone, format, context) while preserving clinical content, implemented through structured prompting templates",
+      "HCM-Dx benchmark construction pipeline filtering 100K HealthCareMagic queries down to high-quality diagnostic cases using automated content analysis and clinical validation",
+      "Structured reference diagnosis generation using frontier LLMs to create comprehensive differential diagnosis sets with likelihood rankings and clinical reasoning",
+      "Multi-dimensional evaluation framework combining structural metrics (coverage of likely/safety-critical conditions, conciseness) with semantic metrics (plausibility scores)",
+      "Controlled perturbation framework systematically varying content (demographics, symptoms), format (structured vs. narrative), and tone (formal vs. informal) factors",
+      "Automated evaluation pipeline using LLM-as-judge methodology with clinically grounded prompting strategies for differential diagnosis assessment",
+      "Pareto frontier analysis methodology for characterizing tradeoffs between diagnostic coverage and clinical plausibility across perturbation regimes",
+      "Expert validation protocol involving practicing physicians to verify evaluation pipeline accuracy and clinical relevance of metrics"
+    ],
+    "productionConsiderations": {
+      "scalability": "The evaluation framework scales linearly with the number of test cases and models, with the primary bottleneck being LLM API calls for automated evaluation. Batch processing can handle thousands of diagnostic queries, but real-time evaluation would require caching mechanisms for reference diagnosis sets.",
+      "latency": "Evaluation pipeline requires multiple LLM inference calls per query (neutralization + evaluation), making it suitable for offline analysis rather than real-time monitoring. Single query evaluation takes approximately 10-30 seconds depending on model response time.",
+      "resourceRequirements": "Requires access to frontier LLMs for both evaluation targets and automated assessment. No significant compute infrastructure beyond API access needed. Storage requirements are modest (benchmark fits in <1GB). Expert validation requires clinical domain expertise.",
+      "implementationComplexity": "Moderate complexity requiring integration with multiple LLM APIs, structured prompting frameworks, and clinical evaluation pipelines. Implementation would need robust error handling for API failures and quality control mechanisms for automated evaluation consistency."
+    },
+    "applicationsAndImpact": "This framework directly applies to clinical decision support systems where diagnostic accuracy and coverage are critical safety requirements, enabling systematic characterization of model reliability across different patient populations and query styles. Production medical AI systems could integrate these evaluation techniques for continuous monitoring of diagnostic performance and user interaction effects. The approach extends to other high-stakes decision-support domains like legal analysis, financial advisory, or technical troubleshooting where systematic behavioral assessment under routine variation is crucial. Performance gains include quantified tradeoffs between different interaction strategies and evidence-based deployment guidance for safer model usage.",
+    "technicalPrerequisites": [
+      "Large language model architectures and inference mechanisms",
+      "Prompt engineering and structured prompting techniques",
+      "Clinical decision-making frameworks and differential diagnosis workflows",
+      "Automated evaluation methodologies and LLM-as-judge approaches",
+      "Statistical analysis of model behavior and Pareto frontier optimization",
+      "Benchmark construction and validation methodologies",
+      "Human-computer interaction patterns in high-stakes domains"
+    ],
+    "keyTermsAndConcepts": [
+      {
+        "term": "Green Shielding",
+        "definition": "A user-centric research agenda for developing evidence-backed deployment guidance by systematically characterizing how benign input variations shift LLM behavior, complementing adversarial red-teaming with routine deployment risk assessment."
+      },
+      {
+        "term": "CUE criteria",
+        "definition": "Evaluation framework specifying benchmarks with authentic Context (real user queries), reference standards measuring true Utility (clinically meaningful metrics), and perturbations reflecting realistic Elicitation variations."
+      },
+      {
+        "term": "Prompt neutralization",
+        "definition": "Algorithmic technique using LLMs to automatically remove user-level factors (tone, format, demographics) from queries while preserving task-relevant clinical content, enabling isolation of interaction effects."
+      },
+      {
+        "term": "HealthCareMagic-Diagnosis (HCM-Dx)",
+        "definition": "Novel benchmark of patient-authored medical queries with structured reference diagnosis sets and clinically grounded evaluation metrics for assessing differential diagnosis generation."
+      },
+      {
+        "term": "AI Safety I vs AI Safety II",
+        "definition": "Distinction between adversarial red-teaming focused on worst-case catastrophic risks (Safety I) versus routine user-centric risks from benign input variations in everyday deployment (Safety II)."
+      },
+      {
+        "term": "Differential diagnosis evaluation",
+        "definition": "Multi-dimensional assessment framework measuring diagnostic coverage (likely and safety-critical conditions), conciseness (clinician-like brevity), and plausibility (clinical reasonableness) of model-generated condition lists."
+      },
+      {
+        "term": "Pareto-like tradeoffs",
+        "definition": "Systematic behavioral patterns where prompt modifications improve some clinically relevant metrics (plausibility, conciseness) while degrading others (coverage of critical conditions), creating optimization frontiers."
+      },
+      {
+        "term": "Structural vs semantic metrics",
+        "definition": "Evaluation dimensions where structural metrics measure quantitative properties (coverage ratios, list length) while semantic metrics assess qualitative clinical relevance (plausibility scores, reasoning quality)."
+      }
+    ],
+    "architecturalInsight": "The system architecture follows a three-stage pipeline: (1) benchmark construction using filtered real-world queries with automated reference generation, (2) controlled perturbation engine applying systematic variations to isolate user-level factors, and (3) multi-dimensional evaluation framework combining automated LLM assessment with expert validation. The data flow processes patient queries through neutralization algorithms, generates model responses under different perturbation regimes, and produces structured evaluation outputs measuring clinically meaningful behavioral shifts.",
+    "limitations": "The framework relies heavily on LLM-as-judge evaluation which may inherit biases from the evaluation models and struggle with subtle clinical nuances. The prompt neutralization process may inadvertently remove clinically relevant information or introduce artifacts. The approach is currently validated only in medical diagnosis and may not generalize to other domains without significant adaptation. Expert validation is limited and clinical ground truth for differential diagnosis is inherently subjective.",
+    "comparisonToExisting": "Unlike traditional medical benchmarks that use single-answer formats (MedQA, USMLE-style), this approach captures the complexity of real differential diagnosis workflows with multiple valid answers. Compared to adversarial evaluation methods, Green Shielding focuses on routine behavioral variation rather than worst-case scenarios, providing more deployment-relevant insights. The systematic perturbation framework offers more controlled analysis than existing prompt sensitivity studies.",
+    "relatedWork": [
+      "MedQA and medical benchmark evaluation methodologies",
+      "Adversarial robustness and red-teaming frameworks for LLMs",
+      "Prompt sensitivity analysis and input perturbation studies",
+      "LLM-as-judge evaluation frameworks and automated assessment",
+      "Clinical decision support systems and diagnostic AI evaluation",
+      "Human-AI interaction studies in high-stakes domains"
+    ],
+    "implementationNotes": "Implementation would leverage existing LLM APIs (OpenAI, Anthropic) with structured prompting frameworks like LangChain or custom template engines. The HCM-Dx benchmark and evaluation code are available on GitHub, providing a starting point for adaptation to other domains. Prototype development should begin with the prompt neutralization pipeline and automated evaluation components, then integrate expert validation workflows for domain-specific adaptation."
+  }
+}
