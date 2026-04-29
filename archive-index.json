@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-04-28T07:49:47.131Z",
+  "lastUpdated": "2026-04-29T07:46:39.038Z",
   "articles": [
+    {
+      "date": "2026-04-29",
+      "article": {
+        "title": "Scalable Inference Architectures for Compound AI Systems: A Production Deployment Study",
+        "authors": "Srikanta Prasad S, Utkarsh Arora",
+        "published": "2026-04-28T14:53:11Z",
+        "url": "https://arxiv.org/abs/2604.25724v1"
+      }
+    },
     {
       "date": "2026-04-28",
       "article": {

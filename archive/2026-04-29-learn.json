@@ -1,0 +1,82 @@
+{
+  "date": "2026-04-29",
+  "articleId": "2604.25724v1",
+  "articleTitle": "Scalable Inference Architectures for Compound AI Systems: A Production Deployment Study",
+  "content": {
+    "technicalOverview": "This paper presents a production-scale inference architecture for compound AI systems that orchestrates concurrent, heterogeneous model invocations through serverless execution with dynamic autoscaling. The system addresses unique challenges in multi-component AI workloads including fan-out overhead where single requests trigger 3-5 distinct model calls, cascading cold-start propagation across dependent components, and heterogeneous scaling dynamics. The architecture integrates platform-agnostic MLOps pipelines with compound-system-aware scaling policies to handle bursty multi-agent workloads. Production deployment at Salesforce demonstrates 50% P95 latency reduction, 3.9x throughput improvement, and 30-40% cost savings compared to static GPU deployments.",
+    "problemContext": "Traditional model serving infrastructure assumes single-model invocations, but compound AI systems generate complex dependency graphs where one user request fans out to multiple models with varying latency requirements and resource needs. Static GPU deployments suffer from 24/7 idle costs, resource contention when heterogeneous models compete for the same compute pool, and inability to scale individual components independently. Cascading failures occur when cold starts in one component delay entire agent responses, while rapid model iteration cycles in multi-component systems exceed the deployment capabilities of traditional ML platforms. The computational bottleneck shifts from individual model optimization to orchestrating efficient parallel execution across heterogeneous workloads with unpredictable traffic patterns.",
+    "coreInnovation": "The key innovation is compound-system-aware scaling that treats multi-model workflows as first-class citizens rather than collections of independent services. Unlike traditional autoscaling that optimizes individual model throughput, this approach optimizes for workflow-level SLAs while minimizing cross-component interference. The architecture introduces novel metrics for fan-out overhead analysis and cascading cold-start propagation measurement, enabling component-level scaling decisions based on workflow dependencies. The serverless execution model with dynamic resource allocation eliminates idle costs while maintaining sub-second cold-start performance across heterogeneous model types.",
+    "technicalMechanics": [
+      "Serverless execution framework that provisions GPU resources on-demand with container-based model serving, eliminating 24/7 idle costs while maintaining millisecond-level request routing",
+      "Compound-system-aware autoscaling policies that analyze workflow dependency graphs to predict scaling needs across multiple model components simultaneously",
+      "Dynamic resource allocation using containerized model serving with shared GPU pools, allowing heterogeneous models to efficiently share compute resources without interference",
+      "Fan-out overhead optimization through parallel invocation scheduling that minimizes wait times when single requests trigger multiple concurrent model calls",
+      "Cascading cold-start mitigation using predictive warming based on workflow patterns and component dependency analysis",
+      "MLOps pipeline integration supporting rapid model iteration with A/B testing capabilities across multi-component systems",
+      "Platform-agnostic design using standardized container interfaces that enables deployment across different cloud providers and on-premises infrastructure",
+      "Workflow-level SLA optimization that balances individual component performance against end-to-end latency requirements"
+    ],
+    "productionConsiderations": {
+      "scalability": "The architecture scales horizontally through serverless GPU provisioning, handling traffic spikes by spawning additional containers. Bottlenecks emerge at the orchestration layer during extreme fan-out scenarios (>10 concurrent model calls) and when cascading cold-starts overwhelm the warming pipeline. The system demonstrates linear scaling up to 1000+ concurrent workflows.",
+      "latency": "Achieves sub-200ms P50 latency for typical agent workflows with 3-5 model invocations. Cold-start latency ranges from 500ms-2s depending on model size. The system optimizes for P95 tail latency reduction rather than absolute minimum latency, making it suitable for interactive but not real-time applications.",
+      "resourceRequirements": "Requires Kubernetes orchestration layer, shared GPU pools (A100/H100 class), and distributed caching for model artifacts. Memory requirements scale with concurrent model diversity rather than total throughput. Storage needs include model registry, workflow definitions, and telemetry data with TB-scale requirements for enterprise deployments.",
+      "implementationComplexity": "Moderate to high complexity requiring container orchestration expertise, GPU resource management, and distributed systems knowledge. Dependencies include Kubernetes, container runtime with GPU support, model serving frameworks (vLLM, TensorRT), and observability stack. Estimated 6-12 month implementation timeline for experienced platform teams."
+    },
+    "applicationsAndImpact": "This architecture directly enables production deployment of autonomous agent platforms like customer service bots, code analysis tools, and multi-step reasoning systems that require orchestrating multiple AI models. Enterprise applications including Salesforce's Agentforce and ApexGuru demonstrate practical performance gains with 3.9x throughput improvement enabling higher user concurrency. The cost savings of 30-40% make economically viable the deployment of sophisticated AI workflows that would be prohibitively expensive on static infrastructure. The approach unlocks new AI product categories by making multi-model composition operationally feasible at enterprise scale.",
+    "technicalPrerequisites": [
+      "Kubernetes container orchestration and GPU resource scheduling",
+      "Serverless computing patterns and event-driven architectures",
+      "Machine learning model serving frameworks (vLLM, TensorRT, Triton)",
+      "Distributed systems design patterns for handling cascading failures",
+      "MLOps pipeline design and continuous deployment practices",
+      "GPU memory management and multi-tenancy optimization",
+      "Microservices architecture and service mesh networking"
+    ],
+    "keyTermsAndConcepts": [
+      {
+        "term": "Compound AI Systems",
+        "definition": "Architectures that compose multiple models, retrievers, and tools to accomplish complex tasks, generating heterogeneous concurrent model invocations with dependency relationships rather than relying on single monolithic models."
+      },
+      {
+        "term": "Fan-out Overhead",
+        "definition": "Performance degradation that occurs when a single user request triggers multiple concurrent model invocations (typically 3-5), measured as the additional latency introduced by parallel orchestration and resource contention."
+      },
+      {
+        "term": "Cascading Cold-start Propagation",
+        "definition": "Failure pattern where cold starts in one component of a compound system delay dependent components, creating cumulative latency degradation that exceeds the sum of individual cold-start times."
+      },
+      {
+        "term": "Heterogeneous Scaling Dynamics",
+        "definition": "Complex autoscaling behavior that emerges when different model types (embeddings, LLMs, classifiers) with varying resource requirements and latency characteristics compete for shared infrastructure resources."
+      },
+      {
+        "term": "Compound-system-aware Scaling",
+        "definition": "Autoscaling approach that optimizes for workflow-level SLAs by considering component dependencies and cross-model resource allocation rather than scaling individual models independently."
+      },
+      {
+        "term": "Agentic Workloads",
+        "definition": "Multi-step AI workflows characteristic of autonomous agents that involve sequential and parallel model invocations with complex decision trees and variable execution paths."
+      },
+      {
+        "term": "Multi-model Fan-out",
+        "definition": "Architecture pattern where single requests are decomposed into multiple parallel model invocations, requiring orchestration to manage dependencies and aggregate results while minimizing total latency."
+      },
+      {
+        "term": "Workflow-level SLA",
+        "definition": "End-to-end performance guarantees for complete compound AI workflows rather than individual model invocation metrics, typically measured as total response time and success rate."
+      }
+    ],
+    "architecturalInsight": "The system employs a three-tier architecture with a serverless orchestration layer that manages workflow execution, a dynamic resource allocation layer that provisions GPU containers on-demand, and a model serving layer that handles individual model invocations. Components communicate through event-driven messaging with dependency-aware scheduling that optimizes parallel execution while preventing resource contention. The design uses shared GPU pools with containerized isolation, enabling efficient multi-tenancy while maintaining performance isolation between different compound AI workflows.",
+    "limitations": "The architecture struggles with extremely latency-sensitive applications requiring sub-100ms response times due to orchestration overhead and cold-start latency. Memory requirements can become prohibitive when serving large numbers of distinct model types simultaneously, as each model variant requires separate GPU memory allocation. The system may not be cost-effective for consistently high-traffic applications where static deployments would achieve better GPU utilization, and the complexity of the orchestration layer introduces potential failure modes not present in simpler single-model serving.",
+    "comparisonToExisting": "Compared to static GPU deployments, the architecture achieves 50% P95 latency reduction and 30-40% cost savings while trading off absolute minimum latency for better resource utilization. Versus traditional cloud ML platforms like SageMaker, the system provides better handling of compound workloads but requires more complex operational management. The approach outperforms naive serverless deployments of individual models by optimizing for workflow-level performance rather than component-level metrics.",
+    "relatedWork": [
+      "vLLM with PagedAttention for efficient LLM memory management and batch processing",
+      "Amazon Bedrock Custom Model Import for serverless GPU inference paradigms",
+      "DSPy framework for programming compound AI pipelines and workflow optimization",
+      "Kubernetes GPU scheduling and multi-tenancy research for resource allocation",
+      "Ray Serve and similar distributed model serving frameworks",
+      "MLflow and Kubeflow for MLOps pipeline management in production environments"
+    ],
+    "implementationNotes": "Implementation would likely start with Kubernetes as the orchestration foundation, integrating vLLM or Triton for model serving, and building custom controllers for compound-system-aware scaling. Key frameworks include Ray for distributed execution, Prometheus/Grafana for observability, and Istio for service mesh networking. The first prototype should focus on a simple fan-out pattern with 2-3 models before scaling to complex agent workflows. Container image optimization and GPU memory pooling are critical for achieving reported cold-start performance."
+  }
+}
