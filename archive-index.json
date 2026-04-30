@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-04-29T07:46:39.038Z",
+  "lastUpdated": "2026-04-30T07:47:54.800Z",
   "articles": [
+    {
+      "date": "2026-04-30",
+      "article": {
+        "title": "ClawGym: A Scalable Framework for Building Effective Claw Agents",
+        "authors": "Fei Bai, Huatong Song, Shuang Sun et al.",
+        "published": "2026-04-29T17:12:22Z",
+        "url": "https://arxiv.org/abs/2604.26904v1"
+      }
+    },
     {
       "date": "2026-04-29",
       "article": {
