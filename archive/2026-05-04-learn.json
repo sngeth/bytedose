@@ -1,0 +1,82 @@
+{
+  "date": "2026-05-04",
+  "articleId": "2605.00742v1",
+  "articleTitle": "Position: agentic AI orchestration should be Bayes-consistent",
+  "content": {
+    "technicalOverview": "This position paper advocates for implementing Bayesian decision theory at the orchestration layer of agentic AI systems, where a Bayesian controller maintains posterior beliefs over task-relevant latent variables and makes utility-maximizing decisions for tool selection, routing, and resource allocation. Rather than making LLMs themselves Bayesian belief-updating engines (which remains computationally intractable), the approach treats LLMs as black-box predictors within a principled decision-theoretic framework. The controller implements expected utility maximization and value-of-information policies to determine when to query additional tools, when to stop processing, and how to allocate computational budget across heterogeneous model capabilities. The framework provides formal guarantees for coherent decision-making under uncertainty while maintaining computational tractability at production scale.",
+    "problemContext": "Current agentic AI systems face critical decision-making bottlenecks in production environments: determining optimal tool routing, managing computational budgets, and making stopping decisions under uncertainty with asymmetric costs. While LLMs excel at sequence prediction, they lack principled frameworks for orchestration-level decisions such as when to escalate to human experts, which models to query for multi-step reasoning, or how to balance accuracy against latency and cost constraints. Previous approaches either ignore uncertainty quantification entirely or attempt to make LLMs themselves Bayesian, which requires intractable posterior inference over billions of parameters and fails to provide reliable epistemic uncertainty estimates in overparameterized models.",
+    "coreInnovation": "The key insight is the separation of prediction from decision-making: LLMs remain powerful but non-Bayesian sequence predictors, while a separate Bayesian controller layer handles all orchestration decisions using proper uncertainty quantification and utility theory. This architectural decomposition makes Bayesian reasoning computationally feasible by operating over low-dimensional latent task variables rather than high-dimensional model parameters. The approach introduces calibrated belief updating over agent reliability, tool uncertainty, and task hypotheses, combined with formal value-of-information calculations that trigger additional computation only when expected utility gains exceed costs.",
+    "technicalMechanics": [
+      "Maintain a probabilistic belief state over task-relevant latent variables (e.g., task difficulty, tool reliability, solution quality) using tractable posterior distributions rather than full parameter posteriors",
+      "Implement Bayesian belief updating when observing evidence from agent interactions, human feedback, or tool outputs using conjugate priors or variational approximations for computational efficiency",
+      "Design utility functions that encode asymmetric costs for different failure modes, latency constraints, and accuracy requirements specific to the production environment",
+      "Apply value-of-information (VOI) calculations to determine when additional tool queries or model calls provide sufficient expected utility gain to justify their computational cost",
+      "Route queries to different models or tools based on posterior expected utility maximization, accounting for model-specific strengths and computational costs",
+      "Implement stopping criteria based on confidence intervals over task completion quality and diminishing marginal returns from additional computation",
+      "Use hierarchical Bayesian models to share uncertainty estimates across similar tasks and enable meta-learning of orchestration policies",
+      "Maintain separate belief states for different aspects of the system (tool reliability, task complexity, user preferences) with structured dependency modeling"
+    ],
+    "productionConsiderations": {
+      "scalability": "The approach scales well since Bayesian inference operates over low-dimensional latent spaces rather than model parameters. Belief state updates are O(d²) where d is the dimension of latent variables, not model parameters. Parallel belief updating across multiple concurrent requests is straightforward with independent posterior maintenance.",
+      "latency": "Adds minimal latency overhead since belief updates and utility calculations involve simple matrix operations on small state spaces. VOI computations are typically sub-millisecond for realistic latent dimensionalities. The framework can operate in real-time for interactive applications while providing principled stopping criteria.",
+      "resourceRequirements": "Requires minimal additional memory for belief state storage (typically <1MB per session) and negligible compute overhead for Bayesian updates. No additional GPU requirements beyond existing LLM inference. Can leverage existing model serving infrastructure with lightweight orchestration layer additions.",
+      "implementationComplexity": "Moderate complexity requiring Bayesian inference libraries, utility function design, and integration with existing model serving APIs. Requires domain expertise to design appropriate latent variable models and utility functions. Initial implementation could leverage existing probabilistic programming frameworks like PyMC or Edward2."
+    },
+    "applicationsAndImpact": "This framework directly addresses critical production challenges in enterprise AI systems: intelligent customer service routing (deciding when to escalate to human agents), multi-model code generation pipelines (optimally sequencing different specialized models), and resource-constrained inference serving (balancing accuracy vs. cost in real-time). The approach could improve ROI in production AI systems by 20-40% through better resource allocation and reduced over-computation, while providing formal uncertainty quantification required for high-stakes applications like healthcare AI and financial decision support. It enables principled A/B testing of orchestration policies and provides interpretable decision audit trails for regulatory compliance.",
+    "technicalPrerequisites": [
+      "Bayesian decision theory and expected utility maximization",
+      "Value of information theory and sequential decision making",
+      "Probabilistic graphical models and belief propagation",
+      "Variational inference and conjugate prior distributions",
+      "Multi-armed bandit algorithms and exploration-exploitation trade-offs",
+      "Uncertainty quantification in deep learning systems",
+      "Production ML system architecture and model serving patterns"
+    ],
+    "keyTermsAndConcepts": [
+      {
+        "term": "Bayes-consistent orchestration",
+        "definition": "An orchestration layer that maintains posterior beliefs over task-relevant latent variables and selects actions by maximizing expected utility or comparing value of information against cost, ensuring coherent decision-making under uncertainty."
+      },
+      {
+        "term": "Value-of-information (VOI) policies",
+        "definition": "Decision policies that compute the expected utility gain from acquiring additional information (e.g., querying another model) and trigger actions only when this expected gain exceeds the computational or monetary cost of the information acquisition."
+      },
+      {
+        "term": "Belief state maintenance",
+        "definition": "The process of maintaining and updating probability distributions over latent task variables (tool reliability, task difficulty, solution quality) as evidence arrives from agent interactions and tool outputs."
+      },
+      {
+        "term": "Expected utility maximization",
+        "definition": "A decision criterion that selects actions by computing the expectation of a utility function over the posterior distribution of relevant variables, accounting for asymmetric costs and benefits of different outcomes."
+      },
+      {
+        "term": "Bayesian controller layer",
+        "definition": "A separate architectural component that implements Bayesian decision theory for orchestration while treating LLMs as black-box predictors, handling routing, stopping, and resource allocation decisions."
+      },
+      {
+        "term": "Task-relevant latent variables",
+        "definition": "Low-dimensional probabilistic variables that capture uncertainty about task difficulty, tool reliability, solution quality, and other factors relevant to orchestration decisions, enabling tractable Bayesian inference."
+      },
+      {
+        "term": "Calibrated beliefs",
+        "definition": "Probability estimates that accurately reflect true uncertainty, where events predicted with probability p occur approximately p fraction of the time, essential for reliable decision-making in production systems."
+      },
+      {
+        "term": "Epistemic uncertainty",
+        "definition": "Uncertainty arising from lack of knowledge about model parameters or task characteristics, which can be reduced by acquiring more information, as opposed to aleatoric uncertainty which is irreducible."
+      }
+    ],
+    "architecturalInsight": "The system architecture employs a clean separation between prediction and decision-making components: LLMs and tools operate as stateless prediction services, while a stateful Bayesian controller maintains belief states and implements orchestration logic. The controller receives prediction outputs and confidence estimates from various models, updates its posterior beliefs over latent task variables, and makes routing/stopping decisions based on expected utility calculations. This design pattern enables modular upgrades to individual components while maintaining principled uncertainty quantification across the entire system.",
+    "limitations": "The approach requires careful design of utility functions and latent variable models, which may need domain-specific tuning and can be challenging to specify correctly in complex environments. The framework assumes that meaningful uncertainty estimates can be extracted from LLM outputs, which may not hold for all model architectures or fine-tuning approaches. Computational overhead, while minimal, still increases with the complexity of the belief state model, potentially limiting applicability to extremely latency-sensitive applications requiring sub-10ms response times.",
+    "comparisonToExisting": "Unlike existing heuristic-based orchestration systems (e.g., simple confidence thresholding or round-robin routing), this approach provides formal guarantees for decision coherence and optimality under stated assumptions. Compared to end-to-end learned orchestration policies, the Bayesian framework offers better interpretability and sample efficiency, though potentially at the cost of some flexibility. The approach achieves similar performance to more complex ensemble methods while providing principled uncertainty quantification that pure neural orchestration lacks.",
+    "relatedWork": [
+      "Multi-armed bandit algorithms for model selection and hyperparameter optimization",
+      "Bayesian optimization and acquisition functions for expensive function evaluation",
+      "Mixture of Experts (MoE) architectures with learned routing policies",
+      "Active learning and uncertainty sampling in machine learning",
+      "Thompson sampling and upper confidence bound algorithms for exploration",
+      "Probabilistic programming frameworks like PyMC, Stan, and Edward2"
+    ],
+    "implementationNotes": "Initial prototyping could leverage PyMC or TensorFlow Probability for belief state modeling, with simple conjugate priors (Beta-Binomial for success rates, Normal-Gamma for continuous metrics) to ensure tractable updates. The orchestration layer can be implemented as a lightweight service using FastAPI or similar frameworks, integrated with existing model serving infrastructure through standard REST APIs. Key implementation challenge involves extracting meaningful uncertainty estimates from existing LLM deployments, potentially requiring confidence calibration techniques or ensemble methods for models that don't naturally provide uncertainty quantification."
+  }
+}

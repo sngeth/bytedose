@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-05-03T07:38:29.418Z",
+  "lastUpdated": "2026-05-04T07:58:41.765Z",
   "articles": [
+    {
+      "date": "2026-05-04",
+      "article": {
+        "title": "Position: agentic AI orchestration should be Bayes-consistent",
+        "authors": "Theodore Papamarkou, Pierre Alquier, Matthias Bauer et al.",
+        "published": "2026-05-01T15:43:43Z",
+        "url": "https://arxiv.org/abs/2605.00742v1"
+      }
+    },
     {
       "date": "2026-05-03",
       "article": {
