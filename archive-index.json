@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-05-04T07:58:41.765Z",
+  "lastUpdated": "2026-05-05T07:40:15.156Z",
   "articles": [
+    {
+      "date": "2026-05-05",
+      "article": {
+        "title": "EvoPoC: Automated Exploit Synthesis for DeFi Smart Contracts via Hierarchical Knowledge Graphs",
+        "authors": "Ruichao Liang, Jing Chen, Xianglong Li et al.",
+        "published": "2026-05-04T17:43:52Z",
+        "url": "https://arxiv.org/abs/2605.02868v1"
+      }
+    },
     {
       "date": "2026-05-04",
       "article": {

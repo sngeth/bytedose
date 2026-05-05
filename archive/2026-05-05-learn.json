@@ -1,0 +1,90 @@
+{
+  "date": "2026-05-05",
+  "articleId": "2605.02868v1",
+  "articleTitle": "EvoPoC: Automated Exploit Synthesis for DeFi Smart Contracts via Hierarchical Knowledge Graphs",
+  "content": {
+    "technicalOverview": "EvoPoC addresses DeFi smart contract exploit synthesis through a hierarchical knowledge graph (HKG) that structures domain knowledge across contract semantics, failure modes, and exploit primitives. The system employs LLM-guided multi-hop reasoning with evolving agentic memory (long-term and working memory) to compose exploits from reusable semantic primitives rather than unconstrained token generation. A two-stage validation framework ensures exploit feasibility through SMT-based reachability checking and asset-level state simulation for economic viability. The approach treats exploit synthesis as structured reasoning over symbolic knowledge rather than a code generation task, achieving 96.6% exploit success rate across 88 real-world DeFi attacks.",
+    "problemContext": "Traditional vulnerability detection tools produce high volumes of unverified alerts requiring manual triage, creating a critical detection-to-exploitation gap in DeFi security. Existing LLM approaches suffer from hallucination amplification in long-horizon reasoning chains, where fabricated primitives or misinterpreted protocol behaviors compound across multi-step exploit construction. The semantic distance between vulnerability detection (localized contract anomalies) and exploitation (multi-contract interactions with economic constraints) causes probability diffusion in high-dimensional LLM semantic spaces. Current fuzzing and static analysis tools lack the domain-specific reasoning required for complex DeFi protocol interactions involving cross-contract state dependencies.",
+    "coreInnovation": "The key insight is formulating exploit synthesis as structured reasoning over explicit symbolic knowledge rather than probabilistic token generation, bridging the semantic gap through hierarchical knowledge organization. The HKG ontology provides reusable symbolic anchors that enable systematic composition of exploit primitives while maintaining semantic grounding. The evolving agentic memory mechanism continuously updates domain knowledge from latest audit reports and exploits, preventing hallucination through structured knowledge retrieval rather than relying on implicit LLM parameters. This architectural shift from code completion to knowledge-guided reasoning fundamentally addresses the semantic distance problem in DeFi exploit generation.",
+    "technicalMechanics": [
+      "Hierarchical Knowledge Graph construction organizing domain knowledge into three dimensions: contract semantics (protocol-specific behaviors, state variables), failure modes (reentrancy, price manipulation, logic errors), and exploit primitives (flash loans, MEV strategies, multi-hop swaps)",
+      "Evolving agentic memory system with Long-Term Memory (LTM) storing persistent domain knowledge extracted from audit reports and historical exploits, and Working Memory (WM) maintaining context during active reasoning sessions",
+      "Multi-hop reasoning engine that traverses HKG nodes to compose exploit strategies, using semantic similarity and structural relationships to guide primitive selection and sequencing",
+      "Two-stage validation framework: Stage 1 performs SMT-based exploit-path reachability checking to verify logical constraints and state transitions; Stage 2 conducts asset-level state simulation to validate economic profitability",
+      "Knowledge extraction pipeline that continuously updates HKG from new audit reports and exploit disclosures, maintaining currency with evolving DeFi attack patterns and protocol semantics",
+      "Ontology schema defining formal relationships between vulnerability classes, exploit techniques, and protocol-specific constraints, enabling systematic knowledge organization and retrieval",
+      "Memory evolution mechanism that updates both LTM and WM based on successful exploit synthesis, creating feedback loops that improve future reasoning quality",
+      "Symbolic execution integration for precise state modeling during exploit validation, ensuring generated PoCs satisfy both logical correctness and economic viability constraints"
+    ],
+    "productionConsiderations": {
+      "scalability": "HKG scales with knowledge base size; memory requirements grow linearly with protocol coverage. Multi-hop reasoning complexity is bounded by graph traversal depth (typically 3-5 hops for DeFi exploits). Batch processing of vulnerability assessments is feasible, but real-time exploit synthesis may require knowledge graph partitioning for large protocol suites.",
+      "latency": "Two-stage validation introduces significant latency (SMT solving + state simulation). Individual exploit synthesis ranges from minutes to hours depending on protocol complexity. Not suitable for real-time threat detection but adequate for security auditing workflows. Working memory updates are near real-time while LTM updates can be performed offline.",
+      "resourceRequirements": "Requires substantial GPU memory for LLM inference (likely 40GB+ for competitive models), persistent graph database for HKG storage, and compute resources for SMT solving and blockchain state simulation. Distributed deployment recommended for production-scale protocol coverage with dedicated reasoning and validation clusters.",
+      "implementationComplexity": "High implementation complexity requiring expertise in knowledge graphs, SMT solvers, blockchain simulation, and LLM integration. Dependencies include graph databases (Neo4j), SMT solvers (Z3), blockchain simulation frameworks (Foundry/Hardhat), and potentially custom ontology management systems. Significant engineering effort for knowledge extraction pipelines and validation infrastructure."
+    },
+    "applicationsAndImpact": "Security auditing firms could automate PoC generation, reducing manual effort from days to hours while improving coverage of complex multi-protocol interactions. Bug bounty platforms could validate vulnerability reports automatically, filtering out false positives and prioritizing high-impact findings. DeFi protocols could integrate continuous security monitoring with automated exploit synthesis to assess real attack risk before deployment. Insurance and risk assessment platforms could quantify protocol vulnerabilities with concrete exploit scenarios and economic impact estimates, enabling data-driven coverage decisions.",
+    "technicalPrerequisites": [
+      "Knowledge graph construction and traversal algorithms, including graph neural networks for semantic similarity",
+      "Satisfiability Modulo Theories (SMT) solving for constraint satisfaction and formal verification",
+      "Blockchain state simulation and symbolic execution for smart contract analysis",
+      "Large language model fine-tuning and prompt engineering for domain-specific reasoning",
+      "DeFi protocol mechanics including AMMs, lending protocols, flash loans, and MEV strategies",
+      "Ontology engineering and semantic web technologies for structured knowledge representation",
+      "Multi-agent system design patterns for evolving memory and knowledge management"
+    ],
+    "keyTermsAndConcepts": [
+      {
+        "term": "Hierarchical Knowledge Graph (HKG)",
+        "definition": "Structured representation organizing DeFi domain knowledge across three dimensions: contract semantics, failure modes, and exploit primitives. Serves as explicit symbolic memory for LLM reasoning, providing semantic anchors that bridge the gap between vulnerability detection and exploit synthesis through reusable knowledge components."
+      },
+      {
+        "term": "Exploit Success Rate (ESR)",
+        "definition": "Primary evaluation metric measuring the percentage of generated exploits that successfully execute and achieve profitable outcomes. EvoPoC achieves 96.6% ESR across 88 real-world DeFi attacks, significantly outperforming fuzzing-based approaches."
+      },
+      {
+        "term": "Two-stage Validation Framework",
+        "definition": "Dual verification system ensuring exploit feasibility: Stage 1 performs SMT-based exploit-path reachability checking to verify logical constraints; Stage 2 conducts asset-level state simulation to validate economic profitability and real-world executability."
+      },
+      {
+        "term": "Evolving Agentic Memory",
+        "definition": "Dynamic memory system with Long-Term Memory (LTM) storing persistent domain knowledge and Working Memory (WM) maintaining session context. Continuously updates from latest audit reports and exploits to prevent knowledge decay and hallucination amplification."
+      },
+      {
+        "term": "Multi-hop Reasoning",
+        "definition": "LLM-guided traversal of HKG nodes to compose exploit strategies through semantic relationships. Enables systematic composition of exploit primitives while maintaining grounded knowledge connections, typically requiring 3-5 reasoning hops for complex DeFi exploits."
+      },
+      {
+        "term": "Semantic Distance Problem",
+        "definition": "The substantial gap between vulnerability detection (localized contract anomalies) and exploitation (multi-contract interactions with economic constraints) in LLM semantic spaces. Causes probability diffusion and reasoning errors when models attempt to navigate sparse semantic connections."
+      },
+      {
+        "term": "Exploit Primitives",
+        "definition": "Reusable attack components including flash loans, price manipulation techniques, reentrancy patterns, and MEV strategies. Organized within HKG to enable systematic composition rather than unconstrained code generation, improving reliability and reducing hallucination."
+      },
+      {
+        "term": "Profit Realizability",
+        "definition": "Economic viability validation ensuring generated exploits achieve positive returns after accounting for transaction costs, slippage, and protocol fees. Verified through asset-level state simulation in the second validation stage."
+      },
+      {
+        "term": "Detection-to-Exploitation Gap",
+        "definition": "Critical bottleneck in DeFi security where vulnerability identification does not guarantee exploitability. Manual PoC construction is labor-intensive, leaving most disclosed vulnerabilities unverified and protocols exposed before mitigation."
+      },
+      {
+        "term": "Knowledge-driven Agentic System",
+        "definition": "Architecture employing structured domain knowledge and evolving memory to guide LLM reasoning, contrasting with naive prompting approaches. Treats exploit synthesis as structured reasoning over symbolic knowledge rather than probabilistic token generation."
+      }
+    ],
+    "architecturalInsight": "EvoPoC employs a three-tier architecture: knowledge layer (HKG with ontology schema), reasoning layer (LLM with evolving agentic memory), and validation layer (SMT solving + state simulation). The HKG serves as structured external memory, enabling the LLM to perform grounded multi-hop reasoning rather than relying on implicit parameter knowledge. Data flows from vulnerability detection through knowledge retrieval, primitive composition, and dual-stage validation to produce verified exploits.",
+    "limitations": "SMT solving and state simulation introduce significant computational overhead, making real-time application challenging. Knowledge graph maintenance requires continuous updates as DeFi protocols evolve, creating operational complexity. The approach may struggle with novel attack patterns not represented in the HKG ontology. Validation accuracy depends on the fidelity of blockchain simulation, which may not capture all mainnet conditions like MEV competition and network congestion.",
+    "comparisonToExisting": "EvoPoC outperforms SOTA fuzzers (Verite, ItyFuzz) by up to 5x in exploit success rate and 300x in recoverable value, while exceeding LLM-based generator A1 by 2x and 8.5x respectively. The structured reasoning approach achieves 98% recall and 0.9 F1-score compared to traditional detection tools that lack exploit synthesis capabilities. The key trade-off is increased computational complexity and implementation effort for substantially improved reliability and economic impact assessment.",
+    "relatedWork": [
+      "Verite and ItyFuzz: State-of-the-art fuzzing frameworks for smart contract vulnerability detection",
+      "Mythril and Slither: Static analysis tools for Ethereum smart contract security auditing",
+      "A1: LLM-based exploit generator using tool-calling for smart contract analysis",
+      "Echidna: Property-based fuzzing framework for Ethereum smart contracts",
+      "Manticore: Symbolic execution tool for analysis of smart contracts and binary programs",
+      "Knowledge graphs for software engineering: Structured representation of domain knowledge for automated reasoning"
+    ],
+    "implementationNotes": "Implementation would leverage Neo4j for HKG storage, Z3 for SMT solving, and Foundry/Anvil for blockchain simulation. The LLM component could use Anthropic Claude or OpenAI GPT-4 with custom fine-tuning for DeFi domain knowledge. Key frameworks include LangChain for LLM orchestration, NetworkX for graph algorithms, and Web3.py for blockchain interaction. First prototype steps: define HKG ontology schema, implement knowledge extraction pipeline from existing audit reports, and develop basic multi-hop reasoning over simplified vulnerability examples."
+  }
+}
