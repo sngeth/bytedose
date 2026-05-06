@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-05-05T07:40:15.156Z",
+  "lastUpdated": "2026-05-06T07:51:27.122Z",
   "articles": [
+    {
+      "date": "2026-05-06",
+      "article": {
+        "title": "Physics-Grounded Multi-Agent Architecture for Traceable, Risk-Aware Human-AI Decision Support in Manufacturing",
+        "authors": "Danny Hoang, Ryan Matthiessen, Christopher Miller et al.",
+        "published": "2026-05-05T17:24:53Z",
+        "url": "https://arxiv.org/abs/2605.04003v1"
+      }
+    },
     {
       "date": "2026-05-05",
       "article": {

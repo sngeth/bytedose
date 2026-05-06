@@ -1,0 +1,86 @@
+{
+  "date": "2026-05-06",
+  "articleId": "2605.04003v1",
+  "articleTitle": "Physics-Grounded Multi-Agent Architecture for Traceable, Risk-Aware Human-AI Decision Support in Manufacturing",
+  "content": {
+    "technicalOverview": "MAKA implements a decomposed multi-agent architecture that separates intent routing, quantitative analysis, knowledge graph retrieval, and critic-based verification for manufacturing decision support. The system decomposes machining deviations into evidence-linked pathing components, drift-based wear proxies, systematic compliance terms, and variability proxies using fused virtual-machining path-tracking error fields, cutting-force simulations, and 3D inspection data. The critic agent enforces physical plausibility constraints and safety bounds before surfacing recommendations, achieving up to 87.5 percentage point improvements in successful tool execution over unstructured single-model patterns. Digital twin simulations demonstrate deviation reduction from 10^-2 to ±10^-3 inches across Ti-6Al-4V rotor blade surfaces through traceable compensation strategies.",
+    "problemContext": "High-precision CNC machining requires integrating heterogeneous evidence streams (simulation outputs, inspection metrology, process knowledge) under micrometer-level tolerance constraints, but conventional pipelines treat operations in isolation without unified interpretation frameworks. Off-the-shelf LLMs lack explicit representations of machine kinematics, cutting mechanics, and CAM constraints, making them vulnerable to hallucination and inconsistent numerical reasoning in high-stakes manufacturing environments. The computational bottleneck is not data availability but rather the absence of integrated, accountable interpretation that converts multi-source evidence into bounded actions with explicit justification and provenance tracking. Resource and security constraints in production environments further limit deployment of traditional AI assistants that cannot provide guarantees of repeatability and bounded action for trustworthy human-AI collaboration.",
+    "coreInnovation": "The fundamental innovation is architectural decomposition that separates concerns between intent understanding, quantitative computation, knowledge retrieval, and verification, enabling each agent to specialize while maintaining end-to-end traceability and physical grounding. Unlike monolithic LLM approaches, MAKA enforces tools-only quantitative analysis and critic-based verification that validates physical plausibility, safety bounds, and provenance completeness before human presentation. The key insight is that manufacturing decision support requires explicit separation of linguistic reasoning from numerical computation, with formal verification layers that can reject physically implausible recommendations. This architectural pattern enables reliable execution of risk-constrained multi-step numerical workflows while maintaining auditable provenance chains essential for high-stakes manufacturing decisions.",
+    "technicalMechanics": [
+      "Central Agent performs intent routing and orchestration using LLM-based natural language understanding to parse user queries and determine appropriate agent sequencing for complex multi-step workflows",
+      "Analysis Agent executes tools-only quantitative computations without direct LLM text generation, interfacing with simulation engines, statistical analysis packages, and numerical solvers to maintain computational precision",
+      "Knowledge Graph Agent retrieves contextual manufacturing knowledge through structured graph traversal, incorporating documented best practices, material properties, and historical process parameters with explicit provenance links",
+      "Critic Agent implements physics-based verification layers that validate recommendations against machine kinematics constraints, cutting force limits, deflection bounds, and material failure criteria before approval",
+      "Deviation decomposition algorithm separates measured surface deviations into pathing error components (from virtual machining simulations), systematic wear drift (tracking tool degradation), compliance terms (workpiece deflection), and variability proxies (instability detection)",
+      "Three-level tool orchestration benchmark (L1/L2/L3) evaluates single-step through ≥3-step stateful sequences, measuring successful tool execution rates and comparing against unstructured baselines with identical tool access",
+      "Digital twin integration fuses virtual-machining path-tracking error fields with cutting-force simulations and scan-based 3D inspection deviation maps from Ti-6Al-4V rotor blade testbed data",
+      "Evidence fusion pipeline combines simulation predictions, metrology measurements, and process knowledge through weighted uncertainty propagation with explicit confidence bounds and attribution tracking"
+    ],
+    "productionConsiderations": {
+      "scalability": "The multi-agent architecture scales horizontally by spawning specialized agent instances for parallel analysis tasks, but knowledge graph construction and maintenance become bottlenecks at enterprise scale with thousands of part geometries and process variants. Agent orchestration overhead grows with workflow complexity.",
+      "latency": "System operates in batch-oriented mode for comprehensive analysis rather than real-time control, with typical decision cycles measured in minutes to hours depending on simulation complexity and verification depth. Not suitable for closed-loop machining control requiring sub-second response times.",
+      "resourceRequirements": "Requires GPU clusters for LLM inference, high-memory compute nodes for finite element simulations, and distributed storage for knowledge graphs and inspection datasets. Estimated 32-128GB RAM per analysis node with CUDA-capable GPUs for numerical simulations.",
+      "implementationComplexity": "Significant engineering effort required for agent framework integration, custom tool development for manufacturing software APIs, and knowledge graph construction. Dependencies include CAM software interfaces, metrology system integrations, and physics simulation engines."
+    },
+    "applicationsAndImpact": "This approach directly applies to aerospace and automotive manufacturing where part tolerances require micrometer precision and failure costs are high, particularly for non-prismatic components like turbine blades, engine housings, and structural brackets. Production systems with existing digital twin capabilities and comprehensive inspection workflows could achieve 10x improvement in surface deviation control (10^-2 to 10^-3 inch precision). The architecture enables automated process parameter optimization, predictive compensation for tool wear, and systematic root cause analysis of quality issues. Manufacturing environments with strict audit requirements (aerospace, medical devices) benefit from the explicit provenance tracking and physics-grounded verification that enables human operators to trust and validate AI recommendations.",
+    "technicalPrerequisites": [
+      "Multi-agent system architectures and inter-agent communication protocols",
+      "Knowledge graph construction, querying, and reasoning techniques",
+      "Manufacturing process modeling including cutting mechanics and machine kinematics",
+      "Finite element analysis for structural compliance and deflection prediction",
+      "Statistical process control and uncertainty quantification methods",
+      "Computer-aided manufacturing (CAM) and CNC programming fundamentals",
+      "LLM tool-calling patterns and structured output generation"
+    ],
+    "keyTermsAndConcepts": [
+      {
+        "term": "Multi-agent knowledge analysis (MAKA)",
+        "definition": "Human-in-the-loop decision-support architecture that separates intent routing, tools-only quantitative analysis, knowledge graph retrieval, and critic-based verification for manufacturing applications. Enforces physical plausibility, safety bounds, and provenance completeness before surfacing recommendations."
+      },
+      {
+        "term": "Tools-only quantitative analysis",
+        "definition": "Computational approach where numerical analysis is performed exclusively through dedicated software tools without LLM text generation, ensuring precision in mathematical operations and eliminating hallucination in numerical reasoning."
+      },
+      {
+        "term": "Physics-grounded verification",
+        "definition": "Validation framework that checks AI recommendations against fundamental physical constraints including machine kinematics, material properties, cutting force limits, and structural deflection bounds before human approval."
+      },
+      {
+        "term": "Deviation decomposition",
+        "definition": "Mathematical separation of measured machining deviations into constituent components: evidence-linked pathing errors, drift-based wear proxies, systematic compliance terms, and variability indicators for targeted compensation strategies."
+      },
+      {
+        "term": "Virtual-machining path-tracking error fields",
+        "definition": "Simulated spatial maps of predicted geometric deviations based on machine servo dynamics, controller performance, and kinematic limitations during tool path execution."
+      },
+      {
+        "term": "Digital twin what-if studies",
+        "definition": "Computational experiments using integrated simulation models to predict outcomes of process parameter changes, tool path modifications, and compensation strategies before physical implementation."
+      },
+      {
+        "term": "Evidence-linked pathing component",
+        "definition": "Systematic geometric deviation attributed to machine tool path-following errors with explicit traceability to servo performance data, kinematic limitations, and controller dynamics."
+      },
+      {
+        "term": "Drift-based wear proxy",
+        "definition": "Statistical model capturing systematic evolution of machining errors across sequential parts, providing indirect measurement of progressive tool wear and machine degradation."
+      },
+      {
+        "term": "Critic-based verification",
+        "definition": "Multi-stage validation process that evaluates proposed manufacturing actions against safety constraints, physical plausibility checks, and completeness requirements before human presentation."
+      }
+    ],
+    "architecturalInsight": "MAKA employs a hub-and-spoke architecture where the Central Agent orchestrates specialized agents through defined interfaces, ensuring separation of concerns between linguistic reasoning, numerical computation, knowledge retrieval, and verification. The Critic Agent acts as a gatekeeper that validates all recommendations through physics-based constraints before human presentation, while the Analysis Agent maintains computational precision through direct tool integration without LLM mediation. This design pattern enables reliable execution of complex multi-step workflows while preserving auditability and physical grounding essential for manufacturing applications.",
+    "limitations": "The approach requires extensive domain-specific knowledge graph construction and maintenance, making it difficult to generalize across manufacturing domains without significant engineering investment. Real-time control applications are not feasible due to multi-agent coordination overhead and comprehensive verification requirements. The system's effectiveness depends heavily on the quality and completeness of underlying simulation models and inspection data, potentially amplifying systematic modeling errors through the verification pipeline.",
+    "comparisonToExisting": "MAKA achieves up to 87.5 percentage point improvement in successful tool execution compared to unstructured single-model LLM patterns with identical tool access, demonstrating significant advantages in complex workflow orchestration. The approach trades inference speed for reliability and auditability, requiring longer decision cycles than direct LLM interaction but providing physics-grounded verification that monolithic models cannot guarantee. Digital twin studies show order-of-magnitude improvement in predicted surface deviation control compared to conventional statistical process control approaches.",
+    "relatedWork": [
+      "Multi-agent reinforcement learning for manufacturing process control",
+      "Knowledge graph-based reasoning for industrial decision support systems",
+      "Physics-informed neural networks for manufacturing process modeling",
+      "Tool calling and function-based LLM architectures (OpenAI Functions, Anthropic Claude Tools)",
+      "Digital twin frameworks for manufacturing simulation and optimization",
+      "Statistical process control and quality monitoring in precision machining"
+    ],
+    "implementationNotes": "Implementation would leverage frameworks like LangGraph or CrewAI for multi-agent orchestration, with custom tool integrations for CAM software APIs (Mastercam, NX, PowerMill) and metrology systems (Zeiss, Hexagon). Knowledge graph construction could utilize Neo4j or Amazon Neptune with manufacturing ontologies, while physics simulations require integration with ANSYS, Abaqus, or open-source FEA libraries. Initial prototyping should focus on single-part deviation analysis before expanding to multi-step workflow orchestration and critic agent development."
+  }
+}
