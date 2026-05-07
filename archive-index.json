@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-05-06T07:51:27.122Z",
+  "lastUpdated": "2026-05-07T07:56:17.214Z",
   "articles": [
+    {
+      "date": "2026-05-07",
+      "article": {
+        "title": "Architectural Constraints Alignment in AI-assisted, Platform-based Service Development",
+        "authors": "Julius Irion, Moritz Leugers, Paul Hartwig et al.",
+        "published": "2026-05-06T14:28:28Z",
+        "url": "https://arxiv.org/abs/2605.04973v1"
+      }
+    },
     {
       "date": "2026-05-06",
       "article": {
