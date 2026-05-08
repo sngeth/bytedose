@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-05-07T07:56:17.214Z",
+  "lastUpdated": "2026-05-08T07:34:49.399Z",
   "articles": [
+    {
+      "date": "2026-05-08",
+      "article": {
+        "title": "NeuroAgent: LLM Agents for Multimodal Neuroimaging Analysis and Research",
+        "authors": "Lujia Zhong, Yihao Xia, Jianwei Zhang et al.",
+        "published": "2026-05-07T17:13:48Z",
+        "url": "https://arxiv.org/abs/2605.06584v1"
+      }
+    },
     {
       "date": "2026-05-07",
       "article": {
