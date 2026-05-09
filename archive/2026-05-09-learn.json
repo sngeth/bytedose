@@ -1,0 +1,82 @@
+{
+  "date": "2026-05-09",
+  "articleId": "2605.06584v1",
+  "articleTitle": "NeuroAgent: LLM Agents for Multimodal Neuroimaging Analysis and Research",
+  "content": {
+    "technicalOverview": "NeuroAgent implements a hierarchical multi-agent architecture with a feedback-driven Generate-Execute-Validate engine for automated neuroimaging pipeline orchestration. The system employs LLM-based agents to autonomously generate preprocessing code for heterogeneous neuroimaging modalities (sMRI, fMRI, dMRI, PET), with reflective error recovery and contextual memory persistence. The framework achieves 84.8% end-to-end preprocessing correctness with Qwen3.5-27B backend and demonstrates multimodal AD classification with 0.9518 AUC across 1,470 ADNI subjects. The architecture integrates intent parsing, workflow construction, and tool orchestration with Human-In-The-Loop interfaces for edge case handling.",
+    "problemContext": "Multimodal neuroimaging analysis requires complex, modality-specific preprocessing workflows with careful configuration across heterogeneous toolchains (FSL, FreeSurfer, AFNI, etc.), creating significant barriers to reproducible research. Each modality (fMRI motion correction, DTI distortion correction, PET registration) demands specialized parameter tuning and quality control steps that are traditionally manual and error-prone. Current approaches lack automated coordination between preprocessing stages and downstream analysis, requiring extensive domain expertise and creating bottlenecks in large-scale neuroimaging studies. The computational complexity scales poorly with cohort size and modality diversity, particularly for precision medicine applications requiring subject-level multimodal biomarkers.",
+    "coreInnovation": "The key innovation is a self-correcting agentic framework that bridges natural language intent specification to executable neuroimaging code through hierarchical agent decomposition and reflective error recovery. Unlike static pipeline frameworks, NeuroAgent dynamically generates modality-specific preprocessing workflows, detects runtime failures, and autonomously implements corrections without human intervention. The Generate-Execute-Validate cycle with contextual memory enables robust handling of heterogeneous data quality and format variations common in large neuroimaging cohorts. This represents a paradigm shift from rigid, pre-configured pipelines to adaptive, LLM-driven workflow orchestration with provable correctness guarantees.",
+    "technicalMechanics": [
+      "Intent parsing module decomposes natural language queries into structured workflow graphs using task-specific neuroimaging vocabulary and dependency resolution across modalities",
+      "Hierarchical agent architecture with specialized preprocessing agents (sMRI, fMRI, dMRI, PET) that generate executable code using integrated tool libraries (FSL, FreeSurfer, ANTs, etc.)",
+      "Feedback-driven execution engine implements Generate-Execute-Validate cycles with runtime error detection, automatic parameter adjustment, and quality control validation",
+      "Reflective error recovery system analyzes failure modes, maintains error context in persistent memory, and generates corrective actions through iterative code refinement",
+      "Workflow orchestration coordinates inter-modality dependencies, manages intermediate file formats, and ensures reproducible execution across heterogeneous compute environments",
+      "Memory and state persistence maintains subject-specific preprocessing history, parameter configurations, and quality metrics for longitudinal analysis consistency",
+      "Tool integration layer provides standardized interfaces to neuroimaging software packages with automated environment management and dependency resolution",
+      "Human-In-The-Loop interface handles edge cases through expert review workflows while maintaining automated processing for standard scenarios"
+    ],
+    "productionConsiderations": {
+      "scalability": "The system scales linearly with subject count but faces bottlenecks with LLM inference latency for complex workflow generation. Hierarchical agent decomposition enables parallel processing across modalities, though tool library integration may create I/O constraints for large cohorts.",
+      "latency": "Preprocessing latency dominated by neuroimaging tools (FSL, FreeSurfer) rather than LLM inference. Workflow generation adds ~2-5 seconds overhead per subject, while execution times range from minutes to hours depending on modality complexity and data quality.",
+      "resourceRequirements": "Requires GPU resources for LLM backends (27B parameter models need ~54GB VRAM), substantial storage for intermediate preprocessing outputs (~10-50GB per subject), and CPU clusters for parallel neuroimaging tool execution across large cohorts.",
+      "implementationComplexity": "High implementation complexity due to neuroimaging tool integration, containerization requirements, and LLM infrastructure. Requires expertise in both neuroimaging software ecosystems and LLM deployment, with significant engineering effort for robust error handling and quality validation."
+    },
+    "applicationsAndImpact": "This framework enables automated large-scale neuroimaging studies for pharmaceutical clinical trials, reducing preprocessing time from weeks to days for thousand-subject cohorts. Production biomedical imaging platforms could integrate NeuroAgent to democratize multimodal neuroimaging analysis, eliminating the need for specialized neuroimaging expertise in routine clinical workflows. The approach unlocks real-time neuroimaging analysis capabilities for precision medicine applications, potentially enabling automated biomarker extraction for neurodegenerative disease monitoring. Healthcare systems could deploy this for standardized neuroimaging preprocessing pipelines with provable quality control, significantly reducing variability in multi-site imaging studies.",
+    "technicalPrerequisites": [
+      "Neuroimaging preprocessing fundamentals: brain extraction, motion correction, spatial normalization, and modality-specific artifacts",
+      "Large Language Model architecture and inference: transformer-based code generation, few-shot learning, and prompt engineering techniques",
+      "Multi-agent system design patterns: hierarchical coordination, message passing, and distributed task orchestration",
+      "Medical imaging file formats and standards: DICOM, NIfTI, BIDS data organization, and metadata management",
+      "Scientific workflow orchestration: dependency graphs, fault tolerance, provenance tracking, and reproducibility frameworks",
+      "Statistical analysis of neuroimaging data: group-level inference, multiple comparisons correction, and multimodal feature integration",
+      "Production ML system design: model serving, error monitoring, human-in-the-loop systems, and quality assurance pipelines"
+    ],
+    "keyTermsAndConcepts": [
+      {
+        "term": "Generate-Execute-Validate engine",
+        "definition": "Core execution framework where agents autonomously generate preprocessing code, execute it against neuroimaging data, and validate output integrity through automated quality checks and error recovery mechanisms."
+      },
+      {
+        "term": "Hierarchical multi-agent architecture",
+        "definition": "Structured agent decomposition with specialized preprocessing agents for each neuroimaging modality (sMRI, fMRI, dMRI, PET) coordinated through a central orchestration layer with inter-agent communication protocols."
+      },
+      {
+        "term": "Reflective error recovery",
+        "definition": "Autonomous error correction system that analyzes runtime failures, maintains contextual memory of error patterns, and generates iterative code modifications to resolve preprocessing pipeline failures without human intervention."
+      },
+      {
+        "term": "Intent parsing accuracy",
+        "definition": "Metric measuring the system's ability to correctly decompose natural language neuroimaging analysis requests into structured workflow graphs with proper modality identification and parameter specification."
+      },
+      {
+        "term": "End-to-end preprocessing correctness",
+        "definition": "Comprehensive evaluation metric assessing successful completion of entire neuroimaging preprocessing pipelines from raw acquisitions to analysis-ready outputs, including quality validation and format compliance."
+      },
+      {
+        "term": "Contextual memory and state persistence",
+        "definition": "System component maintaining subject-specific preprocessing history, parameter configurations, intermediate results, and quality metrics across workflow executions to ensure consistency and reproducibility."
+      },
+      {
+        "term": "Human-In-The-Loop (HITL) interface",
+        "definition": "Interactive system component enabling expert neuroimaging researchers to review, validate, and correct automated preprocessing decisions for edge cases while maintaining automated processing for standard scenarios."
+      },
+      {
+        "term": "Workflow orchestration",
+        "definition": "Automated coordination of complex neuroimaging preprocessing pipelines managing inter-modality dependencies, file format conversions, parameter propagation, and execution scheduling across heterogeneous toolchains."
+      }
+    ],
+    "architecturalInsight": "The system employs a three-tier architecture: a planning module for intent parsing and workflow construction, a hierarchical agent layer with modality-specific preprocessing specialists, and an execution engine with feedback-driven validation. The workflow orchestration component manages inter-agent communication through structured message passing and maintains global state consistency. Tool integration occurs through standardized interfaces that abstract neuroimaging software complexity while preserving parameter flexibility and execution provenance.",
+    "limitations": "The system's effectiveness is constrained by LLM backend capabilities, with weaker models showing significant drops in preprocessing correctness (84.8% for Qwen3.5-27B vs. lower performance for smaller models). Edge cases requiring domain expertise still necessitate human intervention through HITL interfaces, limiting full automation potential. The framework assumes availability of standard neuroimaging tools and may struggle with novel or experimental preprocessing techniques not represented in training data. Memory and computational requirements scale substantially with cohort size and modality diversity.",
+    "comparisonToExisting": "NeuroAgent achieves 0.9518 AUC for multimodal AD classification, outperforming all single-modality baselines, while traditional static pipeline frameworks lack adaptive error recovery and require manual intervention for data quality issues. Unlike existing neuroimaging workflow systems (Nipype, BIDS Apps), this approach provides dynamic code generation and autonomous error correction, reducing manual configuration effort from hours to minutes per study. The system demonstrates superior preprocessing robustness compared to fixed pipelines when handling heterogeneous data quality common in multi-site neuroimaging studies.",
+    "relatedWork": [
+      "Nipype and BIDS Apps for standardized neuroimaging pipeline orchestration and reproducible workflows",
+      "Medical image analysis with large language models (LLMs) and vision-language models for automated interpretation",
+      "AutoML frameworks for medical imaging: automated preprocessing, feature selection, and model optimization",
+      "Multi-agent systems in healthcare: distributed decision making, collaborative diagnosis, and workflow automation",
+      "Neuroimaging preprocessing frameworks: FSL, FreeSurfer, ANTs, and SPM for modality-specific analysis pipelines",
+      "Code generation with LLMs: automated programming, domain-specific language generation, and software synthesis"
+    ],
+    "implementationNotes": "Implementation would leverage containerized neuroimaging tools (Docker/Singularity), distributed computing frameworks (Dask/Ray) for parallel execution, and LLM serving infrastructure (vLLM/TensorRT-LLM) for efficient inference. The BIDS standard provides data organization structure, while integration with existing workflow managers (Nextflow/Snakemake) could handle execution orchestration. Initial prototype development should focus on single-modality pipelines before expanding to multimodal coordination, using established neuroimaging datasets (ADNI, UK Biobank) for validation and benchmarking against manual preprocessing approaches."
+  }
+}
