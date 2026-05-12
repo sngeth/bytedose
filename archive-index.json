@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-05-10T07:45:33.928Z",
+  "lastUpdated": "2026-05-12T07:59:10.947Z",
   "articles": [
+    {
+      "date": "2026-05-12",
+      "article": {
+        "title": "Counterfactual Stress Testing for Image Classification Models",
+        "authors": "Moritz Stammel, Fabio De Sousa Ribeiro, Raghav Mehta et al.",
+        "published": "2026-05-11T17:36:16Z",
+        "url": "https://arxiv.org/abs/2605.10894v1"
+      }
+    },
     {
       "date": "2026-05-10",
       "article": {
