@@ -1,0 +1,86 @@
+{
+  "date": "2026-05-13",
+  "articleId": "2605.12375v1",
+  "articleTitle": "Agent-Based Post-Hoc Correction of Agricultural Yield Forecasts",
+  "content": {
+    "technicalOverview": "This paper presents a structured LLM agent framework that performs post-hoc correction of agricultural yield forecasts by encoding domain knowledge into specialized tools for phase detection, bias learning, and range validation. The system operates as a ReAct loop that iterates over a tool library to refine raw predictions from existing models (XGBoost, Moirai2, Random Forest) rather than replacing them. The architecture includes knowledge graph construction for historical context, cross-plot persistent memory for learning from corrections, and a multi-tool verification pipeline. The approach achieved 20-28% MAE reduction across different base models on strawberry and corn datasets, with Llama 3.1 8B demonstrating superior performance over LLaVA 13B.",
+    "problemContext": "Commercial agricultural yield forecasting faces a fundamental data availability gap - existing state-of-the-art approaches assume sensor networks, satellite imagery, and high-resolution meteorological data that typical farms lack, creating a deployment barrier for 95% of UK strawberry growers using polytunnels. Base forecasting models exhibit systematic errors that contradict basic agricultural knowledge (e.g., predicting yields before flowering or after field clearance) because they operate on windowed numerical features without seasonal constraints. The computational challenge lies in encoding implicit domain knowledge into models without requiring additional data collection or expensive retraining of existing systems.",
+    "coreInnovation": "The key insight is decomposing agricultural domain expertise into a structured tool library that can systematically identify and correct prediction errors through explicit reasoning steps, rather than embedding this knowledge into the base model training process. Unlike traditional ensemble or post-processing approaches, this method uses LLM agents to perform contextual reasoning over historical patterns, seasonal phases, and prediction plausibility within known agricultural constraints. The innovation lies in the agent-orchestrated correction pipeline that maintains traceability while learning from cross-plot memory, enabling systematic improvement without requiring domain-specific model retraining or additional sensor infrastructure.",
+    "technicalMechanics": [
+      "Knowledge graph construction phase builds historical context by processing training plots and creating similarity-based retrieval mechanisms for contextualizing current predictions against historical patterns",
+      "ReAct loop architecture iterates through specialized tools: similarity search for retrieval, bias learning for systematic error detection, phase detection for seasonal constraint validation, and range validation against training distribution bounds",
+      "Cross-plot persistent memory system accumulates correction patterns across different field plots, injecting learned corrections into agent prompts for subsequent predictions to enable transfer learning",
+      "Tool orchestration uses structured prompting to guide the LLM through diagnostic evaluation, empirical bounding, and correction synthesis steps, with each tool providing specific agricultural constraint checking",
+      "Safety verification layer includes trajectory evaluation and plausibility checking to prevent agent corrections from introducing new systematic errors or violating physical constraints",
+      "Week-by-week prediction loop maintains temporal consistency by processing sequential forecasts while accumulating context from previous corrections and seasonal progression",
+      "The agent operates on top of pre-trained forecasting models (XGBoost, Moirai2, Random Forest) without requiring model retraining, using the base prediction as input for refinement rather than replacement",
+      "Computational complexity scales linearly with the number of correction tools and historical context size, with inference latency dominated by LLM reasoning time rather than base model prediction time"
+    ],
+    "productionConsiderations": {
+      "scalability": "The approach scales linearly with the number of plots and historical data size, but LLM inference creates a bottleneck for real-time applications. Cross-plot memory grows with the number of corrections, potentially requiring pruning strategies for large-scale deployments across hundreds of farms.",
+      "latency": "System is batch-oriented due to LLM reasoning overhead, with weekly prediction cycles suitable for agricultural planning timescales. Each prediction requires multiple LLM tool calls through the ReAct loop, making real-time inference impractical without significant optimization.",
+      "resourceRequirements": "Requires hosting Llama 3.1 8B (16GB VRAM minimum) or similar LLM infrastructure, plus storage for knowledge graphs and cross-plot memory. Base forecasting models are lightweight, but the agent framework adds significant computational overhead through iterative tool usage.",
+      "implementationComplexity": "Moderate complexity requiring LLM hosting infrastructure, tool library implementation, and integration with existing forecasting pipelines. Depends on structured prompting frameworks, vector similarity search capabilities, and careful prompt engineering for agricultural domain knowledge encoding."
+    },
+    "applicationsAndImpact": "This approach directly addresses deployment gaps in precision agriculture where farms have historical yield data but lack expensive sensor infrastructure, potentially improving forecast accuracy for labor allocation and supply chain planning across thousands of small-medium agricultural operations. The post-hoc correction pattern could extend beyond agriculture to any time series forecasting domain with strong domain constraints (energy consumption, manufacturing throughput, financial markets), enabling rapid deployment improvements without model retraining. Performance gains of 20-28% MAE reduction translate to significant operational improvements for crop planning, cold storage allocation, and retail contract fulfillment, potentially reducing food waste through better demand forecasting.",
+    "technicalPrerequisites": [
+      "Time series forecasting fundamentals and evaluation metrics (MAE, MASE, seasonal decomposition)",
+      "LLM agent frameworks and ReAct (Reasoning + Acting) loop architectures",
+      "Vector similarity search and knowledge graph construction for contextual retrieval",
+      "XGBoost, Random Forest, and foundation time series models (Moirai2) implementation details",
+      "Agricultural domain knowledge including crop growth phases and seasonal constraints",
+      "Structured prompting techniques and tool-based LLM orchestration patterns",
+      "Cross-validation strategies for time series data with temporal dependencies"
+    ],
+    "keyTermsAndConcepts": [
+      {
+        "term": "Post-hoc correction",
+        "definition": "A refinement approach that takes existing model predictions as input and applies domain-specific corrections without modifying the underlying model training or architecture. Enables improvement of deployed models without retraining costs."
+      },
+      {
+        "term": "ReAct loop",
+        "definition": "An iterative reasoning framework where LLM agents alternate between reasoning about the problem and acting through tool usage, allowing structured problem decomposition and systematic correction application."
+      },
+      {
+        "term": "Phase detection",
+        "definition": "Agricultural domain tool that identifies current crop growth stage (pre-flowering, flowering, fruiting, post-harvest) to validate prediction plausibility against known seasonal constraints and biological limitations."
+      },
+      {
+        "term": "Bias learning",
+        "definition": "Tool component that analyzes systematic prediction errors from historical data to identify recurring patterns in model mistakes and apply learned corrections to new predictions."
+      },
+      {
+        "term": "Range validation",
+        "definition": "Empirical bounding technique that constrains predictions within historically observed ranges for similar conditions, preventing physically implausible forecasts that exceed known agricultural productivity limits."
+      },
+      {
+        "term": "Cross-plot persistent memory",
+        "definition": "Memory system that accumulates correction patterns and domain insights across different agricultural plots, enabling transfer learning and systematic improvement without requiring plot-specific retraining."
+      },
+      {
+        "term": "Knowledge graph construction",
+        "definition": "Process of encoding historical agricultural data, seasonal patterns, and domain relationships into structured representations that enable similarity-based retrieval and contextual reasoning for correction decisions."
+      },
+      {
+        "term": "Tool library",
+        "definition": "Structured collection of domain-specific functions (similarity search, bias learning, phase detection, range validation) that the LLM agent can orchestrate to systematically analyze and correct agricultural yield predictions."
+      },
+      {
+        "term": "MASE (Mean Absolute Scaled Error)",
+        "definition": "Time series evaluation metric that scales MAE by the naive seasonal forecast error, providing baseline-independent performance measurement particularly valuable for seasonal agricultural data comparison."
+      }
+    ],
+    "architecturalInsight": "The system implements a two-phase architecture: knowledge graph construction for historical context encoding, followed by an iterative prediction loop where LLM agents orchestrate specialized tools through ReAct reasoning. The design separates domain knowledge (encoded in tools) from reasoning capability (provided by LLM), enabling modular updates and transparent correction traceability. Cross-plot memory creates a feedback mechanism where corrections accumulate system-wide agricultural intelligence without requiring centralized model updates.",
+    "limitations": "The approach depends heavily on LLM reasoning capabilities and may fail when base predictions are severely incorrect or when agricultural conditions fall outside training distribution bounds. Computational overhead from iterative LLM tool calls makes real-time inference impractical, and explainability of agent decisions may be limited by LLM black-box nature despite tool-based traceability. The method's effectiveness is constrained by the quality of domain knowledge encoding in the tool library and may not generalize to crops with fundamentally different growth patterns.",
+    "comparisonToExisting": "Unlike traditional ensemble methods or neural network post-processing, this approach uses explicit reasoning and domain knowledge encoding rather than learned corrections, achieving 20-28% MAE improvements compared to base models without requiring retraining. The method demonstrates consistent improvements across multiple base model architectures (XGBoost, Moirai2, Random Forest) while maintaining interpretability through tool-based corrections, contrasting with black-box ensemble approaches that typically require model-specific tuning.",
+    "relatedWork": [
+      "ReAct: Synergizing Reasoning and Acting in Language Models (foundational agent architecture)",
+      "Moirai: A Time Series Foundation Model for Universal Forecasting (base forecasting model)",
+      "XGBoost: A Scalable Tree Boosting System (baseline forecasting algorithm)",
+      "Agricultural AI and precision farming literature on sensor-based yield prediction",
+      "LLM agents for structured tasks and tool-based reasoning frameworks",
+      "Time series post-processing and ensemble methods for forecast correction"
+    ],
+    "implementationNotes": "Implementation would require integrating LLM hosting infrastructure (vLLM, TensorRT-LLM) with existing forecasting pipelines, using frameworks like LangChain or Autogen for tool orchestration. The tool library can be implemented as Python functions with structured prompting templates, while cross-plot memory requires vector database integration (ChromaDB, Pinecone) for similarity search. Prototyping could start with OpenAI API for agent reasoning before moving to self-hosted Llama models for production deployment."
+  }
+}
