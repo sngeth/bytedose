@@ -1,0 +1,82 @@
+{
+  "date": "2026-05-16",
+  "articleId": "2605.15097v1",
+  "articleTitle": "Veritas: A Semantically Grounded Agentic Framework for Memory Corruption Vulnerability Detection in Binaries",
+  "content": {
+    "technicalOverview": "Veritas presents a hybrid agentic framework combining static analysis with LLM reasoning for binary memory corruption vulnerability detection (BMCV). The system implements a three-stage pipeline: a static slicer (defuse) that extracts witness-backed value-flow objects from RetDec-lifted LLVM IR, a dual-view LLM detector (discovery) that performs step-wise reasoning over both decompiled C and selective LLVM IR representations, and a multi-agent validator that grounds hypotheses through debugger artifacts and runtime evidence. The framework achieves 90% recall on real-world binaries while maintaining zero false positives on exhaustively validated subsets through explicit semantic grounding rather than relying solely on lossy decompiled representations. The approach fundamentally addresses the semantic reconstruction problem in stripped binaries by combining interprocedural value-flow analysis with contextually-grounded LLM reasoning.",
+    "problemContext": "Binary memory corruption vulnerability detection requires recovering object semantics, interprocedural propagation, and feasible execution paths from stripped binaries where compilation has erased high-level structure. Traditional static analysis struggles with pointer aliasing, object lifetime tracking across function boundaries, and path feasibility constraints in the presence of optimization-induced semantic loss. Pure LLM approaches fail due to limited context windows and inability to recover interprocedural dependencies without structured program-semantic support, particularly for tracking attacker-controlled value propagation through shared state. The computational bottleneck lies in semantic reconstruction: determining how memory objects are allocated, propagated, and accessed across functions from artifacts that no longer explicitly encode this information.",
+    "coreInnovation": "The fundamental innovation is semantic grounding through witness-backed flow objects that bridge static analysis precision with LLM reasoning capabilities. Unlike previous approaches that rely on lossy decompiled representations, Veritas constructs explicit interprocedural value-flow relations from LLVM-IR facts (def-use, calls, returns, globals, pointer operations) and provides these as structured artifacts to guide LLM reasoning. The dual-view detector architecture allows the LLM to reason about control flow, bounds checking, and object correspondence without rediscovering whole-binary propagation, while the validator provides concrete runtime evidence through guided debugging and memory-checking oracles. This represents a shift from end-to-end LLM vulnerability detection to semantically-scaffolded hybrid reasoning.",
+    "technicalMechanics": [
+      "Static slicer (defuse) constructs interprocedural propagation graphs from RetDec-lifted LLVM IR by parsing def-use chains, call/return relationships, global variable access patterns, and pointer operation sequences into compact witness-backed flow objects",
+      "Witness-based flow extraction maintains provenance tracking through LLVM-IR facts, enabling reconstruction of value propagation paths across function boundaries while preserving semantic relationships lost in decompilation",
+      "Dual-view detector processes both RetDec-decompiled C for high-level readability and selectively instantiated LLVM IR for precise semantic relationships, using trie-based flow memoization to avoid redundant analysis of common propagation patterns",
+      "Step-wise reasoning protocol guides the LLM through structured vulnerability analysis: identifying memory-sensitive operations, tracing attacker-controlled input propagation, analyzing bounds checking mechanisms, and evaluating path feasibility constraints",
+      "Multi-agent validator implements guided debugging workflows with breakpoint inspection, memory-checking oracles, and debugger-visible artifact verification to ground detector hypotheses in concrete runtime evidence",
+      "Consistency checking mechanisms validate detector decisions against static analysis results and runtime observations, providing feedback loops to improve detection accuracy and reduce false positive rates",
+      "Modular pipeline architecture enables independent optimization of each component while maintaining end-to-end semantic coherence through structured data flow and artifact passing",
+      "Trie-based memoization optimizes repeated flow analysis by caching intermediate results for common interprocedural propagation patterns, reducing computational overhead in large binary analysis"
+    ],
+    "productionConsiderations": {
+      "scalability": "The framework scales sublinearly with binary size due to witness-backed flow extraction and trie-based memoization, but validator runtime validation creates bottlenecks for large-scale deployment. Static analysis components scale to enterprise binaries, while LLM reasoning is bounded by context window limitations requiring careful flow object pruning.",
+      "latency": "Batch-oriented architecture with multi-stage pipeline latency dominated by validator runtime execution. Static slicing and LLM detection phases can be parallelized, but validator requires sequential debugging sessions. End-to-end analysis ranges from minutes for small binaries to hours for complex enterprise applications.",
+      "resourceRequirements": "Requires RetDec decompilation infrastructure, LLVM IR processing capabilities, and access to debugging environments for validation. LLM inference needs GPU acceleration for reasonable throughput. Memory requirements scale with binary complexity and flow graph size, typically requiring 16-32GB RAM for enterprise binaries.",
+      "implementationComplexity": "High implementation complexity requiring integration of static analysis tools (RetDec, LLVM), LLM inference infrastructure, and automated debugging frameworks. Significant engineering effort needed for witness extraction algorithms, flow object serialization, and validator orchestration. Dependencies include mature decompilation toolchains and debugger automation capabilities."
+    },
+    "applicationsAndImpact": "Primary applications include automated security auditing of commercial software, firmware analysis for IoT and embedded systems, and supply chain security assessment of third-party binary components. The framework enables scalable vulnerability discovery in scenarios where source code access is limited or compilation artifacts don't match deployed binaries. Performance gains include 90% recall rates compared to traditional static analysis tools, with the ability to discover previously unknown vulnerabilities as demonstrated by the Apple CVE discovery. The semantic grounding approach unlocks new capabilities for analyzing heavily optimized or obfuscated binaries where traditional decompilation-based approaches fail.",
+    "technicalPrerequisites": [
+      "Static program analysis fundamentals including def-use chain construction, interprocedural data flow analysis, and pointer aliasing resolution",
+      "LLVM IR structure and semantics, including SSA form properties, instruction semantics, and metadata preservation across compilation passes",
+      "Binary analysis and reverse engineering principles, particularly decompilation accuracy limitations and semantic loss during compilation optimization",
+      "Memory corruption vulnerability classes including buffer overflows, use-after-free, double-free, and integer overflow exploitation techniques",
+      "Large language model architectures and reasoning capabilities, particularly context window limitations and structured prompting techniques",
+      "Debugging and dynamic analysis methodologies including breakpoint placement, memory inspection, and runtime constraint validation",
+      "Graph algorithms for interprocedural analysis including reachability analysis, strongly connected component detection, and witness path construction"
+    ],
+    "keyTermsAndConcepts": [
+      {
+        "term": "Witness-backed flow objects",
+        "definition": "Compact data structures that encode interprocedural value propagation paths with explicit provenance tracking through LLVM-IR facts, enabling semantic grounding of vulnerability detection without requiring whole-binary analysis rediscovery."
+      },
+      {
+        "term": "Dual-view detector",
+        "definition": "LLM-based reasoning component that processes both RetDec-decompiled C for readability and selectively instantiated LLVM IR for semantic precision, enabling step-wise vulnerability analysis with structured program understanding."
+      },
+      {
+        "term": "Semantic grounding",
+        "definition": "Design principle requiring explicit anchoring of LLM reasoning in structured program facts rather than relying solely on lossy decompiled representations, achieved through witness-backed flow extraction and runtime validation."
+      },
+      {
+        "term": "Interprocedural propagation graph",
+        "definition": "Static analysis artifact encoding def-use relationships, call/return semantics, global variable access, and pointer operations across function boundaries to reconstruct value flow in stripped binaries."
+      },
+      {
+        "term": "Multi-agent validator",
+        "definition": "Automated framework that grounds detector hypotheses through guided debugging workflows, breakpoint inspection, and memory-checking oracles to provide concrete runtime evidence for vulnerability confirmation."
+      },
+      {
+        "term": "Trie-based flow memoization",
+        "definition": "Optimization technique caching intermediate results for common interprocedural propagation patterns using prefix tree structures, reducing computational overhead in repeated flow analysis operations."
+      },
+      {
+        "term": "Binary memory corruption vulnerabilities (BMCVs)",
+        "definition": "Memory safety violations in compiled binaries where semantic reconstruction is required to identify attacker-controlled value propagation to memory-sensitive operations under feasible execution constraints."
+      },
+      {
+        "term": "RetDec-lifted LLVM IR",
+        "definition": "Intermediate representation generated by RetDec decompiler that preserves lower-level semantic relationships from binary code while enabling structured static analysis through LLVM infrastructure."
+      }
+    ],
+    "architecturalInsight": "The system implements a three-tier pipeline architecture where each component provides semantic scaffolding for the next: the static slicer creates structured program facts, the dual-view detector consumes these facts for grounded reasoning, and the validator provides runtime evidence feedback. Data flow follows a witness-preservation pattern where semantic relationships are explicitly maintained through structured artifacts rather than relying on implicit context in natural language representations. The modular design enables independent optimization while maintaining end-to-end semantic coherence through carefully designed interfaces between static analysis, LLM reasoning, and dynamic validation components.",
+    "limitations": "The approach is constrained by RetDec decompilation quality and may miss vulnerabilities in heavily obfuscated or packed binaries where static analysis fails to recover accurate control flow. Validator runtime requirements create scalability bottlenecks for continuous integration scenarios, and the framework assumes availability of debugging environments which may not be feasible for embedded or protected systems. LLM reasoning quality depends on context window limitations and may struggle with extremely complex interprocedural dependencies that exceed witness object capacity.",
+    "comparisonToExisting": "Veritas achieves 90% recall compared to traditional static analysis tools while maintaining zero false positives on exhaustively validated subsets, representing significant improvements over both pure static analysis and existing LLM-based approaches. The semantic grounding approach trades increased implementation complexity for substantially better precision compared to end-to-end LLM vulnerability detection, while providing better scalability than manual expert analysis. The framework demonstrates practical impact through discovery of a previously unknown Apple vulnerability, indicating effectiveness beyond controlled benchmark scenarios.",
+    "relatedWork": [
+      "Traditional static analysis tools like CBMC, KLEE, and Infer for binary vulnerability detection",
+      "LLM-based code analysis frameworks including CodeT5, CodeBERT, and recent GPT-4 applications to vulnerability research",
+      "Binary analysis platforms such as angr, Ghidra, and IDA Pro for reverse engineering and vulnerability discovery",
+      "Hybrid static-dynamic analysis approaches like SAGE, KLEE, and concolic execution frameworks",
+      "Decompilation technologies including Hex-Rays, RetDec, and Ghidra decompiler for semantic reconstruction",
+      "Agentic AI frameworks for software engineering tasks including recent work on autonomous vulnerability research and code reasoning agents"
+    ],
+    "implementationNotes": "Implementation would require integrating RetDec for decompilation, LLVM infrastructure for IR processing, and LLM inference capabilities (OpenAI API or local deployment). The witness extraction component could be prototyped using LLVM's analysis passes and def-use chain APIs, while the validator requires automated debugging frameworks like GDB scripting or Intel Pin for dynamic analysis. Initial prototype development should focus on the static slicer component using existing LLVM toolchain infrastructure, followed by integration with LLM reasoning through structured prompt engineering and finally validator development using debugging automation frameworks."
+  }
+}

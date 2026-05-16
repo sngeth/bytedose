@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-05-14T07:58:51.841Z",
+  "lastUpdated": "2026-05-16T07:38:16.845Z",
   "articles": [
+    {
+      "date": "2026-05-16",
+      "article": {
+        "title": "Veritas: A Semantically Grounded Agentic Framework for Memory Corruption Vulnerability Detection in Binaries",
+        "authors": "Xinran Zheng, Alfredo Pesoli, Marco Valleri et al.",
+        "published": "2026-05-14T17:16:11Z",
+        "url": "https://arxiv.org/abs/2605.15097v1"
+      }
+    },
     {
       "date": "2026-05-14",
       "article": {
