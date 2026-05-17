@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-05-16T07:38:16.845Z",
+  "lastUpdated": "2026-05-17T07:55:05.682Z",
   "articles": [
+    {
+      "date": "2026-05-17",
+      "article": {
+        "title": "Accelerating State-Vector Quantum Simulation on Integrated GPUs via Cache Locality Optimization: A Cross-Architecture Evaluation",
+        "authors": "Gabriel Fernandes Thomaz, Jerusa Marchi, Eduarda Rodrigues Monteiro et al.",
+        "published": "2026-05-14T17:17:02Z",
+        "url": "https://arxiv.org/abs/2605.15098v1"
+      }
+    },
     {
       "date": "2026-05-16",
       "article": {
