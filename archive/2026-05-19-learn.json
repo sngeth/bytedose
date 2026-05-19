@@ -1,0 +1,86 @@
+{
+  "date": "2026-05-19",
+  "articleId": "2605.18692v1",
+  "articleTitle": "Democratizing Large-Scale Re-Optimization with LLM-Guided Model Patches",
+  "content": {
+    "technicalOverview": "This paper presents an agentic re-optimization framework that combines LLMs with structured optimization toolboxes to enable dynamic adaptation of deployed mixed-integer programming (MIP) models. The system translates natural language prompts into formal patch operations on optimization models, then applies primal-based re-optimization techniques including historical solution warm-starts, valid inequalities, and solver configuration tuning. The framework implements a structured model representation with decision variable families, constraint families, and objective components, enabling traceable modifications through a formal patch language. Evaluation on supply chain optimization and university exam scheduling demonstrates both real-time operational recovery capabilities and high-quality offline planning scenarios.",
+    "problemContext": "Traditional OR model deployment suffers from the 'expert bottleneck' - once models are deployed, any business rule changes or constraint modifications require returning to the original modelers, creating unsustainable maintenance cycles. Re-optimization is computationally challenging because even minor model changes can propagate through tightly coupled constraint systems, making it difficult to preserve solution quality while meeting latency requirements. Existing approaches treat re-optimization as either pure code generation or black-box repair, failing to leverage mathematical structure or primal information from previous solutions. The fundamental issue is that understanding what to change in large-scale MIPs is often harder than solving them, creating an interpretability bottleneck that prevents autonomous model adaptation.",
+    "coreInnovation": "The key innovation is the combination of structured patch-based model modification with primal-informed re-optimization techniques, mediated by LLM agents that understand optimization semantics. Unlike black-box approaches, the system maintains explicit mathematical structure through formal patch operations (ADD_CONSTRAINT, MODIFY_OBJECTIVE, FIX_VARIABLE) that preserve model integrity and enable traceability. The framework leverages historical solutions, valid inequalities, and solver configurations as primal information to accelerate convergence, achieving significant speedups over cold-start optimization. The agentic workflow includes retry mechanisms and validation loops that ensure both syntactic correctness and semantic feasibility of model modifications.",
+    "technicalMechanics": [
+      "**Structured Model Representation**: Models are decomposed into decision variable families (indexed sets like x[i,j]), constraint families (groups of similar constraints), and objective components, with metadata enabling efficient retrieval and modification operations.",
+      "**Patch Language Implementation**: Formal patch operations include ADD_CONSTRAINT, REMOVE_CONSTRAINT, MODIFY_BOUNDS, FIX_VARIABLE, and MODIFY_OBJECTIVE, each with validation logic to ensure mathematical consistency and prevent infeasible modifications.",
+      "**LLM Agent Architecture**: Multi-agent system with specialized roles - Patch Planner translates natural language to patches, Strategy Selector chooses re-optimization techniques, with domain-specific system prompts and retry mechanisms for error recovery.",
+      "**Primal-Based Re-optimization**: Leverages historical solutions as warm-starts, extracts valid inequalities from previous optimal solutions, and applies solver configuration tuning based on problem structure changes to accelerate convergence.",
+      "**Closed-Loop Validation**: Implements semantic validation beyond syntax checking, including feasibility verification, solution quality bounds, and constraint satisfaction testing with automatic rollback on validation failure.",
+      "**Toolbox-Driven Architecture**: Modular optimization techniques including metaheuristics, constraint propagation, and solver parameter tuning, selected dynamically based on problem characteristics and performance requirements.",
+      "**Event-Driven Updates**: Supports both synchronous (immediate re-optimization) and asynchronous (batched updates) modification patterns, enabling real-time operational recovery and planned model evolution.",
+      "**Solution Preservation**: Maintains proximity to deployed plans through objective modifications and constraint relaxation, crucial for supply chain scenarios where drastic plan changes incur high switching costs."
+    ],
+    "productionConsiderations": {
+      "scalability": "Framework demonstrates scalability on large-scale real-world instances (OCP supply chain, Cornell exam scheduling). Bottlenecks include LLM inference latency for complex patch generation and MIP solver performance for modified models. The structured representation enables incremental updates without full model reconstruction, supporting models with thousands of variables and constraints.",
+      "latency": "Two-tier latency profile: LLM patch generation typically sub-second for simple modifications, re-optimization ranges from seconds (warm-start scenarios) to minutes (complex constraint additions). Supply chain case study shows real-time capability with <30 second recovery times, while exam scheduling prioritizes solution quality over speed.",
+      "resourceRequirements": "Requires GPU resources for LLM inference, substantial memory for maintaining historical solutions and model state, and CPU resources for MIP solving. Gurobi solver integration necessitates commercial licensing. Framework supports distributed solving through standard MIP solver parallelization, but LLM components currently single-threaded.",
+      "implementationComplexity": "High implementation complexity due to multiple system components: LLM integration, optimization solver APIs, patch validation logic, and domain-specific prompt engineering. Requires expertise in both ML/LLM deployment and optimization solver integration. Framework artifacts include system prompts, validation logic, and heuristic implementations, suggesting 6-12 month development timeline for production deployment."
+    },
+    "applicationsAndImpact": "Supply chain optimization systems can leverage this framework for real-time disruption response, enabling autonomous adaptation to supplier failures, demand spikes, or regulatory changes without expert intervention. Manufacturing planning systems could benefit from dynamic constraint modification as production capabilities change or new business rules emerge. Resource scheduling applications (workforce, equipment, facilities) can adapt to operational changes while preserving solution quality and minimizing disruption costs. The framework enables 'self-healing' decision support systems that maintain operational relevance without constant expert maintenance, potentially reducing OR consulting costs by 40-60% for routine model adaptations.",
+    "technicalPrerequisites": [
+      "Mixed-Integer Programming (MIP) formulations and solver technologies (Gurobi, CPLEX)",
+      "Operations Research modeling techniques including constraint programming and mathematical optimization",
+      "Large Language Model architectures, prompt engineering, and agentic AI system design",
+      "Primal-dual optimization theory and warm-start techniques for iterative solving",
+      "Supply chain optimization and scheduling problem formulations",
+      "Software architecture patterns for distributed optimization systems",
+      "Constraint satisfaction and validation algorithms for mathematical programming"
+    ],
+    "keyTermsAndConcepts": [
+      {
+        "term": "Patch Language",
+        "definition": "Formal specification language for modifying optimization models through structured operations (ADD_CONSTRAINT, MODIFY_OBJECTIVE, FIX_VARIABLE) that preserve mathematical integrity while enabling traceable model evolution."
+      },
+      {
+        "term": "Primal-Based Re-optimization",
+        "definition": "Optimization acceleration technique leveraging historical solutions, valid inequalities, and solver configurations from previous runs to warm-start re-optimization, achieving significant speedups over cold-start solving."
+      },
+      {
+        "term": "Agentic Re-optimization Framework",
+        "definition": "Multi-agent system where specialized LLM agents (Patch Planner, Strategy Selector) collaborate to translate natural language requests into formal model modifications and select appropriate solving strategies."
+      },
+      {
+        "term": "Structured Model Representation",
+        "definition": "Decomposition of optimization models into decision variable families, constraint families, and objective components with metadata, enabling efficient retrieval and modification operations while preserving mathematical structure."
+      },
+      {
+        "term": "Toolbox-Driven Architecture",
+        "definition": "Modular system design where optimization techniques (metaheuristics, constraint propagation, solver tuning) are organized as interchangeable components, selected dynamically based on problem characteristics."
+      },
+      {
+        "term": "Closed-Loop Validation",
+        "definition": "Multi-stage validation process including syntactic correctness, semantic feasibility, and solution quality verification with automatic rollback mechanisms for failed modifications."
+      },
+      {
+        "term": "Decision Variable Families",
+        "definition": "Indexed sets of decision variables (e.g., x[i,j] for facility-customer assignments) that share common structure and semantics, enabling bulk operations and structured modifications."
+      },
+      {
+        "term": "Valid Inequalities Extraction",
+        "definition": "Process of deriving cutting planes and constraint strengthening from optimal solutions of previous instances to accelerate convergence in modified problem variants."
+      },
+      {
+        "term": "Solver Configuration Tuning",
+        "definition": "Automated adjustment of MIP solver parameters (cutting planes, heuristics, branching strategies) based on problem structure analysis and historical performance data."
+      }
+    ],
+    "architecturalInsight": "The system implements a three-tier architecture: LLM agents for natural language understanding and patch generation, a structured optimization model layer with formal patch operations, and a solver toolbox for re-optimization. Data flows from user prompts through LLM processing to generate formal patches, which are validated and applied to the structured model representation, triggering toolbox-driven re-optimization with primal information. The framework maintains persistent state including historical solutions, model metadata, and solver configurations to enable efficient incremental updates.",
+    "limitations": "Framework performance degrades with highly complex natural language requests requiring multiple interdependent model changes, where LLM patch generation may fail or require extensive retry loops. Re-optimization acceleration depends heavily on problem structure similarity between iterations - completely novel constraint types may not benefit from historical primal information. The approach is currently limited to MIP formulations and may not extend naturally to other optimization paradigms like stochastic or robust optimization without significant architectural changes.",
+    "comparisonToExisting": "Compared to traditional re-optimization approaches, the framework achieves 3-5x speedup through primal-based techniques while adding natural language interaction capabilities absent in existing tools. Unlike pure LLM-based optimization approaches that generate code from scratch, this system preserves mathematical structure and leverages optimization-specific acceleration techniques. The patch-based approach provides better traceability and validation compared to black-box model generation, though at the cost of increased system complexity.",
+    "relatedWork": [
+      "LLMs for Optimization (Li et al., 2023; Kong et al., 2025) - foundational work on applying language models to optimization problems",
+      "Primal heuristics and warm-start techniques for MIP solving - established optimization acceleration methods",
+      "Interactive optimization and decision support systems - traditional OR approaches to user-driven model adaptation",
+      "Constraint programming and model modification techniques - formal methods for structured constraint manipulation",
+      "Agentic AI systems and multi-agent frameworks for complex reasoning tasks",
+      "Mathematical programming modeling languages and structured optimization representations"
+    ],
+    "implementationNotes": "Implementation would require integration of transformer-based LLMs (OpenAI API or local models), commercial MIP solvers (Gurobi recommended based on paper), and custom patch validation logic. Key frameworks include Python optimization libraries (PuLP, Pyomo), LLM orchestration tools (LangChain, guidance), and solver APIs. First steps involve implementing the structured model representation with basic patch operations, then adding LLM integration for patch generation. The paper provides detailed system prompts and validation logic as implementation starting points, suggesting a prototype could be developed in 2-3 months with proper OR and ML expertise."
+  }
+}

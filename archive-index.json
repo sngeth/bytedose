@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-05-18T08:23:29.035Z",
+  "lastUpdated": "2026-05-19T08:12:11.905Z",
   "articles": [
+    {
+      "date": "2026-05-19",
+      "article": {
+        "title": "Democratizing Large-Scale Re-Optimization with LLM-Guided Model Patches",
+        "authors": "Tinghan Ye, Arnaud Deza, Ved Mohan et al.",
+        "published": "2026-05-18T17:28:25Z",
+        "url": "https://arxiv.org/abs/2605.18692v1"
+      }
+    },
     {
       "date": "2026-05-18",
       "article": {
