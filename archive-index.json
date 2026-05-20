@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-05-19T08:12:11.905Z",
+  "lastUpdated": "2026-05-20T08:11:40.204Z",
   "articles": [
+    {
+      "date": "2026-05-20",
+      "article": {
+        "title": "TIDE: Efficient and Lossless MoE Diffusion LLM Inference with I/O-aware Expert Offload",
+        "authors": "Zhiben Chen, Youpeng Zhao, Yang Sui et al.",
+        "published": "2026-05-19T17:59:08Z",
+        "url": "https://arxiv.org/abs/2605.20179v1"
+      }
+    },
     {
       "date": "2026-05-19",
       "article": {
