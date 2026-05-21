@@ -1,0 +1,82 @@
+{
+  "date": "2026-05-21",
+  "articleId": "2605.21478v1",
+  "articleTitle": "Latent Dynamics for Full Body Avatar Animation",
+  "content": {
+    "technicalOverview": "This work introduces a pose-conditioned 3D Gaussian Splatting avatar augmented with a transformer-based decoder and a physics-inspired latent dynamics model for temporally coherent garment simulation. The key innovation lies in decomposing latent updates into driving, restoring, and dissipative forces that evolve a residual latent state capturing appearance and geometry variations beyond pose signals. The method uses a UV-parameterized Gaussian representation with a learned dynamics model that predicts latent evolution from pose history and previous latent states, enabling history-dependent cloth behavior without explicit physics simulation. The transformer decoder processes both user-supplied driving signals (body/face keypoints) and the dynamically evolving residual latent to generate high-fidelity renderings with fine-grained garment details.",
+    "problemContext": "Existing pose-driven avatars fail to capture garment dynamics because the same pose can correspond to multiple garment states due to history-dependent effects like inertia and contact. Explicit physics simulation requires dedicated garment templates and introduces significant runtime overhead, while data-driven approaches either fix latent codes, regress them from pose, or retrieve from training data without modeling temporal evolution. Current architectures struggle with fine-grained deformation details in loose clothing scenarios, producing blurred renderings and temporal artifacts during rapid motion changes. The computational bottleneck lies in balancing rendering quality with real-time performance while maintaining temporal coherence across diverse motion patterns.",
+    "coreInnovation": "The fundamental contribution is a learnable latent dynamics model that explicitly decomposes garment motion into physically-motivated force components without requiring explicit physics simulation or garment templates. Unlike prior work that treats auxiliary latents as static or pose-regressed variables, this approach models the latent's own temporal evolution through learned dynamics equations. The force decomposition (driving, restoring, dissipative) provides interpretable control parameters like stiffness while maintaining computational efficiency. This enables diverse yet plausible motion trajectories from different initial conditions, bridging the gap between physics-based and purely data-driven approaches.",
+    "technicalMechanics": [
+      "UV-parameterized 3D Gaussian avatar serves as the base representation, with Gaussians positioned on a canonical body mesh and transformed via learned deformation fields for pose-driven animation",
+      "Transformer-based decoder architecture processes concatenated driving signals (pose keypoints) and residual latent codes through multi-head attention mechanisms to capture fine-grained spatial dependencies",
+      "Residual latent zt ∈ R^d captures temporal appearance and geometry variations beyond pose, evolved through learned dynamics: zt+1 = f_dynamics(zt, pose_history, Δt)",
+      "Force decomposition models latent updates as: Δz = F_driving + F_restoring + F_dissipative, where each component is learned through separate neural network heads",
+      "Training uses captured multi-view sequences with pose extraction, optimizing reconstruction loss while enforcing temporal consistency through dynamics regularization terms",
+      "Inference performs autoregressive rollout of latent dynamics from short pose history (typically 3-5 frames) and previous latent state, with negligible computational overhead",
+      "Stiffness control achieved by modulating the restoring force magnitude, allowing runtime adjustment of garment behavior without retraining",
+      "Loss function combines photometric reconstruction, temporal smoothness penalties, and dynamics consistency terms to ensure stable long-term rollouts"
+    ],
+    "productionConsiderations": {
+      "scalability": "The method scales linearly with avatar complexity (number of Gaussians) and sequence length. Bottlenecks include transformer decoder computation O(n²) in spatial resolution and dynamics model evaluation per frame. Multi-subject training requires careful batching strategies due to varying garment types and motion patterns.",
+      "latency": "Real-time capable with ~10-20ms inference per frame on modern GPUs. Gaussian splatting provides efficient rendering, while dynamics model adds minimal overhead (~1-2ms). Transformer decoder is the primary latency bottleneck, but can be optimized through attention pruning and quantization.",
+      "resourceRequirements": "Training requires multi-GPU setup (8+ V100/A100s) due to large batch sizes needed for stable dynamics learning. Memory scales with avatar resolution and temporal window size. Production inference needs single high-end GPU (RTX 4090+) with 16GB+ VRAM for high-quality avatars.",
+      "implementationComplexity": "Moderate to high complexity requiring expertise in 3D Gaussian splatting, transformer architectures, and temporal modeling. Dependencies include PyTorch, CUDA kernels for Gaussian rasterization, and multi-view capture infrastructure. Engineering effort estimated at 6-12 months for full production system."
+    },
+    "applicationsAndImpact": "This enables production-quality real-time avatar systems for VR/AR telepresence applications where garment realism is critical, such as Meta's Codec Avatars or similar platforms. Gaming and virtual production pipelines could integrate this for character animation with realistic cloth dynamics without expensive physics simulation. Performance gains include 10-100x speedup over explicit cloth simulation while maintaining visual quality competitive with physics-based approaches. The method unlocks new capabilities for interactive avatar editing and style transfer by manipulating latent dynamics parameters, enabling content creators to adjust garment stiffness and motion characteristics in real-time.",
+    "technicalPrerequisites": [
+      "3D Gaussian Splatting fundamentals: rasterization, optimization, and differentiable rendering pipelines",
+      "Transformer architectures: multi-head attention mechanisms, positional encoding, and sequence modeling",
+      "Neural rendering: volume rendering, implicit surfaces, and view synthesis techniques",
+      "Temporal modeling: recurrent architectures, autoregressive generation, and sequence prediction",
+      "Physics simulation concepts: cloth dynamics, force decomposition, and numerical integration schemes",
+      "Multi-view geometry: camera calibration, pose estimation, and 3D reconstruction from images",
+      "Optimization theory: gradient-based learning, regularization techniques, and stability analysis for dynamic systems"
+    ],
+    "keyTermsAndConcepts": [
+      {
+        "term": "Residual latent",
+        "definition": "A learned embedding zt ∈ R^d that captures temporal appearance and geometry variations beyond what pose signals can explain. Updated through learned dynamics equations and serves as input to the transformer decoder alongside driving signals."
+      },
+      {
+        "term": "UV-parameterized Gaussian avatar",
+        "definition": "3D Gaussian primitives positioned on a canonical body mesh using UV coordinates, enabling efficient pose-driven deformation while maintaining correspondence across different poses and temporal states."
+      },
+      {
+        "term": "Force decomposition",
+        "definition": "Mathematical decomposition of latent updates into driving forces (external pose influence), restoring forces (return to equilibrium), and dissipative forces (damping/friction), providing interpretable control over garment dynamics."
+      },
+      {
+        "term": "Latent dynamics model",
+        "definition": "Neural network that predicts evolution of residual latent codes from pose history and previous latent state, implementing learned temporal dynamics without explicit physics simulation."
+      },
+      {
+        "term": "Transformer-based decoder",
+        "definition": "Multi-head attention architecture that processes concatenated driving signals and residual latents to generate Gaussian parameters, capturing fine-grained spatial dependencies in garment deformation."
+      },
+      {
+        "term": "Driving signals",
+        "definition": "User-supplied input consisting of body pose keypoints and facial expressions that provide primary animation control, supplemented by the residual latent for dynamics beyond pose."
+      },
+      {
+        "term": "Temporal coherence",
+        "definition": "Consistency of garment motion across frames achieved through dynamics modeling, preventing flickering artifacts and ensuring realistic cloth behavior during pose transitions."
+      },
+      {
+        "term": "History-dependent rollouts",
+        "definition": "Autoregressive generation of latent states where current garment configuration depends on previous frames and pose sequence, enabling inertial effects and realistic cloth momentum."
+      }
+    ],
+    "architecturalInsight": "The system follows a two-stage architecture: a transformer decoder that maps from combined pose+latent inputs to 3D Gaussian parameters, followed by efficient splatting-based rendering. The latent dynamics model operates as a separate recurrent component that maintains temporal state and provides history-aware inputs to the decoder. This decoupling allows independent optimization of rendering quality and temporal dynamics, with the force decomposition providing a physics-inspired inductive bias that improves generalization and controllability.",
+    "limitations": "The method is limited to moderate garment motion amplitudes and may fail on extreme deformations or novel garment types not seen during training. Long-term rollouts can suffer from accumulation errors in the autoregressive dynamics model, requiring periodic re-initialization from ground truth. The approach requires substantial training data with temporal annotations and may not generalize well across significantly different body types or clothing styles without fine-tuning.",
+    "comparisonToExisting": "Quantitative evaluation across nine captured sequences shows improved animation quality over recent data-driven baselines, with user studies confirming perceptual improvements in temporal coherence. The method achieves comparable visual quality to physics-based simulation with 10-100x computational speedup, while outperforming static latent approaches in capturing dynamic garment behavior. Trade-offs include increased model complexity and training time compared to pure pose-driven methods, but with significant gains in realism and controllability.",
+    "relatedWork": [
+      "3D Gaussian Splatting (Kerbl et al. 2023) - foundational efficient neural rendering technique",
+      "SMPL human body models (Loper et al. 2015) - parametric body representation for pose-driven animation",
+      "Neural Radiance Fields (NeRF) - implicit neural scene representation and volume rendering",
+      "Animatable NeRF methods (Peng et al. 2021) - pose-conditioned neural avatars in canonical space",
+      "Physics-based cloth simulation (Bridson et al.) - traditional numerical methods for garment dynamics",
+      "Transformer architectures for sequence modeling and their applications to 3D generation tasks"
+    ],
+    "implementationNotes": "Implementation would build on existing 3D Gaussian splatting codebases (gaussian-splatting, diff-gaussian-rasterization) with PyTorch backend. Key components include custom CUDA kernels for efficient UV parameterization, transformer layers for the decoder (using torch.nn.MultiheadAttention), and careful handling of autoregressive dynamics during training. The authors provide implementation details in appendix suggesting feasible reproduction. First steps would involve setting up multi-view capture pipeline, implementing the transformer decoder, and gradually adding dynamics modeling components."
+  }
+}

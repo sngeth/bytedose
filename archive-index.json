@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-05-20T08:11:40.204Z",
+  "lastUpdated": "2026-05-21T08:19:55.620Z",
   "articles": [
+    {
+      "date": "2026-05-21",
+      "article": {
+        "title": "Latent Dynamics for Full Body Avatar Animation",
+        "authors": "Shichong Peng, Chengxiang Yin, Fei Jiang et al.",
+        "published": "2026-05-20T17:58:03Z",
+        "url": "https://arxiv.org/abs/2605.21478v1"
+      }
+    },
     {
       "date": "2026-05-20",
       "article": {
