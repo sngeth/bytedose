@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-05-21T08:19:55.620Z",
+  "lastUpdated": "2026-05-23T07:50:22.626Z",
   "articles": [
+    {
+      "date": "2026-05-23",
+      "article": {
+        "title": "HarnessAPI: A Skill-First Framework for Unified Streaming APIs and MCP Tools",
+        "authors": "Edwin Jose",
+        "published": "2026-05-21T17:03:44Z",
+        "url": "https://arxiv.org/abs/2605.22733v1"
+      }
+    },
     {
       "date": "2026-05-21",
       "article": {

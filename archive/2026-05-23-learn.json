@@ -1,0 +1,82 @@
+{
+  "date": "2026-05-23",
+  "articleId": "2605.22733v1",
+  "articleTitle": "HarnessAPI: A Skill-First Framework for Unified Streaming APIs and MCP Tools",
+  "content": {
+    "technicalOverview": "HarnessAPI introduces a skill-first architecture pattern that eliminates code duplication between HTTP REST endpoints and Model Context Protocol (MCP) tool registrations by treating typed skill folders as the single source of truth. The framework implements dynamic code generation to propagate Pydantic type annotations into FastMCP's inspection layer, resolving technical limitations with naive closure-based registration. It employs dual-mode content negotiation with Server-Sent Events streaming, automatically deriving both HTTP endpoints and MCP tools from a single handler.py definition. The system subclasses FastAPI and mounts FastMCP as an ASGI sub-application, achieving single-process operation through lifespan-merging strategies while maintaining full middleware and dependency injection capabilities.",
+    "problemContext": "Current LLM tool deployment requires maintaining parallel implementations: HTTP endpoints for human-facing clients and MCP tool registrations for agent runtimes like Claude and Cursor. This dual-stack approach creates schema drift issues that contribute to LLM API call hallucinations, as demonstrated by Patil et al.'s research showing hallucination rates drop with accurate typed schemas. Mastouri et al. found that 88.6% of MCP servers are backed by existing REST services, meaning most deployments carry this dual-maintenance burden. The architectural root cause is that neither FastAPI (route-first) nor FastMCP (tool-first) treats the skill as a first-class entity, forcing developers to manually synchronize definitions across transport layers.",
+    "coreInnovation": "The fundamental contribution is the skill-first architectural inversion that treats the skill folder as the authoritative definition rather than individual routes or tools. This enforces a structural invariant ensuring handlers and both transport registrations share identical schemas, which manual dual-stack maintenance cannot guarantee. The framework implements dynamic code generation to solve FastMCP's type annotation propagation limitations, enabling automatic derivation of streaming HTTP endpoints and zero-configuration MCP tools from single source definitions. This approach reduces framework-facing boilerplate by 74% while maintaining full feature parity with manually maintained dual-stack implementations.",
+    "technicalMechanics": [
+      "Skill discovery mechanism scans typed skill folders containing handler.py and Pydantic schemas, treating directory structure as the registration authority rather than decorators or explicit tool definitions",
+      "Dynamic HTTP routing generation automatically creates FastAPI endpoints from skill handlers, with dual-mode content negotiation supporting both SSE-streaming and JSON-returning clients through Accept header inspection",
+      "Code generation pipeline dynamically creates wrapper functions that properly expose Pydantic type annotations to FastMCP's inspection layer, resolving closure-based registration limitations",
+      "ASGI sub-application mounting strategy combines FastAPI and FastMCP into single-process operation using lifespan-merging to coordinate startup/shutdown sequences",
+      "Runtime handler hot-swap capability enables zero-downtime skill updates through exec-based code reloading with security sandboxing considerations",
+      "Server-Sent Events streaming implementation provides real-time capability for long-running operations while maintaining backward compatibility with synchronous JSON responses",
+      "CLI scaffolding system automatically generates skill folder structures with proper Pydantic schema templates and handler boilerplate",
+      "OpenAPI/Swagger UI generation derives interactive documentation directly from skill definitions, ensuring schema consistency across all transport layers"
+    ],
+    "productionConsiderations": {
+      "scalability": "Single-process architecture may become bottleneck at high concurrency; ASGI sub-application mounting preserves FastAPI's async capabilities but introduces coordination overhead between HTTP and MCP layers. Skill discovery filesystem scanning could impact startup time with large skill repositories.",
+      "latency": "SSE streaming enables real-time responses for long-running operations; dual-mode content negotiation adds minimal overhead through Accept header inspection. Dynamic code generation occurs at startup, not runtime, preserving request-path performance.",
+      "resourceRequirements": "Minimal additional overhead beyond FastAPI baseline; single-process operation reduces memory footprint compared to separate HTTP/MCP servers. Dynamic code generation requires exec permissions which may conflict with security-hardened deployments.",
+      "implementationComplexity": "Moderate complexity due to FastAPI subclassing and ASGI lifecycle management. Requires understanding of Pydantic schema propagation and MCP protocol specifics. Framework handles most complexity internally but debugging dual-stack issues may be challenging."
+    },
+    "applicationsAndImpact": "Primary application is LLM agent tooling platforms requiring both human dashboard access and agent runtime integration, such as enterprise AI assistants or development tools like Cursor/Claude Desktop. Performance gains include 74% boilerplate reduction and elimination of schema drift bugs that cause LLM hallucinations. The framework enables rapid deployment of production-ready tool endpoints that automatically work with the growing MCP ecosystem. Real-world impact includes accelerating agent tool development cycles and reducing maintenance overhead for teams managing dual-stack LLM integrations.",
+    "technicalPrerequisites": [
+      "FastAPI framework architecture and ASGI application patterns",
+      "Pydantic schema definition and type annotation propagation mechanisms",
+      "Model Context Protocol (MCP) specification and tool registration patterns",
+      "Server-Sent Events (SSE) streaming and HTTP content negotiation",
+      "Python metaclass programming and dynamic code generation techniques",
+      "ASGI lifecycle management and sub-application mounting strategies",
+      "LLM agent tool invocation patterns and schema-based API grounding"
+    ],
+    "keyTermsAndConcepts": [
+      {
+        "term": "Skill-First Architecture",
+        "definition": "An architectural pattern where the skill folder (containing handler and schema) serves as the single source of truth, with transport-layer registrations (HTTP endpoints, MCP tools) derived automatically rather than manually maintained in parallel."
+      },
+      {
+        "term": "Dual-Mode Content Negotiation",
+        "definition": "A mechanism allowing the same handler to serve both SSE-streaming and JSON-returning responses based on HTTP Accept headers, eliminating the need for separate streaming and synchronous endpoint implementations."
+      },
+      {
+        "term": "Dynamic Code Generation",
+        "definition": "A runtime technique that creates wrapper functions to properly expose Pydantic type annotations to FastMCP's inspection layer, resolving limitations where closure-based registration fails to preserve type metadata."
+      },
+      {
+        "term": "Model Context Protocol (MCP)",
+        "definition": "A standardized protocol adopted by agent runtimes like Claude Desktop and Cursor that defines how agents discover and invoke tools, requiring specific registration patterns distinct from HTTP REST endpoints."
+      },
+      {
+        "term": "ASGI Sub-Application Mounting",
+        "definition": "A deployment pattern where FastMCP is mounted as an ASGI sub-application within the FastAPI parent application, enabling single-process operation while maintaining protocol separation."
+      },
+      {
+        "term": "Lifespan-Merging Strategy",
+        "definition": "A coordination mechanism that synchronizes startup and shutdown sequences between FastAPI and FastMCP lifecycles when operating in single-process mode, ensuring proper resource initialization and cleanup."
+      },
+      {
+        "term": "Schema Drift",
+        "definition": "The problem where parallel HTTP and MCP schema definitions diverge over time due to independent maintenance, leading to inconsistent type information that increases LLM API call hallucination rates."
+      },
+      {
+        "term": "Handler Hot-Swap",
+        "definition": "A runtime capability enabling zero-downtime skill updates through exec-based code reloading, allowing handler logic changes without full application restart but requiring careful security considerations."
+      }
+    ],
+    "architecturalInsight": "The system implements a three-layer architecture: skill discovery layer scans filesystem for typed skill folders, abstraction layer generates HTTP routes and MCP tool registrations from skill definitions, and transport layer serves both protocols through FastAPI parent application with FastMCP sub-application. Data flows from skill folder through dynamic code generation into parallel HTTP and MCP endpoints, with lifespan coordination ensuring consistent startup/shutdown behavior across both transport protocols.",
+    "limitations": "The framework requires exec permissions for dynamic code generation, which may be incompatible with security-hardened deployment environments. Single-process architecture could become a concurrency bottleneck compared to separate HTTP/MCP server deployments. The approach is Python-specific and doesn't address polyglot environments where tools may be implemented in multiple languages. Hot-swap functionality introduces security risks if skill folders contain untrusted code.",
+    "comparisonToExisting": "HarnessAPI achieves 74% boilerplate reduction compared to manually maintained FastAPI + FastMCP dual-stack implementations while maintaining full feature parity. Unlike route-first (FastAPI) or tool-first (FastMCP) approaches, the skill-first pattern enforces schema consistency structurally rather than requiring developer discipline. The framework preserves FastAPI's full middleware ecosystem and performance characteristics while adding MCP capabilities with minimal overhead.",
+    "relatedWork": [
+      "FastAPI framework and ASGI application patterns for high-performance Python web services",
+      "FastMCP library for Model Context Protocol server implementation",
+      "ReAct pattern (Yao et al. 2023) for interleaved reasoning and tool invocation in LLM agents",
+      "ToolLLM (Qin et al. 2023) for large-scale API benchmarking with 16,000+ REST APIs",
+      "Gorilla (Patil et al. 2023) demonstrating schema accuracy impact on LLM API call hallucinations",
+      "AutoGen (Wu et al. 2023) multi-agent framework emphasizing tool use as core capability"
+    ],
+    "implementationNotes": "Implementation requires FastAPI, FastMCP, and Pydantic dependencies with Python 3.8+. The framework is available on PyPI as 'harnessapi' and GitHub for evaluation. First steps involve creating skill folders with handler.py and schema definitions, then instantiating HarnessAPI class which automatically discovers and registers endpoints. Production deployment should consider security implications of exec-based code generation and evaluate single-process vs. distributed architecture based on concurrency requirements."
+  }
+}
