@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-05-24T07:56:11.824Z",
+  "lastUpdated": "2026-05-25T08:31:29.851Z",
   "articles": [
+    {
+      "date": "2026-05-25",
+      "article": {
+        "title": "LLM-driven design of physics-constrained constitutive models: two agents are better than one",
+        "authors": "Marius Tacke, Matthias Busch, Kian Abdolazizi et al.",
+        "published": "2026-05-22T15:27:09Z",
+        "url": "https://arxiv.org/abs/2605.23754v1"
+      }
+    },
     {
       "date": "2026-05-24",
       "article": {
