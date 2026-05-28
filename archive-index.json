@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-05-27T08:22:15.510Z",
+  "lastUpdated": "2026-05-28T08:23:17.329Z",
   "articles": [
+    {
+      "date": "2026-05-28",
+      "article": {
+        "title": "LACUNA: Safe Agents as Recursive Program Holes",
+        "authors": "Yaoyu Zhao, Yichen Xu, Oliver Bračevac et al.",
+        "published": "2026-05-27T15:27:25Z",
+        "url": "https://arxiv.org/abs/2605.28617v1"
+      }
+    },
     {
       "date": "2026-05-27",
       "article": {
