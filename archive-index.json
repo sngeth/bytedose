@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-05-28T08:23:17.329Z",
+  "lastUpdated": "2026-05-31T08:04:09.093Z",
   "articles": [
+    {
+      "date": "2026-05-31",
+      "article": {
+        "title": "SpecBench: Evaluating Specification-Level Reasoning for Software Engineering LLM Agents",
+        "authors": "Grant Hamblin, Kevin Song, Zhanda Zhu et al.",
+        "published": "2026-05-28T17:54:01Z",
+        "url": "https://arxiv.org/abs/2605.30314v1"
+      }
+    },
     {
       "date": "2026-05-28",
       "article": {
