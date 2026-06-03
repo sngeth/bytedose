@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-05-31T08:04:09.093Z",
+  "lastUpdated": "2026-06-03T08:39:29.251Z",
   "articles": [
+    {
+      "date": "2026-06-03",
+      "article": {
+        "title": "FFR: Forward-Forward Learning for Regression",
+        "authors": "Xinyang Liu, Xuanyu Liang, Shiqi Ding et al.",
+        "published": "2026-06-02T17:15:59Z",
+        "url": "https://arxiv.org/abs/2606.03927v1"
+      }
+    },
     {
       "date": "2026-05-31",
       "article": {
