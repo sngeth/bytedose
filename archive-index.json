@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-06-07T08:11:36.876Z",
+  "lastUpdated": "2026-06-08T08:35:17.613Z",
   "articles": [
+    {
+      "date": "2026-06-08",
+      "article": {
+        "title": "On the Shoulders of Giants: Empowering Automated Smart Contract Auditing via the GiAnt Corpus",
+        "authors": "Xiaoting Zhang, Zhipeng Gao, Yiran Lv et al.",
+        "published": "2026-06-05T15:08:32Z",
+        "url": "https://arxiv.org/abs/2606.07363v1"
+      }
+    },
     {
       "date": "2026-06-07",
       "article": {
