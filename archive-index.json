@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-06-08T08:35:17.613Z",
+  "lastUpdated": "2026-06-09T08:13:13.771Z",
   "articles": [
+    {
+      "date": "2026-06-09",
+      "article": {
+        "title": "FASE: Fast Adaptive Semantic Entropy for Code Quality",
+        "authors": "Shizhe Lin, Ladan Tahvildari",
+        "published": "2026-06-08T17:53:05Z",
+        "url": "https://arxiv.org/abs/2606.09800v1"
+      }
+    },
     {
       "date": "2026-06-08",
       "article": {
