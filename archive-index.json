@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-06-09T08:13:13.771Z",
+  "lastUpdated": "2026-06-10T08:23:15.498Z",
   "articles": [
+    {
+      "date": "2026-06-10",
+      "article": {
+        "title": "OpenPCC: Open and Confidential LLM Serving on Commodity TEEs",
+        "authors": "Haoling Zhou, Shixuan Zhao, Chao Wang et al.",
+        "published": "2026-06-09T17:33:33Z",
+        "url": "https://arxiv.org/abs/2606.11145v1"
+      }
+    },
     {
       "date": "2026-06-09",
       "article": {
