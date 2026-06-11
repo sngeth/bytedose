@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-06-10T08:23:15.498Z",
+  "lastUpdated": "2026-06-11T08:33:18.976Z",
   "articles": [
+    {
+      "date": "2026-06-11",
+      "article": {
+        "title": "TAHOE: Text-to-SQL with Automated Hint Optimization from Experience",
+        "authors": "Zhiyi Chen, Jie Song, Peng Li",
+        "published": "2026-06-10T17:52:15Z",
+        "url": "https://arxiv.org/abs/2606.12387v1"
+      }
+    },
     {
       "date": "2026-06-10",
       "article": {
