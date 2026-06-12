@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-06-11T08:33:18.976Z",
+  "lastUpdated": "2026-06-12T08:31:19.569Z",
   "articles": [
+    {
+      "date": "2026-06-12",
+      "article": {
+        "title": "ArogyaSutra: A Multi-Agent Framework for Multimodal Medical Reasoning in Indic Languages",
+        "authors": "Tanmoy Kanti Halder, Akash Ghosh, Subhadip Baidya et al.",
+        "published": "2026-06-11T16:59:42Z",
+        "url": "https://arxiv.org/abs/2606.13572v1"
+      }
+    },
     {
       "date": "2026-06-11",
       "article": {
