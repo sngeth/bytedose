@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-06-14T08:24:03.217Z",
+  "lastUpdated": "2026-06-15T09:06:48.681Z",
   "articles": [
+    {
+      "date": "2026-06-15",
+      "article": {
+        "title": "Abstracting Cross-Domain Action Sequences into Interpretable Workflows",
+        "authors": "Gaurav Verma, Scott Counts",
+        "published": "2026-06-12T17:19:15Z",
+        "url": "https://arxiv.org/abs/2606.14654v1"
+      }
+    },
     {
       "date": "2026-06-14",
       "article": {
