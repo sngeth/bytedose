@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-06-15T09:06:48.681Z",
+  "lastUpdated": "2026-06-16T08:56:15.723Z",
   "articles": [
+    {
+      "date": "2026-06-16",
+      "article": {
+        "title": "Phantoms and Disclosures: a Causal Framework for Auditing Synthetic Data",
+        "authors": "Kareem Amin, Rudrajit Das, Alessandro Epasto et al.",
+        "published": "2026-06-15T16:54:02Z",
+        "url": "https://arxiv.org/abs/2606.16952v1"
+      }
+    },
     {
       "date": "2026-06-15",
       "article": {
