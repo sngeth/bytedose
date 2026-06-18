@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-06-17T08:44:23.482Z",
+  "lastUpdated": "2026-06-18T08:33:28.618Z",
   "articles": [
+    {
+      "date": "2026-06-18",
+      "article": {
+        "title": "Teaching Software Engineering with LLM and MCP Integration: From Classroom to Industry Practice",
+        "authors": "Kehui Chen, Jacky Keung, Weining Li et al.",
+        "published": "2026-06-17T15:11:28Z",
+        "url": "https://arxiv.org/abs/2606.19167v1"
+      }
+    },
     {
       "date": "2026-06-17",
       "article": {
