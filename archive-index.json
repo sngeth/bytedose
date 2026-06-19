@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-06-18T08:33:28.618Z",
+  "lastUpdated": "2026-06-19T08:46:50.383Z",
   "articles": [
+    {
+      "date": "2026-06-19",
+      "article": {
+        "title": "Sovereign Execution Brokers: Enforcing Certificate-Bound Authority in Agentic Control Planes",
+        "authors": "Jun He, Deying Yu",
+        "published": "2026-06-18T17:36:46Z",
+        "url": "https://arxiv.org/abs/2606.20520v1"
+      }
+    },
     {
       "date": "2026-06-18",
       "article": {
