@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-06-23T08:12:02.242Z",
+  "lastUpdated": "2026-06-24T08:09:01.015Z",
   "articles": [
+    {
+      "date": "2026-06-24",
+      "article": {
+        "title": "InSight: Self-Guided Skill Acquisition via Steerable VLAs",
+        "authors": "Maggie Wang, Lars Osterberg, Stephen Tian et al.",
+        "published": "2026-06-23T17:59:01Z",
+        "url": "https://arxiv.org/abs/2606.24884v1"
+      }
+    },
     {
       "date": "2026-06-23",
       "article": {
