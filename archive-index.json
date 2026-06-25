@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-06-24T08:09:01.015Z",
+  "lastUpdated": "2026-06-25T08:08:18.532Z",
   "articles": [
+    {
+      "date": "2026-06-25",
+      "article": {
+        "title": "Parnassus: A GPU-enabled, Python-based Package for Fast Particle Detector Simulation and Reconstruction",
+        "authors": "Abdelrahman Elabd, Eilam Gross, Dmitrii Kobylianskii et al.",
+        "published": "2026-06-24T17:57:29Z",
+        "url": "https://arxiv.org/abs/2606.26089v1"
+      }
+    },
     {
       "date": "2026-06-24",
       "article": {
