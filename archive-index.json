@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-06-25T08:08:18.532Z",
+  "lastUpdated": "2026-06-26T08:13:06.539Z",
   "articles": [
+    {
+      "date": "2026-06-26",
+      "article": {
+        "title": "A Multi-Fidelity Convolutional Autoencoder-Transfer Learning Framework for Guided-Wave-Based Damage Diagnosis Using Large Simulated and Limited Experimental Datasets",
+        "authors": "Santosh Kapuria, Abhishek",
+        "published": "2026-06-25T17:25:13Z",
+        "url": "https://arxiv.org/abs/2606.27304v1"
+      }
+    },
     {
       "date": "2026-06-25",
       "article": {
