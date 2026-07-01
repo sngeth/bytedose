@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-06-30T08:12:16.873Z",
+  "lastUpdated": "2026-07-01T08:25:07.193Z",
   "articles": [
+    {
+      "date": "2026-07-01",
+      "article": {
+        "title": "JETO-Bench: A Reproducible Benchmark for Execution Time Improvement Patches in Java",
+        "authors": "Khashayar Etemadi, Zhendong Su",
+        "published": "2026-06-30T14:54:25Z",
+        "url": "https://arxiv.org/abs/2606.31767v1"
+      }
+    },
     {
       "date": "2026-06-30",
       "article": {
