@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-07-01T08:25:07.193Z",
+  "lastUpdated": "2026-07-02T08:03:15.945Z",
   "articles": [
+    {
+      "date": "2026-07-02",
+      "article": {
+        "title": "AutoMem: Automated Learning of Memory as a Cognitive Skill",
+        "authors": "Shengguang Wu, Hao Zhu, Yuhui Zhang et al.",
+        "published": "2026-07-01T17:57:03Z",
+        "url": "https://arxiv.org/abs/2607.01224v1"
+      }
+    },
     {
       "date": "2026-07-01",
       "article": {
