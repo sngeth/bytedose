@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-07-05T09:38:49.101Z",
+  "lastUpdated": "2026-07-06T11:24:09.605Z",
   "articles": [
+    {
+      "date": "2026-07-06",
+      "article": {
+        "title": "Controllable Sim Agents with Behavior Latents",
+        "authors": "Juanwu Lu, Junyu Zhu, Ziran Wang",
+        "published": "2026-07-02T17:55:39Z",
+        "url": "https://arxiv.org/abs/2607.02496v1"
+      }
+    },
     {
       "date": "2026-07-05",
       "article": {
