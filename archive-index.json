@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-07-06T11:24:09.605Z",
+  "lastUpdated": "2026-07-07T10:22:02.230Z",
   "articles": [
+    {
+      "date": "2026-07-07",
+      "article": {
+        "title": "EvoAgentBench: Benchmarking Agent Self-Evolution via Ability Transfer",
+        "authors": "Xingze Gao, Chuanrui Hu, Hongda Chen et al.",
+        "published": "2026-07-06T15:17:09Z",
+        "url": "https://arxiv.org/abs/2607.05202v1"
+      }
+    },
     {
       "date": "2026-07-06",
       "article": {
