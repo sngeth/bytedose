@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-07-08T09:29:25.159Z",
+  "lastUpdated": "2026-07-09T10:20:04.646Z",
   "articles": [
+    {
+      "date": "2026-07-09",
+      "article": {
+        "title": "Rethinking Code Performance Benchmarks for LLMs",
+        "authors": "Nhat Minh Le, Yisen Xu, Zhijie Wang et al.",
+        "published": "2026-07-08T16:36:03Z",
+        "url": "https://arxiv.org/abs/2607.07619v1"
+      }
+    },
     {
       "date": "2026-07-08",
       "article": {
