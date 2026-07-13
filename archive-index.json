@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-07-12T08:59:21.696Z",
+  "lastUpdated": "2026-07-13T10:19:50.908Z",
   "articles": [
+    {
+      "date": "2026-07-13",
+      "article": {
+        "title": "Mosaic: Runtime-Efficient Multi-Agent Embodied Planning",
+        "authors": "Kunjal Panchal, Saayan Mitra, Sunav Choudhary et al.",
+        "published": "2026-07-10T16:57:37Z",
+        "url": "https://arxiv.org/abs/2607.09603v1"
+      }
+    },
     {
       "date": "2026-07-12",
       "article": {
