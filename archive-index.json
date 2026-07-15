@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-07-14T09:01:16.352Z",
+  "lastUpdated": "2026-07-15T09:06:21.267Z",
   "articles": [
+    {
+      "date": "2026-07-15",
+      "article": {
+        "title": "TerraZero: Procedural Driving Simulation for Zero-Demonstration Self-Play at Scale",
+        "authors": "Zhouchonghao Wu, Akshay Rangesh, Weixin Li et al.",
+        "published": "2026-07-14T17:59:02Z",
+        "url": "https://arxiv.org/abs/2607.13028v1"
+      }
+    },
     {
       "date": "2026-07-14",
       "article": {
