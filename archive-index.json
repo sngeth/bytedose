@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-07-15T09:06:21.267Z",
+  "lastUpdated": "2026-07-16T09:09:42.366Z",
   "articles": [
+    {
+      "date": "2026-07-16",
+      "article": {
+        "title": "VisualRepair: Dynamic Tool Calling and Region Focusing for Visual Software Issue Repair",
+        "authors": "Jingyu Xiao, Zhongyi Zhang, Haoran Hou et al.",
+        "published": "2026-07-15T17:48:16Z",
+        "url": "https://arxiv.org/abs/2607.14075v1"
+      }
+    },
     {
       "date": "2026-07-15",
       "article": {
