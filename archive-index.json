@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-07-17T09:05:13.192Z",
+  "lastUpdated": "2026-07-18T08:45:29.229Z",
   "articles": [
+    {
+      "date": "2026-07-18",
+      "article": {
+        "title": "Can We Trust Item Response Theory for AI Evaluation?",
+        "authors": "Han Jiang, Sunbeom Kwon, Jinwen Luo et al.",
+        "published": "2026-07-16T16:44:40Z",
+        "url": "https://arxiv.org/abs/2607.15190v1"
+      }
+    },
     {
       "date": "2026-07-17",
       "article": {
