@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-07-21T09:24:05.662Z",
+  "lastUpdated": "2026-07-22T09:23:26.900Z",
   "articles": [
+    {
+      "date": "2026-07-22",
+      "article": {
+        "title": "Agents in the Wild: Where Research Meets Deployment",
+        "authors": "Grace Hui Yang, Pranav N. Venkit, Hooman Sedghamiz et al.",
+        "published": "2026-07-21T17:55:10Z",
+        "url": "https://arxiv.org/abs/2607.19336v1"
+      }
+    },
     {
       "date": "2026-07-21",
       "article": {
