@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-07-22T09:23:26.900Z",
+  "lastUpdated": "2026-07-23T09:21:21.735Z",
   "articles": [
+    {
+      "date": "2026-07-23",
+      "article": {
+        "title": "Multi-Source and Cross-Scenario Strategy-Guided Code Optimization",
+        "authors": "Yuwei Zhao, Qianyu Xiao, Ye Cui et al.",
+        "published": "2026-07-22T16:38:56Z",
+        "url": "https://arxiv.org/abs/2607.20353v1"
+      }
+    },
     {
       "date": "2026-07-22",
       "article": {
