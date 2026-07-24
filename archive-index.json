@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-07-23T09:21:21.735Z",
+  "lastUpdated": "2026-07-24T09:16:41.617Z",
   "articles": [
+    {
+      "date": "2026-07-24",
+      "article": {
+        "title": "GS-Agent: Creating 4D Physical Worlds With Generative Simulation",
+        "authors": "Hongxin Zhang, Chunru Lin, Junyan Li et al.",
+        "published": "2026-07-23T17:04:36Z",
+        "url": "https://arxiv.org/abs/2607.21522v1"
+      }
+    },
     {
       "date": "2026-07-23",
       "article": {
