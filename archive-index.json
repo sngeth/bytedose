@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-07-26T09:08:41.835Z",
+  "lastUpdated": "2026-07-27T10:37:05.975Z",
   "articles": [
+    {
+      "date": "2026-07-27",
+      "article": {
+        "title": "TileSight: A First-Principles Tile-Centric Analytical GPU Performance Model from Cores to Clusters",
+        "authors": "Zhiwen Mo, Yu Cheng, Lei Wang et al.",
+        "published": "2026-07-24T15:50:23Z",
+        "url": "https://arxiv.org/abs/2607.22432v1"
+      }
+    },
     {
       "date": "2026-07-26",
       "article": {
