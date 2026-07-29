@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-07-28T09:33:05.648Z",
+  "lastUpdated": "2026-07-29T09:34:09.381Z",
   "articles": [
+    {
+      "date": "2026-07-29",
+      "article": {
+        "title": "Untangling Co-Drift: Proactive Multi-Intent Failure Prediction and Root-Cause Disambiguation for Self-Driving Networks",
+        "authors": "Md. Kamrul Hossain, Walid Aljoby",
+        "published": "2026-07-28T17:06:24Z",
+        "url": "https://arxiv.org/abs/2607.25989v1"
+      }
+    },
     {
       "date": "2026-07-28",
       "article": {
