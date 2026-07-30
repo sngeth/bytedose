@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-07-29T09:34:09.381Z",
+  "lastUpdated": "2026-07-30T09:26:23.598Z",
   "articles": [
+    {
+      "date": "2026-07-30",
+      "article": {
+        "title": "SpecFirst: Behavioral Specification Elicitation as a First-Class Step in Agent-Based Program Synthesis from Scratch",
+        "authors": "Yihao Chen, Shi Chang, Feng Lin et al.",
+        "published": "2026-07-29T17:42:47Z",
+        "url": "https://arxiv.org/abs/2607.27167v1"
+      }
+    },
     {
       "date": "2026-07-29",
       "article": {
