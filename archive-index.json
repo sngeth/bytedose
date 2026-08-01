@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-07-31T09:38:51.428Z",
+  "lastUpdated": "2026-08-01T09:07:29.969Z",
   "articles": [
+    {
+      "date": "2026-08-01",
+      "article": {
+        "title": "Learning to Trace Seiberg Dualities",
+        "authors": "Jonathan J. Heckman, Shani Meynet, Alessandro Mininno et al.",
+        "published": "2026-07-30T17:59:56Z",
+        "url": "https://arxiv.org/abs/2607.28628v1"
+      }
+    },
     {
       "date": "2026-07-31",
       "article": {
