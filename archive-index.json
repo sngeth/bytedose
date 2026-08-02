@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-08-01T09:07:29.969Z",
+  "lastUpdated": "2026-08-02T09:05:54.162Z",
   "articles": [
+    {
+      "date": "2026-08-02",
+      "article": {
+        "title": "AIx4Soccer: A Unified Platform Architecture for Football Club Management and Structured Athlete Development",
+        "authors": "Frederico Falconi Costa, Salvador Cesar Costa, Fabricio F. Costa",
+        "published": "2026-07-30T17:02:58Z",
+        "url": "https://arxiv.org/abs/2607.28531v1"
+      }
+    },
     {
       "date": "2026-08-01",
       "article": {
