@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-08-02T09:05:54.162Z",
+  "lastUpdated": "2026-08-03T10:37:02.347Z",
   "articles": [
+    {
+      "date": "2026-08-03",
+      "article": {
+        "title": "AgentHPOBench: A Benchmark For Evaluating LLM Agents as Sequential Hyperparameter Optimizers",
+        "authors": "Tianyu Huai, Tingshuo Fan, Xinchi Chen et al.",
+        "published": "2026-07-31T16:58:00Z",
+        "url": "https://arxiv.org/abs/2607.29626v1"
+      }
+    },
     {
       "date": "2026-08-02",
       "article": {
