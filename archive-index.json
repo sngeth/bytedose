@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-08-03T10:37:02.347Z",
+  "lastUpdated": "2026-08-04T09:36:01.732Z",
   "articles": [
+    {
+      "date": "2026-08-04",
+      "article": {
+        "title": "CTRAG: An In-Context Retrieval-based Framework for Automated Compliance Checking using LLMs",
+        "authors": "Muhammad Roman, Karen Rafferty, Barry Devereux",
+        "published": "2026-08-03T16:40:16Z",
+        "url": "https://arxiv.org/abs/2608.02472v1"
+      }
+    },
     {
       "date": "2026-08-03",
       "article": {
