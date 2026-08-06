@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-08-05T09:32:05.346Z",
+  "lastUpdated": "2026-08-06T09:36:16.905Z",
   "articles": [
+    {
+      "date": "2026-08-06",
+      "article": {
+        "title": "DASyR-LLM: Domain-Aware Symbolic Regression with LLMs for Kinetic Model Discovery",
+        "authors": "Roberto Aliaga Medina, Paulina Quintanilla, Antonio del Rio Chanona",
+        "published": "2026-08-05T17:48:45Z",
+        "url": "https://arxiv.org/abs/2608.05120v1"
+      }
+    },
     {
       "date": "2026-08-05",
       "article": {
