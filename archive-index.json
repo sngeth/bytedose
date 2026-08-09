@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-08-08T07:43:19.734Z",
+  "lastUpdated": "2026-08-09T07:49:28.716Z",
   "articles": [
+    {
+      "date": "2026-08-09",
+      "article": {
+        "title": "HarnessOpt-Bench: Evaluating LLMs at Harness Optimization",
+        "authors": "Varun Ursekar, Apaar Shanker, Yash Maurya et al.",
+        "published": "2026-08-06T17:21:05Z",
+        "url": "https://arxiv.org/abs/2608.06301v1"
+      }
+    },
     {
       "date": "2026-08-08",
       "article": {
