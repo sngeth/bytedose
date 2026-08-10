@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-08-09T07:49:28.716Z",
+  "lastUpdated": "2026-08-10T08:23:02.521Z",
   "articles": [
+    {
+      "date": "2026-08-10",
+      "article": {
+        "title": "A Picture is Worth a Thousand Tokens: How Vision Language Models Cut AI Energy Costs While Improving Accuracy",
+        "authors": "Bhavika Jalli, Nikhil Korati Prasanna, Jayanta Choudhury",
+        "published": "2026-08-07T17:14:45Z",
+        "url": "https://arxiv.org/abs/2608.07427v1"
+      }
+    },
     {
       "date": "2026-08-09",
       "article": {
