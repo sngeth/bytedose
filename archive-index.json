@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-08-10T08:23:02.521Z",
+  "lastUpdated": "2026-08-11T08:10:38.936Z",
   "articles": [
+    {
+      "date": "2026-08-11",
+      "article": {
+        "title": "SHE: Trajectory-driven Safety Harness Evolution for LLM Agents",
+        "authors": "Wanying Qu, Qinghua Mao, Yu Li et al.",
+        "published": "2026-08-10T17:35:08Z",
+        "url": "https://arxiv.org/abs/2608.09885v1"
+      }
+    },
     {
       "date": "2026-08-10",
       "article": {
