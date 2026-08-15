@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-08-14T08:10:14.897Z",
+  "lastUpdated": "2026-08-15T07:25:31.510Z",
   "articles": [
+    {
+      "date": "2026-08-15",
+      "article": {
+        "title": "Vero: Can AI Agents Build Formally Verified Software Repositories?",
+        "authors": "Zhe Ye, Hantao Lou, Yuechun Sun et al.",
+        "published": "2026-08-13T17:41:27Z",
+        "url": "https://arxiv.org/abs/2608.13522v1"
+      }
+    },
     {
       "date": "2026-08-14",
       "article": {
