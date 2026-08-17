@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-08-16T07:25:17.039Z",
+  "lastUpdated": "2026-08-17T07:47:09.552Z",
   "articles": [
+    {
+      "date": "2026-08-17",
+      "article": {
+        "title": "Twin: Playing an Unknown Game with a Test-Time Digital Twin",
+        "authors": "Alexy Skoutnev, Kirill Acharya, Gaston Longhitano et al.",
+        "published": "2026-08-14T17:06:00Z",
+        "url": "https://arxiv.org/abs/2608.14490v1"
+      }
+    },
     {
       "date": "2026-08-16",
       "article": {
