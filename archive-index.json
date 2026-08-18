@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-08-17T07:47:09.552Z",
+  "lastUpdated": "2026-08-18T07:32:47.682Z",
   "articles": [
+    {
+      "date": "2026-08-18",
+      "article": {
+        "title": "TDD-Agent: Test-Driven Reasoning for Code Generation",
+        "authors": "Hongyue Yu, Kefan Li, Jiakun Li et al.",
+        "published": "2026-08-17T15:52:04Z",
+        "url": "https://arxiv.org/abs/2608.16742v1"
+      }
+    },
     {
       "date": "2026-08-17",
       "article": {
