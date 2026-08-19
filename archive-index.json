@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-08-18T07:32:47.682Z",
+  "lastUpdated": "2026-08-19T07:32:52.264Z",
   "articles": [
+    {
+      "date": "2026-08-19",
+      "article": {
+        "title": "TraceSQL: Traceable Answerability Estimation for Reference-Free Text-to-SQL Verification",
+        "authors": "Neelesh Kumar Shukla, Debasmita Panda, Srutanik Bhaduri et al.",
+        "published": "2026-08-18T13:56:29Z",
+        "url": "https://arxiv.org/abs/2608.17795v1"
+      }
+    },
     {
       "date": "2026-08-18",
       "article": {
