@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-08-22T07:26:07.753Z",
+  "lastUpdated": "2026-08-23T07:28:24.776Z",
   "articles": [
+    {
+      "date": "2026-08-23",
+      "article": {
+        "title": "Design and Empirical Evaluation of a Network-Centric, On-Premises Architecture for Earth Observation Data Access",
+        "authors": "João Pinelo, João Gonçalves, Denis Willett et al.",
+        "published": "2026-08-20T17:16:19Z",
+        "url": "https://arxiv.org/abs/2608.20283v1"
+      }
+    },
     {
       "date": "2026-08-22",
       "article": {
