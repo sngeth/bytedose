@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-08-23T07:28:24.776Z",
+  "lastUpdated": "2026-08-24T07:52:51.908Z",
   "articles": [
+    {
+      "date": "2026-08-24",
+      "article": {
+        "title": "Beyond Fault Localization: A Trajectory-Level Study of LLM Agents for Microservice Root Cause Analysis",
+        "authors": "Qisheng Lu, Aoyang Fang, Junjielong Xu et al.",
+        "published": "2026-08-21T17:13:45Z",
+        "url": "https://arxiv.org/abs/2608.21310v1"
+      }
+    },
     {
       "date": "2026-08-23",
       "article": {
