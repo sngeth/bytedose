@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-08-25T07:38:51.956Z",
+  "lastUpdated": "2026-08-26T07:40:40.439Z",
   "articles": [
+    {
+      "date": "2026-08-26",
+      "article": {
+        "title": "From Natural Language Requirements to Graphical User Interfaces: Automated Prototyping and Verification with Pretrained Language Models",
+        "authors": "Kristian Kolthoff",
+        "published": "2026-08-25T15:53:24Z",
+        "url": "https://arxiv.org/abs/2608.24749v1"
+      }
+    },
     {
       "date": "2026-08-25",
       "article": {
