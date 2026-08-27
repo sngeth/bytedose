@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-08-26T07:40:40.439Z",
+  "lastUpdated": "2026-08-27T18:02:28.656Z",
   "articles": [
+    {
+      "date": "2026-08-27",
+      "article": {
+        "title": "XREPOTEST: Benchmarking Multilingual Repository-Level Unit Test Generation for Large Language Models",
+        "authors": "Dung Le Quang, Dong Cao Van, Nam Le Hai et al.",
+        "published": "2026-08-26T15:53:43Z",
+        "url": "https://arxiv.org/abs/2608.25939v1"
+      }
+    },
     {
       "date": "2026-08-26",
       "article": {
