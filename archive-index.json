@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-08-28T19:12:04.455Z",
+  "lastUpdated": "2026-08-29T12:55:41.699Z",
   "articles": [
+    {
+      "date": "2026-08-29",
+      "article": {
+        "title": "Scaling Graph Neural Networks for Friend Recommendation: Multi-Hash User Embeddings and Temporal Neighbor Sampling",
+        "authors": "Maksim Utushkin, Andrei Ovsiannikov, Alexander D'yakonov",
+        "published": "2026-08-27T17:41:33Z",
+        "url": "https://arxiv.org/abs/2608.27413v1"
+      }
+    },
     {
       "date": "2026-08-28",
       "article": {
