@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-08-31T14:45:30.493Z",
+  "lastUpdated": "2026-09-01T12:17:32.330Z",
   "articles": [
+    {
+      "date": "2026-09-01",
+      "article": {
+        "title": "Token-Efficient Data Reasoning Agents via Adaptive Structuring of Unstructured Data",
+        "authors": "Milad Rezaei Hajidehi, Qitong Wang, Stratos Idreos",
+        "published": "2026-08-31T16:53:45Z",
+        "url": "https://arxiv.org/abs/2608.31082v1"
+      }
+    },
     {
       "date": "2026-08-31",
       "article": {
