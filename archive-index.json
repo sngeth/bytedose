@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-09-01T12:17:32.330Z",
+  "lastUpdated": "2026-09-02T11:54:49.736Z",
   "articles": [
+    {
+      "date": "2026-09-02",
+      "article": {
+        "title": "Harness-of-Harness: Multi-Day Autonomous Software Development with Continual Improvement",
+        "authors": "Haoyang Yan, Min-le Su, Hangfan Zhang et al.",
+        "published": "2026-09-01T16:17:18Z",
+        "url": "https://arxiv.org/abs/2609.01481v1"
+      }
+    },
     {
       "date": "2026-09-01",
       "article": {
