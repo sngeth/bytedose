@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-09-02T11:54:49.736Z",
+  "lastUpdated": "2026-09-03T11:53:27.466Z",
   "articles": [
+    {
+      "date": "2026-09-03",
+      "article": {
+        "title": "Large Language Models (LLMs) for Telecom Root Cause Analysis (RCA): A Structured Reasoning Framework for Evidence-Grounded Diagnosis",
+        "authors": "Hao Zhou, Mandar Kulkarni, Hao Chen et al.",
+        "published": "2026-09-02T16:43:22Z",
+        "url": "https://arxiv.org/abs/2609.02805v1"
+      }
+    },
     {
       "date": "2026-09-02",
       "article": {
