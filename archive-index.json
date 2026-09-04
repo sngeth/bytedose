@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-09-03T11:53:27.466Z",
+  "lastUpdated": "2026-09-04T11:56:13.695Z",
   "articles": [
+    {
+      "date": "2026-09-04",
+      "article": {
+        "title": "SWE-Gate: Passing Functional Tests Is Not Enough for Software Engineering Agents",
+        "authors": "Xin He, Yanlin Wang, Mingwei Liu et al.",
+        "published": "2026-09-03T17:53:34Z",
+        "url": "https://arxiv.org/abs/2609.04167v1"
+      }
+    },
     {
       "date": "2026-09-03",
       "article": {
