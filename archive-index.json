@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-09-09T12:06:24.430Z",
+  "lastUpdated": "2026-09-10T12:00:37.073Z",
   "articles": [
+    {
+      "date": "2026-09-10",
+      "article": {
+        "title": "Towards Scalable and Cost-Efficient Vulnerability Detection: A Study on Automatic Query Generation",
+        "authors": "Ivana Clairine Irsan, Ratnadira Widyasari, Huihui Huang et al.",
+        "published": "2026-09-09T16:31:20Z",
+        "url": "https://arxiv.org/abs/2609.10412v1"
+      }
+    },
     {
       "date": "2026-09-09",
       "article": {
