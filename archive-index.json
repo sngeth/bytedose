@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-09-10T12:00:37.073Z",
+  "lastUpdated": "2026-09-11T11:59:54.469Z",
   "articles": [
+    {
+      "date": "2026-09-11",
+      "article": {
+        "title": "Learning Agent-based Model Predictive Control for Holistic Vehicle Performance",
+        "authors": "Jiaming Zhong, Reza Valiollahi Mehrizi, Mohammad Pirani et al.",
+        "published": "2026-09-10T17:43:16Z",
+        "url": "https://arxiv.org/abs/2609.11871v1"
+      }
+    },
     {
       "date": "2026-09-10",
       "article": {
