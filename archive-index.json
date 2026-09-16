@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-09-12T11:25:46.173Z",
+  "lastUpdated": "2026-09-16T12:22:40.588Z",
   "articles": [
+    {
+      "date": "2026-09-16",
+      "article": {
+        "title": "FlashVector: Agent for Hierarchical Model Serving Stack Optimization",
+        "authors": "Qi Wu, Lohan Lemire, Kai Meng et al.",
+        "published": "2026-09-15T16:27:45Z",
+        "url": "https://arxiv.org/abs/2609.17391v1"
+      }
+    },
     {
       "date": "2026-09-12",
       "article": {
