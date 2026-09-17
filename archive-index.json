@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-09-16T12:22:40.588Z",
+  "lastUpdated": "2026-09-17T12:22:11.854Z",
   "articles": [
+    {
+      "date": "2026-09-17",
+      "article": {
+        "title": "IB-Flows: an open-source multi-GPU immersed boundary code for fluid-structure interaction",
+        "authors": "Giovanni Vagnoli, Martino Andrea Scarpolini, Fabio Guglietta et al.",
+        "published": "2026-09-16T17:51:05Z",
+        "url": "https://arxiv.org/abs/2609.19130v1"
+      }
+    },
     {
       "date": "2026-09-16",
       "article": {
