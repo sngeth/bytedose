@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-09-18T12:02:14.379Z",
+  "lastUpdated": "2026-09-19T11:44:58.188Z",
   "articles": [
+    {
+      "date": "2026-09-19",
+      "article": {
+        "title": "StageGuard: Learning Stage Transitions for Long-Horizon Robot Tasks via Agentic Distillation",
+        "authors": "Jinbang Huang, Yuanzhao Hu, Zhiyuan Li et al.",
+        "published": "2026-09-17T17:53:48Z",
+        "url": "https://arxiv.org/abs/2609.20791v1"
+      }
+    },
     {
       "date": "2026-09-18",
       "article": {
