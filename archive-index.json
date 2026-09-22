@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-09-21T13:32:59.300Z",
+  "lastUpdated": "2026-09-22T12:17:50.573Z",
   "articles": [
+    {
+      "date": "2026-09-22",
+      "article": {
+        "title": "Who Pays for the KV Cache? Attributing Shared AI Inference Spend Across Kubernetes and LLM Provider Bills",
+        "authors": "Timothy Urista",
+        "published": "2026-09-21T17:57:40Z",
+        "url": "https://arxiv.org/abs/2609.24991v1"
+      }
+    },
     {
       "date": "2026-09-21",
       "article": {
