@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-09-23T12:30:14.738Z",
+  "lastUpdated": "2026-09-24T12:29:42.464Z",
   "articles": [
+    {
+      "date": "2026-09-24",
+      "article": {
+        "title": "From Agent Output to Authorized Transition",
+        "authors": "Christopher Koch",
+        "published": "2026-09-23T14:50:20Z",
+        "url": "https://arxiv.org/abs/2609.28216v1"
+      }
+    },
     {
       "date": "2026-09-23",
       "article": {
