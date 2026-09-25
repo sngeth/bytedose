@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-09-24T12:29:42.464Z",
+  "lastUpdated": "2026-09-25T12:30:30.491Z",
   "articles": [
+    {
+      "date": "2026-09-25",
+      "article": {
+        "title": "RAPID: Robot Agentic Programming from Demonstrations",
+        "authors": "Yuyao Liu, Jiayuan Mao, David Hsu et al.",
+        "published": "2026-09-24T17:58:21Z",
+        "url": "https://arxiv.org/abs/2609.30249v1"
+      }
+    },
     {
       "date": "2026-09-24",
       "article": {
