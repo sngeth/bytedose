@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-09-27T12:38:48.689Z",
+  "lastUpdated": "2026-09-28T14:52:30.393Z",
   "articles": [
+    {
+      "date": "2026-09-28",
+      "article": {
+        "title": "DeepEdu-v1: Efficient and Scalable Agentic LLMs for Vietnamese Education",
+        "authors": "Quang Nguyen, Hieu Nguyen, Hien Hoang et al.",
+        "published": "2026-09-25T17:33:41Z",
+        "url": "https://arxiv.org/abs/2609.31568v1"
+      }
+    },
     {
       "date": "2026-09-27",
       "article": {
