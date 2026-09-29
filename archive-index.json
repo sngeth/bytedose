@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-09-28T14:52:30.393Z",
+  "lastUpdated": "2026-09-29T13:40:46.759Z",
   "articles": [
+    {
+      "date": "2026-09-29",
+      "article": {
+        "title": "From Experience to Expertise: Adoption-Aware Memory Learning for Data-Scarce NPU Kernel Synthesis",
+        "authors": "Longxiao Fan, Tao Zhang, Han Yan et al.",
+        "published": "2026-09-28T16:30:42Z",
+        "url": "https://arxiv.org/abs/2609.35568v1"
+      }
+    },
     {
       "date": "2026-09-28",
       "article": {
