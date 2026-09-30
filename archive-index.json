@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-09-29T13:40:46.759Z",
+  "lastUpdated": "2026-09-30T13:15:44.898Z",
   "articles": [
+    {
+      "date": "2026-09-30",
+      "article": {
+        "title": "AgentBug-Smith: Automatically Reproducing Real-World Harness Bugs in Agentic Systems",
+        "authors": "Yiming Cheng, Alfin Wijaya Rahardja, Mengshi Zhang et al.",
+        "published": "2026-09-29T15:46:04Z",
+        "url": "https://arxiv.org/abs/2609.37864v1"
+      }
+    },
     {
       "date": "2026-09-29",
       "article": {
