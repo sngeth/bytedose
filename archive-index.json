@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-09-30T13:15:44.898Z",
+  "lastUpdated": "2026-10-01T14:06:46.747Z",
   "articles": [
+    {
+      "date": "2026-10-01",
+      "article": {
+        "title": "Herschel: Continuous Optimization of Production LLM Inference through On-Demand Profiling",
+        "authors": "Luping Wang, Weigao Chen, Yifei Wu et al.",
+        "published": "2026-09-30T17:36:45Z",
+        "url": "https://arxiv.org/abs/2609.40247v1"
+      }
+    },
     {
       "date": "2026-09-30",
       "article": {
