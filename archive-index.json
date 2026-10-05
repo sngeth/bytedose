@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-10-04T13:00:27.206Z",
+  "lastUpdated": "2026-10-05T15:29:14.822Z",
   "articles": [
+    {
+      "date": "2026-10-05",
+      "article": {
+        "title": "Persona Guardrail: A Production-Grade Defense Framework for Agentic Systems",
+        "authors": "Bijeeta Pal, Sridhar Reddy Maddireddy, Muhaimin Bin Munir et al.",
+        "published": "2026-10-02T15:13:38Z",
+        "url": "https://arxiv.org/abs/2610.03434v1"
+      }
+    },
     {
       "date": "2026-10-04",
       "article": {
