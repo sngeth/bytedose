@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-10-05T15:29:14.822Z",
+  "lastUpdated": "2026-10-06T13:51:35.174Z",
   "articles": [
+    {
+      "date": "2026-10-06",
+      "article": {
+        "title": "Back to the Future: Rethinking EDA Infrastructure for Agentic Systems in Chip Design Verification",
+        "authors": "Je Yang, Ivan Lobov, Thomas Karpati",
+        "published": "2026-10-05T17:48:14Z",
+        "url": "https://arxiv.org/abs/2610.06790v1"
+      }
+    },
     {
       "date": "2026-10-05",
       "article": {
