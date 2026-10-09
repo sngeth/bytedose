@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-10-08T14:19:10.809Z",
+  "lastUpdated": "2026-10-09T14:04:07.906Z",
   "articles": [
+    {
+      "date": "2026-10-09",
+      "article": {
+        "title": "Long Text to Predictive Features: LLM-Guided Blockwise Feature Engineering via Executable Program Search",
+        "authors": "Ziming Dai, Dabiao Ma, Ziheng Guo et al.",
+        "published": "2026-10-08T17:39:11Z",
+        "url": "https://arxiv.org/abs/2610.12390v1"
+      }
+    },
     {
       "date": "2026-10-08",
       "article": {
