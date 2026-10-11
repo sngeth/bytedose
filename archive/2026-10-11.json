@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-11",
+  "article": {
+    "id": "2610.12390v1",
+    "title": "Long Text to Predictive Features: LLM-Guided Blockwise Feature Engineering via Executable Program Search",
+    "summary": "Industrial risk-control systems typically rely on structured-data models for efficient prediction, yet substantial valuable information remains embedded in unstructured long text. Extracting this information through manual feature engineering is labor-intensive, while requiring a large language model (LLM) to process every real-time input may not meet practical deployment requirements. To address this challenge, we propose LLM-BlockFE, an LLM-guided offline feature construction framework that converts long text into executable feature programs, thereby avoiding LLM calls during online inference. LLM-BlockFE constructs feature programs by incrementally appending immutable code blocks and evaluates candidate features using a downstream model. To address the tendency of conventional greedy search to become trapped in suboptimal solutions, our method introduces a block-level rollback mechanism based on depth-calibrated credit allocation and advances multiple independent search trajectories in an interleaved manner, reducing redundant exploration by sharing fixed descriptions of each trajectory's exploration direction. After the search, the resulting programs are frozen and deployed to extract structured features for downstream prediction models. Across two public and two private datasets, LLM-BlockFE achieves absolute AUC improvements of 0.0069 to 0.0358 over the strongest baseline on each dataset in the full-dataset comparison. Post-launch monitoring across five deployed financial risk-control applications shows absolute KS improvements of 0.02 to 1.56 percentage points over the existing manually designed strategy.",
+    "authors": "Ziming Dai, Dabiao Ma, Ziheng Guo et al.",
+    "published": "2026-10-08T17:39:11Z",
+    "categories": [
+      "cs.LG",
+      "cs.CL"
+    ],
+    "url": "https://arxiv.org/abs/2610.12390v1",
+    "score": 30
+  },
+  "alternates": [
+    {
+      "id": "2610.12463v1",
+      "title": "From Reactive Containment to Proactive Assurance: Lessons from OpenAI, Anthropic, and Google Agent Security Incidents",
+      "summary": "In 2026, cybersecurity evaluations involving OpenAI, Anthropic, and Google agents reached real systems outside their authorized test scope. The paths were different. OpenAI agents exploited research infrastructure, coordinated across runs, and compromised parts of Hugging Face's production environment. Anthropic reported cases in which a misconfigured third-party environment exposed real systems to agents pursuing simulated cyber tasks. In a separately reported evaluation, Google's Gemini accessed three real organizations through an unintended internet route; Google stated that the model stopped in all three instances. Taken together, the cases show why an evaluation cannot rely on an assumed boundary. That boundary must be verified while the agent is operating. This comparative instrumental case study develops a Proactive Agent Security Assurance Cycle (PASAC) and a five-layer Boundary Assurance Stack. The framework combines risk-tiered task design, executable scope contracts, pre-run validation, least-capability access, independent egress enforcement, credential restrictions, cross-run monitoring, automatic stop conditions, and evidence-based reauthorization. A leading-indicator model, nine design propositions, and seven falsifiable hypotheses turn these lessons into a testable research program. Because the public Gemini record is limited to attributed statements and journalism, its detailed causal mechanism remains provisional. The central conclusion is straightforward: proactive agent security requires continuous assurance across the full execution system, not confidence in any single sandbox or safeguard.",
+      "authors": "Abbas Raftari",
+      "published": "2026-10-08T17:59:49Z",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "url": "https://arxiv.org/abs/2610.12463v1",
+      "score": 26
+    },
+    {
+      "id": "2610.12415v1",
+      "title": "ORCAGen: Orchestrating Context-Aware Malware Deception with RAG-Guided Generative AI",
+      "summary": "Malware defenses often remove or isolate suspicious programs as quickly as possible. While effective for containment, this approach can also waste an opportunity to observe attacker behavior and deploy targeted countermeasures. ORCAGen takes a different approach: it uses GenAI to build malware-specific deception playbooks offline, validates them before deployment, and enforces only the verified logic at runtime. ORCAGen combines Retrieval-Augmented Generation (RAG) with structured prompt engineering to generate both proof-of-concept (PoC) malware and corresponding deception orchestration code. A curated knowledge base (KB) of malware procedures and active defense strategies grounds the generation process, helping the LLM produce threat-specific and executable deception logic rather than generic or hallucinated outputs. The generated PoC malware provides a safe and reproducible way to test whether a deception strategy can disrupt, redirect, or suppress targeted malware behavior before the strategy is added to the runtime playbook. We evaluate ORCAGen across GPT-4o, GPT-5.5, Gemini 3.5 Flash, Qwen3-Coder, and Claude Sonnet 4.5 using execution success, hallucination rate, refinement effort, deception effectiveness, and runtime overhead. The evaluation covers synthesized malware scenarios and 150 real-world malware samples across keyloggers, information stealers, and ransomware. Across the evaluated scenarios, GPT-5.5 required the fewest refinements and produced no observed hallucinated APIs, while Gemini 3.5 Flash achieved the lowest response time and runtime overhead. The results show that RAG-guided structured prompting can support the scalable construction of malware-specific deception playbooks that remain lightweight and deterministic during runtime enforcement.",
+      "authors": "Shihab Ahmed, Md Sajidul Islam Sajid, Teryl Taylor et al.",
+      "published": "2026-10-08T17:51:11Z",
+      "categories": [
+        "cs.CR"
+      ],
+      "url": "https://arxiv.org/abs/2610.12415v1",
+      "score": 25
+    },
+    {
+      "id": "2610.12405v1",
+      "title": "OctoSense: Building a Unified Ecosystem for Open-Source Wireless Sensing",
+      "summary": "As AI enters the physical world, wireless sensing has emerged as a key modality for enabling non-intrusive physical intelligence. However, unlike the mature ecosystems of vision and language models, wireless sensing research remains highly fragmented. The field faces a growing \"reproducibility wall\" caused by heterogeneous data formats, non-interoperable processing pipelines, and the lack of standardized benchmarks. To dismantle this barrier, we present OctoSense, a unified platform designed to propel wireless sensing toward an \"ImageNet-style\" research ecosystem. OctoSense introduces a holistic framework that decouples high-level model logic from ad-hoc data nuances through three distinct components: a unified data abstraction for streamlined dataset access, standardized signal operators for efficient model development, and a rigorous benchmark engine for rapid and fair comparison. To support existing datasets and models, OctoSense integrates a comprehensive suite of widely used datasets and models, reducing the effort required for data and model adaptation to a few lines of declarative code. We demonstrate the efficacy of OctoSense through a set of usage examples that reproduce representative models on popular datasets. By providing a foundational open-source infrastructure, OctoSense enables community efforts to accumulate rather than fragment, paving the way for wireless sensing research that is interoperable, reusable, and reproducible by design.",
+      "authors": "Weiying Hou, Xie Zhang, Chenshu Wu",
+      "published": "2026-10-08T17:45:43Z",
+      "categories": [
+        "cs.NI"
+      ],
+      "url": "https://arxiv.org/abs/2610.12405v1",
+      "score": 25
+    },
+    {
+      "id": "2610.12327v1",
+      "title": "SparseDecoding: Decoding-Aware Pruning for Accurate and Efficient LLM Inference",
+      "summary": "The memory-bound nature of the decoding stage of large language model (LLM) inference incurs significant latency. Layer-wise training-free network pruning approaches guided by the Hessian have been a prominent solution to this problem, as pruning reduces the number of nonzero parameters read from memory during decoding. Nevertheless, typical methods in this line compute the Hessian using pre-collected natural sequences, whereas the model is fed self-generated tokens during decoding, creating a distribution shift between the two sequences. The Hessian calculated on the natural sequence is different from that calculated on the generated sequence. We observe that this discrepancy causes the activation distribution during generation to deviate from that used for pruning, further hurting the pruned model performance. Moreover, most existing LLM pruning methods that bring actual speedup primarily target the sparse matrix-matrix (SpMM) multiplication, providing limited support for the sparse matrix-vector (SpMV) operations, which dominate decoding. To solve these problems, we introduce SparseDecoding, a principled decoding-aware pruning framework tailored for accurate and efficient LLM decoding. Specifically, at the algorithmic axis, SparseDecoding constructs calibration matrices from layer-wise activations collected during the dense-model autoregressive generation, excluding prefill, thereby aligning the pruning objective with the decoding activations. At the system axis, we develop an optimized N:M sparse matrix-vector kernel with bitmask indexing and fixed-step traversal. Substantial empirical results on representative LLMs (Llama-3.1-8B, Llama-3.3-70B, Qwen3-14B / 32B) demonstrate that our method consistently outperforms standard fixed-text calibration on the long-form generation benchmarks while achieving up to 1.48x end-to-end wall-clock decoding speedup on A100 GPUs.",
+      "authors": "Qitong Wang, Xinwei Niu, Mingluo Su et al.",
+      "published": "2026-10-08T17:06:32Z",
+      "categories": [
+        "cs.LG",
+        "cs.CL"
+      ],
+      "url": "https://arxiv.org/abs/2610.12327v1",
+      "score": 25
+    }
+  ]
+}
