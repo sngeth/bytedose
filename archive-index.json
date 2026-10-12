@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-10-11T13:43:25.075Z",
+  "lastUpdated": "2026-10-12T16:24:35.000Z",
   "articles": [
+    {
+      "date": "2026-10-12",
+      "article": {
+        "title": "RATED: Reliability-Aware AI Agent Tool Retrieval via Execution Dynamics",
+        "authors": "Weiliang Chen, Song Liao",
+        "published": "2026-10-09T17:38:11Z",
+        "url": "https://arxiv.org/abs/2610.13889v1"
+      }
+    },
     {
       "date": "2026-10-11",
       "article": {
