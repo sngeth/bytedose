@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-10-12T16:24:35.000Z",
+  "lastUpdated": "2026-10-14T12:36:15.163Z",
   "articles": [
+    {
+      "date": "2026-10-14",
+      "article": {
+        "title": "Visual Tokens on Demand: Visual Budgeting for Scalable and Efficient Multi-Image Reasoning in Multimodal LLMs",
+        "authors": "Aimon Rahman, Joymallya Chakraborty, Vidit Bansal et al.",
+        "published": "2026-10-13T17:59:24Z",
+        "url": "https://arxiv.org/abs/2610.18858v1"
+      }
+    },
     {
       "date": "2026-10-12",
       "article": {
