@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-10-14T12:36:15.163Z",
+  "lastUpdated": "2026-10-15T12:23:53.815Z",
   "articles": [
+    {
+      "date": "2026-10-15",
+      "article": {
+        "title": "From Training to Escalation: Forensic Analysis and Local Recreation of RL/RLHF-Induced Privilege Escalation in AI Agents (CVE-2026-65616)",
+        "authors": "Alicia Colmenero-Fernández",
+        "published": "2026-10-14T16:28:09Z",
+        "url": "https://arxiv.org/abs/2610.20437v1"
+      }
+    },
     {
       "date": "2026-10-14",
       "article": {
