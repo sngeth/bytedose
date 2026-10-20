@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-10-19T14:19:58.863Z",
+  "lastUpdated": "2026-10-20T12:28:51.421Z",
   "articles": [
+    {
+      "date": "2026-10-20",
+      "article": {
+        "title": "RefCraft: Benchmarking Visual-Reference-Conditioned Agentic Generation through Web Development",
+        "authors": "Yuchi Wang, Rongyao Fang, Weihao Yu et al.",
+        "published": "2026-10-19T17:55:06Z",
+        "url": "https://arxiv.org/abs/2610.26826v1"
+      }
+    },
     {
       "date": "2026-10-19",
       "article": {
