@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-10-23T12:21:39.859Z",
+  "lastUpdated": "2026-10-24T11:48:12.379Z",
   "articles": [
+    {
+      "date": "2026-10-24",
+      "article": {
+        "title": "From Prompt Rules to Golden Data Model: Production-Scale Generation of Personalized, Compliant Pharmaceutical Claims",
+        "authors": "Suyash Mishra, Qiang Li, Subhabrata Adak et al.",
+        "published": "2026-10-22T16:31:36Z",
+        "url": "https://arxiv.org/abs/2610.31519v1"
+      }
+    },
     {
       "date": "2026-10-23",
       "article": {
