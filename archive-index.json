@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-10-25T12:17:19.183Z",
+  "lastUpdated": "2026-10-26T13:48:08.996Z",
   "articles": [
+    {
+      "date": "2026-10-26",
+      "article": {
+        "title": "OpenDraco: A Platform for Engineering and Experimenting with Configurable Multi-Agent Architectures for Software Engineering",
+        "authors": "Xiang Feng Ye Pan, Vincenzo De Martino, Matias Martinez",
+        "published": "2026-10-23T14:17:18Z",
+        "url": "https://arxiv.org/abs/2610.32686v1"
+      }
+    },
     {
       "date": "2026-10-25",
       "article": {
