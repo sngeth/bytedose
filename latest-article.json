@@ -1,65 +1,69 @@
 {
-  "date": "2026-10-26",
+  "date": "2026-10-27",
   "article": {
-    "id": "2610.32686v1",
-    "title": "OpenDraco: A Platform for Engineering and Experimenting with Configurable Multi-Agent Architectures for Software Engineering",
-    "summary": "Experimenting with LLM-based multi-agent systems (MAS) involves an iterative cycle of modeling configurations, executing and evaluating them, comparing results, and refining system designs. Existing approaches provide limited end-to-end support for this experimentation lifecycle. We present OpenDraco, an open-source platform that integrates these activities into a single workflow. OpenDraco represents agents, prompts, tools, models, parameters, and communication topology in exportable, versioned JSON specifications, translated into executable LangGraph workflows supporting different interaction structures. Users can modify and re-evaluate configurations using local or cloud-based LLMs. We instantiate OpenDraco for automated program repair (APR) and evaluate a sequential baseline and seven reconstructed configurations on synthetic and real-world SWE-bench Lite issues. The results reveal substantial cost differences among configurations with similar repair outcomes, while the baseline resolves 12 of 77 SWE-bench issues using open-source LLMs. Additional proof-of-concept tasks illustrate applicability beyond APR. OpenDraco supports iterative experimentation with heterogeneous MAS configurations, enabling researchers to examine their outcomes and costs within a common environment. Demonstration video: https://youtu.be/278sOR4lBEk.",
-    "authors": "Xiang Feng Ye Pan, Vincenzo De Martino, Matias Martinez",
-    "published": "2026-10-23T14:17:18Z",
+    "id": "2610.35725v1",
+    "title": "The Watchtower Imperative: Lifespan-Calibrated Evaluation for Frontier AI",
+    "summary": "The gap between AI capability deployment and safety assurance is structural and cannot be closed through internal evaluations alone. Analyzing documented harms (2017-2026) across the human lifespan reveals that disparate incidents --- from voice assistants endangering children to AI companions implicated in adolescent suicide and automated care denials for the elderly --- reflect a single failure: evaluating systems against an implicit adult user model. We introduce five developmental moderators structured into a Lifespan Vulnerability Matrix across six life stages. The matrix reveals a nonmonotonic risk distribution: vulnerability peaks at both ends of the lifespan, governance coverage is asymmetrical, and authority to convert model errors into real-world impact is scrutinized least. We then propose a set of lifespan design principles generalizing existing child-protective instruments, and an institution-agnostic, three-tier external evaluation framework --- comprising automated simulation, expert red teaming, and post-deployment monitoring --- indexed directly to matrix risk cells.",
+    "authors": "Casey M. Williams, Jennifer Victoria Scurrell",
+    "published": "2026-10-26T16:44:50Z",
     "categories": [
-      "cs.SE"
+      "cs.CY",
+      "cs.AI",
+      "cs.HC"
     ],
-    "url": "https://arxiv.org/abs/2610.32686v1",
-    "score": 29
+    "url": "https://arxiv.org/abs/2610.35725v1",
+    "score": 28
   },
   "alternates": [
     {
-      "id": "2610.32648v1",
-      "title": "StateMirror: Pre-Execution Detection of Hallucinated Tool Calls in Coding Agents",
-      "summary": "Large language model (LLM)-based coding agents may propose invalid actions that are not applicable in the execution environment, such as accessing non-existent paths or missing packages. We term this mismatch hallucinated tool use. A preliminary study of 4,398 agent trajectories reveals that these hallucinations are pervasive and costly, requiring a median of 3 additional interaction steps and 22.4K tokens to recover. Existing frameworks rely on reactive, post-execution feedback, wasting runtime resources. Nevertheless, since an agent's execution environment is grounded in concrete codebase and harness components, many action prerequisites can be extracted and validated prior to execution. To this end, we introduce StateMirror, a lightweight pre-execution detector. StateMirror intercepts actions at the harness boundary, extracts state predicates via AST and command analysis, and deterministically validates them against the live repository. By pinpointing exact environment mismatches before execution, StateMirror preempts invalid actions and subsequent recovery cycles. Evaluation on 2,508 actions shows StateMirror achieves 0.940 precision and 0.817 F1 in detecting such hallucinations, surpassing the strongest LLM judge by 35.3% in F1 while reducing median detection latency from 17.73 s to 1.50 ms with zero token consumption. For practical mitigation, StateMirror's pre-execution feedback enables agents to rectify over 95% of hallucinated tool calls. During live mitigation on 79 tasks, StateMirror reduces agent execution time by 15.8% and token consumption by 11.8% while maintaining task resolution.",
-      "authors": "Shiwen Shan, Yintong Huo, Zhiying Wu et al.",
-      "published": "2026-10-23T13:56:13Z",
+      "id": "2610.35650v1",
+      "title": "FLOWSTEP: A Framework for Learning to Predict GitHub Actions Workflow STEPs",
+      "summary": "Continuous Integration and Delivery (CI/CD) are fundamental to modern software development, yet configuring pipelines such as GitHub Actions (GHA) workflows remains complex and error-prone. Recent work has explored Transformer-based models for GHA workflow recommendation, but existing approaches typically model workflow steps as a single homogeneous generation task. This formulation overlooks a key distinction: reusable Actions are structured, ecosystem-level components, whereas project-specific Scripts encode local build, test, and deployment semantics. Consequently, current models struggle to capture the different forms of knowledge required for accurate workflow completion. In this work, we present FLOWSTEP, a framework for GHA workflow step completion that explicitly distinguishes between Action and Script generation. FLOWSTEP combines large language models (LLMs) with contrastive learning to better capture semantic relationships among workflow contexts, Actions, and Scripts. Evaluated on established benchmarks, FLOWSTEP improves end-to-end workflow step prediction accuracy from 38.23% to 51.09%. Beyond prediction accuracy, we further study whether LLM-as-a-judge can provide a more semantic evaluation of generated workflow steps. By comparing LLM-based assessments with human annotations, we find that the best-performing model configuration reaches substantial agreement with human ground truth (Krippendorff's alpha = 0.701), suggesting that LLM-as-a-judge can serve as a scalable complement to manual evaluation.",
+      "authors": "Jiangnan Huang, Bin Lin, Yutaro Kashiwa",
+      "published": "2026-10-26T15:57:17Z",
       "categories": [
         "cs.SE"
       ],
-      "url": "https://arxiv.org/abs/2610.32648v1",
+      "url": "https://arxiv.org/abs/2610.35650v1",
       "score": 27
     },
     {
-      "id": "2610.32914v1",
-      "title": "A Tutorial on Physics Constrained Machine Learning for Hybrid Modeling, Optimization, and Control",
-      "summary": "Physics-constrained machine learning (PCML) integrates domain knowledge, first-principles, and physical constraints into AI/ML models. In this work, we present a step-by-step tutorial of a modular PCML framework, KKT-HardNet, and illustrate how it could be used for hybrid modeling, process simulation, optimization and model predictive control in a single platform. KKT-HardNet combines fast inference capabilities of neural networks with guaranteed satisfaction of algebraic constraints through differential projection. It can handle heterogeneous data and enforce both linear and nonlinear equality and inequality constraints. The modular design supports custom neural-network backbones and user-defined projection mechanisms for PCML. To enable efficient end-to-end training, KKT-HardNet exploits implicit function theorem to backpropagate through the projection layer. This avoids computationally expensive automatic differentiation. This work also introduces an exact reduced-order Fischer-Burmeister reformulation and a primal-dual interior-point method as an alternative projection solve strategy. We also provide a diverse set of benchmarking problems for PCML in engineering applications. KKT-HardNet achieves orders of magnitude better performance in terms of both constraint satisfaction and inference time. The KKT-HardNet code and the benchmark datasets are available at https://github.com/souls-tamu/kkt-hardnet .",
-      "authors": "Rahul Golder, Bimol Nath Roy, MM Faruque Hasan",
-      "published": "2026-10-23T17:17:11Z",
+      "id": "2610.35845v1",
+      "title": "Work Agents: Systems, Capabilities, and Optimization",
+      "summary": "As foundation models evolve from information generation to digital work execution, agents are increasingly capable of completing complex tasks across tools, applications, and workflows. However, existing research lacks a unified perspective on how agents reliably accomplish delegated work. To address this gap, we present a work-centric, system-level perspective that views work agents as systems combining foundation models and runtime harnesses to execute tasks in stateful workspaces and deliver verifiable outcomes. We introduce two complementary dimensions, work persistence and work openness, to characterize working conditions, and classify digital work into five forms according to task scope and organization. Building on this framework, we identify five core capability families required for reliable work execution and examine approaches to model optimization, harness optimization, and their joint optimization. We further analyze existing evaluation methods and metrics from the perspective of work outcomes. Finally, we discuss future research directions, including sustained work delegation, adaptation to open environments, and the interaction between work execution and capability improvement. This paper provides a unified framework for understanding, optimizing, and evaluating work agents, supporting the development of systems capable of delivering reliable, verifiable, and practically valuable work outcomes.",
+      "authors": "Zishan Xu, Enjun Du, Mingqi Gao et al.",
+      "published": "2026-10-26T17:56:21Z",
       "categories": [
-        "cs.LG",
-        "cs.ET"
+        "cs.LG"
       ],
-      "url": "https://arxiv.org/abs/2610.32914v1",
-      "score": 26
+      "url": "https://arxiv.org/abs/2610.35845v1",
+      "score": 25
     },
     {
-      "id": "2610.32968v1",
-      "title": "Distributed Quantum-Centric Supercomputing with Multi-Layered Generative Learning for Intermolecular Interactions",
-      "summary": "Quantum-centric supercomputing (QCSC) approaches, such as sample-based quantum diagonalization (SQD), combine quantum processors with high-performance computers (HPC), offering a promising route toward solving challenging electronic structure problems. However, implementation of QCSC approaches to large active space calculations is constrained by the associated number of qubits, deep quantum circuits, sampling cost, and large-scale Hamiltonian diagonalization. To overcome these limitations, we introduce a distributed QCSC framework that decomposes complex molecular problems into parallel sub-problems requiring fewer qubits, shallower circuits, and reduced shot budgets. A physically motivated, two-step aggregation scheme then reconstructs the global solution: first, a computational bit assignment strategy optimizes a cost function to appropriately map local bit indices to global ones, yielding a mapped tensor product state (MTPS); second, an inter-fragment correlation recovery module restores missing cross-fragment interactions. Herein, we employ a multi-layered generative machine learning architecture, starting with utilizing the recently proposed physics-informed generative SQD (PIGen-SQD) as a distributed QCSC solver, followed by a secondary generative module to model configuration distributions and identify dominant sectors of the global Hilbert space. For water and formamide dimers, our method achieves up to $95\\%$ reduction in the diagonalization dimension while enhancing energy accuracy by an order of magnitude over conventional SQD. Furthermore, application to the water hexamer ($\\mathrm{(H_2O)_6}$) cage successfully decomposes a 120-qubit problem into six 20-qubit monomeric subsystems, and stitches the monomers under a dimeric approximation, demonstrating excellent agreement with the reference classical methods.",
-      "authors": "Chayan Patra, Prayas Ghosh, Adwait Patkhedkar et al.",
-      "published": "2026-10-23T17:55:19Z",
+      "id": "2610.35686v1",
+      "title": "FISRF: Flexible Instructional Scaffolding Reflection Framework for Robotics Task Planning with Large Language Model",
+      "summary": "Large Language Models (LLMs) are widely adopted for reflective error correction in task planning; however, existing approaches primarily rely on autonomous exploration, rendering them prone to accumulating erroneous experiences during early interactions with new environments. To address this limitation, we propose the Flexible Instructional Scaffolding Reflection Framework (FISRF), an agent--mentor architecture that estimates the robot's Zone of Proximal Development (ZPD) in task planning and adaptively selects reflection strategies and mentor guidance, thereby facilitating the accumulation of effective error-correction experience. Experiments in ALFWorld and on real-world robotic platforms demonstrate that FISRF reduces the average number of error-correction rounds by 37% and redundant reasoning by 25.1%, while improving the overall task success rate by 8%. Project webpage : https://fisrfplanning.github.io/",
+      "authors": "Qingmiao Liang, Jiatao Zhang, Runxin Zou et al.",
+      "published": "2026-10-26T16:20:06Z",
       "categories": [
-        "quant-ph"
+        "cs.RO"
       ],
-      "url": "https://arxiv.org/abs/2610.32968v1",
-      "score": 24
+      "url": "https://arxiv.org/abs/2610.35686v1",
+      "score": 25
     },
     {
-      "id": "2610.32784v1",
-      "title": "Video-MemComp: Taylor-Guided Sensitivity-Aware Memory Management for Streaming Video Understanding",
-      "summary": "The rapid growth of video data has created an urgent need for efficient video understanding systems that can handle long and continuous visual inputs, posing significant challenges for Multimodal Large Language Models (MLLMs) due to severe memory bottlenecks. Moreover, existing compression methods often overlook the explosive accumulation of approximation errors. To address this issue, we propose Video-MemComp, a training-free and sensitivity-aware context management framework for memory-constrained streaming video understanding. Our method theoretically decomposes compression error into orthogonal local approximation error and layer-wise structural sensitivity via a first-order Taylor expansion. To minimize local approximation error, we perform token aggregation in a pre-RoPE safe zone with an attention-conserving logit bias, mitigating geometric distortions caused by RoPE rotations. To manage layer-wise structural sensitivity, we dynamically allocate the KV cache budget based on offline gradient priors and online context entropy, prioritizing high-sensitivity layers. Video-MemComp outperforms or achieves performance comparable to full-cache and state-of-the-art compression methods on benchmarks including MLVU, VideoMME, and EgoSchema. Notably, it improves the overall accuracy of Qwen2.5-VL-3B from 62.3% to 64.1% while reducing the KV cache to an equivalent of 6,000 tokens per layer, saving over 90% of KV memory.",
-      "authors": "Yonghui Niu, Yuhao Ji, Chang Nie et al.",
-      "published": "2026-10-23T15:32:41Z",
+      "id": "2610.35817v1",
+      "title": "Pretraining Knows What, Simulation Teaches How: Compositional Generalization in a Sim-Trained Robot Agent",
+      "summary": "A robot policy needs to understand what a task is asking for in a scene, and how to move the robot to accomplish that task. To achieve these two skills, we introduce Zero-real Agent Policy (ZAP), a recipe that teaches a small off-the-shelf vision-language model to control a robot via a simple tool harness. We use a pretrained 27B parameter model to bootstrap world understanding and reasoning, followed by supervised fine-tuning and GRPO on simple simulated tasks to teach it how to move the robot. Without any real-world robot data during training, ZAP reaches 96.7% success on real-world tasks, matching GPT-6 Astra in our harness and outperforming the MolmoAct2 VLA (33.3%), while running 3x faster and 17x cheaper than GPT-6 Astra. We demonstrate that ZAP also generalizes to completely new objects, goals, strategies, and language by seating a test tube in a rack (and choosing a different hole in the rack when prompted), handing a test tube between arms mid-air, drawing an X on a tic-tac-toe board, and playing chess. These goals and types of manipulation don't appear in our training data. Furthermore, ZAP also transfers to an unseen embodiment. On a single-arm Franka, ZAP reaches 55.9% on RoboLab-120, 4.9 percentage points ahead of the leading VLA/WAM baseline.",
+      "authors": "Benjamin Pikus, Daniel Saunders, Mircea Mironenco et al.",
+      "published": "2026-10-26T17:44:34Z",
       "categories": [
-        "cs.CV"
+        "cs.RO",
+        "cs.AI",
+        "cs.CV",
+        "cs.LG"
       ],
-      "url": "https://arxiv.org/abs/2610.32784v1",
+      "url": "https://arxiv.org/abs/2610.35817v1",
       "score": 23
     }
   ]

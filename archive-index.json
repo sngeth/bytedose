@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-10-26T13:48:08.996Z",
+  "lastUpdated": "2026-10-27T12:55:15.192Z",
   "articles": [
+    {
+      "date": "2026-10-27",
+      "article": {
+        "title": "The Watchtower Imperative: Lifespan-Calibrated Evaluation for Frontier AI",
+        "authors": "Casey M. Williams, Jennifer Victoria Scurrell",
+        "published": "2026-10-26T16:44:50Z",
+        "url": "https://arxiv.org/abs/2610.35725v1"
+      }
+    },
     {
       "date": "2026-10-26",
       "article": {

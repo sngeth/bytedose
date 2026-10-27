@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-27",
+  "article": {
+    "id": "2610.35725v1",
+    "title": "The Watchtower Imperative: Lifespan-Calibrated Evaluation for Frontier AI",
+    "summary": "The gap between AI capability deployment and safety assurance is structural and cannot be closed through internal evaluations alone. Analyzing documented harms (2017-2026) across the human lifespan reveals that disparate incidents --- from voice assistants endangering children to AI companions implicated in adolescent suicide and automated care denials for the elderly --- reflect a single failure: evaluating systems against an implicit adult user model. We introduce five developmental moderators structured into a Lifespan Vulnerability Matrix across six life stages. The matrix reveals a nonmonotonic risk distribution: vulnerability peaks at both ends of the lifespan, governance coverage is asymmetrical, and authority to convert model errors into real-world impact is scrutinized least. We then propose a set of lifespan design principles generalizing existing child-protective instruments, and an institution-agnostic, three-tier external evaluation framework --- comprising automated simulation, expert red teaming, and post-deployment monitoring --- indexed directly to matrix risk cells.",
+    "authors": "Casey M. Williams, Jennifer Victoria Scurrell",
+    "published": "2026-10-26T16:44:50Z",
+    "categories": [
+      "cs.CY",
+      "cs.AI",
+      "cs.HC"
+    ],
+    "url": "https://arxiv.org/abs/2610.35725v1",
+    "score": 28
+  },
+  "alternates": [
+    {
+      "id": "2610.35650v1",
+      "title": "FLOWSTEP: A Framework for Learning to Predict GitHub Actions Workflow STEPs",
+      "summary": "Continuous Integration and Delivery (CI/CD) are fundamental to modern software development, yet configuring pipelines such as GitHub Actions (GHA) workflows remains complex and error-prone. Recent work has explored Transformer-based models for GHA workflow recommendation, but existing approaches typically model workflow steps as a single homogeneous generation task. This formulation overlooks a key distinction: reusable Actions are structured, ecosystem-level components, whereas project-specific Scripts encode local build, test, and deployment semantics. Consequently, current models struggle to capture the different forms of knowledge required for accurate workflow completion. In this work, we present FLOWSTEP, a framework for GHA workflow step completion that explicitly distinguishes between Action and Script generation. FLOWSTEP combines large language models (LLMs) with contrastive learning to better capture semantic relationships among workflow contexts, Actions, and Scripts. Evaluated on established benchmarks, FLOWSTEP improves end-to-end workflow step prediction accuracy from 38.23% to 51.09%. Beyond prediction accuracy, we further study whether LLM-as-a-judge can provide a more semantic evaluation of generated workflow steps. By comparing LLM-based assessments with human annotations, we find that the best-performing model configuration reaches substantial agreement with human ground truth (Krippendorff's alpha = 0.701), suggesting that LLM-as-a-judge can serve as a scalable complement to manual evaluation.",
+      "authors": "Jiangnan Huang, Bin Lin, Yutaro Kashiwa",
+      "published": "2026-10-26T15:57:17Z",
+      "categories": [
+        "cs.SE"
+      ],
+      "url": "https://arxiv.org/abs/2610.35650v1",
+      "score": 27
+    },
+    {
+      "id": "2610.35845v1",
+      "title": "Work Agents: Systems, Capabilities, and Optimization",
+      "summary": "As foundation models evolve from information generation to digital work execution, agents are increasingly capable of completing complex tasks across tools, applications, and workflows. However, existing research lacks a unified perspective on how agents reliably accomplish delegated work. To address this gap, we present a work-centric, system-level perspective that views work agents as systems combining foundation models and runtime harnesses to execute tasks in stateful workspaces and deliver verifiable outcomes. We introduce two complementary dimensions, work persistence and work openness, to characterize working conditions, and classify digital work into five forms according to task scope and organization. Building on this framework, we identify five core capability families required for reliable work execution and examine approaches to model optimization, harness optimization, and their joint optimization. We further analyze existing evaluation methods and metrics from the perspective of work outcomes. Finally, we discuss future research directions, including sustained work delegation, adaptation to open environments, and the interaction between work execution and capability improvement. This paper provides a unified framework for understanding, optimizing, and evaluating work agents, supporting the development of systems capable of delivering reliable, verifiable, and practically valuable work outcomes.",
+      "authors": "Zishan Xu, Enjun Du, Mingqi Gao et al.",
+      "published": "2026-10-26T17:56:21Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "url": "https://arxiv.org/abs/2610.35845v1",
+      "score": 25
+    },
+    {
+      "id": "2610.35686v1",
+      "title": "FISRF: Flexible Instructional Scaffolding Reflection Framework for Robotics Task Planning with Large Language Model",
+      "summary": "Large Language Models (LLMs) are widely adopted for reflective error correction in task planning; however, existing approaches primarily rely on autonomous exploration, rendering them prone to accumulating erroneous experiences during early interactions with new environments. To address this limitation, we propose the Flexible Instructional Scaffolding Reflection Framework (FISRF), an agent--mentor architecture that estimates the robot's Zone of Proximal Development (ZPD) in task planning and adaptively selects reflection strategies and mentor guidance, thereby facilitating the accumulation of effective error-correction experience. Experiments in ALFWorld and on real-world robotic platforms demonstrate that FISRF reduces the average number of error-correction rounds by 37% and redundant reasoning by 25.1%, while improving the overall task success rate by 8%. Project webpage : https://fisrfplanning.github.io/",
+      "authors": "Qingmiao Liang, Jiatao Zhang, Runxin Zou et al.",
+      "published": "2026-10-26T16:20:06Z",
+      "categories": [
+        "cs.RO"
+      ],
+      "url": "https://arxiv.org/abs/2610.35686v1",
+      "score": 25
+    },
+    {
+      "id": "2610.35817v1",
+      "title": "Pretraining Knows What, Simulation Teaches How: Compositional Generalization in a Sim-Trained Robot Agent",
+      "summary": "A robot policy needs to understand what a task is asking for in a scene, and how to move the robot to accomplish that task. To achieve these two skills, we introduce Zero-real Agent Policy (ZAP), a recipe that teaches a small off-the-shelf vision-language model to control a robot via a simple tool harness. We use a pretrained 27B parameter model to bootstrap world understanding and reasoning, followed by supervised fine-tuning and GRPO on simple simulated tasks to teach it how to move the robot. Without any real-world robot data during training, ZAP reaches 96.7% success on real-world tasks, matching GPT-6 Astra in our harness and outperforming the MolmoAct2 VLA (33.3%), while running 3x faster and 17x cheaper than GPT-6 Astra. We demonstrate that ZAP also generalizes to completely new objects, goals, strategies, and language by seating a test tube in a rack (and choosing a different hole in the rack when prompted), handing a test tube between arms mid-air, drawing an X on a tic-tac-toe board, and playing chess. These goals and types of manipulation don't appear in our training data. Furthermore, ZAP also transfers to an unseen embodiment. On a single-arm Franka, ZAP reaches 55.9% on RoboLab-120, 4.9 percentage points ahead of the leading VLA/WAM baseline.",
+      "authors": "Benjamin Pikus, Daniel Saunders, Mircea Mironenco et al.",
+      "published": "2026-10-26T17:44:34Z",
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "url": "https://arxiv.org/abs/2610.35817v1",
+      "score": 23
+    }
+  ]
+}
