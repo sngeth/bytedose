@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-10-28T13:44:44.048Z",
+  "lastUpdated": "2026-10-29T13:53:28.103Z",
   "articles": [
+    {
+      "date": "2026-10-29",
+      "article": {
+        "title": "KPPax: preprocess differentiable kinetic ODE for machine learning in atmospheric chemistry",
+        "authors": "Wenqing Peng, Michael Boy, Zhi-Song Liu",
+        "published": "2026-10-27T17:58:40Z",
+        "url": "https://arxiv.org/abs/2610.37655v1"
+      }
+    },
     {
       "date": "2026-10-28",
       "article": {
