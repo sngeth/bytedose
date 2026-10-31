@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-10-30T13:45:59.192Z",
+  "lastUpdated": "2026-10-31T13:14:46.032Z",
   "articles": [
+    {
+      "date": "2026-10-31",
+      "article": {
+        "title": "Gym-Anything for Robotics: Scaling physical simulations with digital agents",
+        "authors": "Pranjal Aggarwal, Sean Welleck",
+        "published": "2026-10-29T17:42:32Z",
+        "url": "https://arxiv.org/abs/2610.40565v1"
+      }
+    },
     {
       "date": "2026-10-30",
       "article": {
