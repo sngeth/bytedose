@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-11-01T13:58:37.260Z",
+  "lastUpdated": "2026-11-02T16:45:10.911Z",
   "articles": [
+    {
+      "date": "2026-11-02",
+      "article": {
+        "title": "Dittany: Contribution-Guided Repair Framework for MAS Applications",
+        "authors": "Hanqi Sun, Yuchen Shao, Hanyi Si et al.",
+        "published": "2026-10-30T17:59:12Z",
+        "url": "https://arxiv.org/abs/2610.42144v1"
+      }
+    },
     {
       "date": "2026-11-01",
       "article": {
