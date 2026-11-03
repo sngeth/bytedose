@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-11-02T16:45:10.911Z",
+  "lastUpdated": "2026-11-03T14:48:12.691Z",
   "articles": [
+    {
+      "date": "2026-11-03",
+      "article": {
+        "title": "DistDebug-Bench: Can LLM Agents Diagnose Bugs in Distributed Systems?",
+        "authors": "Yuxuan Jiang, Chenglin Liu, John Rose et al.",
+        "published": "2026-11-02T17:56:28Z",
+        "url": "https://arxiv.org/abs/2611.03523v1"
+      }
+    },
     {
       "date": "2026-11-02",
       "article": {
