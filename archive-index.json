@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-11-03T14:48:12.691Z",
+  "lastUpdated": "2026-11-04T15:00:57.892Z",
   "articles": [
+    {
+      "date": "2026-11-04",
+      "article": {
+        "title": "AgentAM: An AI Agent for Spatter- and Defect-Aware Process Optimization in Laser Powder Bed Fusion",
+        "authors": "Olabode T. Ajenifujah, Amir Barati Farimani",
+        "published": "2026-11-03T16:38:46Z",
+        "url": "https://arxiv.org/abs/2611.05171v1"
+      }
+    },
     {
       "date": "2026-11-03",
       "article": {
