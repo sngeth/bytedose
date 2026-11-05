@@ -1,67 +1,69 @@
 {
-  "date": "2026-11-04",
+  "date": "2026-11-05",
   "article": {
-    "id": "2611.05171v1",
-    "title": "AgentAM: An AI Agent for Spatter- and Defect-Aware Process Optimization in Laser Powder Bed Fusion",
-    "summary": "Predictive models for laser powder bed fusion (LPBF) are rarely used on the shop floor because querying them requires programming and model-specific knowledge. We present AgentAM, a large language model (LLM) agent that gives process engineers natural-language access to CFD-trained surrogates of spatter and melt pool geometry for SS316L through the Model Context Protocol (MCP). Polynomial surrogates trained on 279 single-track simulations predict melt pool dimensions ($R^2 \\geq 0.95$) and spatter volume ($R^2 = 0.83$ on test data) at any power-velocity point in the trained range, and geometric criteria assign each point a geometry-derived defect regime (keyhole, lack of fusion, balling or stable) that matches the regime obtained from the simulated geometry in 93.4% of tracks under cross-validation. The agent selects and parameterizes tools for prediction, process-window scans and constrained optimization. Minimum-spatter optima often sat within 10 $μ$m of the lack-of-fusion boundary; a margin-aware optimizer moved them away from all thresholds and raised the estimated probability of remaining classified Good from 0.94 to 1.00 under an assumed 2% process drift, and from 0.72 to 0.91 when jointly sampled cross-validated geometry residuals were added. About 40-50 well-spread simulations sufficed to reproduce the defect map. To evaluate the agent layer, we introduce a 145-prompt benchmark scored against direct tool calls, plus eight prompts (40 runs) on margin-aware requests. Over the 725 runs of the main benchmark the agent passed the intended inputs in 98.5% of parsing prompts, reported the scored spatter values and defect classes faithfully and met every stated constraint in the 65 feasible optimization runs, within a median 1.0% of the brute-force optimum.",
-    "authors": "Olabode T. Ajenifujah, Amir Barati Farimani",
-    "published": "2026-11-03T16:38:46Z",
+    "id": "2611.06881v1",
+    "title": "VABAR: A Variational Automation Benchmark for Agentic Robotics",
+    "summary": "For robots to operate reliably in commercial and industrial applications, they must persistently perform specific tasks with known variations in object shape and pose. We call this Variational Automation (VA) to differentiate these settings from fixed automation. Inspired by recent papers on Agentic Robotics, where pretrained LLM and VLM coding agents combine interpretable robot programming with the open-world adaptability of model free policies, we propose a general set of agentic robotics benchmark design criteria that includes accessibility, repeatability, diversity, relevance to agentic robotics and practical applications, physical realizability, resistance to benchmark saturation, and computational efficiency. We instantiate these principles in six manipulation task classes spanning industrial, medical, and infrastructure applications: tool sorting, tool hanging, gear meshing, syringe packing, cable insertion, and cable routing. We introduce the Variational Automation Benchmark for Agentic Robotics (VABAR), an open, easily replicable, simulation-based manipulation benchmark to systematically evaluating agentic robotics systems. Built fully on open-source tools, VABAR features detailed implementations using the Newton physics engine, standardized task variations, difficulty tiers, success metrics, and a library of 33 generalizable skills with human-authored programmatic reference solutions. We provide initial baseline evaluations using an open agentic manipulation harness, Graph-as-Policy (GaP), and Isaac Lab Arena.",
+    "authors": "Shuangyu Xie, Kaiyuan Chen, Uksang Yoo et al.",
+    "published": "2026-11-04T18:38:01Z",
     "categories": [
-      "cs.AI"
+      "cs.RO"
     ],
-    "url": "https://arxiv.org/abs/2611.05171v1",
-    "score": 33
+    "url": "https://arxiv.org/abs/2611.06881v1",
+    "score": 47
   },
   "alternates": [
     {
-      "id": "2611.05127v1",
-      "title": "Towards Multi-Method Evaluation of AI in Health: Integrating Benchmarks, Autoraters, and Expert Evaluation",
-      "summary": "General-purpose generative AI (GenAI) models are being rapidly adopted in healthcare, but they are challenging to assess with traditional evaluation frameworks. These conceptual, methodological, and practical challenges parallel decades of work in evaluating clinician and health system quality and safety. We describe the adaptation of methods from several fields, combined with emerging technical approaches, into a structured, multi-method evaluation framework designed to give well-rounded assessments of GenAI in health at scale. The approach first anchors evaluation to Critical User Journeys (CUJs) to help prioritize out of a large choice space, and maps these to a phased AI system lifecycle (base model development, product development, and post-deployment monitoring), since evaluation at each stage requires different methodological approaches. In this context, the approach then integrates three distinct evaluation methods (closed-question benchmarks, LLM-as-a-judge autoraters, and expert human review) across three core domains: accuracy, safety, and usefulness. Taken together, this approach provides a strategic framework for bridging the gap between benchmarking results and performance in the real world with the goal of supporting decision-making and accountability across development, procurement, and deployment for product teams, health systems, and regulators.",
-      "authors": "Sarah Montgomery-Taylor, Hamsa Subramaniam, Rob Brisk et al.",
-      "published": "2026-11-03T16:12:47Z",
+      "id": "2611.06674v1",
+      "title": "AgentTrustCI: Build-Time Policy, Grounding, and Trajectory Tests for Java LLM Agents",
+      "summary": "Infrastructure security does not establish whether an LLM agent selected an allowed tool, grounded its answer in tool output, or followed a required workflow. AgentTrustCI is a Java/JUnit 5 framework that expresses these application-layer expectations as policy, grounding, and trajectory checks over recorded traces. A deterministic replay implementation supports repeatable build-time tests; a judge interface provides an extension point for optional semantic evaluation. On 55 synthetic cases spanning seven enterprise domains, the full pipeline correctly classifies all 30 injected faults and 25 passing controls, including ten non-trivial controls, and misses none of 12 designated critical cases. Each single-layer configuration correctly classifies 35 cases because the corpus deliberately isolates ten faults per layer. A grounded answer obtained through a disallowed sequence illustrates the additional coverage of trajectory checks. Repeated measurements quantify validator execution separately from process startup and reporting. These results establish coverage of the authored regression suite, not production accuracy. We describe a production-trace validation protocol, optional LLM-judge integration, and maintenance of expectations as workflows evolve. The contribution is a practical pattern for expressing behavioral contracts within an existing Java release pipeline.",
+      "authors": "Sachin Gupta",
+      "published": "2026-11-04T15:46:11Z",
       "categories": [
-        "cs.CY"
-      ],
-      "url": "https://arxiv.org/abs/2611.05127v1",
-      "score": 32
-    },
-    {
-      "id": "2611.05179v1",
-      "title": "OperAItor: An Agentic Framework for Fault-Tolerant Operation of Chemical Processes",
-      "summary": "OperAItor, an open-source framework for developing and evaluating large language model agents for supervisory fault management in chemical processes. The framework is demonstrated on a dynamic reactor-distillation process representing isopropanol dehydrogenation, with physically based thermodynamics and modified reaction kinetics to permit liquid-phase operation. The process is represented by a 113-variable differential-algebraic model and operates at a nominal feed rate of 100kmol/h, producing approximately 4t/h of acetone. The simulated plant includes 8 PI control loops, 22 process alarms, 5 duty-standby pump trains, and 11 independent safety instrumented functions. The agent architecture integrates multivariate statistical process monitoring, fault diagnosis, knowledge-graph retrieval, action planning, and supervisory action generation. Five action-validation configurations are investigated, comprising operation without validation, an LLM-based judge, digital-twin simulation, and deterministic admissibility checks with and without consequence projection. The framework is evaluated using four LLMs across 20 scenarios involving single and multiple simultaneous faults. Without agent intervention, 18 scenarios result in plant stops, corresponding to an economic loss of $399,000 relative to fault-free operation under the assumed benchmark economics. For GPT-5 nano, Qwen3 8B, and Mistral 7B, validated agent configurations reduce the number of stops to 5-8 and recover $265,000 of the loss. The study provides a reproducible benchmark for comparing agent architectures, language models, and action-validation methods for supervisory fault management in chemical processes.",
-      "authors": "Javal Vyas, Mehmet Mercang{ö}z",
-      "published": "2026-11-03T16:40:46Z",
-      "categories": [
-        "eess.SY",
+        "cs.SE",
         "cs.AI"
       ],
-      "url": "https://arxiv.org/abs/2611.05179v1",
-      "score": 30
+      "url": "https://arxiv.org/abs/2611.06674v1",
+      "score": 36
     },
     {
-      "id": "2611.05168v1",
-      "title": "DSL-Bench: Evaluating and Explaining LLM Code Generation Across Domain-Specific Languages",
-      "summary": "Large language models (LLMs) are increasingly used in software-engineering workflows, but code-generation benchmarks largely focus on general-purpose languages. Domain-specific languages (DSLs) have distinct syntax, semantics, and validation requirements, making results from individual DSL benchmarks difficult to compare. We present DSL-Bench, an executable benchmark and analysis framework for cross-DSL code generation. Starting from 13,045 DSL-related papers, LLM-assisted open card sorting identifies 18 representative application domains. For each domain, we select an evaluable DSL and provide a syntax checker and task-level semantic oracle. Evaluating 7 LLMs on 18 DSLs, we observe mean syntax and semantic pass rates of 31.37% and 11.64%, respectively, revealing a substantial gap between syntax acceptance and semantic correctness. A variance decomposition attributes 76.99% of semantic pass-rate variation to differences among DSLs and 7.86% to differences among models. Among four DSL-level factors, Knowledge Demand has the strongest negative association with semantic correctness (r = -0.508). We evaluate prompt engineering across all 18 DSLs and study five improvement methods on five targeted DSLs. Prompt engineering yields uneven gains; RAG-Refinement, the strongest targeted method, improves semantic correctness by 16.29 percentage points on average over matched baselines. We further derive capability profiles and DSL-Profiler summaries for interpreting data-scarce DSLs. These results highlight toolchain-specific semantic bottlenecks and the need to evaluate DSL code generation beyond syntax acceptance.",
-      "authors": "Zihan Zhou, Mingxi Ye, Yan Gao et al.",
-      "published": "2026-11-03T16:37:19Z",
+      "id": "2611.06841v1",
+      "title": "ServerBench: How can your coding agents design specialized LLM serving systems?",
+      "summary": "Large language model (LLM) coding agents develop software through experimentation, offering an opportunity to design the serving systems supporting their own operation. Effective serving requires coordinating implementation and operating decisions under session dependencies, latency constraints, and correctness requirements. We introduce ServerBench, a benchmark for agentic design of complete, specialized LLM serving systems. Agents experiment against a common objective, dollars per dollar: latency-qualified token value per dollar of GPU cost. Stateful replay preserves session dependencies, and independent verification checks the submitted system. Across 11 coding-agent models and three deployments, Claude Sonnet 5.5 achieves 2.97 dollars per dollar on Gemma E4B, $4.87\\times$ the vLLM reference; 22 of 33 runs yield verified systems, and 13 exceed the strongest baseline. Our analysis identifies three findings: high-value designs coordinate capacity improvements with load selection; agents interpret performance feedback through workload-relevant experiments; and reliable delivery requires verification of the execution paths introduced by optimization. Overall, ServerBench supports systematic study of how agents translate service objectives and feedback into effective, verified serving systems for given task specifications.",
+      "authors": "Xinrui Zhong, Zhiming Wang, Yongqi Liu et al.",
+      "published": "2026-11-04T17:59:07Z",
       "categories": [
-        "cs.SE"
+        "cs.AI"
       ],
-      "url": "https://arxiv.org/abs/2611.05168v1",
-      "score": 28
+      "url": "https://arxiv.org/abs/2611.06841v1",
+      "score": 35
     },
     {
-      "id": "2611.05368v1",
-      "title": "GUILD: Guided Iterative Data Collection for Imitation Learning",
-      "summary": "Imitation learning policies in robotics are trained on datasets collected through costly real-world teleoperation. Often, the data-collection process is unguided, relying on the teleoperator's intuition, resulting in data that contributes little to overall policy performance. Recent work has shown that curating such unguided datasets can substantially improve policy performance, but these approaches operate by filtering existing datasets after collection and therefore do not prevent the acquisition of uninformative data. In this work, we propose GUILD, a novel Guided Data Collection (GDC) method that actively reasons about which data should be collected to maximize downstream policy performance. We introduce an iterative framework that alternates between 1) task proposal and data collection and 2) data evaluation to close the loop. For task proposal, we leverage semantic priors from vision-language models to identify relevant environments, object configurations, and goals for data collection. However, since semantic relevance does not imply policy improvement, we perform data evaluation. By leveraging predictive data attribution we approximate how the collected trajectories influence policy performance on a target deployment setting. This signal is then used as feedback to guide subsequent data collection, closing the data collection loop. We evaluate our approach in simulation and real robot settings, demonstrating that guided data collection substantially improves sample efficiency and deployment performance compared to passive data collection strategies, multiple baselines and experienced roboticists. More information at https://robin-lab.cs.utexas.edu/guild2026/",
-      "authors": "Shivin Dass, Kevin Nguyen, Rohan Yelandur et al.",
-      "published": "2026-11-03T18:57:35Z",
+      "id": "2611.06914v1",
+      "title": "A Framework for Context Enrichment and Selective Robustness in LLM Social Agents",
+      "summary": "Researchers use large language models as agents in social simulations, where agents are prompted with observations and background information intended to shape their actions. Yet LLM agents have been shown to substantially change their behavior under meaning-preserving prompt variations, creating a validation problem for social simulation. One plausible hypothesis is that this brittleness reflects a lack of grounding and can be reduced by enriching the context provided to the agents. Whether richer context improves robustness remains unclear, in part because context richness and robustness are rarely defined in ways that support controlled comparisons. We address the first need with controlled context enrichment, a set of prompt substitution rules that systematically enriches distinct types of context: neutral padding, generic social background, descriptive decision grounding, and normative decision grounding. We address the second by introducing selective robustness as a validation criterion: insensitivity to meaning-preserving prompt variation combined with a directional response to decision-relevant changes in the social world. We demonstrate the framework in a Prisoner's Dilemma-like game, showing how it can be used to identify which forms of context enrichment produce more desirable and robust agent behavior. We find that these forms of enrichment produce distinct behavioral patterns that vary between the two models tested.",
+      "authors": "Mattia Greiche, Reihaneh Rabbany, Maximilian Puelma Touzel",
+      "published": "2026-11-04T18:58:23Z",
       "categories": [
-        "cs.RO",
+        "cs.MA",
+        "cs.CL",
         "cs.LG"
       ],
-      "url": "https://arxiv.org/abs/2611.05368v1",
-      "score": 24
+      "url": "https://arxiv.org/abs/2611.06914v1",
+      "score": 33
+    },
+    {
+      "id": "2611.06854v1",
+      "title": "Visual Token Routing: Learning to keep tokens that matter",
+      "summary": "Computer-use agents (CUAs) have recently achieved superhuman performance on several long-horizon benchmarks. However, their computational cost limits their use in long-horizon tasks and real-time domains such as video games. A key bottleneck is representing each screenshot as thousands of visual tokens, which accumulate into long contexts as agents reason over extended interaction histories. We observe that most of these visual tokens are either semantically irrelevant to the agent's next action or temporally redundant across screenshots. Building on this observation, we introduce Visual Token Routing (VTR), a joint training framework for learning sparse visual representations that preserve the information needed for action prediction. In VTR, we train the vision-language model together with a lightweight spatio-temporal router that examines each image region in the current and previous screenshots and decides whether its visual token enters the language model. We optimize the router using an adaptive loss to keep the number of visual tokens as small as possible while minimizing performance degradation. With just 2,000 training steps, VTR matches the performance of the full-resolution model on OSWorld, CUA-World, and video game action prediction, while using 2.5-5.8x fewer visual tokens. These savings reduce inference cost by up to 3.3x and speed up prefill by up to 2.9x. VTR also outperforms lowering the image resolution and other baselines for dropping tokens, by up to 12.8 points on OSWorld. Overall, VTR enables computer-use agents to process only the visual tokens they need, allowing them to be used in long-horizon tasks and real-time domains at a fraction of the computational cost. Code and models are available at https://pranjal2041.github.io/vtr",
+      "authors": "Pranjal Aggarwal, Sean Welleck",
+      "published": "2026-11-04T18:10:33Z",
+      "categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "url": "https://arxiv.org/abs/2611.06854v1",
+      "score": 26
     }
   ]
 }
