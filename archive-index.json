@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-11-06T14:45:29.465Z",
+  "lastUpdated": "2026-11-07T13:42:25.869Z",
   "articles": [
+    {
+      "date": "2026-11-07",
+      "article": {
+        "title": "The Power of Meta Access in the Software of the Future --- Demonstrated on LLM Chat UIs and Chat AI",
+        "authors": "Julian Kunkel, Ali Doosthosseini",
+        "published": "2026-11-05T18:22:24Z",
+        "url": "https://arxiv.org/abs/2611.08428v1"
+      }
+    },
     {
       "date": "2026-11-06",
       "article": {
