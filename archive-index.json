@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-11-08T14:00:36.348Z",
+  "lastUpdated": "2026-11-09T17:03:44.974Z",
   "articles": [
+    {
+      "date": "2026-11-09",
+      "article": {
+        "title": "On Agentic Manipulation Policies",
+        "authors": "Chen Chen, Omid Bagherieh, Naveen Nikamanth Appiah Balaji et al.",
+        "published": "2026-11-06T18:59:34Z",
+        "url": "https://arxiv.org/abs/2611.09892v1"
+      }
+    },
     {
       "date": "2026-11-08",
       "article": {
