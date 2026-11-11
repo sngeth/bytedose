@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-11-10T15:21:56.898Z",
+  "lastUpdated": "2026-11-11T14:52:19.593Z",
   "articles": [
+    {
+      "date": "2026-11-11",
+      "article": {
+        "title": "EngineAgent: Agentizing On-Device LLM Inference Engines with Inference Stack Hierarchy Awareness and Hardware Abilities",
+        "authors": "Zhengxiang Huang, Yujie Sun, Shengheng Chen et al.",
+        "published": "2026-11-10T17:16:47Z",
+        "url": "https://arxiv.org/abs/2611.14356v1"
+      }
+    },
     {
       "date": "2026-11-10",
       "article": {

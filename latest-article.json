@@ -1,68 +1,71 @@
 {
-  "date": "2026-11-10",
+  "date": "2026-11-11",
   "article": {
-    "id": "2611.12856v1",
-    "title": "WorkflowArena: Benchmarking Executable Workflow Orchestration in LLM-Based Multi-Agent Systems",
-    "summary": "Large language model agents are increasingly deployed as multi-agent systems rather than as a standalone model operating within a single context. Recent agent harnesses allow the model to instantiate worker agents and to author the executable workflow that coordinates them, shifting the design of system structure from developers to the model at run time. The quality of this organization therefore constitutes a distinct capability, yet existing benchmarks either measure end-to-end task completion or evaluate coordination under structures specified in advance. We formalize this capability as workflow orchestration and introduce WorkflowArena, a benchmark of 145 long-horizon tasks spanning 8 professional domains, from software engineering and formal mathematics to legal analysis and 3D production. Each task specifies an initial workspace and an integrated deliverable composed of interdependent components, which is assessed by a hidden verifier. Agents determine autonomously whether and how to delegate, and all delegation is recorded, enabling joint evaluation of deliverable quality and the organization of the underlying work. Experiments with nine models show that no single configuration performs best across all domains and that systems exhibit distinct delegation strategies: at high effort, Claude models in Claude Code invoke workflows less frequently but with larger worker groups, whereas GPT models in Codex delegate more frequently in smaller units. When the executing model is held fixed on a challenging subset of tasks, workflows authored by Claude Opus 5.5 substantially improve weaker executors, indicating that workflow organization is itself a measurable determinant of task performance.",
-    "authors": "Zheng Jiang, Fang Niu, Bo Peng et al.",
-    "published": "2026-11-09T18:45:28Z",
+    "id": "2611.14356v1",
+    "title": "EngineAgent: Agentizing On-Device LLM Inference Engines with Inference Stack Hierarchy Awareness and Hardware Abilities",
+    "summary": "Rapidly evolving LLM architectures and heterogeneous mobile hardware make supporting new models in on-device inference engines a recurring and costly system challenge. Each model may require coordinated changes across conversion, graph construction, operators, and hardware backends. Existing coding agents often miss these cross-layer dependencies and struggle to diagnose failures across host--device execution paths. We present EngineAgent, an agentic system for automating on-device LLM model enablement. Its key insight is to separate reusable engine and hardware knowledge from model-specific implementation. Before enablement, EngineAgent constructs a hierarchy-aware engine index that captures engine abstraction layers and cross-layer dependencies, and pre-validates backend-specific build, execution, and debugging workflows using already supported models. For each new model, a builder uses this knowledge to coordinate cross-layer changes, while an auditor checks implementation completeness and drives iterative debugging through device-side validation. Across 12 tasks spanning three mobile LLMs and four engine--backend pairs on CPUs, GPUs, and NPUs, EngineAgent achieves 75% end-to-end success with either of two underlying LLMs, versus 33.3% for the strongest coding-agent baseline. Success requires compilation, on-device execution, and output-logit agreement with reference implementations. EngineAgent also reduces average per-task time and model-API cost relative to baselines using the same underlying LLMs.",
+    "authors": "Zhengxiang Huang, Yujie Sun, Shengheng Chen et al.",
+    "published": "2026-11-10T17:16:47Z",
     "categories": [
+      "cs.OS",
+      "cs.AI",
       "cs.CL",
       "cs.SE"
     ],
-    "url": "https://arxiv.org/abs/2611.12856v1",
-    "score": 26
+    "url": "https://arxiv.org/abs/2611.14356v1",
+    "score": 38
   },
   "alternates": [
     {
-      "id": "2611.12872v1",
-      "title": "HiVe-Mem: Interleaving Horizontal Memory Expansion and Vertical Evidence Composition for Multimodal Agents",
-      "summary": "As multimodal agents accumulate increasingly long interaction histories, effectively retrieving and utilizing past information becomes critical for long-term interaction. Existing memory systems typically rely on semantic retrieval over compressed memories and expose predefined representations, which may miss relevant memories and overlook heterogeneous evidence needs across queries. We introduce \\textbf{\\hivemem}, a multimodal memory framework that interleaves \\textbf{\\textsc{H}}or\\textbf{\\textsc{i}}zontal Memory Expansion with \\textbf{\\textsc{Ve}}rtical Evidence Composition. For horizontal memory expansion, \\hivemem organizes memory episodes into a relational graph using textual and visual anchors, expanding semantically retrieved seeds with related neighbors to recover complementary information. For vertical evidence composition, each retrieved memory retains multiple evidence forms, including compact summaries, captions, grounded visual views, raw images, and interaction history. A lightweight trainable selector independently composes an evidence subset for each retrieved memory, enabling query-adaptive utilization of heterogeneous multimodal information. This two-dimensional design jointly broadens memory coverage and adapts the evidence contributed by individual memories. Experiments across three multimodal memory benchmarks show that \\hivemem consistently improves task performance across base models while reducing token consumption by about 90\\% compared with the most efficient competing multimodal baselines.",
-      "authors": "Haozhen Zhang, Bohan Liu, Jianzhu Bao et al.",
-      "published": "2026-11-09T18:57:00Z",
+      "id": "2611.14511v1",
+      "title": "Pyrite: Building and Benchmarking Protein-Ligand Pose Ranking Agents",
+      "summary": "Predicting how a ligand binds to its target is central to small-molecule drug discovery. Modern cofolding models can generate diverse candidate poses, but reliably ranking these candidates remains challenging. We introduce Pyrite, a pairwise pose-ranking benchmark comprising 1,500 pose pairs across diverse protein-ligand complexes. Expert chemists equipped with 3D visualization tools and physics-based scores perform near chance, highlighting the difficulty of interpreting available chemical signals. To investigate automated ranking, we introduce PyriteRep, a structured representation of molecular geometry, protein-ligand interactions, and physicochemical scores, and develop two LLM-based agents: PyriteReasoner, which directly compares poses through text-based reasoning, and PyriteFeaturizer, which generates executable code to construct features for logistic regression, optionally incorporating features derived from LLM subcalls. These agents achieve up to 67% and 74% accuracy, respectively, exceeding observed expert performance. LLM-guided feature discovery generally outperforms direct reasoning, while Group Relative Policy Optimization (GRPO) improves open-weight models, enabling them to match or surpass closed-source frontier models in our evaluations. These results establish Pyrite as a challenging test of pose-ranking ability and highlight LLM-guided feature discovery as a promising approach to interpret and combine the outputs of computational chemistry tools.",
+      "authors": "Megha Srivastava, Michael H. Lim, Allison M. Keys et al.",
+      "published": "2026-11-10T18:56:32Z",
       "categories": [
-        "cs.CL",
-        "cs.AI",
-        "cs.LG"
+        "cs.LG",
+        "q-bio.QM"
       ],
-      "url": "https://arxiv.org/abs/2611.12872v1",
-      "score": 23
+      "url": "https://arxiv.org/abs/2611.14511v1",
+      "score": 29
     },
     {
-      "id": "2611.12475v1",
-      "title": "Learning to Select Sparse Linear Solvers with Convolutional Neural Networks",
-      "summary": "We investigate convolutional-neural-network (CNN) based automatic solver selection for sparse linear systems, a problem of practical importance where solver performance varies dramatically with matrix sparsity structure. A CNN is trained to regress log timing ratios between candidate solvers using spy plot images of matrix nonzero structure as input, achieving strong prediction accuracy on both held-out SuiteSparse matrices and real-world matrices from high-performance simulation codes.",
-      "authors": "Artemis Pados, Alan Edelman, Emmanuel Lujan et al.",
-      "published": "2026-11-09T14:22:21Z",
+      "id": "2611.14267v1",
+      "title": "Achieving Robust Channel Estimation Neural Networks on Doppler effects by Designed Training Data",
+      "summary": "Channel estimation is crucial in wireless communication systems. Many existing works train and test their models using the same or similar channel. However, practical channels are infinitely diverse and time-variant while data-driven algorithms often degrade on new and previously unseen channels. This prohibits the practical implementation of neural networks for channel estimation, particularly in high speed scenarios characterized by rapidly channel profile changes and very high Doppler shifts. Online training can fine-tune models to adapt to new channels, but requires high computation resource and incurs significant latency for physical-layer devices. Moreover, online training cannot exhaustively cover all possible channels because there are infinitely many possible channels. Therefore, we investigate the ability of neural networks to generalize to wireless channels. This paper proposes design criteria to generate synthetic training data, which guaranty that the resulting networks perform robustly across wireless channels, especially for very high Doppler shifts and different Doppler spectra. It ensures that offline-trained neural networks require no prior information or online training to precisely estimate the new channels. To demonstrate general applicability, we use neural networks with different levels of complexity to show that the generalization achieved appears to be independent of architecture. From simulation results, neural networks achieve a certain performance across wireless channels with different unseen power delay profiles (PDP) and Doppler shifts.",
+      "authors": "Dianxin Luan, John Thompson",
+      "published": "2026-11-10T16:11:11Z",
       "categories": [
-        "cs.LG"
-      ],
-      "url": "https://arxiv.org/abs/2611.12475v1",
-      "score": 23
-    },
-    {
-      "id": "2611.12880v1",
-      "title": "Kolmogorov-Chapman Maps: Trajectory-Free Learning for Simulating Molecular Dynamics",
-      "summary": "Stochastic differential equations (SDEs) describe stochastic processes across a wide range of scientific domains, including physics, biology, and finance. Although individual numerical integration steps are inexpensive, observing meaningful events or transitions can require millions of sequential steps, resulting in substantial wall-clock simulation time and poor hardware utilization. Deep learning offers an alternative by amortizing many integration steps into a single neural network forward pass, potentially enabling much faster simulation. However, existing supervised approaches typically require long simulated trajectory data, which restricts their applicability. In this work, we introduce Kolmogorov-Chapman Maps (KC-Maps), a method for learning the transition kernel of an SDE that relies only on the trajectory-free marginal samples together with the known drift and diffusion coefficients. Given an initial time and state of a process, KC-Maps models its distribution integrated to any given time, corresponding to the weak solution of the SDE. To recover the correct dynamics, KC-Maps satisfies two key properties: (i) it satisfies the boundary conditions, which we incorporate directly into the neural network architecture, and (ii) it respects the Kolmogorov--Chapman equation, which provides an efficient training objective. We empirically demonstrate that KC-Maps learns to integrate the dynamics of peptide molecular systems and outperforms classical molecular dynamics in terms of GPU-hours.",
-      "authors": "Majdi Hassan, Marta Skreta, Dominique Beaini et al.",
-      "published": "2026-11-09T18:59:13Z",
-      "categories": [
-        "cs.LG"
-      ],
-      "url": "https://arxiv.org/abs/2611.12880v1",
-      "score": 22
-    },
-    {
-      "id": "2611.12816v1",
-      "title": "Automated Knowledge Acquisition Pipeline for Disassembly Instructions: A Comparison of NLP and Generative AI Frameworks",
-      "summary": "The push towards circularity and Re-X principles presents a challenge to SMEs, particularly due to increasing product complexity that impedes the adoption of disassembly automation. This paper introduces and compares two frameworks for extracting disassembly instructions from unstructured information sources, such as disassembly manuals. Our goal is to transform natural language text into a structured, curated and machine-readable format. We implemented and tested a rule-based Natural Language Processing (NLP) framework against a generative AI framework leveraging LLMs. The performance of both approaches was compared using real-world disassembly manuals. This work provides the necessary data foundation for developing and automating future disassembly processes.",
-      "authors": "Tim Schnieders, Tareq Maximilian Gabriel Ahrari, Oliver Petrovic et al.",
-      "published": "2026-11-09T18:19:57Z",
-      "categories": [
+        "eess.SP",
         "cs.AI"
       ],
-      "url": "https://arxiv.org/abs/2611.12816v1",
-      "score": 22
+      "url": "https://arxiv.org/abs/2611.14267v1",
+      "score": 26
+    },
+    {
+      "id": "2611.14371v1",
+      "title": "Reliable and explainable analysis of AVS/RS by Statistical Model Checking and Process Mining",
+      "summary": "Automated Vehicle Storage and Retrieval Systems (AVS/RS) are increasingly adopted to boost warehouse throughput while containing operational costs. We present an integrated analysis framework that couples discrete-event simulation with Statistical Model Checking (SMC) and Process Mining (PM) to quantify and explain AVS/RS performance. SMC, implemented through the MultiVeStA tool, delivers statistically reliable estimates of key indicators, such as cycle times, throughput, and storage utilization, across alternative stocking and picking policies with user-specified confidence levels. MultiVeStA orchestrates multiple independent simulations in a black-box manner, enabling automated verification. PM ingests the resulting event logs to uncover the behavioral patterns and bottlenecks that drive those indicators, closing the interpretability gap typical of simulation studies. We instantiate the framework on a new open-source AVS/RS simulator configured according to recent industrial guidelines and evaluate multiple control strategies. Results show that the joint use of SMC and PM enables both predictive what-if analyses and post-hoc diagnostics, providing the first combined SMC+PM assessment of AVS/RS operations and a reusable toolchain for automated warehousing research.",
+      "authors": "Emanuele Guerrazzi, Andrea Vandin",
+      "published": "2026-11-10T17:28:54Z",
+      "categories": [
+        "cs.SE",
+        "eess.SY"
+      ],
+      "url": "https://arxiv.org/abs/2611.14371v1",
+      "score": 24
+    },
+    {
+      "id": "2611.14424v1",
+      "title": "DnNP: Denoising Input Uncertainty in Neural Processes",
+      "summary": "Neural Processes (NPs) are flexible meta-learning models capable of uncertainty quantification across diverse applications. However, the standard NP framework assumes access to noise-free inputs. This is unrealistic in many practical settings, where sensor noise or measurement errors are unavoidable. This discrepancy between model assumptions and real-world data can significantly degrade prediction quality and uncertainty estimates. We introduce Denoising Neural Processes (DnNPs), a principled extension of the NP framework that explicitly models input uncertainty. We train DnNPs via variational inference. DnNPs jointly learn to denoise corrupted inputs and perform meta-learning, making them robust to noisy training data. We demonstrate DnNPs' effectiveness on both synthetic and real-world datasets, showing consistent improvements in prediction and uncertainty quantification compared to standard NPs. On PM2.5 spatial interpolation from real-world air quality sensors, DnNP reduces RMSE by up to 30% and NLL by up to 73% relative to standard NPs. We also provide theoretical grounding: we show that the Bayes-optimal predictor under noisy inputs belongs to the DnNP model class, and that plug-in models with fixed observation variance incur an irreducible KL divergence gap that DnNP provably avoids.",
+      "authors": "Fatemeh Tohidian, Chengzhi Shi, Soomi Lee et al.",
+      "published": "2026-11-10T18:00:37Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "url": "https://arxiv.org/abs/2611.14424v1",
+      "score": 23
     }
   ]
 }
