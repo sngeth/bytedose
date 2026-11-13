@@ -1,71 +1,68 @@
 {
-  "date": "2026-11-12",
+  "date": "2026-11-13",
   "article": {
-    "id": "2611.14356v1",
-    "title": "EngineAgent: Agentizing On-Device LLM Inference Engines with Inference Stack Hierarchy Awareness and Hardware Abilities",
-    "summary": "Rapidly evolving LLM architectures and heterogeneous mobile hardware make supporting new models in on-device inference engines a recurring and costly system challenge. Each model may require coordinated changes across conversion, graph construction, operators, and hardware backends. Existing coding agents often miss these cross-layer dependencies and struggle to diagnose failures across host--device execution paths. We present EngineAgent, an agentic system for automating on-device LLM model enablement. Its key insight is to separate reusable engine and hardware knowledge from model-specific implementation. Before enablement, EngineAgent constructs a hierarchy-aware engine index that captures engine abstraction layers and cross-layer dependencies, and pre-validates backend-specific build, execution, and debugging workflows using already supported models. For each new model, a builder uses this knowledge to coordinate cross-layer changes, while an auditor checks implementation completeness and drives iterative debugging through device-side validation. Across 12 tasks spanning three mobile LLMs and four engine--backend pairs on CPUs, GPUs, and NPUs, EngineAgent achieves 75% end-to-end success with either of two underlying LLMs, versus 33.3% for the strongest coding-agent baseline. Success requires compilation, on-device execution, and output-logit agreement with reference implementations. EngineAgent also reduces average per-task time and model-API cost relative to baselines using the same underlying LLMs.",
-    "authors": "Zhengxiang Huang, Yujie Sun, Shengheng Chen et al.",
-    "published": "2026-11-10T17:16:47Z",
+    "id": "2611.17304v1",
+    "title": "Where LLM Agents Get Stuck Debugging Databases: Access More Than Reasoning",
+    "summary": "Large language model (LLM) coding agents are increasingly asked not only to write code but to debug running systems from live runtime data. We report a field observation of one such agent (Claude Code) as it diagnosed eight database incidents in a production message-dispatch engine. In every incident whose root cause depended on runtime concurrency, the agent announced a cause, shipped a fix, and later walked it back, and each wrong guess cost a deploy-and-observe cycle. Mapping each incident to what the agent lacked, we find that access to production state was the most pervasive bottleneck. The missing access included live lock views, untruncated deadlock reports, read-only execution, and an explicit environment context. An access gap was present in all five concurrency-dependent incidents: alone in one, and in four combined with a reasoning error such as anchoring on an early cause, incomplete exploration of the configuration, or a misreading of the code's transaction semantics. The three incidents that did not depend on concurrency needed nothing beyond what the agent already had. Within the incidents, the agent's wrong hypotheses were consistent with the evidence it could see; they were not fabrications. We argue that the next step for production-debugging agents is a forensics layer that gives the agent the access it lacks inside existing security controls. Such a layer would combine a safe interrogation API, a lock-and-deadlock flight recorder, and a production replay harness.",
+    "authors": "Gustavo Pinto",
+    "published": "2026-11-12T18:56:22Z",
     "categories": [
-      "cs.OS",
-      "cs.AI",
-      "cs.CL",
       "cs.SE"
     ],
-    "url": "https://arxiv.org/abs/2611.14356v1",
-    "score": 38
+    "url": "https://arxiv.org/abs/2611.17304v1",
+    "score": 32
   },
   "alternates": [
     {
-      "id": "2611.14511v1",
-      "title": "Pyrite: Building and Benchmarking Protein-Ligand Pose Ranking Agents",
-      "summary": "Predicting how a ligand binds to its target is central to small-molecule drug discovery. Modern cofolding models can generate diverse candidate poses, but reliably ranking these candidates remains challenging. We introduce Pyrite, a pairwise pose-ranking benchmark comprising 1,500 pose pairs across diverse protein-ligand complexes. Expert chemists equipped with 3D visualization tools and physics-based scores perform near chance, highlighting the difficulty of interpreting available chemical signals. To investigate automated ranking, we introduce PyriteRep, a structured representation of molecular geometry, protein-ligand interactions, and physicochemical scores, and develop two LLM-based agents: PyriteReasoner, which directly compares poses through text-based reasoning, and PyriteFeaturizer, which generates executable code to construct features for logistic regression, optionally incorporating features derived from LLM subcalls. These agents achieve up to 67% and 74% accuracy, respectively, exceeding observed expert performance. LLM-guided feature discovery generally outperforms direct reasoning, while Group Relative Policy Optimization (GRPO) improves open-weight models, enabling them to match or surpass closed-source frontier models in our evaluations. These results establish Pyrite as a challenging test of pose-ranking ability and highlight LLM-guided feature discovery as a promising approach to interpret and combine the outputs of computational chemistry tools.",
-      "authors": "Megha Srivastava, Michael H. Lim, Allison M. Keys et al.",
-      "published": "2026-11-10T18:56:32Z",
+      "id": "2611.17068v1",
+      "title": "Discovering Effective Agent Memory Designs through Program Evolution",
+      "summary": "Program evolution provides a promising approach to discover agent memory designs and study the choices underlying their effectiveness. We introduce MAPE, a framework that evolves whole memory programs from minimal seeds through a standardized lifecycle interface and an iterative diagnosis-proposal loop. Experiments on LoCoMo and LongMemEval yield an absolute accuracy gain of up to 12% over manually designed baselines at 35% of the serving cost, with further evaluations supporting transfer across serving backbones and benchmarks. Empirical analyses and ablations identify and validate two recurring design patterns: retaining raw conversations as retrievable evidence preserves details omitted from extracted memories, while composing retrieved evidence according to query intent helps the answering model use it effectively. Transplanting the composition module into five existing memory systems improves accuracy across all five. Beyond these patterns, the search objective shapes where computation goes: optimizing serving cost alongside accuracy shifts computation from LLM-based memory construction to selective processing at query time while retaining competitive accuracy. Together, these findings offer empirical lessons for agent memory design. Code is available at https://github.com/ash-ding/MAPE.",
+      "authors": "Xinheng Ding, Seyyed Saeid Cheshmi, Ziyang Zhang et al.",
+      "published": "2026-11-12T16:42:04Z",
       "categories": [
-        "cs.LG",
-        "q-bio.QM"
-      ],
-      "url": "https://arxiv.org/abs/2611.14511v1",
-      "score": 29
-    },
-    {
-      "id": "2611.14267v1",
-      "title": "Achieving Robust Channel Estimation Neural Networks on Doppler effects by Designed Training Data",
-      "summary": "Channel estimation is crucial in wireless communication systems. Many existing works train and test their models using the same or similar channel. However, practical channels are infinitely diverse and time-variant while data-driven algorithms often degrade on new and previously unseen channels. This prohibits the practical implementation of neural networks for channel estimation, particularly in high speed scenarios characterized by rapidly channel profile changes and very high Doppler shifts. Online training can fine-tune models to adapt to new channels, but requires high computation resource and incurs significant latency for physical-layer devices. Moreover, online training cannot exhaustively cover all possible channels because there are infinitely many possible channels. Therefore, we investigate the ability of neural networks to generalize to wireless channels. This paper proposes design criteria to generate synthetic training data, which guaranty that the resulting networks perform robustly across wireless channels, especially for very high Doppler shifts and different Doppler spectra. It ensures that offline-trained neural networks require no prior information or online training to precisely estimate the new channels. To demonstrate general applicability, we use neural networks with different levels of complexity to show that the generalization achieved appears to be independent of architecture. From simulation results, neural networks achieve a certain performance across wireless channels with different unseen power delay profiles (PDP) and Doppler shifts.",
-      "authors": "Dianxin Luan, John Thompson",
-      "published": "2026-11-10T16:11:11Z",
-      "categories": [
-        "eess.SP",
+        "cs.CL",
         "cs.AI"
       ],
-      "url": "https://arxiv.org/abs/2611.14267v1",
+      "url": "https://arxiv.org/abs/2611.17068v1",
       "score": 26
     },
     {
-      "id": "2611.14371v1",
-      "title": "Reliable and explainable analysis of AVS/RS by Statistical Model Checking and Process Mining",
-      "summary": "Automated Vehicle Storage and Retrieval Systems (AVS/RS) are increasingly adopted to boost warehouse throughput while containing operational costs. We present an integrated analysis framework that couples discrete-event simulation with Statistical Model Checking (SMC) and Process Mining (PM) to quantify and explain AVS/RS performance. SMC, implemented through the MultiVeStA tool, delivers statistically reliable estimates of key indicators, such as cycle times, throughput, and storage utilization, across alternative stocking and picking policies with user-specified confidence levels. MultiVeStA orchestrates multiple independent simulations in a black-box manner, enabling automated verification. PM ingests the resulting event logs to uncover the behavioral patterns and bottlenecks that drive those indicators, closing the interpretability gap typical of simulation studies. We instantiate the framework on a new open-source AVS/RS simulator configured according to recent industrial guidelines and evaluate multiple control strategies. Results show that the joint use of SMC and PM enables both predictive what-if analyses and post-hoc diagnostics, providing the first combined SMC+PM assessment of AVS/RS operations and a reusable toolchain for automated warehousing research.",
-      "authors": "Emanuele Guerrazzi, Andrea Vandin",
-      "published": "2026-11-10T17:28:54Z",
+      "id": "2611.17323v1",
+      "title": "AgentSSL: Can MLE Agents Leverage Unlabeled Data?",
+      "summary": "Applying machine learning systems to new domains introduces bottlenecks in both labeled data acquisition and manual pipeline engineering. While recent MLE agents show promise in automating pipeline design, they have been studied almost exclusively in fully supervised settings, leaving them untested in realistic regimes where labeled data is scarce but unlabeled data is abundant. In this work, we introduce Agentic Semi-Supervised Learning (AgentSSL), framing SSL as a program search problem and studying how agents navigate this space under limited supervision. We find that even under weak feedback and matched compute, agents can synthesize code that combines and adapts established SSL techniques, exceeding the strongest human-engineered baselines in 8 of 12 settings by up to +21.8%. However, our results identify program selection as a critical bottleneck in AgentSSL, where performance drops by as much as 47% when selecting based on the agent's feedback metric. To systematically study this bottleneck, we introduce ProgramSelectBench, a large-scale benchmark with a combined total of 16,977 agent-generated and human-engineered SSL programs, and evaluate both unsupervised and active program selection methods. We further evaluate AgentSSL on real-world ecology detection tasks, highlighting the opportunities and challenges of transferring agent-discovered strategies beyond controlled benchmarks.",
+      "authors": "Ethan Lin, Akanksha Sarkar, Ziang Liu et al.",
+      "published": "2026-11-12T18:59:06Z",
       "categories": [
-        "cs.SE",
-        "eess.SY"
+        "cs.AI",
+        "cs.LG"
       ],
-      "url": "https://arxiv.org/abs/2611.14371v1",
-      "score": 24
+      "url": "https://arxiv.org/abs/2611.17323v1",
+      "score": 21
     },
     {
-      "id": "2611.14424v1",
-      "title": "DnNP: Denoising Input Uncertainty in Neural Processes",
-      "summary": "Neural Processes (NPs) are flexible meta-learning models capable of uncertainty quantification across diverse applications. However, the standard NP framework assumes access to noise-free inputs. This is unrealistic in many practical settings, where sensor noise or measurement errors are unavoidable. This discrepancy between model assumptions and real-world data can significantly degrade prediction quality and uncertainty estimates. We introduce Denoising Neural Processes (DnNPs), a principled extension of the NP framework that explicitly models input uncertainty. We train DnNPs via variational inference. DnNPs jointly learn to denoise corrupted inputs and perform meta-learning, making them robust to noisy training data. We demonstrate DnNPs' effectiveness on both synthetic and real-world datasets, showing consistent improvements in prediction and uncertainty quantification compared to standard NPs. On PM2.5 spatial interpolation from real-world air quality sensors, DnNP reduces RMSE by up to 30% and NLL by up to 73% relative to standard NPs. We also provide theoretical grounding: we show that the Bayes-optimal predictor under noisy inputs belongs to the DnNP model class, and that plug-in models with fixed observation variance incur an irreducible KL divergence gap that DnNP provably avoids.",
-      "authors": "Fatemeh Tohidian, Chengzhi Shi, Soomi Lee et al.",
-      "published": "2026-11-10T18:00:37Z",
+      "id": "2611.17246v1",
+      "title": "Programming Quantum Circuit Parameters with Large Language Models",
+      "summary": "Large language models (LLMs) have recently demonstrated the ability to generate parameters for variational quantum circuits without conventional optimization. However, the conditions under which this approach is effective remain unclear. Here, we investigate a frozen, general-purpose LLM that generates complete circuit parameter vectors from symbolic circuit and Hamiltonian descriptions, with optional iterative energy feedback. We evaluate the approach on general random Hamiltonians, structured parent Hamiltonians, and molecular systems. For general Hamiltonians, LLM-generated parameters exhibit larger energy errors than conventional Adam optimization, while additional feedback generally provides limited improvement. In contrast, for structured Hamiltonians, the LLM can generate promising low-energy parameter configurations, suggesting that identifiable physical and mathematical structure facilitates parameter inference. We also show that direct LLM predictions of minimum energies can violate the Hamiltonian spectral lower bound, whereas generated circuit parameters allow independent evaluation of physically realizable energy expectation values. Finally, we investigate blind circuit interpretation and find that the LLM can predict measurement outcomes even when it fails to identify the underlying quantum algorithm. These findings highlight the role of problem structure, the limitations of iterative LLM optimization, and the importance of independently verifiable predictions in quantum parameter programming.",
+      "authors": "Tiago de Souza Farias, Caio Moraes Porto, Matheus da Silva Fonseca et al.",
+      "published": "2026-11-12T18:34:23Z",
+      "categories": [
+        "quant-ph",
+        "cs.LG"
+      ],
+      "url": "https://arxiv.org/abs/2611.17246v1",
+      "score": 21
+    },
+    {
+      "id": "2611.17329v1",
+      "title": "Internalizing Investment Mandates: A Neurosymbolic RL Approach to Portfolio Allocation",
+      "summary": "Institutional portfolios operate under investment policy statements that specify asset allocation constraints, often conditioned on market regime information. Deep reinforcement learning has been shown to optimize financial performance but typically does not enforce rule compliance, making it unsuitable for real-world deployment. Existing neurosymbolic methods such as Probabilistic Logic Policy Gradient (PLPG) offer constraint-satisfying reinforcement learning (RL) via differentiable symbolic supervision but assume a finite, discrete action space. We present a PLPG-inspired continuous allocation method that estimates the probability that the policy's own executed action satisfies the investment mandate, using reparameterized Monte Carlo sampling, and adds it to the training objective. No post-hoc enforcement mechanism intercepts actions at inference time and compliance is learned by the agent. Audited directly on deterministic mean actions with no correction, the policy reduces violations of a six-rule regime-conditional mandate from 96-98% for unconstrained RL and 33.4% for a reward-penalty baseline to 4.8%, showing that a continuous-action neurosymbolic policy can substantially internalize a symbolic mandate.",
+      "authors": "Zeynep Yıldız, Satchit Chatterji, Ercan Atam et al.",
+      "published": "2026-11-12T18:59:37Z",
       "categories": [
         "cs.LG"
       ],
-      "url": "https://arxiv.org/abs/2611.14424v1",
-      "score": 23
+      "url": "https://arxiv.org/abs/2611.17329v1",
+      "score": 20
     }
   ]
 }

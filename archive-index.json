@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-11-12T15:43:42.555Z",
+  "lastUpdated": "2026-11-13T15:06:46.992Z",
   "articles": [
+    {
+      "date": "2026-11-13",
+      "article": {
+        "title": "Where LLM Agents Get Stuck Debugging Databases: Access More Than Reasoning",
+        "authors": "Gustavo Pinto",
+        "published": "2026-11-12T18:56:22Z",
+        "url": "https://arxiv.org/abs/2611.17304v1"
+      }
+    },
     {
       "date": "2026-11-12",
       "article": {
