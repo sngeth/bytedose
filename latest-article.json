@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-13",
+  "date": "2026-11-14",
   "article": {
     "id": "2611.17304v1",
     "title": "Where LLM Agents Get Stuck Debugging Databases: Access More Than Reasoning",
@@ -13,6 +13,32 @@
     "score": 32
   },
   "alternates": [
+    {
+      "id": "2611.17126v1",
+      "title": "STeP-C: Real-Time Neural Compression for Distributed Fiber-Optic Sensing at Scale",
+      "summary": "Distributed fiber-optic sensing (DFOS) technologies such as Distributed Acoustic Sensing (DAS) generate continuous, high-resolution spatio-temporal data at rates exceeding hundreds of megabytes per second, creating severe challenges for real-time storage and transmission. While neural compression methods can achieve strong rate-distortion performance on sensing data, prior approaches either require per-segment retraining incompatible with streaming, or have only been validated offline. None have been demonstrated end-to-end on a continuously streaming DAS acquisition system at scale. We present STeP-C (Spatio-Temporal Predictive Compression), a neural compression framework that decouples spatial encoding, temporal prediction, and entropy-optimized residual coding, trained end-to-end with a rate-distortion objective motivated by conditional entropy reduction. Critically, we identify entropy coding as the dominant bottleneck for streaming deployment. We address it through GPU-side symbol computation, cached probability tables, and parallel GIL-free arithmetic coding, together with FP16 inference and batched entropy coding, enabling a full real-time pipeline built around a GPU ring buffer. We validate this pipeline on a live DAS testbed, achieving a 98.85% file size reduction at 31.04 dB full-band PSNR and an average throughput of 535 MB/s, exceeding the 324 MB/s requirement for 1 kHz, 81 km DAS streams. We further show that STeP-C substantially outperforms conventional codecs at practical streaming bitrates, can be applied to unseen channel ranges within the same acquisition system without retraining, and largely maintains downstream detector consistency, with 96.62% high-confidence class agreement and 100% Jaccard similarity on detected event types.",
+      "authors": "Tingfeng Li, Ming-Fang Huang, Shaobo Han et al.",
+      "published": "2026-11-12T17:20:49Z",
+      "categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "url": "https://arxiv.org/abs/2611.17126v1",
+      "score": 30
+    },
+    {
+      "id": "2611.17098v1",
+      "title": "Speed-to-Power Dominates Energy Costs for AI Data Centers: Technoeconomic Analysis of Powering AI in the Continental United States",
+      "summary": "The rapid growth of artificial intelligence is driving demand for new data centers at large scale and on short deployment timelines. To power them, firms connect to the commercial grid or contract generation directly, but interconnection and gas-turbine delays now incentivize on-site generation. We compare grid-connected and off-grid data center energy infrastructure (AC- and DC-coupled solar-plus-storage, islanded natural gas, and grid interconnection) across the continental U.S. Using an open-source technoeconomic framework built on empirically calibrated AI training loads, climate-driven cooling, stage-by-stage power conversion, and physics-based battery degradation, we model designs providing equivalent energy services. Our central contribution is a speed-adjusted cost of energy that values the compute unlocked by faster construction, making options with different deployment timelines directly comparable on one physically consistent basis. We find DC coupling reduces lifetime energy costs by 18% ($0.09/ kWh) on average versus AC counterparts by eliminating inverters and improving efficiency. Though rarely cheapest on unadjusted energy cost, DC-coupled microgrids' faster deployment makes them the lowest-cost modeled option in 85% of U.S. locations once foregone compute is valued, or 55% under accelerated natural gas timelines. For AI infrastructure, deployment speed rather than unit energy cost determines the economically preferred path to power.",
+      "authors": "Alex C. Newkirk, Daniel L. Gerber, Erica R. H. Fuchs et al.",
+      "published": "2026-11-12T16:58:53Z",
+      "categories": [
+        "cs.AI",
+        "eess.SY"
+      ],
+      "url": "https://arxiv.org/abs/2611.17098v1",
+      "score": 27
+    },
     {
       "id": "2611.17068v1",
       "title": "Discovering Effective Agent Memory Designs through Program Evolution",
@@ -38,31 +64,6 @@
       ],
       "url": "https://arxiv.org/abs/2611.17323v1",
       "score": 21
-    },
-    {
-      "id": "2611.17246v1",
-      "title": "Programming Quantum Circuit Parameters with Large Language Models",
-      "summary": "Large language models (LLMs) have recently demonstrated the ability to generate parameters for variational quantum circuits without conventional optimization. However, the conditions under which this approach is effective remain unclear. Here, we investigate a frozen, general-purpose LLM that generates complete circuit parameter vectors from symbolic circuit and Hamiltonian descriptions, with optional iterative energy feedback. We evaluate the approach on general random Hamiltonians, structured parent Hamiltonians, and molecular systems. For general Hamiltonians, LLM-generated parameters exhibit larger energy errors than conventional Adam optimization, while additional feedback generally provides limited improvement. In contrast, for structured Hamiltonians, the LLM can generate promising low-energy parameter configurations, suggesting that identifiable physical and mathematical structure facilitates parameter inference. We also show that direct LLM predictions of minimum energies can violate the Hamiltonian spectral lower bound, whereas generated circuit parameters allow independent evaluation of physically realizable energy expectation values. Finally, we investigate blind circuit interpretation and find that the LLM can predict measurement outcomes even when it fails to identify the underlying quantum algorithm. These findings highlight the role of problem structure, the limitations of iterative LLM optimization, and the importance of independently verifiable predictions in quantum parameter programming.",
-      "authors": "Tiago de Souza Farias, Caio Moraes Porto, Matheus da Silva Fonseca et al.",
-      "published": "2026-11-12T18:34:23Z",
-      "categories": [
-        "quant-ph",
-        "cs.LG"
-      ],
-      "url": "https://arxiv.org/abs/2611.17246v1",
-      "score": 21
-    },
-    {
-      "id": "2611.17329v1",
-      "title": "Internalizing Investment Mandates: A Neurosymbolic RL Approach to Portfolio Allocation",
-      "summary": "Institutional portfolios operate under investment policy statements that specify asset allocation constraints, often conditioned on market regime information. Deep reinforcement learning has been shown to optimize financial performance but typically does not enforce rule compliance, making it unsuitable for real-world deployment. Existing neurosymbolic methods such as Probabilistic Logic Policy Gradient (PLPG) offer constraint-satisfying reinforcement learning (RL) via differentiable symbolic supervision but assume a finite, discrete action space. We present a PLPG-inspired continuous allocation method that estimates the probability that the policy's own executed action satisfies the investment mandate, using reparameterized Monte Carlo sampling, and adds it to the training objective. No post-hoc enforcement mechanism intercepts actions at inference time and compliance is learned by the agent. Audited directly on deterministic mean actions with no correction, the policy reduces violations of a six-rule regime-conditional mandate from 96-98% for unconstrained RL and 33.4% for a reward-penalty baseline to 4.8%, showing that a continuous-action neurosymbolic policy can substantially internalize a symbolic mandate.",
-      "authors": "Zeynep Yıldız, Satchit Chatterji, Ercan Atam et al.",
-      "published": "2026-11-12T18:59:37Z",
-      "categories": [
-        "cs.LG"
-      ],
-      "url": "https://arxiv.org/abs/2611.17329v1",
-      "score": 20
     }
   ]
 }
