@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-11-16T16:41:21.236Z",
+  "lastUpdated": "2026-11-17T16:38:29.172Z",
   "articles": [
+    {
+      "date": "2026-11-17",
+      "article": {
+        "title": "Replicating and Extending Weight-Space Programming: Frontier LLMs Compile Programs into Weights and Read Input Layers",
+        "authors": "Roksana Goworek, Alexander Hickey, Federico Nanni et al.",
+        "published": "2026-11-16T17:35:18Z",
+        "url": "https://arxiv.org/abs/2611.21449v1"
+      }
+    },
     {
       "date": "2026-11-16",
       "article": {
