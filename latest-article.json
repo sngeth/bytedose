@@ -1,71 +1,68 @@
 {
-  "date": "2026-11-17",
+  "date": "2026-11-18",
   "article": {
-    "id": "2611.21449v1",
-    "title": "Replicating and Extending Weight-Space Programming: Frontier LLMs Compile Programs into Weights and Read Input Layers",
-    "summary": "Researchers at MIT recently reported that GPT-6 Astra, a frontier large language model (LLM), can write the weights of small neural networks directly in a single reply, and can read the raw weights of small networks to say what they were trained to do. In a three-day sprint, we replicated and extended these results. Our four findings: (1) Writing weights reproduces. Astra's networks for the game Breakout scored 514, 550 and 307 (versus MIT's 517), and scored just as well on two modified versions of Breakout. Claude Opus 5.5 can also write working networks, but often runs out of output tokens. (2) What is new is translating programs into weights. Earlier models could write a good policy as code a generation before they could write network weights, and the networks the models write behave like compiled programs: two models independently decompiled Astra's Breakout network into Python matching its actions in all tested states. On classifying handwritten digits, Astra's networks scored 50% on average, below a simple classifier (82%). (3) Reading weights is mostly reading the input layer. Astra and Opus 5.5 identify which game a network plays almost perfectly, but on three new games we designed and trained ourselves, Astra recovered where things are on the board, while mostly missing how the game works. (4) Auditing from weights alone is possible but shallow. Without executing code, Astra picked out a small language model poisoned during training in 10 of 10 runs, one poisoned by extra training afterwards in 7 of 10, and a malicious adapter in 23 of 32 cases, but never identified the trigger or malicious behaviour. Open-weight models lag behind. From this early study, we conclude that LLMs can read and write small networks, but that this currently amounts to compiling hand-designed programs and reading the layout of the input layer. It is a promising but early tool for interpretability.",
-    "authors": "Roksana Goworek, Alexander Hickey, Federico Nanni et al.",
-    "published": "2026-11-16T17:35:18Z",
+    "id": "2611.23219v1",
+    "title": "Do LLM Agents Still Need to Be Told How to Self-Improve?",
+    "summary": "LLM agents increasingly drive their own learning. Self-improvement methods delegate various components of model optimization to the models themselves. As models become more capable, this motivates a basic question: do these increasingly capable models still need us to specify how they should self-improve? In this paper we study an autonomous paradigm in which, given basic primitives, resources, and a general goal for self-improvement, agents construct their own self-learning algorithm for context-based optimization. Using the setting of gameplay as a testbed, a frozen LLM agent is given a compute budget and tools for collecting experience and updating text documents, and allowed to freely experiment without an externally imposed loop or access to real-world data. We find that sufficiently capable models do self-improve under these conditions, demonstrating strategies that align with classic cognitive frameworks for self-regulated learning and constructs from machine learning literature on self-generated curricula. Furthermore, we study the extent to which the learned text artifacts transfer to external benchmarks, observing improvement across different game horizons, mechanics, and 3D navigation.",
+    "authors": "Shobhita Sundaram, Cansu Sancaktar, Phillip Isola",
+    "published": "2026-11-17T18:57:10Z",
     "categories": [
-      "cs.CL",
+      "cs.LG",
       "cs.AI"
     ],
-    "url": "https://arxiv.org/abs/2611.21449v1",
-    "score": 24
+    "url": "https://arxiv.org/abs/2611.23219v1",
+    "score": 36
   },
   "alternates": [
     {
-      "id": "2611.21579v1",
-      "title": "ScenarioForge: Resource-Grounded Generation and Execution Validation of Cyber Exercises",
-      "summary": "Cyber-range and capture-the-flag scenario construction remains labor-intensive because authors must coordinate infrastructure, vulnerable services, attack paths, artifacts, and success conditions. LLMs can propose detailed exercises, but plausible descriptions do not guarantee deployable software or verifiable objectives. We present ScenarioForge, which turns high-level requirements into resource-grounded topologies, services, traffic, segmentation, and challenge chains, then instantiates and validates them in the Common Open Research Emulator (CORE). The ScenarioForge Execution Dataset contains 226 materialized scenarios covering 294 Vulhub images and all 85 custom-built challenge-resource generators developed with our AI-assisted scaffolding. All 226 passed construction, preview, sequencing, deployment, strict runtime validation, and live artifact checks; their 867 steps, each an individually verifiable challenge objective, comprise 457 vulnerability-backed and 410 generated-resource-backed instances. In a separate 50-prompt matched benchmark, ScenarioForge+Qwen3.8 and ScenarioForge+GPT5.6 each achieved 50/50 (100%) topology/build success and 160/160 intent fields; direct frontier generation reached 41/50 builds and 147/160 fields only with the full cumulative scaffold: structure, vocabulary, policy, and container-image guidance. The test still omitted ScenarioForge's downstream challenge-resource generation, dependency/flag sequencing, deployment, and live validation. The artifacts support operationally rich, reproducible exercises for training and evaluation.",
-      "authors": "Jaime C. Acosta, Anantaa Kotal, Aritran Piplai",
-      "published": "2026-11-16T18:49:56Z",
+      "id": "2611.23201v1",
+      "title": "Governance Risks in Decentralized Autonomous Organizations (DAOs): Implications for Traditional Financial Institutions",
+      "summary": "As financial institutions increasingly interact with blockchain ecosystems through decentralized finance, stablecoins, tokenized assets, and distributed ledger infrastructure, they come to depend on systems governed wholly or partly by decentralized autonomous organizations (DAOs). This paper examines how DAO governance differs from traditional corporate governance and what this implies for risk management in regulated financial institutions. Using a qualitative comparative framework grounded in OECD governance principles, Basel Committee guidance, and FINMA circulars, the study maps DAO deliberation, voting, and accountability mechanisms against established governance and risk-management principles and illustrates associated risks through selected real-world cases. The analysis shows that DAOs preserve core governance functions but redistribute them across token holders, delegates, community forums, smart contracts, and legal wrapper entities. This creates distinct risks, including voting-power concentration, weak proposal controls, legal uncertainty, and unclear accountability, which established frameworks do not fully capture, while also offering two transferable strengths: a transparent, traceable decision record and a direct link between approval and execution. The paper contributes a structured assessment framework linking DAO governance characteristics to existing governance, outsourcing, technology-risk, and operational-resilience processes, enabling institutions to address DAO-governed dependencies through targeted extensions of current practices rather than a separate risk framework.",
+      "authors": "Christian Plöschberger, Irene Buller, Mark Christopher Ballandies",
+      "published": "2026-11-17T18:42:34Z",
       "categories": [
-        "cs.CR",
-        "cs.AI"
+        "cs.CY"
       ],
-      "url": "https://arxiv.org/abs/2611.21579v1",
-      "score": 21
+      "url": "https://arxiv.org/abs/2611.23201v1",
+      "score": 27
     },
     {
-      "id": "2611.21552v1",
-      "title": "Benchmarking memory and nonlinear processing capacity of quantum recurrent neural networks for time series prediction",
-      "summary": "Quantum machine learning has emerged as a promising approach to time series prediction. While quantum reservoir computing has been widely explored for this setting, variational quantum models tailored to sequential data remain comparatively understudied, largely because they are difficult to train. In this work, we present a rigorous benchmark of variational quantum recurrent neural networks (QRNNs) on time series prediction tasks, focusing on two key capabilities: memory and nonlinear processing. We introduce a task-driven methodology that quantifies model capacity, enabling an intuitive and fair comparison across architectures, including classical recurrent baselines. We evaluate the proposed framework on two generic benchmark tasks and on a synthetic dataset describing a chaotic system. Overall, the quantum models achieve performance comparable to their classical counterparts, but classical models scale better with the memory size within the range studied. Notably, one QRNN variant shows higher average capacity on the task designed to jointly probe memory and nonlinear capacity. Moreover, our results show that quantum models offer better capacity when we are able to find a good parameter initialization. However, the increasing sensitivity to initialization leads to a lower probability of finding good solutions as the model size increases. These results provide a principled starting point for designing richer quantum recurrent architectures and for assessing where they may offer practical benefits.",
-      "authors": "José Daniel Viqueira, Andrés Gómez, David Mera",
-      "published": "2026-11-16T18:32:05Z",
+      "id": "2611.23228v1",
+      "title": "Spool: Low-Latency Streaming Inference for Hybrid Vision-Language Models",
+      "summary": "Applications such as visual accessibility agents and robotics require answering questions about recent video content promptly, over a bounded window of past frames (e.g., the last two minutes). Hybrid vision-language models (VLMs), which interleave attention with linear recurrent layers such as Gated DeltaNet (GDN), are attractive for this setting, but maintaining a sliding window is expensive. The reason is that recurrent layers combine all past frames into a shared state, so expiring old frames normally requires re-running the entire window through the model. We observe that the recurrent update is affine in the state with input-dependent coefficients, so the effect of each frame can be captured as a transformation that composes associatively. We present Spool, a training-free framework that caches per-frame state transformations and composes them efficiently as the window advances, removing expired frames from each recurrent layer's state without replaying frames through the backbone. Removal is exact within each layer; as with key-value eviction in attention, expired frames can retain residual influence through the cached inputs computed by earlier layers. We design a dedicated data structure and GPU kernels to achieve low caching and composition overhead. Across five open-source hybrid VLMs and four video reasoning benchmarks, Spool achieves the lowest p95 time-to-first-token in all 20 model-benchmark tests, reducing it by a geometric mean of $6.6\\times$ over the faster of two recent vLLM baselines, while improving accuracy by 2.3 percentage points on average.",
+      "authors": "Rui Ning, Om Chabra, Hari Balakrishnan",
+      "published": "2026-11-17T18:59:27Z",
       "categories": [
-        "quant-ph",
+        "cs.CV",
         "cs.LG"
       ],
-      "url": "https://arxiv.org/abs/2611.21552v1",
-      "score": 21
+      "url": "https://arxiv.org/abs/2611.23228v1",
+      "score": 26
     },
     {
-      "id": "2611.21577v1",
-      "title": "When Tool Names Are Not Identities: Measuring Provider Misbinding in MCP-Based AI Agents",
-      "summary": "Large language model (LLM) applications increasingly act as agents that select and invoke external tools. The Model Context Protocol (MCP) standardizes this interaction by allowing clients to compose tools advertised by multiple servers. However, tool metadata used for discovery and selection is not, by itself, necessarily bound to a verified provider identity. This paper studies this gap as tool-provider misbinding: a failure in which a request intended for a legitimate provider is instead resolved to an attacker-controlled tool. The attacker does not compromise the host, LLM, legitimate server, or network channel; it only operates another MCP server that advertises tools with chosen metadata. We formulate tool provider misbinding as an attacker-controlled tool-selection optimization problem and evaluate it in a controlled MCP environment across five LLM-based clients. The results show that interactions drive misbinding. The strongest failures occur when exact-name collision, task-aligned description, and compatible schema reinforce one another, but authority-enhanced descriptions with compatible schema can also cause wrong-provider execution or unresolved provider ambiguity without name collision. Different models expose the same provider-binding weakness differently, including attacker-controlled provider selection, clarification requests, and unstable or inconsistent provider resolution.",
-      "authors": "Zeynab Anbiaee, Sajjad Dadkhah, Ali A. Ghorbani",
-      "published": "2026-11-16T18:49:37Z",
+      "id": "2611.23203v1",
+      "title": "Identifying and Repairing Energy Smells with Agent Skills",
+      "summary": "Energy smells are inefficient implementations that waste energy. Once code reaches production, these smells become costlier and riskier to fix, so energy efficiency checks should shift left, i.e., move earlier in the development lifecycle, to where code is written. Existing energy smell tools rely on fixed static rules and do not measure energy savings, whereas LLM-based optimizers mostly target execution time and rarely ground their changes in concrete smell definitions. To address both limitations, we present DR. GREENS, an agent skill that detects and repairs energy smells in Python code within the developer's coding environment. The skill grounds the coding agent in our taxonomy of 12 energy smells and 65 root causes, augmented with repair guidance drawn from 230 measured cases. The skill also encapsulates a static analyzer and an independent verifier to confirm behavior preservation and energy saving for each attempted repair. We evaluated DR. GREENS in 18 sessions on three open-source repositories, with two models and three skill configurations. Of the 258 measured repairs, 68.6% saved energy, with a median saving of 24.9%. Compared with a baseline skill that lacks the taxonomy, the full skill found more energy smells with verified savings in all three repositories with both models. DR. GREENS helps developers detect energy hotspots and fix them reliably without altering program behavior, which makes energy-efficient development more feasible.",
+      "authors": "Mohammadjavad Mehditabar, Saurabhsingh Rajput, Tushar Sharma",
+      "published": "2026-11-17T18:45:42Z",
       "categories": [
-        "cs.CR",
+        "cs.SE"
+      ],
+      "url": "https://arxiv.org/abs/2611.23203v1",
+      "score": 26
+    },
+    {
+      "id": "2611.23091v1",
+      "title": "BugGen 2.0: Rethinking the Roles of LLMs for Scalable RTL Bug Synthesis",
+      "summary": "AI-assisted RTL localization and debugging need ground-truth bug datasets with known locations and observable failures, while testbench grading uses injected bugs to measure detection capability. Creating such datasets at scale remains a major EDA challenge. BugGen 1.0 shows that Large Language Models (LLMs) can generate context-aware RTL mutations. Still, it relies on the model for both choosing where to mutate and generating the edit, which increases inference costs and can lead to invalid choices. BugGen 2.0 changes this division of labor. Deterministic algorithms handle structural analysis, target selection, and validation, while the LLM focuses on localized semantic rewriting. Across four OpenTitan IP blocks and FabScalar with three LLMs, BugGen 2.0 reaches every requested quota of compilable bug scenarios that cause at least two test failures, with 14-16 of 16 configured mutation types represented. In completed same-model comparisons, it reduces token use by 6.8x-15.4x relative to BugGen 1.0 and 1.5x-7.9x relative to Firefly. BugGen 2.0 also expands the dataset without simulating every new bug. After finding accepted scenarios with observable failures, it generates alternative mutations at the same locations, simulates only a subset, and estimates acceptance for the rest. This skips 63.6% of AES and 33.9% of FabScalar variant simulations. Full simulation finds that 77.7% of AES variants and 95.2% of FabScalar variants are accepted, with a 1.09% estimation error on the directly comparable FabScalar set. These results show that focusing LLMs on semantic rewriting lowers inference and simulation cost while improving consistency across models and designs.",
+      "authors": "Minh Luu, Michael Quinn, Aakash Tyagi et al.",
+      "published": "2026-11-17T17:11:54Z",
+      "categories": [
+        "cs.SE",
         "cs.AI"
       ],
-      "url": "https://arxiv.org/abs/2611.21577v1",
-      "score": 20
-    },
-    {
-      "id": "2611.21473v1",
-      "title": "Network Intrusion Detection Adaptability under Spurious Labels: A Noise-Aware Few-Shot Class-Incremental Learning Framework",
-      "summary": "Network Intrusion Detection Systems (NIDSs) must incrementally adapt to emerging attacks, even when only a limited amount of labeled network traffic is available. Consequently, Few-Shot Class-Incremental Learning (FSCIL)-based NIDSs have gained growing attention. However, existing FSCIL-based NIDSs are highly vulnerable to label noise in newly-observed attack classes. To address this limitation, we propose NAFN, a noise-aware FSCIL-based NIDS framework that reduces the impact of mislabeled data during incremental adaptation. NAFN consists of two components: (i) Noise Detection, which identifies and removes mislabeled biflows using noise-detection algorithms, and (ii) Feature Sampling, which estimates class-conditional embeddings from clean biflows, calibrates them with base-class statistics, and resamples synthetic features to recover the original biflow count. The framework follows the Rethink Few-Shot (RFS) teacher-student paradigm with lightweight nearest-neighbor or logistic regression classifiers, and various pretraining &amp; memory selection strategies. Experiments on CSE-CIC-IDS2018, Edge-IIoT, and IoT-NID datasets show that NAFN effectively preserves prior knowledge and maintains strong incremental performance even under 50% label noise, consistently improving new-class F1-scores over non-denoised baselines, up to +52%, while being time-efficient and robust in cross-network and high-noise incremental settings. The implementation is publicly available to foster reproducibility.",
-      "authors": "Zijian Zhao, Davide Di Monda, Domenico Ciuonzo et al.",
-      "published": "2026-11-16T17:49:45Z",
-      "categories": [
-        "cs.NI",
-        "cs.AI",
-        "cs.LG"
-      ],
-      "url": "https://arxiv.org/abs/2611.21473v1",
-      "score": 20
+      "url": "https://arxiv.org/abs/2611.23091v1",
+      "score": 24
     }
   ]
 }

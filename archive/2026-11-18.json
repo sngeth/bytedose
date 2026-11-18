@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-18",
+  "article": {
+    "id": "2611.23219v1",
+    "title": "Do LLM Agents Still Need to Be Told How to Self-Improve?",
+    "summary": "LLM agents increasingly drive their own learning. Self-improvement methods delegate various components of model optimization to the models themselves. As models become more capable, this motivates a basic question: do these increasingly capable models still need us to specify how they should self-improve? In this paper we study an autonomous paradigm in which, given basic primitives, resources, and a general goal for self-improvement, agents construct their own self-learning algorithm for context-based optimization. Using the setting of gameplay as a testbed, a frozen LLM agent is given a compute budget and tools for collecting experience and updating text documents, and allowed to freely experiment without an externally imposed loop or access to real-world data. We find that sufficiently capable models do self-improve under these conditions, demonstrating strategies that align with classic cognitive frameworks for self-regulated learning and constructs from machine learning literature on self-generated curricula. Furthermore, we study the extent to which the learned text artifacts transfer to external benchmarks, observing improvement across different game horizons, mechanics, and 3D navigation.",
+    "authors": "Shobhita Sundaram, Cansu Sancaktar, Phillip Isola",
+    "published": "2026-11-17T18:57:10Z",
+    "categories": [
+      "cs.LG",
+      "cs.AI"
+    ],
+    "url": "https://arxiv.org/abs/2611.23219v1",
+    "score": 36
+  },
+  "alternates": [
+    {
+      "id": "2611.23201v1",
+      "title": "Governance Risks in Decentralized Autonomous Organizations (DAOs): Implications for Traditional Financial Institutions",
+      "summary": "As financial institutions increasingly interact with blockchain ecosystems through decentralized finance, stablecoins, tokenized assets, and distributed ledger infrastructure, they come to depend on systems governed wholly or partly by decentralized autonomous organizations (DAOs). This paper examines how DAO governance differs from traditional corporate governance and what this implies for risk management in regulated financial institutions. Using a qualitative comparative framework grounded in OECD governance principles, Basel Committee guidance, and FINMA circulars, the study maps DAO deliberation, voting, and accountability mechanisms against established governance and risk-management principles and illustrates associated risks through selected real-world cases. The analysis shows that DAOs preserve core governance functions but redistribute them across token holders, delegates, community forums, smart contracts, and legal wrapper entities. This creates distinct risks, including voting-power concentration, weak proposal controls, legal uncertainty, and unclear accountability, which established frameworks do not fully capture, while also offering two transferable strengths: a transparent, traceable decision record and a direct link between approval and execution. The paper contributes a structured assessment framework linking DAO governance characteristics to existing governance, outsourcing, technology-risk, and operational-resilience processes, enabling institutions to address DAO-governed dependencies through targeted extensions of current practices rather than a separate risk framework.",
+      "authors": "Christian Plöschberger, Irene Buller, Mark Christopher Ballandies",
+      "published": "2026-11-17T18:42:34Z",
+      "categories": [
+        "cs.CY"
+      ],
+      "url": "https://arxiv.org/abs/2611.23201v1",
+      "score": 27
+    },
+    {
+      "id": "2611.23228v1",
+      "title": "Spool: Low-Latency Streaming Inference for Hybrid Vision-Language Models",
+      "summary": "Applications such as visual accessibility agents and robotics require answering questions about recent video content promptly, over a bounded window of past frames (e.g., the last two minutes). Hybrid vision-language models (VLMs), which interleave attention with linear recurrent layers such as Gated DeltaNet (GDN), are attractive for this setting, but maintaining a sliding window is expensive. The reason is that recurrent layers combine all past frames into a shared state, so expiring old frames normally requires re-running the entire window through the model. We observe that the recurrent update is affine in the state with input-dependent coefficients, so the effect of each frame can be captured as a transformation that composes associatively. We present Spool, a training-free framework that caches per-frame state transformations and composes them efficiently as the window advances, removing expired frames from each recurrent layer's state without replaying frames through the backbone. Removal is exact within each layer; as with key-value eviction in attention, expired frames can retain residual influence through the cached inputs computed by earlier layers. We design a dedicated data structure and GPU kernels to achieve low caching and composition overhead. Across five open-source hybrid VLMs and four video reasoning benchmarks, Spool achieves the lowest p95 time-to-first-token in all 20 model-benchmark tests, reducing it by a geometric mean of $6.6\\times$ over the faster of two recent vLLM baselines, while improving accuracy by 2.3 percentage points on average.",
+      "authors": "Rui Ning, Om Chabra, Hari Balakrishnan",
+      "published": "2026-11-17T18:59:27Z",
+      "categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "url": "https://arxiv.org/abs/2611.23228v1",
+      "score": 26
+    },
+    {
+      "id": "2611.23203v1",
+      "title": "Identifying and Repairing Energy Smells with Agent Skills",
+      "summary": "Energy smells are inefficient implementations that waste energy. Once code reaches production, these smells become costlier and riskier to fix, so energy efficiency checks should shift left, i.e., move earlier in the development lifecycle, to where code is written. Existing energy smell tools rely on fixed static rules and do not measure energy savings, whereas LLM-based optimizers mostly target execution time and rarely ground their changes in concrete smell definitions. To address both limitations, we present DR. GREENS, an agent skill that detects and repairs energy smells in Python code within the developer's coding environment. The skill grounds the coding agent in our taxonomy of 12 energy smells and 65 root causes, augmented with repair guidance drawn from 230 measured cases. The skill also encapsulates a static analyzer and an independent verifier to confirm behavior preservation and energy saving for each attempted repair. We evaluated DR. GREENS in 18 sessions on three open-source repositories, with two models and three skill configurations. Of the 258 measured repairs, 68.6% saved energy, with a median saving of 24.9%. Compared with a baseline skill that lacks the taxonomy, the full skill found more energy smells with verified savings in all three repositories with both models. DR. GREENS helps developers detect energy hotspots and fix them reliably without altering program behavior, which makes energy-efficient development more feasible.",
+      "authors": "Mohammadjavad Mehditabar, Saurabhsingh Rajput, Tushar Sharma",
+      "published": "2026-11-17T18:45:42Z",
+      "categories": [
+        "cs.SE"
+      ],
+      "url": "https://arxiv.org/abs/2611.23203v1",
+      "score": 26
+    },
+    {
+      "id": "2611.23091v1",
+      "title": "BugGen 2.0: Rethinking the Roles of LLMs for Scalable RTL Bug Synthesis",
+      "summary": "AI-assisted RTL localization and debugging need ground-truth bug datasets with known locations and observable failures, while testbench grading uses injected bugs to measure detection capability. Creating such datasets at scale remains a major EDA challenge. BugGen 1.0 shows that Large Language Models (LLMs) can generate context-aware RTL mutations. Still, it relies on the model for both choosing where to mutate and generating the edit, which increases inference costs and can lead to invalid choices. BugGen 2.0 changes this division of labor. Deterministic algorithms handle structural analysis, target selection, and validation, while the LLM focuses on localized semantic rewriting. Across four OpenTitan IP blocks and FabScalar with three LLMs, BugGen 2.0 reaches every requested quota of compilable bug scenarios that cause at least two test failures, with 14-16 of 16 configured mutation types represented. In completed same-model comparisons, it reduces token use by 6.8x-15.4x relative to BugGen 1.0 and 1.5x-7.9x relative to Firefly. BugGen 2.0 also expands the dataset without simulating every new bug. After finding accepted scenarios with observable failures, it generates alternative mutations at the same locations, simulates only a subset, and estimates acceptance for the rest. This skips 63.6% of AES and 33.9% of FabScalar variant simulations. Full simulation finds that 77.7% of AES variants and 95.2% of FabScalar variants are accepted, with a 1.09% estimation error on the directly comparable FabScalar set. These results show that focusing LLMs on semantic rewriting lowers inference and simulation cost while improving consistency across models and designs.",
+      "authors": "Minh Luu, Michael Quinn, Aakash Tyagi et al.",
+      "published": "2026-11-17T17:11:54Z",
+      "categories": [
+        "cs.SE",
+        "cs.AI"
+      ],
+      "url": "https://arxiv.org/abs/2611.23091v1",
+      "score": 24
+    }
+  ]
+}
