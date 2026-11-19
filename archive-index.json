@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-11-18T16:08:57.212Z",
+  "lastUpdated": "2026-11-19T16:15:47.239Z",
   "articles": [
+    {
+      "date": "2026-11-19",
+      "article": {
+        "title": "Local AI Agents in Power Electronics Simulation: Deployment, Measurements and Costs",
+        "authors": "Yuzhuo Li, Pasan Gunawardena, Yunwei Li",
+        "published": "2026-11-18T18:27:40Z",
+        "url": "https://arxiv.org/abs/2611.24880v1"
+      }
+    },
     {
       "date": "2026-11-18",
       "article": {

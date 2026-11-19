@@ -1,68 +1,72 @@
 {
-  "date": "2026-11-18",
+  "date": "2026-11-19",
   "article": {
-    "id": "2611.23219v1",
-    "title": "Do LLM Agents Still Need to Be Told How to Self-Improve?",
-    "summary": "LLM agents increasingly drive their own learning. Self-improvement methods delegate various components of model optimization to the models themselves. As models become more capable, this motivates a basic question: do these increasingly capable models still need us to specify how they should self-improve? In this paper we study an autonomous paradigm in which, given basic primitives, resources, and a general goal for self-improvement, agents construct their own self-learning algorithm for context-based optimization. Using the setting of gameplay as a testbed, a frozen LLM agent is given a compute budget and tools for collecting experience and updating text documents, and allowed to freely experiment without an externally imposed loop or access to real-world data. We find that sufficiently capable models do self-improve under these conditions, demonstrating strategies that align with classic cognitive frameworks for self-regulated learning and constructs from machine learning literature on self-generated curricula. Furthermore, we study the extent to which the learned text artifacts transfer to external benchmarks, observing improvement across different game horizons, mechanics, and 3D navigation.",
-    "authors": "Shobhita Sundaram, Cansu Sancaktar, Phillip Isola",
-    "published": "2026-11-17T18:57:10Z",
+    "id": "2611.24880v1",
+    "title": "Local AI Agents in Power Electronics Simulation: Deployment, Measurements and Costs",
+    "summary": "Agentic artificial intelligence (AI) is emerging in power electronics, where it drives the simulation loop that engineers used to close largely by hand. In this loop, a converter design, or a study of the network it connects to, is built, run, measured and revised until it satisfies its specification. Such an agent can be served from a cloud API or from an inference device on the premises. For organizations whose designs, customer data or export-controlled material cannot leave the site, and whose simulators are licensed there, local deployment is the natural choice. In such a deployment, the agent becomes an electrical load on the organization's own equipment, i.e., every run consumes power and energy on a local device, generates tokens and takes time. However, existing work focuses mainly on what the agent can achieve with cloud-hosted models. What a local deployment costs in power, energy, tokens and time on real simulation tasks, and what its choices trade against one another, has received little quantitative investigation under comparable conditions. To address this gap, a systematic evaluation framework is presented in this paper. It applies locally served models to agentic power electronics tasks, from the converter level to the system level, and measures their power, energy, token and time costs. Based on these measurements, the capability boundary of a local agent on such tasks and the cost per solved task are characterized. The results are expected to provide practical insight for the use of agentic AI in power electronics and the power systems it serves.",
+    "authors": "Yuzhuo Li, Pasan Gunawardena, Yunwei Li",
+    "published": "2026-11-18T18:27:40Z",
     "categories": [
-      "cs.LG",
-      "cs.AI"
+      "cs.AI",
+      "eess.SY"
     ],
-    "url": "https://arxiv.org/abs/2611.23219v1",
-    "score": 36
+    "url": "https://arxiv.org/abs/2611.24880v1",
+    "score": 41
   },
   "alternates": [
     {
-      "id": "2611.23201v1",
-      "title": "Governance Risks in Decentralized Autonomous Organizations (DAOs): Implications for Traditional Financial Institutions",
-      "summary": "As financial institutions increasingly interact with blockchain ecosystems through decentralized finance, stablecoins, tokenized assets, and distributed ledger infrastructure, they come to depend on systems governed wholly or partly by decentralized autonomous organizations (DAOs). This paper examines how DAO governance differs from traditional corporate governance and what this implies for risk management in regulated financial institutions. Using a qualitative comparative framework grounded in OECD governance principles, Basel Committee guidance, and FINMA circulars, the study maps DAO deliberation, voting, and accountability mechanisms against established governance and risk-management principles and illustrates associated risks through selected real-world cases. The analysis shows that DAOs preserve core governance functions but redistribute them across token holders, delegates, community forums, smart contracts, and legal wrapper entities. This creates distinct risks, including voting-power concentration, weak proposal controls, legal uncertainty, and unclear accountability, which established frameworks do not fully capture, while also offering two transferable strengths: a transparent, traceable decision record and a direct link between approval and execution. The paper contributes a structured assessment framework linking DAO governance characteristics to existing governance, outsourcing, technology-risk, and operational-resilience processes, enabling institutions to address DAO-governed dependencies through targeted extensions of current practices rather than a separate risk framework.",
-      "authors": "Christian Plöschberger, Irene Buller, Mark Christopher Ballandies",
-      "published": "2026-11-17T18:42:34Z",
+      "id": "2611.24888v1",
+      "title": "Who are you? The Personal Imitation Game",
+      "summary": "Large Language Models (LLMs) now perform strongly on Alan Turing's 1950 Imitation Game, so we propose a harder challenge, the Personal Imitation Game, which asks whether a machine can replicate a specific individual in conversation rather than a generic human. Testing with 30 participants, we establish a human baseline and report the identity signals interrogators rely on: stylometric features, personality traits, and biographical facts. To demonstrate the framework, we design an LLM-based system that plays the game for one of the paper's authors, drawing on an autoethnographic dataset spanning ten years of personal digital communication. In a 20-person deception study, interrogators choose our system over the author's own friends in 7 of 10 rounds, and the author over our system in 13 of 20; neither rate is distinguishable from chance at this sample size. We consider design improvements, applications of personal AI agents, and implications for identity and privacy.",
+      "authors": "Muhammad Rizky Wellyanto, Hajara-Yasmin Isa, Kexin Xue et al.",
+      "published": "2026-11-18T18:32:14Z",
       "categories": [
-        "cs.CY"
+        "cs.HC",
+        "cs.AI",
+        "cs.CL"
       ],
-      "url": "https://arxiv.org/abs/2611.23201v1",
+      "url": "https://arxiv.org/abs/2611.24888v1",
+      "score": 29
+    },
+    {
+      "id": "2611.24892v1",
+      "title": "On Evaluating User Simulators for Interactive Agents",
+      "summary": "User simulators offer a scalable way to evaluate interactive agents, but how to assess their quality remains underexplored. In particular, it is unclear whether existing user simulator evaluation frameworks reliably detect meaningful failures in simulated user behavior. This uncertainty makes it difficult to interpret simulator evaluation. To understand what a high benchmark score tells us about simulator quality, we (meta-)evaluate the metrics themselves. To instantiate this meta-evaluation, we deliberately perturb simulated replays to induce failures such as altered goals, omitted constraints, premature stopping, and acceptance of broken work, then test whether the metrics penalize these failures. Evaluation methods from three prior studies detect only 5-6 of the 10 perturbations; their combined scores even favor populations instructed to accept broken work over unmodified controls. Motivated by these gaps, we propose a new evaluation suite that combines utility of user simulators for evaluating agents and two measures of fidelity to real users: population-level fidelity assesses collective interaction patterns, while trace-level fidelity assesses the preservation of individual users' goals, constraints, and persona. Under the same detection criterion, our evaluation suite detects all 10 perturbations. Evaluating six user simulators on 351 real multi-turn sessions in which 348 distinct users across 23 languages and agents work together to create and refine artifacts such as full-stack web apps, games, design assets, and automated workflows, we find that population-level measures can miss when a simulated user pursues the wrong goal, ignores a constraint, or behaves out of character, highlighting the need to assess fidelity at comprehensive granularities.",
+      "authors": "Hengguang Zhou, I-Hung Hsu, Li Chen et al.",
+      "published": "2026-11-18T18:34:23Z",
+      "categories": [
+        "cs.LG"
+      ],
+      "url": "https://arxiv.org/abs/2611.24892v1",
+      "score": 28
+    },
+    {
+      "id": "2611.24845v1",
+      "title": "Vibe-Trading: Towards Agent-Native Trading",
+      "summary": "Existing AI agents can retrieve information, call tools, run experiments, and produce multi-step outputs. Yet most are built around relatively static workflows and struggle to preserve reliable state as the environment changes. Financial trading makes this limitation especially consequential: prices, news, market conditions, portfolio positions, and available capital evolve continuously. A result is useful only when it remains tied to the correct time, data snapshot, and execution context. We present Vibe-Trading, a comprehensive agent-native trading framework and all-in-one workspace for building, evaluating, and evolving agents for financial trading. It unifies market research, financial data, strategy generation, backtesting, portfolio analysis, paper trading, multi-agent collaboration, and optional broker execution. Its central contribution is an architecture that keeps results, evidence, research history, and trading authority connected throughout the research-to-action process. Each result retains its source, temporal scope, configuration, and producing run. Shared evidence grounding enables verification, versioned research records support reproducible continuation, and an explicit authority gate separates strategy research from live execution. Together, these designs provide a practical foundation for trading agents whose results can be traced, reproduced, and acted on only under explicit authority.",
+      "authors": "Haozhe Wu, Zhonghang Li, Chao Huang",
+      "published": "2026-11-18T18:07:57Z",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.MA",
+        "q-fin.CP",
+        "q-fin.TR"
+      ],
+      "url": "https://arxiv.org/abs/2611.24845v1",
       "score": 27
     },
     {
-      "id": "2611.23228v1",
-      "title": "Spool: Low-Latency Streaming Inference for Hybrid Vision-Language Models",
-      "summary": "Applications such as visual accessibility agents and robotics require answering questions about recent video content promptly, over a bounded window of past frames (e.g., the last two minutes). Hybrid vision-language models (VLMs), which interleave attention with linear recurrent layers such as Gated DeltaNet (GDN), are attractive for this setting, but maintaining a sliding window is expensive. The reason is that recurrent layers combine all past frames into a shared state, so expiring old frames normally requires re-running the entire window through the model. We observe that the recurrent update is affine in the state with input-dependent coefficients, so the effect of each frame can be captured as a transformation that composes associatively. We present Spool, a training-free framework that caches per-frame state transformations and composes them efficiently as the window advances, removing expired frames from each recurrent layer's state without replaying frames through the backbone. Removal is exact within each layer; as with key-value eviction in attention, expired frames can retain residual influence through the cached inputs computed by earlier layers. We design a dedicated data structure and GPU kernels to achieve low caching and composition overhead. Across five open-source hybrid VLMs and four video reasoning benchmarks, Spool achieves the lowest p95 time-to-first-token in all 20 model-benchmark tests, reducing it by a geometric mean of $6.6\\times$ over the faster of two recent vLLM baselines, while improving accuracy by 2.3 percentage points on average.",
-      "authors": "Rui Ning, Om Chabra, Hari Balakrishnan",
-      "published": "2026-11-17T18:59:27Z",
+      "id": "2611.24846v1",
+      "title": "Atomic MathReasoner: Instance-Level Composition of Atomic Reasoning Skills for Mathematical LLMs",
+      "summary": "Most existing approaches enhance mathematical reasoning in large language models (LLMs) as a monolithic capability, despite the fact that different mathematical problems require different reasoning skills. Recent work has explored a more fine-grained perspective by decomposing mathematical reasoning into atomic skills and developing specialized modules for individual capabilities. However, how to effectively utilize these atomic abilities remains underexplored. To address this challenge, we propose Atomic MathReasoner (AMR), an instance-level framework for composing atomic reasoning skills. AMR first trains a library of capability-specific LoRA experts and performs gradient-free optimization over held-out validation subsets to discover a diverse set of low-loss composition prototypes. It evaluates the preference of each prototype using the token-level negative log-likelihood of reference solutions, filters ambiguous assignments through a confidence margin, and distills the resulting pseudo-labels into a lightweight router. During inference, the router selects an appropriate composition prototype for each problem, enabling problem-specific utilization of atomic skills without costly online optimization. Experiments on the AtomicMath benchmark across general and mathematics-specialized LLMs demonstrate consistent improvements. On Qwen2.5-Math-Instruct-7B, AMR increases average field accuracy from 64.4% to 68.1% at Level 1 and from 59.3% to 63.7% at Level 2, while improving average logical reasoning performance from 39.4% to 46.8%. These results demonstrate that effectively composing specialized atomic skills provides a promising approach to strengthening mathematical reasoning in LLMs.",
+      "authors": "Jiashu Li, Tianyu Gao, Qinglong Liu et al.",
+      "published": "2026-11-18T18:08:08Z",
       "categories": [
-        "cs.CV",
         "cs.LG"
       ],
-      "url": "https://arxiv.org/abs/2611.23228v1",
-      "score": 26
-    },
-    {
-      "id": "2611.23203v1",
-      "title": "Identifying and Repairing Energy Smells with Agent Skills",
-      "summary": "Energy smells are inefficient implementations that waste energy. Once code reaches production, these smells become costlier and riskier to fix, so energy efficiency checks should shift left, i.e., move earlier in the development lifecycle, to where code is written. Existing energy smell tools rely on fixed static rules and do not measure energy savings, whereas LLM-based optimizers mostly target execution time and rarely ground their changes in concrete smell definitions. To address both limitations, we present DR. GREENS, an agent skill that detects and repairs energy smells in Python code within the developer's coding environment. The skill grounds the coding agent in our taxonomy of 12 energy smells and 65 root causes, augmented with repair guidance drawn from 230 measured cases. The skill also encapsulates a static analyzer and an independent verifier to confirm behavior preservation and energy saving for each attempted repair. We evaluated DR. GREENS in 18 sessions on three open-source repositories, with two models and three skill configurations. Of the 258 measured repairs, 68.6% saved energy, with a median saving of 24.9%. Compared with a baseline skill that lacks the taxonomy, the full skill found more energy smells with verified savings in all three repositories with both models. DR. GREENS helps developers detect energy hotspots and fix them reliably without altering program behavior, which makes energy-efficient development more feasible.",
-      "authors": "Mohammadjavad Mehditabar, Saurabhsingh Rajput, Tushar Sharma",
-      "published": "2026-11-17T18:45:42Z",
-      "categories": [
-        "cs.SE"
-      ],
-      "url": "https://arxiv.org/abs/2611.23203v1",
-      "score": 26
-    },
-    {
-      "id": "2611.23091v1",
-      "title": "BugGen 2.0: Rethinking the Roles of LLMs for Scalable RTL Bug Synthesis",
-      "summary": "AI-assisted RTL localization and debugging need ground-truth bug datasets with known locations and observable failures, while testbench grading uses injected bugs to measure detection capability. Creating such datasets at scale remains a major EDA challenge. BugGen 1.0 shows that Large Language Models (LLMs) can generate context-aware RTL mutations. Still, it relies on the model for both choosing where to mutate and generating the edit, which increases inference costs and can lead to invalid choices. BugGen 2.0 changes this division of labor. Deterministic algorithms handle structural analysis, target selection, and validation, while the LLM focuses on localized semantic rewriting. Across four OpenTitan IP blocks and FabScalar with three LLMs, BugGen 2.0 reaches every requested quota of compilable bug scenarios that cause at least two test failures, with 14-16 of 16 configured mutation types represented. In completed same-model comparisons, it reduces token use by 6.8x-15.4x relative to BugGen 1.0 and 1.5x-7.9x relative to Firefly. BugGen 2.0 also expands the dataset without simulating every new bug. After finding accepted scenarios with observable failures, it generates alternative mutations at the same locations, simulates only a subset, and estimates acceptance for the rest. This skips 63.6% of AES and 33.9% of FabScalar variant simulations. Full simulation finds that 77.7% of AES variants and 95.2% of FabScalar variants are accepted, with a 1.09% estimation error on the directly comparable FabScalar set. These results show that focusing LLMs on semantic rewriting lowers inference and simulation cost while improving consistency across models and designs.",
-      "authors": "Minh Luu, Michael Quinn, Aakash Tyagi et al.",
-      "published": "2026-11-17T17:11:54Z",
-      "categories": [
-        "cs.SE",
-        "cs.AI"
-      ],
-      "url": "https://arxiv.org/abs/2611.23091v1",
-      "score": 24
+      "url": "https://arxiv.org/abs/2611.24846v1",
+      "score": 23
     }
   ]
 }
