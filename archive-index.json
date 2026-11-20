@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-11-19T16:15:47.239Z",
+  "lastUpdated": "2026-11-20T15:52:36.563Z",
   "articles": [
+    {
+      "date": "2026-11-20",
+      "article": {
+        "title": "Replication of Agentic Security Events: Audit and Investigation (ROGUE-AI)",
+        "authors": "Mengxiao Wang, Mahbub Alam, Kalyan Nakka et al.",
+        "published": "2026-11-19T18:23:35Z",
+        "url": "https://arxiv.org/abs/2611.26553v1"
+      }
+    },
     {
       "date": "2026-11-19",
       "article": {
