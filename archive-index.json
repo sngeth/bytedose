@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-11-22T15:00:27.460Z",
+  "lastUpdated": "2026-11-23T18:55:21.998Z",
   "articles": [
+    {
+      "date": "2026-11-23",
+      "article": {
+        "title": "The Dual-Tier Sentiment Framework: Scalable Multimodal UX Attribution in Web Search",
+        "authors": "Yi Ding, Gaurav Kumar, Rui Min et al.",
+        "published": "2026-11-20T17:38:26Z",
+        "url": "https://arxiv.org/abs/2611.27899v1"
+      }
+    },
     {
       "date": "2026-11-22",
       "article": {
