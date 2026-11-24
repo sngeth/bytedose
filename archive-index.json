@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-11-23T18:55:21.998Z",
+  "lastUpdated": "2026-11-24T18:34:22.678Z",
   "articles": [
+    {
+      "date": "2026-11-24",
+      "article": {
+        "title": "HoloSplat: Real-Time Token Streaming for Feed-Forward Human Reconstruction",
+        "authors": "Chaofan Li, Qihan Ding, Shihan Wang et al.",
+        "published": "2026-11-23T18:11:00Z",
+        "url": "https://arxiv.org/abs/2611.31140v1"
+      }
+    },
     {
       "date": "2026-11-23",
       "article": {
