@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-11-24T18:34:22.678Z",
+  "lastUpdated": "2026-11-25T17:45:04.407Z",
   "articles": [
+    {
+      "date": "2026-11-25",
+      "article": {
+        "title": "U-Statistics-Powered LLM Reasoning",
+        "authors": "Shijin Gong, Kai Ye, Victor Chernozhukov et al.",
+        "published": "2026-11-24T18:05:01Z",
+        "url": "https://arxiv.org/abs/2611.33064v1"
+      }
+    },
     {
       "date": "2026-11-24",
       "article": {
