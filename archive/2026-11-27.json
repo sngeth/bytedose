@@ -1,0 +1,69 @@
+{
+  "date": "2026-11-27",
+  "article": {
+    "id": "2611.34754v1",
+    "title": "AutoRSP: An AI Agent for Radar Sensing Pipeline Design",
+    "summary": "Radar sensing demands a pipeline that is well-thought-out across hardware and software. We ask whether an AI agent can automatically design radar sensing pipelines at a fraction of the time, cost, and expertise that current practice needs. We present AutoRSP, an agent that embeds radar-system-level structure through sub-agents mapped to five stack layers, a code-based representation of every layer with explicitly modeled cross-layer dependencies. Feedback for the agentic search process comes from a pipeline of realistic RF simulation, on-sensor emulation, and execution on real edge devices, rather than from an LLM judge. Because such feedback can be slower than an LLM call, we present methods to efficiently optimize agentic loops. We evaluate AutoRSP on robotic imaging, automotive perception, and vital sign sensing. It produces executable pipelines with performance comparable to or better than human-expert pipelines and closed-source agents. AutoRSP's harness, tools, and benchmarks will be released to bridge the rising gap in agentic research abilities outside of frontier labs.",
+    "authors": "Zhi Zheng, Xincheng Xie, Avery Gump et al.",
+    "published": "2026-11-25T17:26:36Z",
+    "categories": [
+      "cs.NI",
+      "cs.MA",
+      "eess.SP"
+    ],
+    "url": "https://arxiv.org/abs/2611.34754v1",
+    "score": 29
+  },
+  "alternates": [
+    {
+      "id": "2611.34617v1",
+      "title": "Evaluating More with Less: Black-Box Test Selection for AI Agents",
+      "summary": "Agentic software systems are increasingly used in development, where changes to the model, prompt, scaffold, tools, or execution environment require repeated testing. Test case selection (TCS) can reduce testing costs while providing estimates of agent performance or exposing failures early. Although TCS has been studied for deep neural networks and LLM code models, prior work does not directly address agentic systems and often requires model information unavailable for proprietary agents. We present the first empirical study of black-box TCS for agentic software systems. We treat each benchmark task as a test case and adapt black-box regression-testing techniques using selection criteria based on task descriptions, metadata, code fragments, and embeddings. We also propose strategies that estimate task difficulty using heuristic features or independent LLM-as-judge assessments. Our strategies select tasks without executing the target agent or using past results. We evaluate fourteen selection strategies, including random sampling, plus a historical-data baseline, across ten AI agent benchmarks with 12 to 101 agents per benchmark. We assess Success Rate estimation and early failure detection. No single strategy dominates both objectives. Adapted black-box regression-testing strategies are most effective for Success Rate estimation, with Category Partition obtaining the lowest median error on five benchmarks at the 20% task budget. LLM-as-judge selection is more effective for early failure detection. For GPT 5.2 Codex on SWE-bench Verified, Category Partition selects 100 instead of 500 tasks, reducing execution cost from \\$225 to \\$47, with a Success Rate estimation error of 0.8 percentage points. At the same budget, LLM-as-judge selection detects nearly twice as many failures as random sampling: 53.0% of selected tasks reveal failures, compared with 27.4% for random sampling.",
+      "authors": "Ali Asgari, Mitchell Olsthoorn, Arie van Deursen et al.",
+      "published": "2026-11-25T16:05:46Z",
+      "categories": [
+        "cs.SE"
+      ],
+      "url": "https://arxiv.org/abs/2611.34617v1",
+      "score": 27
+    },
+    {
+      "id": "2611.34942v1",
+      "title": "Spectrum Adaptation of AI-Native Autoencoder Communications with Transfer Learning",
+      "summary": "End-to-end physical-layer learning replaces separate modulation, coding, and detection operations with an autoencoder (AE) that consists of a jointly trained encoder-decoder pair at the transmitter and the receiver. This paper studies AI-native communications with AEs and quantifies the sensitivity to training-test mismatch in channel models. Models trained only on an AWGN channel achieve low bit error rates (BERs) under matched conditions but degrade severely on Rayleigh fading with practical front-end impairments. To reduce the time and energy required to adapt to new channel conditions, we propose a low-latency transfer-learning procedure that starts from an AWGN-pretrained system and fine-tunes only a small subset of transmitter and receiver layers while freezing the remainder. We further formulate layer selection as a budget-constrained optimization problem that identifies the most informative parameters to update during adaptation. This preserves the learned signal geometry and the deep decision structure while adapting lightweight front ends to fading- and impairment-induced mixing. For AE communications, we show that partial updates remove the mismatch-induced error floor and approach the BER of fully retrained models. We provide a layer-wise study and quantify resource-performance trade-offs, showing that modest adaptation substantially reduces BER while cutting training time, multiply-accumulate (MAC) operations, energy consumption, and the fraction of updated parameters for resource-efficient implementation.",
+      "authors": "Yalin E. Sagduyu, Tugba Erpek",
+      "published": "2026-11-25T18:59:57Z",
+      "categories": [
+        "cs.NI",
+        "cs.AI",
+        "eess.SP"
+      ],
+      "url": "https://arxiv.org/abs/2611.34942v1",
+      "score": 22
+    },
+    {
+      "id": "2611.34940v1",
+      "title": "LuxAvatar: Real-Time Relightable Head Avatars via Causal Neural Shading of 3D Intrinsic Proxies",
+      "summary": "We present LuxAvatar, a feed-forward framework for real-time head avatar animation and relighting from a single portrait. To achieve both 3D controllability and complex facial light transport, we factorize avatar synthesis into an animatable 3D intrinsic Gaussian proxy and a causal autoregressive neural shader. This proxy disentangles canonical geometry and reflectance attributes, rapidly rasterizing deformed Gaussians into view- and motion-consistent PBR buffers. Conditioned on these buffers, our neural shader formulates forward rendering as a conditional video diffusion process, bypassing explicit PBR computation to synthesize realistic shading effects under target illumination. We achieve real-time streaming through heterogeneous distillation from a pretrained multi-step bidirectional relighting teacher to a two-step causal autoregressive neural shader, inheriting broad synthetic lighting priors while minimizing conditioning and decoding latency. To further specialize these priors to human heads, we construct a hybrid relighting dataset for domain-specific fine-tuning, capturing authentic facial dynamics and physically grounded light transport. Extensive experiments show that our framework enables 3D-controllable, real-time portrait animation and relighting, outperforming state-of-the-art methods in visual fidelity, motion control, and lighting accuracy.",
+      "authors": "Yipengjing Sun, Chenyang Wang, Boyao Zhou et al.",
+      "published": "2026-11-25T18:59:46Z",
+      "categories": [
+        "cs.CV"
+      ],
+      "url": "https://arxiv.org/abs/2611.34940v1",
+      "score": 22
+    },
+    {
+      "id": "2611.34907v1",
+      "title": "Agentic LongLive: Asynchronous Agentic Memory for Long Video Generation",
+      "summary": "Real-time autoregressive video generators stream minutes of video and accept new prompts on the fly, but struggle to keep people, objects, and places consistent over a long interactive story. Agent systems provide such memory for offline multi-shot generation, yet they read the whole script in advance, plan each shot before generating it, and regenerate failed shots, which a live stream does not allow. We present Agentic LongLive, an asynchronous agentic memory for long video generation. A memory agent on separate GPUs reads only the prompts revealed so far, never the generated video, and keeps a text state and evolving images for every person, object, and scene. From this entity memory it composes a global image and a per-shot memory image, which an auxiliary GPU prefills into the generator's attention sink before the next shot starts, and writes entity cards for the prompts that name them, so the video never waits for memory and video errors are not written back. A small language model, trained with reinforcement learning and an image reward calibrated using downstream video outcomes, decides what to remember before the next prompt is known. On LongStory-Online, a new benchmark of 25 stories (857 shots) revealed one shot at a time, Agentic LongLive improves persistent-state accuracy of LongLive-2.0, its base generator, by 26.3 points, protagonist identity by 44.9, and revisited-place consistency by 40.4, at about 1% extra generation time on H100. The full system streams faster than real time on one 8xB200 node with the generator in BF16 (34.3 FPS), keeps image quality stable over 14-minute stories, and improves identity on two MiniMax-H3 generators, one of which, LongLive-H3, also runs in real time with it. To our knowledge, it is the first real-time video generator with text and image memory kept by an LLM agent.",
+      "authors": "Shaoteng Liu, Shuai Yang, Wei Huang et al.",
+      "published": "2026-11-25T18:54:03Z",
+      "categories": [
+        "cs.CV"
+      ],
+      "url": "https://arxiv.org/abs/2611.34907v1",
+      "score": 21
+    }
+  ]
+}
