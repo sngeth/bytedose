@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-11-27T17:08:37.919Z",
+  "lastUpdated": "2026-11-28T15:55:40.931Z",
   "articles": [
+    {
+      "date": "2026-11-28",
+      "article": {
+        "title": "AutoRSP: An AI Agent for Radar Sensing Pipeline Design",
+        "authors": "Zhi Zheng, Xincheng Xie, Avery Gump et al.",
+        "published": "2026-11-25T17:26:36Z",
+        "url": "https://arxiv.org/abs/2611.34754v1"
+      }
+    },
     {
       "date": "2026-11-27",
       "article": {
